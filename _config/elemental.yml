@@ -1,0 +1,18 @@
+---
+Name: nswdpc-waratah-elemental
+---
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - NSWDPC\Waratah\Extensions\BaseElementExtension
+DNADesign\ElementalList\Model\ElementList:
+  extensions:
+    - NSWDPC\Waratah\Extensions\ElementListExtension
+---
+Name: app-elemental-grid
+After:
+  - '#nswdpc-gridhelper-config'
+---
+DNADesign\Elemental\Models\BaseElement:
+  enable_title_in_template: true
+  extra_css_classes_map: {}
+  grid_sizes: {}

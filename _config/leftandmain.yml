@@ -1,0 +1,10 @@
+---
+Name: nswdpc-waratah-leftandmain
+---
+# administration area extensions
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - 'vendor/nswdpc/silverstripe-theme-support/themes/nswds/app/static/leftandmain.css'
+SilverStripe\AssetAdmin\Forms\UploadField:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\UploadFieldExtension'

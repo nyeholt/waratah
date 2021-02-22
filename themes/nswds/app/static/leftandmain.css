@@ -1,0 +1,7 @@
+/**
+ * admin.css - custom CSS for silverstripe-admin
+ */
+
+.uploadfield-item__meta .uploadfield-item__status {
+  visibility : hidden;
+}

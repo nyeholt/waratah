@@ -1,0 +1,20 @@
+---
+Name: nswdpc-waratah-extensions
+---
+# Page model extension requirements
+Page:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\MenuSupportExtension'
+    - 'NSWDPC\Waratah\Extensions\BreadcrumbExtension'
+# PageController extension theme requirements
+# you can inject an extension in project configuration to extend this
+PageController:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\DesignSystemAssetExtension'
+    - 'NSWDPC\Waratah\Extensions\PageControllerExtension'
+nglasl\mediawesome\MediaPage:
+  extensions:
+    - NSWDPC\Waratah\Extensions\MediaPageExtension
+SilverStripe\VersionedAdmin\ArchiveAdmin:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\ArchiveAdminExtension'

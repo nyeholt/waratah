@@ -1,0 +1,50 @@
+.nsw-link-list {
+  @include font-stack('heading');
+  @include component-spacing();
+
+  &__title {
+    @include font-size('lg');
+    @include nsw-spacing(padding-bottom, md);
+    
+    @include breakpoint('md') {
+      @include nsw-spacing(padding-bottom, lg);
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &__item {
+    border-top: 1px solid $light20;
+
+    &:last-child {
+      border-bottom: 1px solid $light20;
+    }
+  }
+
+  &__link {
+    @include nsw-spacing(padding, md);
+    color: $nsw-primary-blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link:hover {
+    @include nsw-hover;
+  }
+
+  &__link:focus {
+    @include nsw-focus;
+  }
+
+  &__icon {
+    @include nsw-spacing(margin-left, md);
+    width: rem(16px);
+    height: rem(16px);
+    flex: none;
+  }
+}

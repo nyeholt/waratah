@@ -1,0 +1,7 @@
+/themes/*/app/frontend/logs
+/themes/*/app/frontend/*.log
+/themes/*/app/frontend/node_modules/
+/themes/*/app/frontend/dist/
+/vendor/
+.DS_Store
+Thumbs.db
