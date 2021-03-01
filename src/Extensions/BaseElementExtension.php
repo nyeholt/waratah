@@ -34,7 +34,7 @@ class BaseElementExtension extends DataExtension
                 'Heading level override',
                 $this->owner->config()->headings
             )->setEmptyString('Default (Heading Two)'),
-            'Title'
+            'HTML'
         );
         $fields->insertAfter(
             CheckboxField::create(

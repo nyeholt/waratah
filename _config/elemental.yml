@@ -1,13 +1,20 @@
 ---
 Name: nswdpc-waratah-elemental
 ---
+
+Page:
+  allowed_elements:
+    - 'DNADesign\Elemental\Models\ElementContent'
+    - 'DNADesign\ElementalUserForms\Model\ElementForm'
+    - 'Symbiote\Elemental\Model\ElementListingPageListing'
+    - 'NSWDPC\Elemental\Models\Image\ElementImage'
+    - 'NSWDPC\Elemental\Models\QuickGallery\ElementQuickGallery'
+    - 'DNADesign\ElementalList\Model\ElementList'
+    - 'NSWDPC\Elemental\Models\Iframe\ElementIframe'
+
 DNADesign\Elemental\Models\BaseElement:
   extensions:
     - 'NSWDPC\Waratah\Extensions\BaseElementExtension'
-
-DNADesign\Elemental\Models\ElementContent:
-  extensions:
-    - 'NSWDPC\Waratah\Extensions\ElementContentExtension'
 
 DNADesign\ElementalList\Model\ElementList:
   extensions:
