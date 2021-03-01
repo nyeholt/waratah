@@ -14,7 +14,7 @@ PageController:
     - 'NSWDPC\Waratah\Extensions\PageControllerExtension'
 nglasl\mediawesome\MediaPage:
   extensions:
-    - NSWDPC\Waratah\Extensions\MediaPageExtension
+    - 'NSWDPC\Waratah\Extensions\MediaPageExtension'
 SilverStripe\VersionedAdmin\ArchiveAdmin:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ArchiveAdminExtension'

@@ -28,16 +28,20 @@ class BaseElementExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
-        $fields->insertAfter(CheckboxField::create('ShowInMenus', 'Show in "On this page" menus?'), 'Title');
-        $fields->addFieldsToTab(
-            'Root.Settings',
-            [
-                DropdownField::create(
-                    'HeadingLevel',
-                    'Heading level override',
-                    $this->owner->config()->headings
-                )->setEmptyString('Default (Heading Two)')
-            ]
+        $fields->insertAfter(
+            DropdownField::create(
+                'HeadingLevel',
+                'Heading level override',
+                $this->owner->config()->headings
+            )->setEmptyString('Default (Heading Two)'),
+            'Title'
+        );
+        $fields->insertAfter(
+            CheckboxField::create(
+                'ShowInMenus',
+                'Show in "On this page" menus?'
+            ),
+            'HeadingLevel'
         );
 
     }
