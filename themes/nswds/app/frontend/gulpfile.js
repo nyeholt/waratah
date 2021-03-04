@@ -6,6 +6,7 @@ const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 const cssnano = require('cssnano')
 const sourcemaps = require('gulp-sourcemaps')
+const browsersync = require('browser-sync')
 const surge = require('gulp-surge')
 const zip = require('gulp-zip')
 const svgSprite = require('gulp-svg-sprite')
@@ -32,6 +33,7 @@ const { argv } = require('yargs')
 const bump = require('gulp-bump')
 const config = require('./config')
 
+const server = browsersync.create()
 sass.compiler = require('node-sass')
 
 const postcssProcessors = [
@@ -66,6 +68,11 @@ function lintStyles() {
         { formatter: 'string', console: true },
       ],
     }))
+}
+
+function browserSync(done) {
+  server.init(config.browsersync)
+  done()
 }
 
 function reload(done) {
@@ -171,6 +178,12 @@ function copyFavicon() {
     .pipe(dest(config.favicon.build))
 }
 
+function zipDistFolder() {
+  return src(config.zipfile.src)
+    .pipe(zip(config.zipfile.filename))
+    .pipe(dest(config.zipfile.build))
+}
+
 function renamePath() {
   return src(`${config.dir.build}index.html`)
     .pipe(replace('/css/main.css', './css/main.css'))
@@ -222,7 +235,8 @@ const build = series(
   javascript,
   compileSvg,
   renamePath,
-  injectSVG
+  injectSVG,
+  zipDistFolder,
 )
 
 const dev = series(
@@ -231,7 +245,9 @@ const dev = series(
   metalsmithBuild,
   styles,
   javascript,
-  compileSvg
+  compileSvg,
+  watchFiles,
+  browserSync,
 )
 
 const deploy = series(
