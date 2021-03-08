@@ -3,6 +3,8 @@
   background-color: $danger;
 }
 
+// Forms
+
 .field.requiredField {
   label::after {
     content: '*';
@@ -141,12 +143,15 @@
   }
 }
 
-// .userform {
-//   .Actions,
-//   .btn-toolbar {
-//     .action {
-//       @extend .nsw-button;
-//       @extend .nsw-button--primary;
-//     }
-//   }
-// }
+
+
+// Search results
+
+.search-results {
+  list-style: none;
+  padding: 0;
+
+  .search-results-item {
+    margin-bottom: 2rem;
+  }
+}

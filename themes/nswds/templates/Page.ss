@@ -163,126 +163,133 @@
 <main>
   <div class="nsw-section--white">
     <div class="nsw-container">
-      <div class="main-content__container">
-        <% if $Menu(2) %>
-        <div class="nsw-grid">
-        <% end_if %>
-
-            <% if $Menu(2) %>
-
-            <aside class="nsw-col nsw-col--third fix-sidebar-first">
+      <div class="nsw-page-layout">
 
 
+          <div class="nsw-page-layout__main">
 
-            	    <nav class="nsw-sidenav" aria-labelledby="{$URLSegment} side navigation">
+                <% if $Menu(2) %>
+                <div class="nsw-grid">
+                <% end_if %>
 
-                        <% with $Level(1) %>
+                    <% if $Menu(2) %>
 
-                            <div class="nsw-sidenav__header">
-                                <h2 id="{$URLSegment}" class="nsw-sidenav__heading">
-                                <a href="$Link" class="nsw-sidenav__heading-link">{$MenuTitle.XML}</a></h2>
-                            </div>
-
-                            <% if LinkOrSection = section %>
-
-                                <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
-
-
-                                        <% loop $Children %>
-
-                                            <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
-
-                                                <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
-                                                    {$MenuTitle.XML}
-                                                </a>
-
-                                                <ul class="nsw-sidenav__list nsw-sidenav__list--level-2">
-
-                                                    <% loop $Children %>
-
-                                                        <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
-
-                                                            <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
-                                                                {$MenuTitle.XML}
-                                                            </a>
-
-                                                            <ul class="nsw-sidenav__list nsw-sidenav__list--level-3">
-
-                                                                <% loop $Children %>
-
-                                                                    <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
-
-                                                                        <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
-                                                                            {$MenuTitle.XML}
-                                                                        </a>
-
-                                                                        <ul class="nsw-sidenav__list nsw-sidenav__list--level-4">
-
-                                                                            <% loop $Children %>
-
-                                                                                <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
-
-                                                                                    <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
-                                                                                        {$MenuTitle.XML}
-                                                                                    </a>
-
-                                                                                </li>
-
-                                                                            <% end_loop %>
-
-                                                                        </ul>
-
-                                                                    </li>
-
-                                                                <% end_loop %>
-
-                                                            </ul>
-
-                                                        </li>
-
-                                                    <% end_loop %>
-
-                                                </ul>
-
-                                            </li>
-
-                                        <% end_loop %>
+                    <aside class="nsw-col nsw-col--third">
 
 
 
+                    	    <nav class="nsw-sidenav" aria-labelledby="{$URLSegment} side navigation">
 
-                                </ul>
+                                <% with $Level(1) %>
+
+                                    <div class="nsw-sidenav__header">
+                                        <h2 id="{$URLSegment}" class="nsw-sidenav__heading">
+                                        <a href="$Link" class="nsw-sidenav__heading-link">{$MenuTitle.XML}</a></h2>
+                                    </div>
+
+                                    <% if LinkOrSection = section %>
+
+                                        <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
 
 
-                            <% end_if %>
+                                                <% loop $Children %>
 
+                                                    <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
 
+                                                        <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
+                                                            {$MenuTitle.XML}
+                                                        </a>
 
-                        <% end_with %>
+                                                        <ul class="nsw-sidenav__list nsw-sidenav__list--level-2">
 
+                                                            <% loop $Children %>
 
-                	</nav>
+                                                                <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
+
+                                                                    <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
+                                                                        {$MenuTitle.XML}
+                                                                    </a>
+
+                                                                    <ul class="nsw-sidenav__list nsw-sidenav__list--level-3">
+
+                                                                        <% loop $Children %>
+
+                                                                            <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
+
+                                                                                <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
+                                                                                    {$MenuTitle.XML}
+                                                                                </a>
+
+                                                                                <ul class="nsw-sidenav__list nsw-sidenav__list--level-4">
+
+                                                                                    <% loop $Children %>
+
+                                                                                        <li class="nsw-sidenav__list-item<% if $Children %> has-active-children<% end_if %>">
+
+                                                                                            <a href="{$Link}" class="nsw-sidenav__link<% if $isCurrent %> is-current<% end_if %>"<% if $isCurrent %> aria-current="page"<% end_if %>>
+                                                                                                {$MenuTitle.XML}
+                                                                                            </a>
+
+                                                                                        </li>
+
+                                                                                    <% end_loop %>
+
+                                                                                </ul>
+
+                                                                            </li>
+
+                                                                        <% end_loop %>
+
+                                                                    </ul>
+
+                                                                </li>
+
+                                                            <% end_loop %>
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                <% end_loop %>
 
 
 
 
+                                        </ul>
 
 
-</aside>
-
-            <% end_if %>
+                                    <% end_if %>
 
 
 
-            <section class="<% if $Menu(2) %>nsw-col nsw-col--two-thirds <% end_if %>page-container">
+                                <% end_with %>
 
-                $Layout
 
-            </section>
+                        	</nav>
 
-        <% if $Menu(2) %>
-        </div>
-        <% end_if %>
+
+
+
+
+
+        </aside>
+
+                    <% end_if %>
+
+
+
+                    <section class="<% if $Menu(2) %>nsw-col nsw-col--two-thirds <% end_if %>nsw-wysiwyg-content">
+
+                        $Layout
+
+                    </section>
+
+                <% if $Menu(2) %>
+                </div>
+                <% end_if %>
+
+          </div>
+
 
       </div>
     </div>
