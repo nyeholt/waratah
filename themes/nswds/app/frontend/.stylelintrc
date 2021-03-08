@@ -11,6 +11,8 @@
     "declaration-no-important": true,
     "selector-pseudo-element-colon-notation": "double",
     "order/properties-alphabetical-order": null,
+    "scss/at-extend-no-missing-placeholder": null,
+    "selector-max-compound-selectors": 6,
     "order/order": [
       {
         "type": "at-rule",
@@ -37,7 +39,7 @@
     "rule-empty-line-before": ["always", {
       except: ["first-nested"]
     }],
-    "max-nesting-depth": [4, {
+    "max-nesting-depth": [8, {
       "ignoreAtRules": ["mixin"]
     }],
     "selector-class-pattern": null,
@@ -47,7 +49,7 @@
     "scss/dollar-variable-pattern": "^^(?!-)(?!.*--)[a-z0-9-]+(?<!-)",
     "sh-waqar/declaration-use-variable": [['/color/', { ignoreValues: ['transparent', 'inherit'] }]],
     "selector-no-qualifying-type": [ true, {
-      "ignore": [ "class" ]
+      "ignore": [ "class", "attribute" ]
     }]
   }
 }
