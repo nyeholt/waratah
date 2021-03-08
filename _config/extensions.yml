@@ -4,6 +4,7 @@ Name: nswdpc-waratah-extensions
 # Page model extension requirements
 Page:
   extensions:
+    - 'NSWDPC\Waratah\Extensions\PageExtension'
     - 'NSWDPC\Waratah\Extensions\MenuSupportExtension'
     - 'NSWDPC\Waratah\Extensions\BreadcrumbExtension'
 # PageController extension theme requirements
@@ -18,3 +19,7 @@ nglasl\mediawesome\MediaPage:
 SilverStripe\VersionedAdmin\ArchiveAdmin:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ArchiveAdminExtension'
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    # add site configuration handling for events
+    - 'NSWDPC\Waratah\Extensions\SiteConfigExtension'

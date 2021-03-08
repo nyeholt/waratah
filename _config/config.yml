@@ -1,3 +1,12 @@
 ---
 Name: nswdpc-waratah-base
 ---
+SilverStripe\MimeValidator\MimeUploadValidator:
+  MimeTypes:
+    svg:
+      - 'image/svg+xml'
+      - 'image/svg'
+
+SilverStripe\Assets\File:
+    allowed_extensions:
+    - svg

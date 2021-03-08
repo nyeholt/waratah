@@ -1,0 +1,152 @@
+::selection {
+  color: $white;
+  background-color: $danger;
+}
+
+.field.requiredField {
+  label::after {
+    content: '*';
+    color: $danger;
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding-left: 5px;
+  }
+}
+
+.error,
+.error.message {
+  @extend .nsw-form-helper;
+  @extend .nsw-form-helper--error;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.userform {
+  fieldset {
+    @extend .nsw-form-fieldset;
+
+    legend {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .field,
+  .Actions {
+    position: relative;
+
+    @extend .nsw-form-group;
+  }
+
+  .field {
+    margin-bottom: 0.5rem;
+  }
+
+  .field {
+    &.checkbox,
+    &.checkboxset {
+      legend {
+        @extend .nsw-form-label;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .middleColumn {
+        @extend .nsw-form-checkbox;
+
+        input {
+          @extend .nsw-form-checkbox__input;
+        }
+
+        label {
+          @extend .nsw-form-checkbox__label;
+        }
+      }
+    }
+
+    &.optionset,
+    &.userformsoptionset {
+      legend {
+        @extend .nsw-form-label;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .middleColumn {
+        @extend .nsw-form-radio;
+
+        input.radio {
+          @extend .nsw-form-radio__input;
+        }
+
+        label {
+          @extend .nsw-form-radio__label;
+        }
+      }
+
+      &.checkboxset {
+        ul {
+          list-style: none;
+          padding-left: 0;
+        }
+
+        .middleColumn {
+          @extend .nsw-form-checkbox;
+
+          input {
+            @extend .nsw-form-checkbox__input;
+          }
+
+          label {
+            @extend .nsw-form-checkbox__label;
+          }
+        }
+      }
+    }
+  }
+
+  select {
+    @extend .nsw-form-select;
+  }
+
+  textarea,
+  input[type='text'],
+  input[type='password'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='date'],
+  input[type='month'],
+  input[type='time'],
+  input[type='week'],
+  input[type='number'],
+  input[type='email'],
+  input[type='url'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='color'] {
+    @extend .nsw-form-input;
+  }
+
+  .Actions,
+  .btn-toolbar {
+    .action {
+      @extend .nsw-button;
+      @extend .nsw-button--primary;
+    }
+  }
+}
+
+// .userform {
+//   .Actions,
+//   .btn-toolbar {
+//     .action {
+//       @extend .nsw-button;
+//       @extend .nsw-button--primary;
+//     }
+//   }
+// }
