@@ -3,49 +3,58 @@
   background-color: $danger;
 }
 
+.nsw-wysiwyg-content .nsw-intro {
+  margin-bottom: 2rem;
+}
+
 // Forms
 
 .field.requiredField {
-  label::after {
-    content: '*';
-    color: $danger;
-    font-weight: bold;
-    font-size: 1.25rem;
-    padding-left: 5px;
+  .left::after {
+    @extend .nsw-form-required;
   }
 }
 
 .error,
 .error.message {
-  @extend .nsw-form-helper;
-  @extend .nsw-form-helper--error;
-  font-weight: 500;
-  font-size: 1rem;
+  &:not(input) {
+    &:not(select) {
+      @extend .nsw-form-helper;
+      @extend .nsw-form-helper--error;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
 }
 
 .userform {
   fieldset {
     @extend .nsw-form-fieldset;
 
-    legend {
-      margin-bottom: 1rem;
+    > legend {
+      &:not(.left) {
+        margin-bottom: 1rem;
+      }
     }
+  }
+
+  .left {
+    @extend .nsw-form-label;
   }
 
   .field,
   .Actions {
     position: relative;
 
-    @extend .nsw-form-group;
-  }
-
-  .field {
-    margin-bottom: 0.5rem;
+    @include nsw-spacing(margin-top, xl);
+    border: 0;
   }
 
   .field {
     &.checkbox,
-    &.checkboxset {
+    &.checkboxset,
+    &.optionset,
+    &.userformsoptionset {
       legend {
         @extend .nsw-form-label;
       }
@@ -54,7 +63,27 @@
         list-style: none;
         padding-left: 0;
       }
+    }
 
+    &.optionset,
+    &.userformsoptionset {
+      &:not(.checkboxset) {
+        .middleColumn {
+          @extend .nsw-form-radio;
+
+          input.radio {
+            @extend .nsw-form-radio__input;
+          }
+
+          label {
+            @extend .nsw-form-radio__label;
+          }
+        }
+      }
+    }
+
+    &.checkbox,
+    &.checkboxset {
       .middleColumn {
         @extend .nsw-form-checkbox;
 
@@ -68,48 +97,7 @@
       }
     }
 
-    &.optionset,
-    &.userformsoptionset {
-      legend {
-        @extend .nsw-form-label;
-      }
 
-      ul {
-        list-style: none;
-        padding-left: 0;
-      }
-
-      .middleColumn {
-        @extend .nsw-form-radio;
-
-        input.radio {
-          @extend .nsw-form-radio__input;
-        }
-
-        label {
-          @extend .nsw-form-radio__label;
-        }
-      }
-
-      &.checkboxset {
-        ul {
-          list-style: none;
-          padding-left: 0;
-        }
-
-        .middleColumn {
-          @extend .nsw-form-checkbox;
-
-          input {
-            @extend .nsw-form-checkbox__input;
-          }
-
-          label {
-            @extend .nsw-form-checkbox__label;
-          }
-        }
-      }
-    }
   }
 
   select {
