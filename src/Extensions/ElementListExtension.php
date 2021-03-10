@@ -11,7 +11,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\LiteralField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 use gorriecoe\Link\Models\Link;
-use gorriecoe\LinkField\LinkField;
+use NSWDPC\InlineLinker\InlineLinkCompositeField;
 
 
 class ElementListExtension extends DataExtension
@@ -89,7 +89,7 @@ class ElementListExtension extends DataExtension
     }
 
     protected function getLinkField() {
-        $field = LinkField::create(
+        $field = InlineLinkCompositeField::create(
             'LinkTarget',
             _t(
                 __CLASS__ . '.LINK',
