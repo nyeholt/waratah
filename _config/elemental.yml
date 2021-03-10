@@ -1,18 +1,6 @@
 ---
 Name: nswdpc-waratah-elemental
 ---
-Page:
-  allowed_elements:
-    - 'NSWDPC\Elemental\Models\Image\ElementImage'
-    - 'NSWDPC\Elemental\Models\LinksBlock\ElementalLinks'
-    - 'NSWDPC\Elemental\Models\Iframe\ElementIframe'
-    - 'NSWDPC\Elemental\Models\Mediawesome\ElementMediawesome'
-    - 'NSWDPC\Elemental\Models\FeaturedVideo\ElementVideo'
-    - 'DNADesign\Elemental\Models\ElementContent'
-    - 'DNADesign\ElementalUserForms\Model\ElementForm'
-    - 'DNADesign\ElementalList\Model\ElementList'
-    - 'Symbiote\Elemental\Model\ElementListingPageListing'
-
 DNADesign\Elemental\Models\BaseElement:
   enable_title_in_template: true
   extensions:
