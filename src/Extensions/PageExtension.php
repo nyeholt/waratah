@@ -24,7 +24,9 @@ class PageExtension extends DataExtension
                 TextareaField::create(
                     'Abstract',
                     _t(__CLASS__. '.ABSTRACT', 'Abstract')
-                )->setDescription('This will show at the top of the page, and also be displayed in listings and search results'),
+                )
+                ->setDescription('This will show at the top of the page, and also be displayed in listings and search results')
+                ->setTargetLength(160, 90, 200),
                 'Content'
         );
 
