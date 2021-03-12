@@ -1,9 +1,9 @@
 <% if not $InSection(home) %>
-    <nav aria-label="Breadcrumb" class="nsw-breadcrumb">
-        <div class="nsw-container">
+    <div class="nsw-container nsw-p-bottom-xs">
+        <nav aria-label="Breadcrumb" class="nsw-breadcrumb">
             <ol class="nsw-breadcrumb__list">
                 $Breadcrumbs
             </ol>
-        </div>
-    </nav>
+        </nav>
+    </div>
 <% end_if %>

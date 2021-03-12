@@ -24,20 +24,16 @@ class ElementListExtension extends DataExtension
     ];
 
     private static $subtypes = [
-        'nsw-four-col-cards' => 'Four column cards (event listing style)',
-        'nsw-three-col-card-grid' => 'Three column cards',
-        'nsw-four-col-ctas' => 'Four column calls to action (coloured with icon)',
-        'nsw-two-col-ctas' => 'Two column calls to action',
-        'nsw-tab-panel-secondary' => 'Tab panel - horizontal with buttons',
-        'nsw-tab-panel--horizontal' => 'Tab panel - horizontal',
-        'nsw-tab-panel--vertical' => 'Tab panel - vertical',
-        'accordion' => 'Accordion'
+        'cards' => 'Three column cards',
+        'accordion' => 'Accordion',
+        'tabs' => 'Tabs'
     ];
 
     private static $styles = [
-        'card-small' => 'Card with image and title',
-        'card-medium' => 'Card with image, title and description',
-        'card-large' => 'Card with image, title, description and button',
+        'title-only' => 'Title only',
+        'title-abstract' => 'Title and abstract',
+        'title-tag-date-abstract' => 'Title, tag, date and abstract',
+        'headline-image-tag-date-abstract' => 'Title, image, tag, date and abstract',
     ];
 
     private static $has_one = [
@@ -70,16 +66,8 @@ class ElementListExtension extends DataExtension
                     ),
                     $this->owner->config()->styles
                 )->setEmptyString('none')
-                ->displayIf('Subtype')->isEqualTo('nsw-three-col-card-grid')
-                    ->end(),
-
-                Wrapper::create(
-                    LiteralField::create(
-                        'CTAWarningSettings',
-                        '<div class="message warning">Icon and colour are set on the linked page</div>'
-                    )
-                )->displayIf('Subtype')->isEqualTo('nsw-four-col-ctas')
-                    ->end(),
+                ->displayIf('Subtype')->isEqualTo('cards')
+                ->end(),
 
                 $this->getLinkField()
 

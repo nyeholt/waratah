@@ -5,10 +5,6 @@
     {$ElementalArea}
 <% else %>
     <div class="nsw-container">
-        <div class="nsw-grid">
-            <div class="col-lg-12">
-                {$Content}
-            </div>
-        </div>
+        {$Content}
     </div>
 <% end_if %>

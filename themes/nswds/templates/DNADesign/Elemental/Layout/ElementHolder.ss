@@ -1,3 +1,5 @@
-<section class="element $SimpleClassName.LowerCase<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="$Anchor">
-	$Element
+<section class="<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %> $SimpleClassName.LowerCase" id="$Anchor">
+    <% if $Element.AddContainer %><div class="nsw-container"><% end_if %>
+	    $Element
+    <% if $Element.AddContainer %></div><% end_if %>
 </section>

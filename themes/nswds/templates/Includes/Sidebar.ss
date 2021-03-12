@@ -1,4 +1,4 @@
-<aside class="nsw-col nsw-col--third sidebar-nav">
+<aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
     <nav class="nsw-sidenav" aria-labelledby="{$URLSegment} side navigation">
         <% with $Level(1) %>
             <div class="nsw-sidenav__header">

@@ -26,30 +26,7 @@
 
     <% include Breadcrumbs %>
 
-    <main id="main-content">
-        <div class="nsw-section--white">
-            <div class="nsw-container">
-                <div class="nsw-page-layout">
-                    <div class="nsw-page-layout__main">
-                        <% if $IsLandingPage %>
-                            <article>
-                                $Layout
-                            </article>
-                        <% else %>
-                            <% if $Menu(2) %><div class="nsw-grid"><% end_if %>
-                            <% if $Menu(2) %>
-                                <% include Sidebar %>
-                            <% end_if %>
-                            <article class="<% if $Menu(2) %>nsw-col nsw-col--two-thirds <% end_if %>">
-                                $Layout
-                            </article>
-                            <% if $Menu(2) %></div><% end_if %>
-                        <% end_if %>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+    $Layout
 
     <% include Footer %>
 

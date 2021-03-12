@@ -1,8 +1,13 @@
-<% if $ShowTitle && $Title %>
-    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-        {$Title}
-    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-<% end_if %>
+<div class="nsw-wysiwyg-content nsw-block">
+    <% if $ShowTitle && $Title %>
+        <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
+            {$Title}
+        </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
+    <% end_if %>
+    <% if $HTML %>
+        {$HTML}
+    <% end_if %>
+</div>
 <div class="nsw-grid">
     <% loop $RecentPosts %>
         <div class="nsw-col nsw-col-md-4">
