@@ -10,7 +10,7 @@ The recommended way of installing this module is via [composer](https://getcompo
 ## Installation
 
 ```
-composer require nswdpc/silverstripe-theme-support
+composer require nswdpc/silverstripe-nsw-design-system
 ```
 
 ## License

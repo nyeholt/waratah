@@ -1,5 +1,5 @@
 <phpunit bootstrap="vendor/silverstripe/framework/tests/bootstrap.php" colors="true">
-    <testsuite name="nswdpc/silverstripe-theme-support">
+    <testsuite name="nswdpc/silverstripe-nsw-design-system">
         <directory>tests/</directory>
     </testsuite>
     <filter>
