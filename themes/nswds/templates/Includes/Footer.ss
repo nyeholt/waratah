@@ -14,7 +14,7 @@
                                 <ul class="section-links__list">
                                     <% loop $FooterLinksCol1 %>
                                         <li class="section-links__item">
-                                            <a href="{$LinkURL.URL}">
+                                            <a href="{$LinkURL}">
                                                 {$Title.XML}
                                             </a>
                                         </li>
@@ -34,7 +34,7 @@
                                 <ul class="section-links__list">
                                     <% loop $FooterLinksCol2 %>
                                         <li class="section-links__item">
-                                            <a href="{$LinkURL.URL}">
+                                            <a href="{$LinkURL}">
                                                 {$Title.XML}
                                             </a>
                                         </li>
@@ -54,7 +54,7 @@
                                 <ul class="section-links__list">
                                     <% loop $FooterLinksCol3 %>
                                         <li class="section-links__item">
-                                            <a href="{$LinkURL.URL}">
+                                            <a href="{$LinkURL}">
                                                 {$Title.XML}
                                             </a>
                                         </li>
@@ -74,7 +74,7 @@
                                 <ul class="section-links__list">
                                     <% loop $FooterLinksCol4 %>
                                         <li class="section-links__item">
-                                            <a href="{$LinkURL.URL}">
+                                            <a href="{$LinkURL}">
                                                 {$Title.XML}
                                             </a>
                                         </li>
@@ -97,7 +97,7 @@
                 <ul class="nsw-footer-links">
                     <% loop $FooterLinksSub %>
                     <li class="nsw-footer-links__item">
-                        <a href="{$LinkURL.URL}" class="nsw-footer-links__link">
+                        <a href="{$LinkURL}" class="nsw-footer-links__link">
                             {$Title.XML}
                         </a>
                     </li>
