@@ -10,7 +10,7 @@
 </div>
 <% if $ElementLinks %>
     <div class="nsw-grid">
-        <% loop $ElementLinks %>
+        <% loop $ElementLinks.Sort('Sort') %>
             <div class="nsw-col nsw-col-md-4">
                 <div class="nsw-card nsw-card--headline">
                     <div class="nsw-card__content">
