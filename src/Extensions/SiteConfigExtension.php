@@ -54,11 +54,11 @@ class SiteConfigExtension extends DataExtension
     ];
 
     private static $many_many_extraFields = [
-        'FooterLinksCol1' => ['SortOrder' => 'Int'],
-        'FooterLinksCol2' => ['SortOrder' => 'Int'],
-        'FooterLinksCol3' => ['SortOrder' => 'Int'],
-        'FooterLinksCol4' => ['SortOrder' => 'Int'],
-        'FooterLinksSub' => ['SortOrder' => 'Int'],
+        'FooterLinksCol1' => ['Sort' => 'Int'],
+        'FooterLinksCol2' => ['Sort' => 'Int'],
+        'FooterLinksCol3' => ['Sort' => 'Int'],
+        'FooterLinksCol4' => ['Sort' => 'Int'],
+        'FooterLinksSub' => ['Sort' => 'Int'],
 
     ];
 
@@ -99,34 +99,34 @@ class SiteConfigExtension extends DataExtension
                 'FooterLinksCol1',
                 'Footer column 1 links',
                 $this->owner
-            )->setSortColumn('SortOrder'),
+            )->setSortColumn('Sort'),
 
             TextField::create('FooterLinksCol2Title', 'Footer column 2 title'),
             LinkField::create(
                 'FooterLinksCol2',
                 'Footer column 2 links',
                 $this->owner
-            )->setSortColumn('SortOrder'),
+            )->setSortColumn('Sort'),
 
             TextField::create('FooterLinksCol3Title', 'Footer column 3 title'),
             LinkField::create(
                 'FooterLinksCol3',
                 'Footer column 3 links',
                 $this->owner
-            )->setSortColumn('SortOrder'),
+            )->setSortColumn('Sort'),
 
             TextField::create('FooterLinksCol4Title', 'Footer column 4 title'),
             LinkField::create(
                 'FooterLinksCol4',
                 'Footer column 4 links',
                 $this->owner
-            )->setSortColumn('SortOrder'),
+            )->setSortColumn('Sort'),
 
             LinkField::create(
                 'FooterLinksSub',
                 'Bottom footer links',
                 $this->owner
-            )->setSortColumn('SortOrder'),
+            )->setSortColumn('Sort'),
 
             HTMLEditorField::create('FooterContent', 'Footer content')->setRows(6),
 
