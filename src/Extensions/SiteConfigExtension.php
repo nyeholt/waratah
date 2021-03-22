@@ -50,7 +50,8 @@ class SiteConfigExtension extends DataExtension
         'FooterLinksCol2' => Link::class,
         'FooterLinksCol3' => Link::class,
         'FooterLinksCol4' => Link::class,
-        'FooterLinksSub' => Link::class
+        'FooterLinksSub' => Link::class,
+        'SocialLinks' => Link::class
     ];
 
     private static $many_many_extraFields = [
@@ -59,7 +60,7 @@ class SiteConfigExtension extends DataExtension
         'FooterLinksCol3' => ['Sort' => 'Int'],
         'FooterLinksCol4' => ['Sort' => 'Int'],
         'FooterLinksSub' => ['Sort' => 'Int'],
-
+        'SocialLinks' => ['Sort' => 'Int']
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -71,7 +72,8 @@ class SiteConfigExtension extends DataExtension
             'FooterLinksCol2',
             'FooterLinksCol3',
             'FooterLinksCol4',
-            'FooterLinksSub'
+            'FooterLinksSub',
+            'SocialLinks'
         ]);
 
         // add copyright notice
@@ -125,6 +127,12 @@ class SiteConfigExtension extends DataExtension
             LinkField::create(
                 'FooterLinksSub',
                 'Bottom footer links',
+                $this->owner
+            )->setSortColumn('Sort'),
+
+            LinkField::create(
+                'SocialLinks',
+                'Social Media links',
                 $this->owner
             )->setSortColumn('Sort'),
 
