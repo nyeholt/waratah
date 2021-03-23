@@ -42,7 +42,7 @@ class ElementListExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->removeByName(['LinkTargetID', 'ContainerClasses']);
+        $fields->removeByName(['ListLinkID', 'ContainerClasses']);
 
         $subType = DropdownField::create('Subtype',_t(__CLASS__ . '.LINK','List type'),$this->owner->config()->subtypes);
         $subType->setEmptyString('none');
