@@ -26,6 +26,14 @@ class BaseElementExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
+        $fields->insertAfter(
+            'Title',
+            CheckboxField::create(
+                'ShowInMenus',
+                'Show in "On this page" menus?'
+            )
+        );
+
         $fields->addFieldsToTab(
             'Root.Settings',
             [
@@ -35,15 +43,12 @@ class BaseElementExtension extends DataExtension
                     $this->owner->config()->headings
                 )->setEmptyString('Default (Heading Two)'),
                 CheckboxField::create(
-                    'ShowInMenus',
-                    'Show in "On this page" menus?'
-                ),
-                CheckboxField::create(
                     'AddContainer',
                     'Add a containter to this block'
                 )
             ]
         );
+
 
     }
 

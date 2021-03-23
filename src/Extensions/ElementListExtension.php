@@ -37,7 +37,7 @@ class ElementListExtension extends DataExtension
     ];
 
     private static $has_one = [
-        'LinkTarget' => Link::class,
+        'ListLink' => Link::class,
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -78,7 +78,7 @@ class ElementListExtension extends DataExtension
 
     protected function getLinkField() {
         $field = InlineLinkCompositeField::create(
-            'LinkTarget',
+            'ListLink',
             _t(
                 __CLASS__ . '.LINK',
                 'Link'
