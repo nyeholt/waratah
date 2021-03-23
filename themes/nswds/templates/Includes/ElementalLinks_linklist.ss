@@ -1,15 +1,13 @@
-<div class="nsw-wysiwyg-content nsw-block">
-    <% if $ShowTitle && $Title %>
-        <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-            {$Title.XML}
-        </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-    <% end_if %>
-    <% if $HTML %>
-        <div class="nsw-body-content">
-            {$HTML}
-        </div>
-    <% end_if %>
-</div>
+<% if $ShowTitle && $Title %>
+    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
+        {$Title.XML}
+    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
+<% end_if %>
+<% if $HTML %>
+    <div class="nsw-body-content">
+        {$HTML}
+    </div>
+<% end_if %>
 <% if $ElementLinks %>
     <div class="nsw-link-list">
         <ul class="nsw-link-list__list">

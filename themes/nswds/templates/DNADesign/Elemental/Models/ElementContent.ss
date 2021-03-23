@@ -1,10 +1,8 @@
-<div class="nsw-wysiwyg-content nsw-block">
-    <% if $ShowTitle && $Title %>
-        <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-            {$Title}
-        </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-    <% end_if %>
-    <% if $HTML %>
-        {$HTML}
-    <% end_if %>
-</div>
+<% if $ShowTitle && $Title %>
+    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
+        {$Title}
+    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
+<% end_if %>
+<% if $HTML %>
+    {$HTML}
+<% end_if %>

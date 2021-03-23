@@ -40,6 +40,10 @@ class ElementListExtension extends DataExtension
         'ListLink' => Link::class,
     ];
 
+    private static $owns = [
+        'ListLink'
+    ];
+
     public function updateCMSFields(FieldList $fields)
     {
         $fields->removeByName(['ListLinkID', 'ContainerClasses']);

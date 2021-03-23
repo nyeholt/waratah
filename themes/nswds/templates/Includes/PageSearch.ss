@@ -2,7 +2,7 @@
     <div class="nsw-page-layout">
         <main id="main-content" class="nsw-page-layout__main">
             <article>
-                <div class="nsw-wysiwyg-content nsw-block">
+                <div class="nsw-block">
                     <h1>$Title.XML</h1>
                     <% if $Date %>
                         <p>
