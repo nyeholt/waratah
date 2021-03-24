@@ -56,13 +56,5 @@
             "themes/nswds/app/static",
             "themes/nswds/app/frontend"
         ]
-    },
-    "scripts": {
-        "post-package-install": [
-            "./build.sh"
-        ],
-        "post-package-update": [
-            "./build.sh"
-        ]
     }
 }
