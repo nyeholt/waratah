@@ -5,7 +5,6 @@ Name: nswdpc-waratah-extensions
 Page:
   extensions:
     - 'NSWDPC\Waratah\Extensions\PageExtension'
-    - 'NSWDPC\Waratah\Extensions\MenuSupportExtension'
     - 'NSWDPC\Waratah\Extensions\BreadcrumbExtension'
 # PageController extension theme requirements
 # you can inject an extension in project configuration to extend this
@@ -23,3 +22,7 @@ SilverStripe\SiteConfig\SiteConfig:
   extensions:
     # add site configuration handling for events
     - 'NSWDPC\Waratah\Extensions\SiteConfigExtension'
+
+gorriecoe\Link\Models\Link:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\LinkExtension'

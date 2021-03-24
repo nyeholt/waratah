@@ -1,6 +1,29 @@
 ---
 Name: nswdpc-waratah-elemental
 ---
+Page:
+  allowed_elements:
+    - 'NSWDPC\Elemental\Models\Image\ElementImage'
+    - 'NSWDPC\Elemental\Models\LinksBlock\ElementalLinks'
+    - 'NSWDPC\Elemental\Models\Iframe\ElementIframe'
+    - 'NSWDPC\Elemental\Models\Mediawesome\ElementMediawesome'
+    - 'NSWDPC\Elemental\Models\FeaturedVideo\ElementVideo'
+    - 'DNADesign\Elemental\Models\ElementContent'
+    - 'DNADesign\ElementalUserForms\Model\ElementForm'
+    - 'DNADesign\ElementalList\Model\ElementList'
+    - 'Symbiote\Elemental\Model\ElementListingPageListing'
+    - 'Dynamic\Elements\Section\Elements\ElementSectionNavigation'
+    - 'NSWDPC\Elemental\Models\ExtensibleSearch\ElementalExtensibleSearch'
+    - 'NSWDPC\Elemental\Models\Banner\ElementBanner'
+    - 'DNADesign\ElementalVirtual\Model\ElementVirtual'
+  extensions:
+    - 'DNADesign\Elemental\Extensions\ElementalPageExtension'
+# as dnadesign/silverstripe-elemental-userforms is available
+# block display/creation of UserDefinedForm page
+SilverStripe\UserForms\Model\UserDefinedForm:
+  need_permission:
+    - 'Create'
+
 DNADesign\Elemental\Models\BaseElement:
   enable_title_in_template: true
   extensions:
