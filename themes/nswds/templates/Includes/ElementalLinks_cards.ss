@@ -17,11 +17,20 @@
                         </h2>
                         <% if $SiteTree.Abstract %>
                             <p class="nsw-card__copy">
-                                $SiteTree.Abstract.XML
+                                {$SiteTree.Abstract.XML}
+                            </p>
+                        <% else_if $Description %>
+                            <p class="nsw-card__copy">
+                                {$Description.XML}
                             </p>
                         <% end_if %>
                         <i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
                     </div>
+                    <% if $Image %>
+                        <div class="nsw-card__image-area">
+                            <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
+                        </div>
+                    <% end_if %>
                 </div>
             </div>
         <% end_loop %>

@@ -13,7 +13,8 @@ class BaseElementExtension extends DataExtension
     private static $db = [
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
-        'AddContainer' => 'Boolean'
+        'AddContainer' => 'Boolean',
+        'AddBackground' => 'Boolean'
     ];
 
     private static $headings = [
@@ -45,6 +46,10 @@ class BaseElementExtension extends DataExtension
                 CheckboxField::create(
                     'AddContainer',
                     'Add a containter to this block'
+                ),
+                CheckboxField::create(
+                    'AddBackground',
+                    'Add a background to this block'
                 )
             ]
         );

@@ -1,4 +1,4 @@
-    <div class="nsw-hero-banner">
+<div class="nsw-hero-banner">
     <div class="nsw-container">
         <% if $Image %>
             <div class="nsw-hero-banner__image-area">
