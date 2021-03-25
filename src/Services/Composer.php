@@ -43,6 +43,7 @@ class Composer {
 
     /**
      * Return the package, provided it matches this module's package name
+     * @return false|Composer\Package\CompletePackage
      */
     private static function getPackage(PackageEvent $event) {
         // @var OperationInterface
@@ -54,10 +55,7 @@ class Composer {
             $package = $operation->getTargetPackage();
         }
         if($package) {
-            print get_class($package);
-            print "\n";
             $name = $package->getName();
-            print "Name: {$name}\n";
             if(self::$vendorName . "/" . self::$packageName == $name) {
                 return $package;
             }
@@ -67,40 +65,45 @@ class Composer {
 
     /**
      * Called via post-package-install
+     * @return void
      */
     public static function postPackageInstall(PackageEvent $event) {
         $package = self::getPackage($event);
         if(!$package) {
             return;
+        } else {
+            self::buildDesignSystem();
         }
-        print $package->getName();
-        print "\n";
     }
 
     /**
      * Called via post-package-update
+     * @return void
      */
     public static function postPackageUpdate(PackageEvent $event) {
         $package = self::getPackage($event);
         if(!$package) {
             return;
+        } else {
+            self::buildDesignSystem();
         }
-        print $package->getName();
-        print "\n";
     }
 
     /**
      * Called via post-update-cmd
+     * @return boolean
      */
     public static function postUpdateCommand(ScriptEvent $event) {
-        self::buildDesignSystem($event);
+        return self::buildDesignSystem($event);
     }
 
     /**
      * Execute the build script for the design system
-     * composer run-script build-nswds
+     * Usage: `composer run-script build-nswds`
+     * Gotcha: build.sh requires npm to be available on the host
+     * @return boolean
      */
-    public static function buildDesignSystem(ScriptEvent $event) {
+    public static function buildDesignSystem(ScriptEvent $event = null) {
         $build = realpath(dirname(__FILE__) . "/../../build.sh");
         if($build && file_exists($build) && is_executable($build)) {
             exec( escapeshellcmd($build) );
