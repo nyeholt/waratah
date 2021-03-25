@@ -2,6 +2,8 @@
 namespace NSWDPC\Waratah\Services;
 
 use Composer\DependencyResolver\Operation\OperationInterface;
+use Composer\DependencyResolver\Operation\InstallOperation;
+use Composer\DependencyResolver\Operation\UpdateOperation;
 use Composer\EventDispatcher\Event as BaseEvent;
 use Composer\Script\Event as ScriptEvent;
 use Composer\Installer\PackageEvent;
@@ -45,15 +47,20 @@ class Composer {
     private static function getPackage(PackageEvent $event) {
         // @var OperationInterface
         $operation = $event->getOperation();
-        print  get_class($operation);
-        print "\n";
-        $package = $operation->getPackage();
-        print get_class($package);
-        print "\n";
-        $name = $package->getName();
-        print "Name: {$name}\n";
-        if(self::$packageName == $name) {
-            return $package;
+        $package = null;
+        if($operation instanceof InstallOperation) {
+            $package = $operation->getPackage();
+        } else if($operation instanceof UpdateOperation) {
+            $package = $operation->getTargetPackage();
+        }
+        if($package) {
+            print get_class($package);
+            print "\n";
+            $name = $package->getName();
+            print "Name: {$name}\n";
+            if(self::$VendorName . "/" . self::$packageName == $name) {
+                return $package;
+            }
         }
         return false;
     }
