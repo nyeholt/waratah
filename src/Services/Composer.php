@@ -58,7 +58,7 @@ class Composer {
             print "\n";
             $name = $package->getName();
             print "Name: {$name}\n";
-            if(self::$VendorName . "/" . self::$packageName == $name) {
+            if(self::$vendorName . "/" . self::$packageName == $name) {
                 return $package;
             }
         }
