@@ -22,6 +22,15 @@ class DesignSystemAssetExtension extends Extension {
     protected $module = "nswdpc/silverstripe-nsw-design-system";
     protected $theme = "nswds";
 
+    public function onBeforeInit() {
+        Requirements::css(
+            'nswdpc/silverstripe-nsw-design-system:themes/nswds/app/frontend/dist/css/app.css'
+        );
+        Requirements::javascript(
+            'nswdpc/silverstripe-nsw-design-system:themes/nswds/app/frontend/dist/javascript/app.js'
+        );
+    }
+
     public function onAfterInit()
     {
         // ensure JS is at the bottom
