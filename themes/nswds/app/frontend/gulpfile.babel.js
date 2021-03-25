@@ -11,6 +11,8 @@ import uglifyjs from 'gulp-uglify-es';
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import del from 'del';
+import rename from 'gulp-rename';
+import filter from 'gulp-filter';
 
 
 const thirdparty = {
@@ -20,7 +22,7 @@ const thirdparty = {
 
 const config = {
     'src': {
-        'css': './src/scss/**/*.scss',
+        'css': './src/scss/**/app.scss',
         'js': './src/js/**/*.js',
         'svg': './src/svg/**/*.svg',
         'svgSprite': {
@@ -47,15 +49,20 @@ gulp.task('clean', function () {
 
 gulp.task('scss', function () {
     return gulp.src([
-        // thirdparty.css,
         config.src.css
     ])
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.init())
+        .pipe(sourcemaps.write('.'))
+        // output non-minified
+        .pipe(gulp.dest(config.dist.css))
+        .pipe(filter('**/*.css'))
+        // minfify
         .pipe(postcss([
             cssnano()
         ]))
         .pipe(sourcemaps.write('.'))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(config.dist.css))
 });
 
@@ -80,10 +87,17 @@ gulp.task('js', function () {
                 { name: 'NSW', format: 'umd', }
             )
         )
-        .pipe(concatjs('app.js'))
-        .pipe(uglifyjs())
         .pipe(sourcemaps.init())
+        .pipe(concatjs('app.js'))
+        // output non-uglified
         .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(config.dist.js))
+        // filter only JS files
+        .pipe(filter('**/*.js'))
+        // uglify
+        .pipe(uglifyjs())
+        .pipe(sourcemaps.write('.'))
+        .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(config.dist.js))
 })
 
