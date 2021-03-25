@@ -1,6 +1,8 @@
 <?php
 namespace NSWDPC\Waratah\Services;
 
+use Composer\DependencyResolver\Operation\OperationInterface;
+use Composer\EventDispatcher\Event as BaseEvent;
 use Composer\Script\Event as ScriptEvent;
 use Composer\Installer\PackageEvent;
 
@@ -41,12 +43,19 @@ class Composer {
      * Return the package, provided it matches this module's package name
      */
     private static function getPackage(PackageEvent $event) {
-         $package = $event->getOperation()->getPackage();
-         $name = $package->getName();
-         if(self::$packageName == $name) {
-             return $package;
-         }
-         return false;
+        // @var OperationInterface
+        $operation = $event->getOperation();
+        print  get_class($operation);
+        print "\n";
+        $package = $operation->getPackage();
+        print get_class($package);
+        print "\n";
+        $name = $package->getName();
+        print "Name: {$name}\n";
+        if(self::$packageName == $name) {
+            return $package;
+        }
+        return false;
     }
 
     /**
@@ -65,7 +74,7 @@ class Composer {
      * Called via post-package-update
      */
     public static function postPackageUpdate(PackageEvent $event) {
-        $package = self::getPackage();
+        $package = self::getPackage($event);
         if(!$package) {
             return;
         }
@@ -77,7 +86,7 @@ class Composer {
      * Called via post-update-cmd
      */
     public static function postUpdateCommand(ScriptEvent $event) {
-        self::buildDesignSystem();
+        self::buildDesignSystem($event);
     }
 
     /**
