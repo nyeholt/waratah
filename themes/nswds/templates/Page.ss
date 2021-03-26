@@ -4,8 +4,7 @@
     <% base_tag %>
     <% include Metadata %>
     <% include Favicon %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body class="nsw-body-content $CLassName">
