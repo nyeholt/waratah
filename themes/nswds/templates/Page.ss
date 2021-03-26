@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
-<body class="nsw-body-content $CLassName">
+<body class="nsw-body-content">
 
     <% include SkipToNav %>
 

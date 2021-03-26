@@ -22,10 +22,9 @@
         </button>
       </div>
     </div>
-    <div class="nsw-search">
-      <div id="header-search" class="nsw-search__area js-search-area" hidden>
-
-        <% if $SearchForm %>
+    <% if $SearchForm %>
+        <div class="nsw-search">
+          <div id="header-search" class="nsw-search__area js-search-area" hidden>
             <% with $SearchForm %>
                 <form role="search" $FormAttributes>
                     <label for="{$FormName}_Search" class="sr-only">Search site for:</label>
@@ -35,23 +34,12 @@
                     </button>
                 </form>
             <% end_with %>
-        <% end_if %>
-
-
-
-        <!-- <form role="search">
-          <label for="nsw-search__input" class="sr-only">Search site for:</label>
-          <input autocomplete="off" class="nsw-search__input js-search-input" id="nsw-search__input"
-            name="input-autocomplete" type="text">
-          <button class="nsw-search__submit" type="submit" aria-label="search">
-            <i class="material-icons nsw-material-icons nsw-search__search-icon" focusable="false" aria-hidden="true">search</i>
-          </button>
-        </form> -->
-        <button class="nsw-search__close-btn js-close-search" aria-expanded="true" aria-controls="header-search">
-          <i class="material-icons nsw-material-icons nsw-search__close-icon" focusable="false" aria-hidden="true">close</i>
-          <span class="sr-only">Close search</span>
-        </button>
-      </div>
-    </div>
+            <button class="nsw-search__close-btn js-close-search" aria-expanded="true" aria-controls="header-search">
+              <i class="material-icons nsw-material-icons nsw-search__close-icon" focusable="false" aria-hidden="true">close</i>
+              <span class="sr-only">Close search</span>
+            </button>
+          </div>
+        </div>
+    <% end_if %>
   </div>
 </header>
