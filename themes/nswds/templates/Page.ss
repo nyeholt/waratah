@@ -8,9 +8,7 @@
     <% include GTMHead %>
 </head>
 
-<body class="nsw-body-content hello">
-
-<% include GTMBody %>
+<body class="nsw-body-content">
 
 <% include SkipToNav %>
 
