@@ -27,6 +27,8 @@ class BaseElementExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
+        $fields->removeByName(['ExtraClass']);
+
         $fields->insertAfter(
             'Title',
             CheckboxField::create(
@@ -49,7 +51,7 @@ class BaseElementExtension extends DataExtension
                 ),
                 CheckboxField::create(
                     'AddBackground',
-                    'Add a background to this block'
+                    'Add a light grey background to this block'
                 )
             ]
         );

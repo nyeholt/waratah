@@ -9,18 +9,30 @@
 <% if $Elements.Elements %>
     <div class="nsw-grid">
         <% loop $Elements.Elements %>
-            <div class="nsw-col nsw-col-md-4">
+            <div class="nsw-col<% if $Up.Up.Columns > 1 %> {$Up.Up.Columns}<% end_if %>">
                 <div class="nsw-card nsw-card--headline">
                     <div class="nsw-card__content">
                         <h2 class="nsw-card__title">
-                            {$Title.XML}
+                            <% if $ContentLink %><a href="{$ContentLink.LinkURL}" class="nsw-card__link"><% end_if %>
+                                {$Title.XML}
+                            <% if $ContentLink %></a><% end_if %>
                         </h2>
-                        <% if $HTML %>
-                            <div class="nsw-card__copy">
-                                {$HTML}
+                        <% if $Up.Up.CardStyle == "title-abstract" || $Up.Up.CardStyle == "title-image-abstract" %>
+                            <% if $HTML %>
+                                <div class="nsw-card__copy">
+                                    {$HTML}
+                                </div>
+                            <% end_if %>
+                        <% end_if %>
+                        <% if $ContentLink %><i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i><% end_if %>
+                    </div>
+                    <% if $Up.Up.CardStyle == "title-image-abstract" %>
+                        <% if $Image %>
+                            <div class="nsw-card__image-area">
+                                <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
                             </div>
                         <% end_if %>
-                    </div>
+                    <% end_if %>
                 </div>
             </div>
         <% end_loop %>

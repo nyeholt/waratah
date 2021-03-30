@@ -21,8 +21,6 @@ class LinkExtension extends DataExtension
         "Image" => Image::class,
     ];
 
-    private static $folder_name = "images";
-
     private static $allowed_file_types = ["jpg", "jpeg", "gif", "png", "webp"];
 
     private static $owns = ["Image"];
@@ -35,15 +33,6 @@ class LinkExtension extends DataExtension
         }
         $types = array_unique($types);
         return $types;
-    }
-
-    public function getFolderName()
-    {
-        $folder_name = $this->owner->config()->get('folder_name');
-        if(!$folder_name) {
-            $folder_name = "images";
-        }
-        return $folder_name;
     }
 
     public function updateCMSFields(FieldList $fields)
@@ -65,7 +54,6 @@ class LinkExtension extends DataExtension
                     "Image",
                     _t(__CLASS__ . ".IMAGE", "Image")
                 )
-                ->setFolderName($this->owner->getFolderName() . "/" . $this->owner->ID)
                 ->setAllowedExtensions($this->owner->getAllowedFileTypes())
                 ->setIsMultiUpload(false)
                 ->setDescription(

@@ -19,38 +19,42 @@ class ElementListExtension extends DataExtension
 
     private static $db = [
         'Subtype' => 'Varchar(64)',
+        'CardColumns' => 'Varchar(64)',
         'CardStyle' => 'Varchar(64)',
         'ExpandFirst' => 'Boolean'
     ];
 
     private static $subtypes = [
-        'cards' => 'Three column cards',
+        'cards' => 'Cards',
         'accordion' => 'Accordion',
         'tabs' => 'Tabs'
     ];
 
-    private static $styles = [
-        'title-only' => 'Title only',
+    private static $card_columns = [
+        '2' => 'Two',
+        '3' => 'Three',
+        '4' => 'Four',
+    ];
+
+    private static $card_styles = [
+        'title' => 'Title only',
         'title-abstract' => 'Title and abstract',
-        'title-tag-date-abstract' => 'Title, tag, date and abstract',
-        'headline-image-tag-date-abstract' => 'Title, image, tag, date and abstract',
-    ];
-
-    private static $has_one = [
-        'ListLink' => Link::class,
-    ];
-
-    private static $owns = [
-        'ListLink'
+        'title-image-abstract' => 'Title, image, abstract',
     ];
 
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->removeByName(['ListLinkID', 'ContainerClasses']);
 
-        $subType = DropdownField::create('Subtype',_t(__CLASS__ . '.LINK','List type'),$this->owner->config()->subtypes);
+        $subType = DropdownField::create('Subtype',_t(__CLASS__ . '.LISTTYPE','List type'),$this->owner->config()->subtypes);
         $subType->setEmptyString('none');
-        $subType->setDescription("Calls to action and cards should use the Decorated Content block.");
+
+        $cardColumns = DropdownField::create('CardColumns',_t(__CLASS__ . '.CARDCOLUMNS','Card columns'),$this->owner->config()->card_columns);
+        $cardColumns->setEmptyString('none');
+        $cardColumns->displayIf('Subtype')->isEqualTo('cards');
+
+        $cardStyle = DropdownField::create('CardStyle',_t(__CLASS__ . '.CARDSTYLE','Card style'),$this->owner->config()->card_styles);
+        $cardStyle->setEmptyString('none');
+        $cardStyle->displayIf('Subtype')->isEqualTo('cards');
 
         $expandFirst = CheckboxField::create('ExpandFirst', 'Expand first item');
         $expandFirst->displayIf('Subtype')->isEqualTo('accordion');
@@ -59,36 +63,30 @@ class ElementListExtension extends DataExtension
             'Root.Settings',
             [
                 $subType,
-
-                $expandFirst,
-
-                DropdownField::create(
-                    'CardStyle',
-                    _t(
-                        __CLASS__ . '.LINK',
-                        'Card style'
-                    ),
-                    $this->owner->config()->styles
-                )->setEmptyString('none')
-                ->displayIf('Subtype')->isEqualTo('cards')
-                ->end(),
-
-                $this->getLinkField()
-
+                $cardColumns,
+                $cardStyle,
+                $expandFirst
             ]
         );
 
     }
 
-    protected function getLinkField() {
-        $field = InlineLinkCompositeField::create(
-            'ListLink',
-            _t(
-                __CLASS__ . '.LINK',
-                'Link'
-            ),
-            $this->owner
-        );
-        return $field;
+    public function getColumns()
+    {
+        $columns = $this->owner->CardColumns;
+
+        if ($columns == 2) {
+            return "nsw-col-sm-6";
+        }
+        if ($columns == 3) {
+            return "nsw-col-md-4";
+        }
+        if ($columns == 4) {
+            return "nsw-col-sm-6 nsw-col-md-4 nsw-col-lg-3";
+        }
+
+        return false;
+
     }
+
 }

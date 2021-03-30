@@ -15,8 +15,6 @@ class PageExtension extends DataExtension
 
     private static $allowed_file_types = ["jpg", "jpeg", "gif", "png", "webp"];
 
-    private static $folder_name = "images";
-
     private static $db = [
         'Abstract' => 'Text',
         'IsLandingPage' => 'Boolean',
@@ -33,19 +31,12 @@ class PageExtension extends DataExtension
     {
         $types = $this->owner->config()->get("allowed_file_types");
         if (empty($types)) {
-            $types = ["jpg", "jpeg", "gif", "png", "webp"];
+            $types = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
         }
         $types = array_unique($types);
         return $types;
     }
 
-    public function getFolderName() {
-        $folder_name = $this->owner->config()->get('folder_name');
-        if(!$folder_name) {
-            $folder_name = "images";
-        }
-        return $folder_name;
-    }
     public function updateCMSFields(FieldList $fields)
     {
 
@@ -74,7 +65,6 @@ class PageExtension extends DataExtension
                 "Image",
                 _t(__CLASS__ . ".SLIDE_IMAGE", "Image used for social media")
             )
-            ->setFolderName($this->owner->getFolderName() . "/" . $this->owner->ID)
             ->setAllowedExtensions($this->owner->getAllowedFileTypes())
             ->setIsMultiUpload(false)
             ->setDescription(
