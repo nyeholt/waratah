@@ -6,6 +6,7 @@ use Silverstripe\Assets\File;
 use Silverstripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use Silverstripe\ORM\DataExtension;
+use SilverStripe\Security\Permission;
 use Silverstripe\Forms\FieldList;
 use Silverstripe\Forms\HeaderField;
 use Silverstripe\Forms\CheckboxField;
@@ -38,11 +39,13 @@ class SiteConfigExtension extends DataExtension
     ];
 
     private static $has_one = [
-        'Logo' => File::class
+        'LogoSVG' => File::class,
+        'LogoImage' => File::class
     ];
 
     private static $owns = [
-        'Logo'
+        'LogoSVG',
+        'LogoImage'
     ];
 
     private static $many_many = [
@@ -79,10 +82,19 @@ class SiteConfigExtension extends DataExtension
         // add copyright notice
         $fields->addFieldsToTab(
             'Root.Main', [
-                TextField::create('CopyrightOwner', 'Copyright notice'),
-                UploadField::create('Logo','Logo')
+                TextField::create('CopyrightOwner', 'Copyright notice')
             ]
         );
+
+        $admin = Permission::check('ADMIN');
+        if($admin) {
+            $fields->addFieldsToTab(
+                'Root.Main', [
+                    UploadField::create('LogoSVG','SVG version of site logo'),
+                    UploadField::create('LogoImage','Image version of site logo')
+                ]
+            );
+        }
 
         // application codes and the like
         $fields->addFieldsToTab('Root.Applications', [
