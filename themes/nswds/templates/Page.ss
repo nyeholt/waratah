@@ -5,27 +5,30 @@
     <% include Metadata %>
     <% include Favicon %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <% include GTMHead %>
 </head>
 
-<body class="nsw-body-content">
+<body class="nsw-body-content hello">
 
-    <% include SkipToNav %>
+<% include GTMBody %>
 
-    <% include Masthead %>
+<% include SkipToNav %>
 
-    <% include Header %>
+<% include Masthead %>
 
-    <% include MainNavigation %>
+<% include Header %>
 
-    <% include PageBanner %>
+<% include MainNavigation %>
 
-    <% include Breadcrumbs %>
+<% include PageBanner %>
 
-    $Layout
+<% include Breadcrumbs %>
 
-    <% include Footer %>
+$Layout
 
-    <% include SVGSprite %>
+<% include Footer %>
+
+<% include SVGSprite %>
 
 </body>
 </html>
