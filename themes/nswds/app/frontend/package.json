@@ -1,10 +1,10 @@
 {
-  "name": "@nswdpc/dpc-bandc",
+  "name": "@nswdpc/silverstripe-nsw-design-system",
   "license": "BSD-3-Clause",
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.symbiote.com.au:dpc/dpc-bandc.git"
+    "url": "git@gitlab.symbiote.com.au:dpc/silverstripe-nsw-design-system.git"
   },
   "description": "Integration of NSW Design System with the NSWDPC Boards and Committees website. This package.json adds extra libraries beyond those provided by nsw-design-system",
   "main": "index.js",
