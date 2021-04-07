@@ -6,8 +6,9 @@ if ! [ -x "$(command -v $NPM)" ]; then
   exit 1
 fi
 
-PWD=`pwd`
-PREFIX="${PWD}/themes/nswds/app/frontend/"
+BUILD_SCRIPT=$(readlink -f "$0")
+BUILD_SCRIPT_DIR=$(dirname "$BUILD_SCRIPT")
+PREFIX="${BUILD_SCRIPT_DIR}/themes/nswds/app/frontend/"
 
 echo "Building the NSW Design System"
 echo "Binary: $NPM"
