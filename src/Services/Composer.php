@@ -40,14 +40,15 @@ class Composer {
      * Gotcha: build.sh requires npm to be available on the host
      * @return boolean
      */
-    public static function buildDesignSystem(ScriptEvent $event = null) {
-        $build = realpath(dirname(__FILE__) . "/../../build.sh");
-        if($build && file_exists($build) && is_executable($build)) {
-            exec( escapeshellcmd($build) );
-            return true;
-        } else {
-            print "build.sh not found, or is not executable\n";
-            return false;
-        }
-    }
+     public static function buildDesignSystem(ScriptEvent $event = null) {
+         $build = realpath(dirname(__FILE__) . "/../../build.sh");
+         if($build && file_exists($build) && is_executable($build)) {
+             $cmd = escapeshellcmd($build);
+             passthru( $cmd, $output);
+             return $output === 0;
+         } else {
+             print "build.sh not found, or is not executable\n";
+             return false;
+         }
+     }
 }
