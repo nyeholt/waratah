@@ -5,9 +5,9 @@ This module provides integration for Silverstripe 4 websites with the [NSW Desig
 ## Features
 
 + Supporting Elemental elements
-+ A variety of build options for the frontend
 + Common Silverstripe extensions for use in NSWDPC websites
-+ Composer script handling for update/install events linked to frontend build
++ A variety of build options for the frontend
++ Composer scripts `create-project` and `build-nswds`
 
 ## Installation
 

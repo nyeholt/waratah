@@ -16,18 +16,17 @@ Example scripts for initiating a build via composer actions.
 
 ```json
 "scripts": {
-    "post-package-install": [
-        "NSWDPC\\Waratah\\Services\\Composer::postPackageInstall"
+    "post-create-project-cmd": [
+        "NSWDPC\\Waratah\\Services\\Composer::postCreateProject"
     ],
-    "post-package-update": [
-        "NSWDPC\\Waratah\\Services\\Composer::postPackageUpdate"
-    ],
-    "build-nswds" : [
+    "build-nswds": [
         "NSWDPC\\Waratah\\Services\\Composer::buildDesignSystem"
     ]
 }
 ```
 
-Run with `composer run-script build-nswds`
+The `post-create-project-cmd` scripts will run after `composer create-project` is called to assist with initial build.
 
-The `post-package-install` and `post-package-update` scripts will also run the build when this module is installed or updated.
+When the module is updated or installed `composer run-script build-nswds` should be run.
+
+These scripts require `npm` to be available on the PATH
