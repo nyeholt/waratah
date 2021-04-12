@@ -4,7 +4,5 @@
 <% if $supportsElemental && $ElementalArea %>
     {$ElementalArea}
 <% else %>
-    <div class="nsw-container">
-        {$Content}
-    </div>
+    {$Content}
 <% end_if %>

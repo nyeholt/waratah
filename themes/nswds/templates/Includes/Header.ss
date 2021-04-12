@@ -23,11 +23,13 @@
         </button>
       </div>
       <div class="nsw-header__right">
+        <% if $SearchForm %>
         <button type="button" class="nsw-header-btn nsw-header-btn--search js-open-search" aria-expanded="false"
           aria-controls="header-search">
           <i class="material-icons nsw-material-icons nsw-header-btn__icon" focusable="false" aria-hidden="true">search</i>
           <span class="nsw-header-btn__sub"><span class="sr-only">Show</span> Search</span>
         </button>
+        <% end_if %>
       </div>
     </div>
     <% if $SearchForm %>

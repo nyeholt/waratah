@@ -26,7 +26,5 @@ $Layout
 
 <% include Footer %>
 
-<% include SVGSprite %>
-
 </body>
 </html>
