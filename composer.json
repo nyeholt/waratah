@@ -49,6 +49,7 @@
         "jonom/silverstripe-betternavigator": "^5.0.0",
         "jonom/silverstripe-text-target-length": "^2.0.0",
         "nglasl/silverstripe-mediawesome": "^4.0.0",
+        "nswdpc/silverstripe-curatorio": "^0.1",
         "nswdpc/silverstripe-elemental-banner": "dev-master",
         "nswdpc/silverstripe-elemental-extensible-search": "dev-master",
         "nswdpc/silverstripe-elemental-feature-video": "dev-master",
