@@ -1,8 +1,8 @@
 <% if $PaginatedChildren %>
     <section>
         <div class="nsw-grid">
-            <% loop $PaginatedChildren %>
-                <div class="nsw-col nsw-col-md-4">
+            <% loop $PaginatedChildren(12) %>
+                <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
                     <div class="nsw-card nsw-card--content">
                         <div class="nsw-card__content">
                             <h2 class="nsw-card__title">

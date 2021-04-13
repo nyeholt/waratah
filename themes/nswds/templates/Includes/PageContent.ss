@@ -4,7 +4,7 @@
             <h1>$Title.XML</h1>
             <% if $Date %>
                 <p>
-                    {$Date.Full}
+                    <time datetime="{$Date}">{$Date.Full}</time>
                 </p>
             <% end_if %>
             <% if $Abstract %>
@@ -14,6 +14,7 @@
             <% end_if %>
         </div>
         <% include PageElemental %>
+        <% include MediaHolderChildren %>
     </article>
     <% include PageForm %>
 </main>
