@@ -7,21 +7,14 @@
     {$HTML}
 <% end_if %>
 <% if $Elements.Elements %>
-    <div class="nsw-tabs js-tabs">
-        <ul class="nsw-tabs__list">
-            <% loop $Elements.Elements %>
-                <li class="nsw-tabs__list-item">
-                    <a href="#{$Anchor}" class="nsw-tabs__link">{$Title.XML}</a>
-                </li>
-            <% end_loop %>
-        </ul>
+    <div class="nsw-accordion js-accordion">
         <% loop $Elements.Elements %>
-            <section id="{$Anchor}" class="nsw-tabs__content">
-                <div class='nsw-wysiwyg-content'>
-                    <h2>{$Title.XML}</h2>
-                    {$HTML}
-                </div>
-            </section>
+        <h2 class="nsw-accordion__title">{$Title.XML}</h2>
+        <div class="nsw-accordion__content">
+            <div class="nsw-wysiwyg-content">
+                {$HTML}
+            </div>
+        </div>
         <% end_loop %>
     </div>
 <% end_if %>

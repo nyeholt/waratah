@@ -244,3 +244,105 @@
     }
   }
 }
+
+
+.nsw-page-layout__main {
+  img {
+    height: auto;
+  }
+
+  img.left {
+    float: left;
+    max-width: 50%;
+    margin: 5px 20px 10px 0;
+  }
+
+  img.right {
+    float: right;
+    max-width: 50%;
+    margin: 5px 0 10px 20px;
+  }
+
+  img.leftAlone {
+    float: left;
+    margin-right: 100%;
+    margin-bottom: 10px;
+    clear: both;
+  }
+
+  img.rightAlone {
+    float: right;
+    margin-left: 100%;
+    margin-bottom: 10px;
+    clear: both;
+  }
+
+  img.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+    clear: both;
+  }
+
+  .captionImage {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .captionImage img {
+    margin: 0;
+  }
+
+  .captionImage.left {
+    float: left;
+    margin: 5px 30px 20px 0;
+  }
+
+  .captionImage.right {
+    float: right;
+    margin: 5px 0 20px 30px;
+  }
+
+  .captionImage.left[style],
+  .captionImage.right[style] {
+    max-width: 50%;
+  }
+
+  .captionImage.left img,
+  .captionImage.right img {
+    float: none;
+    max-width: none;
+    width: 100%;
+  }
+
+  .captionImage.left img {
+    margin-right: -10px;
+  }
+
+  .captionImage.right img {
+    margin-left: -10px;
+  }
+
+  .captionImage.right p {
+    margin-left: -10px;
+    text-align: left;
+    margin-left: -10px;
+  }
+
+  .captionImage.leftAlone {
+    float: none;
+    margin: 0 20px 20px 0;
+  }
+
+  .captionImage.center {
+    margin: 0 auto 20px;
+  }
+
+  .captionImage p {
+    clear: both;
+  }
+
+}
+
