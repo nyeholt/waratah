@@ -26,5 +26,7 @@ $Layout
 
 <% include Footer %>
 
+<% include FeedbackAssist %>
+
 </body>
 </html>
