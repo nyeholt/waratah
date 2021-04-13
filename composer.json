@@ -60,7 +60,7 @@
         "nswdpc/silverstripe-elemental-quickgallery": "dev-master",
         "nswdpc/silverstripe-elemental-slider": "dev-master",
         "nswdpc/silverstripe-inline-linker": "dev-master",
-        "nswdpc/silverstripe-feedback-assist": "dev-master",
+        "nswdpc/silverstripe-feedback-assist": "^0.1",
         "silverstripe/recipe-cms": "^4.7.1",
         "symbiote/silverstripe-contentreplace": "^2.0.0",
         "wilr/silverstripe-googlesitemaps": "^2.1.0"
