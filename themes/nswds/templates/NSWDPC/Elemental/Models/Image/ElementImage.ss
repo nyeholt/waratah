@@ -3,4 +3,12 @@
         {$Title}
     </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
 <% end_if %>
-<img class="img-fluid" src="$Image.FocusFillMax(1440,810).URL" alt="$Image.Title">
+<% if $Height == "small" %>
+    <img class="<% if $Width == "full" %>img-full<% else %>img-fluid<% end_if %>" src="$Image.FocusFillMax(1440,640).URL" alt="$Image.Title">
+<% else_if $Height == "medium" %>
+    <img class="<% if $Width == "full" %>img-full<% else %>img-fluid<% end_if %>" src="$Image.FocusFillMax(1440,960).URL" alt="$Image.Title">
+<% else_if $Height == "large" %>
+    <img class="<% if $Width == "full" %>img-full<% else %>img-fluid<% end_if %>" src="$Image.FocusFillMax(1440,960).URL" alt="$Image.Title">
+<% else %>
+    <img class="<% if $Width == "full" %>img-full<% else %>img-fluid<% end_if %>" src="$Image.ScaleMaxWidth(2560).URL" alt="$Image.Title">
+<% end_if %>
