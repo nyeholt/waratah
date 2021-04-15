@@ -15,13 +15,13 @@
                         <h2 class="nsw-card__title">
                             <a href="{$LinkURL}" class="nsw-card__link">{$Title.XML}</a>
                         </h2>
-                        <% if $SiteTree.Abstract %>
-                            <p class="nsw-card__copy">
-                                {$SiteTree.Abstract.XML}
-                            </p>
-                        <% else_if $Description %>
+                        <% if $Description %>
                             <p class="nsw-card__copy">
                                 {$Description.XML}
+                            </p>
+                        <% else_if $SiteTree.Abstract %>
+                            <p class="nsw-card__copy">
+                                {$SiteTree.Abstract.XML}
                             </p>
                         <% end_if %>
                         <i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
@@ -29,6 +29,10 @@
                     <% if $Image %>
                         <div class="nsw-card__image-area">
                             <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
+                        </div>
+                    <% else_if $SiteTree.Image %>
+                        <div class="nsw-card__image-area">
+                            <img src="$SiteTree.Image.FocusFillMax(400,200).URL" alt="{$SiteTree.Image.Title.XML}" class="nsw-card__image">
                         </div>
                     <% end_if %>
                 </div>
