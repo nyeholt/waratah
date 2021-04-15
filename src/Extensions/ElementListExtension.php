@@ -20,8 +20,7 @@ class ElementListExtension extends DataExtension
     private static $db = [
         'Subtype' => 'Varchar(64)',
         'CardColumns' => 'Varchar(64)',
-        'CardStyle' => 'Varchar(64)',
-        'ExpandFirst' => 'Boolean'
+        'CardStyle' => 'Varchar(64)'
     ];
 
     private static $subtypes = [
@@ -56,16 +55,12 @@ class ElementListExtension extends DataExtension
         $cardStyle->setEmptyString('none');
         $cardStyle->displayIf('Subtype')->isEqualTo('cards');
 
-        $expandFirst = CheckboxField::create('ExpandFirst', 'Expand first item');
-        $expandFirst->displayIf('Subtype')->isEqualTo('accordion');
-
         $fields->addFieldsToTab(
             'Root.Settings',
             [
                 $subType,
                 $cardColumns,
-                $cardStyle,
-                $expandFirst
+                $cardStyle
             ]
         );
 

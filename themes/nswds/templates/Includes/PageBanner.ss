@@ -1,5 +1,4 @@
 <% if not $InSection(home) && $Image && $ShowBannerImage %>
-
     <div class="nsw-hero-banner">
         <div class="nsw-container">
             <div class="nsw-hero-banner__image-area">
@@ -7,5 +6,4 @@
             </div>
         </div>
     </div>
-
 <% end_if %>

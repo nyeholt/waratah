@@ -6,7 +6,7 @@
 <% if $SectionNavigation %>
     <div class="nsw-grid">
         <% loop $SectionNavigation %>
-            <div class="nsw-col nsw-col-sm-6 nsw-col-md-4">
+            <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
                 <div class="nsw-card">
                     <div class="nsw-card__content">
                         <h2 class="nsw-card__title">
