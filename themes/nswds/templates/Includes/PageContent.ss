@@ -2,7 +2,7 @@
     <article>
         <div class="nsw-block">
             <h1>$Title.XML</h1>
-            <% if $Abstract %>
+            <% if $Abstract && $ShowAbstractOnPage %>
                 <p class="nsw-intro">
                     $Abstract
                 </p>
@@ -21,7 +21,9 @@
                     <% end_loop %>
                 </div>
             <% end_if %>
-            <hr>
+            <% if $MediaAttributes || $Tags %>
+                <hr>
+            <% end_if %>
             <% if $Tags %>
                 <div class="tags nsw-m-bottom-md">
                     <% loop $Tags %>

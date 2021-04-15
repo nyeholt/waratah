@@ -17,6 +17,7 @@ class PageExtension extends DataExtension
 
     private static $db = [
         'Abstract' => 'Text',
+        'ShowAbstractOnPage' => 'Boolean',
         'IsLandingPage' => 'Boolean',
         'ShowBannerImage' => 'Boolean'
     ];
@@ -40,24 +41,30 @@ class PageExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
-        $fields->addFieldToTab(
-            'Root.Main',
-                TextareaField::create(
-                    'Abstract',
-                    _t(__CLASS__. '.ABSTRACT', 'Abstract')
-                )
-                ->setDescription('This will show at the top of the page, and also be displayed in listings and search results')
-                ->setTargetLength(160, 90, 200),
-                'Content'
+        $fields->insertAfter(
+            'MenuTitle',
+            TextareaField::create(
+                'Abstract',
+                _t(__CLASS__. '.ABSTRACT', 'Abstract')
+            )
+            ->setDescription('This will be displayed in listings and search results')
+            ->setTargetLength(160, 90, 200)
         );
 
-        $fields->addFieldToTab(
-            'Root.Main',
-                CheckboxField::create(
-                    'IsLandingPage',
-                    _t(__CLASS__. '.ISLANDINGPAGE', 'Show this page as a landing page')
-                )->setDescription('This will remove any side navigation or other extras'),
-                'Abstract'
+        $fields->insertAfter(
+            'Abstract',
+            CheckboxField::create(
+                'ShowAbstractOnPage',
+                _t(__CLASS__. '.SHOWABSTRACT', 'Show abstract on the page, below the title')
+            )
+        );
+
+        $fields->insertAfter(
+            'ShowAbstractOnPage',
+            CheckboxField::create(
+                'IsLandingPage',
+                _t(__CLASS__. '.ISLANDINGPAGE', 'Show this page as a landing page')
+            )->setDescription('This will remove any side navigation or other extras')
         );
 
         $fields->addFieldsToTab("Root.Image", [
