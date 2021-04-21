@@ -47,7 +47,7 @@ class BaseElementExtension extends DataExtension
                 )->setEmptyString('Default (Heading Two)'),
                 CheckboxField::create(
                     'AddContainer',
-                    'Add a containter to this block'
+                    'Add a container to this block'
                 ),
                 CheckboxField::create(
                     'AddBackground',
