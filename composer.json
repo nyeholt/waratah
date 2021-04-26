@@ -39,7 +39,6 @@
         }
     },
     "require": {
-        "adrhumphreys/silverstripe-textdropdownfield": "dev-master",
         "dnadesign/silverstripe-elemental": "^4.5.0",
         "dnadesign/silverstripe-elemental-list": "^1.2.0",
         "dnadesign/silverstripe-elemental-virtual": "^1.2.2",
