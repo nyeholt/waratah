@@ -41,7 +41,7 @@
 
                         <h2 class="nsw-subnavigation__title">
                             <a href="{$Link}" class="nsw-subnavigation__title-link">
-                                <span>{$MenuTitle.XML}</span>
+                                <span>{$Title.XML}</span>
                                 <i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
                             </a>
                         </h2>
@@ -83,7 +83,7 @@
 
                                             <h2 class="nsw-subnavigation__title">
                                                 <a href="{$Link}" class="nsw-subnavigation__title-link">
-                                                    <span>{$MenuTitle.XML}</span>
+                                                    <span>{$Title.XML}</span>
                                                     <i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
                                                 </a>
                                             </h2>

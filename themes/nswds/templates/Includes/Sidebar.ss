@@ -3,7 +3,7 @@
         <% with $Level(1) %>
             <div class="nsw-sidenav__header">
                 <h2 id="{$URLSegment}" class="nsw-sidenav__heading">
-                <a href="$Link" class="nsw-sidenav__heading-link">{$MenuTitle.XML}</a></h2>
+                <a href="$Link" class="nsw-sidenav__heading-link">{$Title.XML}</a></h2>
             </div>
             <ul class="nsw-sidenav__list nsw-sidenav__list--level-{$PageLevel} ">
                 <% include SidebarNavigation %>
