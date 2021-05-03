@@ -41,6 +41,4 @@
         </div>
         <% include Pagination PaginatedItems=$PaginatedChildren %>
     </section>
-<% else %>
-    <p class='no-media'>There is currently no media available.</p>
 <% end_if %>
