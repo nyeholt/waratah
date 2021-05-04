@@ -29,7 +29,7 @@
                     <% if $Up.Up.CardStyle == "title-image-abstract" %>
                         <% if $Image %>
                             <div class="nsw-card__image-area">
-                                <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
+                                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
                             </div>
                         <% end_if %>
                     <% end_if %>
