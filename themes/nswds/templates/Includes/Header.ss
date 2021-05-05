@@ -22,6 +22,7 @@
           <span class="nsw-header-btn__sub"><span class="sr-only">Open</span> Menu</span>
         </button>
       </div>
+      <% if $SearchForm %>
       <div class="nsw-header__right">
         <% if $SearchForm %>
         <button type="button" class="nsw-header-btn nsw-header-btn--search js-open-search" aria-expanded="false"
@@ -31,6 +32,7 @@
         </button>
         <% end_if %>
       </div>
+      <% end_if %>
     </div>
     <% if $SearchForm %>
         <div class="nsw-search">
