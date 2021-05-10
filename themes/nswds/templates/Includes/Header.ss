@@ -9,7 +9,8 @@
                 <% else_if $LogoImage %>
                     <img class="nsw-header__logo" src="{$LogoImage.URL}" alt="{$Title.XML}">
                 <% else %>
-                    <img class="nsw-header__logo" src="_resources/vendor/nswdpc/silverstripe-nsw-design-system/themes/nswds/app/static/img/nsw-waratah.svg" alt="{$Title.XML}">
+                    <%-- TODO: use resourceURL --%>
+                    <img class="nsw-header__logo" src="_resources/vendor/nswdpc/waratah/themes/nswds/app/static/img/nsw-waratah.svg" alt="{$Title.XML}">
                 <% end_if %>
                 <span class="sr-only">{$Title.XML}</span>
             <% end_with %>
@@ -22,6 +23,7 @@
           <span class="nsw-header-btn__sub"><span class="sr-only">Open</span> Menu</span>
         </button>
       </div>
+      <% if $SearchForm %>
       <div class="nsw-header__right">
         <% if $SearchForm %>
         <button type="button" class="nsw-header-btn nsw-header-btn--search js-open-search" aria-expanded="false"
@@ -31,6 +33,7 @@
         </button>
         <% end_if %>
       </div>
+      <% end_if %>
     </div>
     <% if $SearchForm %>
         <div class="nsw-search">

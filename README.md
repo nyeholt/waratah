@@ -1,16 +1,20 @@
-# Theme support module for NSW DPC Silverstripe websites
+# NSW Design System integration for Silverstripe websites
 
-This module provides basic theme support and generic workarounds for Silverstripe 4 websites.
+This module provides integration for Silverstripe websites with the [NSW Design System](https://github.com/digitalnsw/nsw-design-system).
 
-## Requirements
+## Features
 
-The recommended way of installing this module is via [composer](https://getcomposer.org/download/)
-
++ Provides configuration for supported Elemental elements
++ Requires the [nswdpc/silverstripe-content-boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate)
++ A variety of build options for the frontend
++ Configure specific project requirements/overrids via the `DesignSystemConfiguration` model
++ Composer scripts `create-project` and `build-nswds`
 
 ## Installation
 
+The recommended way of installing this module is via [composer](https://getcomposer.org/download/)
 ```
-composer require nswdpc/silverstripe-nsw-design-system
+composer require nswdpc/waratah
 ```
 
 ## License
@@ -19,16 +23,19 @@ composer require nswdpc/silverstripe-nsw-design-system
 
 ## Documentation
 
-* [Documentation](./docs/en/001_index.md)
+* [Further documentation](./docs/en/001_index.md)
 
 ## Configuration
 
-> This entry intentionally left blank
+See [_config directory](./_config) for default configuration settings
 
 ## Maintainers
 
 + [dpcdigital@NSWDPC:~$](https://dpc.nsw.gov.au)
 
+## Security
+
+If you have found a security issue with this module, please email digital[@]dpc.nsw.gov.au in the first instance, detailing your findings.
 
 ## Bugtracker
 
