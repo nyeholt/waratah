@@ -9,7 +9,8 @@
                 <% else_if $LogoImage %>
                     <img class="nsw-header__logo" src="{$LogoImage.URL}" alt="{$Title.XML}">
                 <% else %>
-                    <img class="nsw-header__logo" src="_resources/vendor/nswdpc/silverstripe-nsw-design-system/themes/nswds/app/static/img/nsw-waratah.svg" alt="{$Title.XML}">
+                    <%-- TODO: use resourceURL --%>
+                    <img class="nsw-header__logo" src="_resources/vendor/nswdpc/waratah/themes/nswds/app/static/img/nsw-waratah.svg" alt="{$Title.XML}">
                 <% end_if %>
                 <span class="sr-only">{$Title.XML}</span>
             <% end_with %>

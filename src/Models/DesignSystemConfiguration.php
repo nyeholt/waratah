@@ -61,7 +61,7 @@ class DesignSystemConfiguration {
     /**
      * @var string
      */
-    private static $module = "silverstripe-nsw-design-system";
+    private static $module = "waratah";
 
     /**
      * @var string
