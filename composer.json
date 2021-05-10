@@ -41,7 +41,7 @@
     "repositories": [
         {
             "type":"vcs",
-            "url": "git@github.com:nswdpc/silverstripe-content-boilerplate.git"
+            "url": "https://github.com/nswdpc/silverstripe-content-boilerplate.git"
         }
     ],
     "require": {
