@@ -44,6 +44,9 @@
             "url": "https://github.com/nswdpc/silverstripe-content-boilerplate.git"
         }
     ],
+    "replace": {
+        "nswdpc/silverstripe-nsw-design-system": "self.version"
+    },
     "require": {
         "nswdpc/silverstripe-content-boilerplate": "dev-master"
     },
