@@ -1,5 +1,5 @@
 <% if $ElementNav %>
-    <% include PageNagivation %>
+    <% include PageNavigation %>
 <% end_if %>
 <% if $supportsElemental && $ElementalArea %>
     {$ElementalArea}
