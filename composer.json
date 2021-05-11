@@ -48,7 +48,8 @@
         "nswdpc/silverstripe-nsw-design-system": "self.version"
     },
     "require": {
-        "nswdpc/silverstripe-content-boilerplate": "dev-master"
+        "nswdpc/silverstripe-content-boilerplate": "dev-master",
+        "nswdpc/silverstripe-feedback-assist": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
