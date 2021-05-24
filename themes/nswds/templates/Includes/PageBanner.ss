@@ -1,4 +1,4 @@
-<% if not $InSection(home) && $Image && $ShowBannerImage %>
+<% if $Image && $ShowBannerImage %>
     <div class="nsw-hero-banner">
         <div class="nsw-container">
             <div class="nsw-hero-banner__image-area">
