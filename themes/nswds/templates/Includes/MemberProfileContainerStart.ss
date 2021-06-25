@@ -4,9 +4,7 @@
 
             <div class="col-12">
                 <div class="nsw-subpage-banner__text-block">
-                    <h1 class="nsw-subpage-banner__title">
-                        <% include MemberProfileTitle DefaultTitle=$DefaultTitle %>
-                    </h1>
+                    <% include MemberProfileTitle DefaultTitle=$DefaultTitle %>
                 </div>
             </div>
 
