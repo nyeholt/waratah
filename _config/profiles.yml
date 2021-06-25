@@ -1,0 +1,12 @@
+---
+Name: nswdpc-memberprofile-extensions
+Only:
+  moduleexists: 'burnbright/silverstripe-members'
+---
+NSWDPC\Members\MemberController:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\DesignSystemAssetExtension'
+NSWDPC\Members\MemberProfileController:
+  extensions:
+    # apply theme requirements
+    - 'NSWDPC\Waratah\Extensions\DesignSystemAssetExtension'
