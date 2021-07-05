@@ -1,7 +1,7 @@
 <% if $ElementNav %>
     <% include PageNavigation %>
 <% end_if %>
-<% if $supportsElemental && $ElementalArea %>
+<% if $supportsElemental && $ElementalArea && $ElementalArea.Elements.count > 0 %>
     {$ElementalArea}
 <% else %>
     {$Content}
