@@ -1,0 +1,21 @@
+---
+Name: nswdpc-waratah-forms
+---
+SilverStripe\Forms\TextField:
+  default_classes: ['nsw-form-input']
+SilverStripe\Forms\TextareaField:
+  default_classes: ['nsw-form-input']
+SilverStripe\Forms\FileField:
+  default_classes: ['nsw-form-input']
+#SilverStripe\Forms\ReadonlyField:
+#  default_classes: ['nsw-form-input']
+SilverStripe\Forms\FormAction:
+  default_classes: ['nsw-button','nsw-button--primary']
+SilverStripe\Forms\DropdownField:
+  default_classes: ['nsw-form-select']
+SilverStripe\Forms\ListboxField:
+  default_classes: ['nsw-form-select']
+SilverStripe\Forms\CheckboxField:
+  default_classes: ['nsw-form-checkbox__input']
+SilverStripe\Forms\OptionsetField:
+  default_classes: ['nsw-form-radio__input']
