@@ -23,7 +23,7 @@
   "dependencies": {
     "flatpickr": "^4.6",
     "micromodal": "^0.4.2",
-    "nsw-design-system": "^2.10",
+    "nsw-design-system": "^2.13.0",
     "slim-select": "^1.27",
     "sticky-js": "^1.3"
   },
