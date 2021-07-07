@@ -18,6 +18,6 @@
 
     {$Field}
 
-    <% if $RightTitle %><label class="nsw-form-label right" for="$ID">$RightTitle</label><% end_if %>
+    <% if $RightTitle %><span class="nsw-form-helper right" for="$ID">$RightTitle</span><% end_if %>
 
 </div>

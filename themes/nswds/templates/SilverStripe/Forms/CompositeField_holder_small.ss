@@ -1,15 +1,13 @@
-<$Tag class="CompositeField $extraClass <% if $ColumnCount %>multicolumn<% end_if %>" id="$HolderID">
-    <% if $Tag == 'fieldset' && $Legend %>
-        <legend>$Legend</legend>
+<fieldset class="nsw-form-fieldset small<% if $Zebra %> $Zebra<% end_if %>" id="$HolderID">
+
+    <!-- compositefieldholder_small -->
+
+    <% if $Legend %>
+        <legend><span class="nsw-form-legend-text">$Legend</span></legend>
+    <% else_if $Title %>
+        <legend><span class="nsw-form-legend-text">$Title</span></legend>
     <% end_if %>
 
-    <% loop $FieldList %>
-        <% if $Up.ColumnCount %>
-            <div class="column-{$Up.ColumnCount} $FirstLast">
-                $SmallFieldHolder
-            </div>
-        <% else %>
-            $SmallFieldHolder
-        <% end_if %>
-    <% end_loop %>
-</$Tag>
+    $Field
+
+</fieldset>

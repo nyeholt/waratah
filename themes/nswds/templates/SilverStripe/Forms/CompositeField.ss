@@ -1,9 +1,3 @@
 <% loop $FieldList %>
-	<% if $Up.ColumnCount %>
-		<div class="column-{$Up.ColumnCount} $FirstLast">
-			$FieldHolder
-		</div>
-	<% else %>
-		$FieldHolder
-	<% end_if %>
+    $FieldHolder
 <% end_loop %>

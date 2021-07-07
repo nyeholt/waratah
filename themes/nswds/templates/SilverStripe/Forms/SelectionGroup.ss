@@ -1,23 +1,26 @@
-<% if $IsReadonly %>
-	<ul class="SelectionGroup<% if extraClass %> $extraClass<% end_if %>">
-	<% loop $FieldSet %>
-	<% if $Selected %>
-		<li class="selected">
-			$RadioLabel
-			$FieldHolder
-		</li>
-	<% end_if %>
-	<% end_loop %>
-	</ul>
-<% else %>
-	<ul class="SelectionGroup<% if extraClass %> $extraClass<% end_if %>">
-	<% loop $FieldSet %>
-		<li <% if Selected %>class="selected"<% end_if %>>
-			<label>{$RadioButton} {$RadioLabel}</label>
-			<% if $FieldList %>
-				$FieldHolder
-			<% end_if %>
-		</li>
-	<% end_loop %>
-	</ul>
-<% end_if %>
+
+<div class="nsw-tabs js-tabs">
+
+    <ul class="nsw-tabs__list">
+    <% loop $FieldSet %>
+        <li class="nsw-tabs__list-item<% if Selected %> is-selected<% end_if %>">
+            <a class="nsw-tabs__link" href="#{$ID}-{$Pos}">
+                 {$RadioButton} {$RadioLabel}
+            </a>
+        </li>
+    <% end_loop %>
+    </ul>
+
+    <% loop $FieldSet %>
+
+        <section id="{$ID}-{$Pos}" class="nsw-tabs__content">
+
+            <% if $FieldList %>
+                $FieldHolder
+            <% end_if %>
+
+        </section>
+
+    <% end_loop %>
+
+</div>

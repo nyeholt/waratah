@@ -1,6 +1,6 @@
 <div id="$HolderID" class="nsw-form-group small">
 
-    <% if $Title %><label class="nsw-form-label" <% if $ID %>for="$ID"<% end_if %>>$Title</label><% end_if %>
+    <% if $Title %><label class="nsw-form-label left" for="$ID">$Title</label><% end_if %>
 
     <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
 
@@ -18,6 +18,6 @@
 
     {$Field}
 
-    <% if $RightTitle %><label class="nsw-form-label right" <% if $ID %>for="$ID"<% end_if %>>$RightTitle</label><% end_if %>
+    <% if $RightTitle %><span class="nsw-form-helper right" for="$ID">$RightTitle</span><% end_if %>
 
 </div>

@@ -1,4 +1,4 @@
-<fieldset class="nsw-form-fieldset" id="$HolderID">
+<fieldset class="nsw-form-fieldset<% if $Zebra %> $Zebra<% end_if %>" id="$HolderID">
 
     <% if $Legend %>
         <legend><span class="nsw-form-legend-text">$Legend</span></legend>
