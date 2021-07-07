@@ -1,6 +1,6 @@
 <div id="$HolderID" class="nsw-form-group">
 
-    <% if $Title %><label class="nsw-form-label left" for="$ID">$Title - FormField_holder.ss</label><% end_if %>
+    <% if $Title %><label class="nsw-form-label left" for="$ID">$Title</label><% end_if %>
 
     <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
 
