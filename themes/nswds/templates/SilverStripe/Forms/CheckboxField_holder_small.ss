@@ -1,5 +1,22 @@
-$Field
+<div id="$HolderID" class="nsw-form-group small">
 
-<% if $Title %>
-	<label class="checkboxfield-small" <% if $ID %>for="$ID"<% end_if %>>$Title<% if $RightTitle %> $RightTitle<% end_if %></label>
-<% end_if %>
+     <div class="nsw-form-checkbox">
+        {$Field}
+        <% if $Title %><label class="nsw-form-checkbox__label" for="$ID">$Title</label><% end_if %>
+     </div>
+
+     <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
+     <% if $RightTitle %><label class="nsw-form-legend-text right">$RightTitle</label><% end_if %>
+     <% if $Message %>
+         <% if $MessageType == 'good' %>
+             <% include FormFieldNotification Icon='check_circle', Level='success', Message=$Message %>
+         <% else_if $MessageType == 'warning' %>
+             <% include FormFieldNotification Icon='error', Level='warning', Message=$Message %>
+         <% else_if $MessageType == 'error' %>
+             <% include FormFieldNotification Icon='cancel', Level='error', Message=$Message %>
+         <% else %>
+             <% include FormFieldNotification Icon='info', Level='info', Message=$Message %>
+         <% end_if %>
+     <% end_if %>
+
+</div>
