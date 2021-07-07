@@ -13,6 +13,8 @@ SilverStripe\Forms\FormAction:
   default_classes: ['nsw-button','nsw-button--primary']
 SilverStripe\Forms\DropdownField:
   default_classes: ['nsw-form-select']
+SilverStripe\Forms\GroupedDropdownField:
+  default_classes: ['nsw-form-select']
 SilverStripe\Forms\ListboxField:
   default_classes: ['nsw-form-select']
 SilverStripe\Forms\CheckboxField:
