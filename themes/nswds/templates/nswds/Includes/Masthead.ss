@@ -1,6 +1,5 @@
 <div class="nsw-masthead">
     <div class="nsw-container">
-        <p>A NSW Government website</p>
+        <p><%t nswds.NSW_WEBSITE 'A NSW Government website' %></p>
     </div>
 </div>
-

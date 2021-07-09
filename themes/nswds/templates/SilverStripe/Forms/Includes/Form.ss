@@ -4,13 +4,13 @@
 <% end_if %>
 
     <% if $MessageType == 'good' %>
-        <% include InPageNotification Icon='check_circle', Level='success', MessageTitle='Success', Message=$Message %>
+        <% include nswds/InPageNotification Icon='check_circle', Level='success', MessageTitle='Success', Message=$Message %>
     <% else_if $MessageType == 'warning' %>
-        <% include InPageNotification Icon='error', Level='warning', MessageTitle='Warning', Message=$Message %>
+        <% include nswds/InPageNotification Icon='error', Level='warning', MessageTitle='Warning', Message=$Message %>
     <% else_if $MessageType == 'error' %>
-        <% include InPageNotification Icon='cancel', Level='error', MessageTitle='Error', Message=$Message %>
+        <% include nswds/InPageNotification Icon='cancel', Level='error', MessageTitle='Error', Message=$Message %>
     <% else %>
-        <% include InPageNotification Icon='info', Level='info', MessageTitle='Information', Message=$Message %>
+        <% include nswds/InPageNotification Icon='info', Level='info', MessageTitle='Information', Message=$Message %>
     <% end_if %>
 
     <% if $VisibleFields.count > 0 %>

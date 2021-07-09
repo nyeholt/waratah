@@ -86,44 +86,51 @@
                 </div>
             </div>
         <% end_if %>
+
         <div class="nsw-footer__lower">
+
             <div class="nsw-container">
+
                 <% if $FooterContent %>
-                    {$FooterContent}
+                    <p>{$FooterContent.XML}</p>
+                    <hr>
+                <% else if $WelcomeToCountry %>
+                    <p><%t nswds.WELCOME_TO_COUNTRY 'We pay respect to the Traditional Custodians and First Peoples of NSW, and acknowledge their continued connection to their country and culture.' %></p>
+                    <hr>
                 <% end_if %>
-                <hr>
-                <div class="nsw-grid">
-                    <div class="nsw-col nsw-col-sm-8">
-                        <% if $FooterLinksSub %>
-                            <ul class="nsw-footer-links">
-                                <% loop $FooterLinksSub.Sort('Sort') %>
-                                <li class="nsw-footer-links__item">
-                                    <a href="{$LinkURL}" class="nsw-footer-links__link">
-                                        {$Title.XML}
-                                    </a>
-                                </li>
-                                <% end_loop %>
-                            </ul>
-                        <% end_if %>
-                    </div>
-                    <div class="nsw-col nsw-col-sm-4">
-                        <% if $SocialLinks %>
-                            <ul class="nsw-social-links">
-                                <% loop $SocialLinks.Sort('Sort') %>
-                                <li class="nsw-social-links__item">
-                                    <a href="{$LinkURL}" class="nsw-social-links__link nsw-social-links__link-{$Title.LowerCase.XML}">
-                                        <span class="sr-only">{$Title.XML}</span>
-                                    </a>
-                                </li>
-                                <% end_loop %>
-                            </ul>
-                        <% end_if %>
-                    </div>
-                </div>
+
+                <% if $FooterLinksSub %>
+                    <ul class="nsw-footer-links">
+                        <% loop $FooterLinksSub.Sort('Sort') %>
+                        <li class="nsw-footer-links__item">
+                            <a href="{$LinkURL}" class="nsw-footer-links__link">
+                                {$Title.XML}
+                            </a>
+                        </li>
+                        <% end_loop %>
+                    </ul>
+                <% end_if %>
+
+                <% if $SocialLinks %>
+                    <ul class="nsw-footer-links nsw-social-links">
+                        <% loop $SocialLinks.Sort('Sort') %>
+                        <li class="nsw-social-links__item">
+                            <a href="{$LinkURL}" class="nsw-social-links__link nsw-social-links__link-{$Title.LowerCase.XML}">
+                                <span class="sr-only">{$Title.XML}</span>
+                            </a>
+                        </li>
+                        <% end_loop %>
+                    </ul>
+                <% end_if %>
+
                 <div class="nsw-footer__info">
                     <p class="nsw-footer__copyright"><% if $CopyrightOwner %>{$CopyrightOwner.XML} <% else %>Copyright<% end_if %> &copy; {$Now.Year}</p>
                 </div>
+
             </div>
+
         </div>
+
     <% end_with %>
+
 </footer>

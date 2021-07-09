@@ -1,6 +1,6 @@
 <div class="nsw-callout">
     <% if $Icon %>
-        <i class="material-icons nsw-material-icons nsw-callout__icon" focusable="false" aria-hidden="true">info</i>
+        <% include nswds/Icon Icon=info %>
     <% end_if %>
     <div class="nsw-callout__content">
         <h4 class="nsw-callout__title">{$Title.XML}</h4>
