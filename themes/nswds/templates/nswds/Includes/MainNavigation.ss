@@ -1,6 +1,6 @@
 <% if $Menu %>
 
-<nav id="main-navigation" class="nsw-navigation js-mega-menu" aria-label="<% nswds.MAIN_MENU 'Main menu'%>">
+<nav id="main-navigation" class="nsw-navigation js-mega-menu" aria-label="<%t nswds.MAIN_MENU 'Main menu' %>">
 
     <div class="nsw-navigation__header">
         <h2 id="nsw-navigation"><%t nswds.MENU 'Menu' %></h2>
@@ -67,7 +67,7 @@
 
                         <% if $Children %>
 
-                        <div class="nsw-subnavigation" id="subnav-{$ID}" role="region" aria-label="<%t nswds.MENU_SUBMENU '{title} Submenu' title=$MenuTitle.XML} %>">
+                        <div class="nsw-subnavigation" id="subnav-{$ID}" role="region" aria-label="<%t nswds.MENU_SUBMENU '{title} Submenu' title={$MenuTitle.XML} %>">
 
                             <div class="nsw-subnavigation__header">
 

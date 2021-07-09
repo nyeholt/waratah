@@ -10,21 +10,21 @@
 
 <body class="nsw-body-content">
 
-<% include SkipToNav %>
+<% include nswds/SkipToNav %>
 
-<% include Masthead %>
+<% include nswds/Masthead %>
 
-<% include Header %>
+<% include nswds/Header %>
 
 <% include MainNavigation %>
 
 <% include PageBanner %>
 
-<% include Breadcrumbs %>
+<% include nswds/Breadcrumbs %>
 
-$Layout
+{$Layout}
 
-<% include Footer %>
+<% include nswds/Footer %>
 
 <% include FeedbackAssist %>
 
