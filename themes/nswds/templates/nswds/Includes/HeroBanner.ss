@@ -34,7 +34,7 @@
             <% if not $IsWide %>
             <div class="nsw-banner__box" role="presentation">
                 <% if $BannerImage %>
-                    <img class="nsw-banner__image" src="{$BannerImage.Fill(500,500)}" alt="{$BannerImage.Title}">
+                    <img class="nsw-banner__image" src="{$BannerImage.Fill(500,500).URL}" alt="{$BannerImage.Title.XML}">
                 <% else %>
                     <div class="nsw-banner__bg"></div>
                 <% end_if %>
