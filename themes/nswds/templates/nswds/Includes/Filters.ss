@@ -1,1 +1,3 @@
-<%-- TODO --%>
+<% if $FilterForm %>
+    {$FilterForm}
+<% end_if %>
