@@ -27,7 +27,7 @@
     <% end_if %>
 
     <% if $Actions %>
-        <fieldset class="nsw-form-fieldset">
+        <fieldset class="nsw-form-fieldset actions">
         <% loop $Actions %>
             {$Field}
         <% end_loop %>
