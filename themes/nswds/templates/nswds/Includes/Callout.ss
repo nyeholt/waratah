@@ -1,6 +1,6 @@
 <div class="nsw-callout">
     <% if $Icon %>
-        <% include nswds/Icon Icon=info %>
+        <% include nswds/Icon Icon=$Icon %>
     <% end_if %>
     <div class="nsw-callout__content">
         <h4 class="nsw-callout__title">{$Title.XML}</h4>
