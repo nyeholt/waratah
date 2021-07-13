@@ -11,4 +11,6 @@
     <% include ElementalList_accordion %>
 <% else_if $Subtype == 'tabs' %>
     <% include ElementalList_tabs %>
+<% else_if $Subtype == 'grid' %>
+    <% include ElementalList_grid %>
 <% end_if %>

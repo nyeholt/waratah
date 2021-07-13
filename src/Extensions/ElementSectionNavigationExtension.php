@@ -3,31 +3,15 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use SilverStripe\ORM\DataExtension;
-use SilverStripe\ORM\ArrayLib;
-use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\CheckboxField;
-use SilverStripe\Forms\LiteralField;
-use UncleCheese\DisplayLogic\Forms\Wrapper;
-use gorriecoe\Link\Models\Link;
-use NSWDPC\InlineLinker\InlineLinkCompositeField;
 
-
-class ElementListExtension extends DataExtension
+class ElementSectionNavigationExtension extends DataExtension
 {
 
     private static $db = [
-        'Subtype' => 'Varchar(64)',
         'CardColumns' => 'Varchar(64)',
         'CardStyle' => 'Varchar(64)'
-    ];
-
-    private static $subtypes = [
-        'cards' => 'Cards',
-        'accordion' => 'Accordion',
-        'tabs' => 'Tabs',
-        'grid' => 'Grid'
     ];
 
     private static $card_columns = [
@@ -46,21 +30,15 @@ class ElementListExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
-        $subType = DropdownField::create('Subtype',_t(__CLASS__ . '.LISTTYPE','List type'),$this->owner->config()->subtypes);
-        $subType->setEmptyString('none');
-
-        $cardColumns = DropdownField::create('CardColumns',_t(__CLASS__ . '.COLUMNS','Columns'),$this->owner->config()->card_columns);
+        $cardColumns = DropdownField::create('CardColumns',_t(__CLASS__ . '.CARDCOLUMNS','Card columns'),$this->owner->config()->card_columns);
         $cardColumns->setEmptyString('none');
-        $cardColumns->displayIf('Subtype')->isEqualTo('cards')->orIf()->isEqualTo('grid');
 
         $cardStyle = DropdownField::create('CardStyle',_t(__CLASS__ . '.CARDSTYLE','Card style'),$this->owner->config()->card_styles);
         $cardStyle->setEmptyString('none');
-        $cardStyle->displayIf('Subtype')->isEqualTo('cards');
 
         $fields->addFieldsToTab(
-            'Root.Settings',
+            'Root.Main',
             [
-                $subType,
                 $cardColumns,
                 $cardStyle
             ]

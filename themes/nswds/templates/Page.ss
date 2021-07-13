@@ -4,7 +4,6 @@
     <% base_tag %>
     <% include Metadata %>
     <% include Favicon %>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <% include GTMHead %>
 </head>
 
