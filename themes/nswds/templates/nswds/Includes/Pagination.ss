@@ -9,7 +9,7 @@
                 <% if $PaginatedItems.NotFirstPage %>
                     <li class="nsw-pagination__item nsw-pagination__item--prev-page">
                         <a class="nsw-direction-link nsw-direction-link--icon-left" href="$PaginatedItems.PrevLink">
-                            <% include Icon Icon='west' %>
+                            <% include nswds/Icon Icon='west' %>
                             <span class="nsw-direction-link__text">
                                 Back
                             </span>
@@ -55,7 +55,7 @@
                         <span class="nsw-direction-link__text">
                             Next
                         </span>
-                        <% include Icon Icon='east' %>
+                        <% include nswds/Icon Icon='east' %>
                         </a>
                     </li>
                 <% end_if %>
