@@ -25,5 +25,4 @@
             </div>
         <% end_loop %>
     </div>
-    <% include Pagination PaginatedItems=$Items %>
 <% end_if %>

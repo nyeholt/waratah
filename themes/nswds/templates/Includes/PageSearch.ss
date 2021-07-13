@@ -39,7 +39,7 @@
             <% else %>
                 <p>Sorry, your search query did not return any results.</p>
             <% end_if %>
-            <% include Pagination PaginatedItems=$Results %>
+            <% include nswds/Pagination PaginatedItems=$Results %>
         </main>
     </div>
 </div>
