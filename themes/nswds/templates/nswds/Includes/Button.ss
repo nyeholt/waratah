@@ -4,7 +4,7 @@
         {$Title.XML}
     </button>
 <% else_if $ButtonType='input' %>
-    <input type="<% if $InputType %>{$InputType}<% else %>submit<% end_if %>" class="nsw-button nsw-button--<% if $State %>{$State}<% else %>primary<% end_if %><% if $ButtonClass %> {$ButtonClass.XML}<% end_if %>" value="{$Title.XML}">
+    <input<% if $InputName %> name="{$InputName.XML}"<% end_if %> type="<% if $InputType %>{$InputType}<% else %>submit<% end_if %>" class="nsw-button nsw-button--<% if $State %>{$State}<% else %>primary<% end_if %><% if $ButtonClass %> {$ButtonClass.XML}<% end_if %>" value="{$Title.XML}">
 <% else_if $Link %>
     <a href="{$Link}" class="nsw-button nsw-button--<% if $State %>{$State}<% else %>primary<% end_if %><% if $ButtonClass %> {$ButtonClass.XML}<% end_if %>">
         {$Title.XML}
