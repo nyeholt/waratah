@@ -2,16 +2,20 @@
 <% if $Total == 0 %>
 
     <div class="nsw-results-bar__info">
-        <%t nswds.NO_RESULTS 'Sorry, no results found for your search' %>
+        <%t nswds.NO_RESULTS 'Sorry, no {result_type} found for your search' result_type=$ResultType %>
     </div>
 
 <% else %>
 
-    <div class="nsw-results-bar">
       <div class="nsw-results-bar__info">
-        <%t nswds.RESULTS_BAR 'Showing results {start} - {end} of {total} results' start=$Start end=$End total=$Total %>
+        <% if $TotalItems == $Total %>
+            <%t nswds.RESULTS_BAR_ALL_ITEMS 'Showing all {total} {result_type}' total=$Total result_type=$ResultType %>
+        <% else_if $Total == 1 %>
+            <%t nswds.RESULTS_BAR_ONE_RESULT 'Showing one {result_type_singular}' result_type_singular=$ResultTypeSingular %>
+        <% else %>
+            <%t nswds.RESULTS_BAR 'Showing {start} - {end} of {total} {result_type}' start=$Start end=$End total=$Total result_type=$ResultType %>
+        <% end_if %>
       </div>
-    </div>
 
     <% if $SortingField %>
     <div class="nsw-results-bar__sorting">
