@@ -15,7 +15,13 @@
 
     <% if $VisibleFields.count > 0 %>
         <fieldset class="nsw-form-fieldset">
-        <% if $Legend %><legend>$Legend</legend><% end_if %>
+        <% if $Legend %>
+            <legend>
+            <span class="nsw-form__legend">
+            $Legend
+            </span>
+            </legend>
+        <% end_if %>
         <% loop $Fields %>
             {$FieldHolder}
         <% end_loop %>
