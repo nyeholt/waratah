@@ -16,7 +16,6 @@ Page:
     - 'NSWDPC\Elemental\Models\ExtensibleSearch\ElementalExtensibleSearch'
     - 'NSWDPC\Elemental\Models\Banner\ElementBanner'
     - 'DNADesign\ElementalVirtual\Model\ElementVirtual'
-    - 'NSWDPC\Elemental\Models\Publications\ElementPublicationList'
   extensions:
     - 'DNADesign\Elemental\Extensions\ElementalPageExtension'
 # as dnadesign/silverstripe-elemental-userforms is available
