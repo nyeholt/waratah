@@ -2,13 +2,17 @@
     <div class="nsw-content-block">
         <div class="nsw-content-block__content">
             <h2 class="nsw-content-block__title">
-                <a href="{$LinkURL}" class="nsw-content-block__link">{$Title.XML}</a>
+                {$Title.XML}
             </h2>
             <p class="nsw-content-block__copy">
             <% if $Description %>
-                {$Description}
+                <p>{$Description.XML}</p>
+            <% else_if $Abstract %>
+                <p>{$Abstract.XML}</p>
+            <% else_if $MetaDescription %>
+                <p>{$MetaDescription.XML}</p>
             <% else_if $Content %>
-                {$Content}
+                {$Content.Summary}
             <% end_if %>
             </p>
             <% if $Listing %>
@@ -22,8 +26,8 @@
             <div class="nsw-content-block__link"><a href="$Link"><%t nswds.VIEW_MORE 'View more' %></a></div>
             <% end_if %>
         </div>
-        <% if $Image || $Icon %>
         <div class="nsw-content-block__image-area">
+        <% if $Image || $Icon %>
             <% if $Image %>
                 <% if $ImageWidth || $ImageHeight %>
                     <% if not $ImageHeight %>
@@ -32,14 +36,16 @@
                         {$Image.Fill($ImageWidth, $ImageHeight)}
                     <% end_if %>
                 <% else %>
-                     {$Image.ScaleWidth(400)}
+                     {$Image.ScaleHeight(200)}
                 <% end_if %>
             <% else_if $Icon %>
                 <div class="nsw-content-block__icon">
                 {$Icon.RAW}
                 </div>
             <% end_if %>
-        </div>
+        <% else %>
+            <div class="no-image"></div>
         <% end_if %>
+        </div>
     </div>
 </div>
