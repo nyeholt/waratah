@@ -1,4 +1,5 @@
 <% if $TagsList %>
+    <div class="nsw-tags">
     <% loop $TagsList %>
         <% if $Link %>
             <a href="{$Link}">{$Title.XML}</a>
@@ -10,4 +11,5 @@
             <span class="nsw-tag">{$Title.XML}</span>
         <% end_if %>
     <% end_loop %>
+    </div>
 <% end_if %>
