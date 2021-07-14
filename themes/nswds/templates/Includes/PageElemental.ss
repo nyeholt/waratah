@@ -1,6 +1,6 @@
-<% if $ElementNav %>
-    <% include nswds/InPageNavigation %>
-<% end_if %>
+
+<% include nswds/InPageNavigation InPageNavigation=$ElementNav %>
+
 <% if $supportsElemental && $ElementalArea && $ElementalArea.Elements.count > 0 %>
     {$ElementalArea}
 <% else %>
