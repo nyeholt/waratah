@@ -15,8 +15,6 @@ SilverStripe\Forms\DropdownField:
   default_classes: ['nsw-form-select']
 SilverStripe\Forms\GroupedDropdownField:
   default_classes: ['nsw-form-select']
-SilverStripe\Forms\ListboxField:
-  default_classes: ['nsw-form-select']
 SilverStripe\Forms\CheckboxField:
   default_classes: ['nsw-form-checkbox__input']
 SilverStripe\Forms\OptionsetField:
