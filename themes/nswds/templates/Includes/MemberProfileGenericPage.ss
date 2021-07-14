@@ -13,17 +13,17 @@
 
                 <div class="nsw-block">
 
-                    <% include PageContentTitle %>
+                    <% include NSWDPC/Waratah/PageContentTitle %>
 
-                    <% include PageContentAbstract %>
+                    <% include NSWDPC/Waratah/PageContentAbstract %>
 
                     <% include MemberProfileMessage %>
 
                 </div>
 
-                <% include PageElemental %>
+                <% include NSWDPC/Waratah/PageElemental %>
 
-                <% include PageForm %>
+                <% include NSWDPC/Waratah/PageForm %>
 
             </article>
         </main>

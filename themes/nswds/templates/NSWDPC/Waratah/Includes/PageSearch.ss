@@ -15,7 +15,7 @@
                         </p>
                     <% end_if %>
                 </div>
-                <% include PageElemental %>
+                <% include NSWDPC/Waratah/PageElemental %>
             </article>
             <% if $Query && $Results %>
                 <p class="searchQuery">Showing $Results.FirstItem &ndash; $Results.LastItem of $Results.TotalItems result<% if $Results.TotalItems != 1 %>s<% end_if %> for &quot;{$Query}&quot;</p>

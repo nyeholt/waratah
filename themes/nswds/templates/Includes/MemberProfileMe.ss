@@ -13,9 +13,9 @@
 
                 <div class="nsw-block">
 
-                    <% include PageContentTitle %>
+                    <% include NSWDPC/Waratah/PageContentTitle %>
 
-                    <% include PageContentAbstract %>
+                    <% include NSWDPC/Waratah/PageContentAbstract %>
 
                     <% include MemberProfileMessage %>
 
@@ -38,7 +38,7 @@
                     </div>
                     <% end_with %>
 
-                    <% include PageForm %>
+                    <% include NSWDPC/Waratah/PageForm %>
 
                 <% else %>
                     <% include nswds/InPageNotification Level='warning', Icon='warning', Message='Your profile does not exist' %>

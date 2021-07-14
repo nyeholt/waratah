@@ -2,9 +2,9 @@
 <html lang="en" class="no-js">
 <head>
     <% base_tag %>
-    <% include Metadata %>
-    <% include Favicon %>
-    <% include GTMHead %>
+    <% include NSWDPC/Waratah/Metadata %>
+    <% include NSWDPC/Waratah/Favicon %>
+    <% include NSWDPC/Waratah/GTMHead %>
 </head>
 
 <body class="nsw-body-content">
@@ -15,9 +15,9 @@
 
 <% include nswds/Header %>
 
-<% include MainNavigation %>
+<% include NSWDPC/Waratah/MainNavigation %>
 
-<% include PageBanner %>
+<% include NSWDPC/Waratah/PageBanner %>
 
 <% include nswds/Breadcrumbs %>
 

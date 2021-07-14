@@ -1,1 +1,1 @@
-<% include SiteTreeNavigation %>
+<% include NSWDPC/Waratah/SiteTreeNavigation %>

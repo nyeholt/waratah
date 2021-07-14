@@ -1,1 +1,1 @@
-<% include PageWrapper %>
+<% include NSWDPC/Waratah/PageWrapper %>

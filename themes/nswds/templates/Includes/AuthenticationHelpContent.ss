@@ -3,7 +3,7 @@
     <div class="nsw-page-layout">
 
         <% if $Menu(2) %>
-            <% include Sidebar %>
+            <% include NSWDPC/Waratah/Sidebar %>
         <% end_if %>
 
         <main id="main-content" class="nsw-page-layout__main">
@@ -11,9 +11,9 @@
             <article>
                 <div class="nsw-block">
 
-                    <% include PageContentTitle %>
+                    <% include NSWDPC/Waratah/PageContentTitle %>
 
-                    <% include PageContentAbstract %>
+                    <% include NSWDPC/Waratah/PageContentAbstract %>
 
                 </div>
 
@@ -41,7 +41,7 @@
 
             </article>
 
-            <% include PageForm %>
+            <% include NSWDPC/Waratah/PageForm %>
 
         </main>
 

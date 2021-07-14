@@ -1,7 +1,7 @@
 <% if $Subtype == 'none' || not $Subtype %>
-    <% include ElementContent_default %>
+    <% include NSWDPC/Waratah/ElementContent/Default %>
 <% else_if $Subtype == 'callout' %>
-    <% include ElementContent_callout %>
+    <% include NSWDPC/Waratah/ElementContent/Callout %>
 <% else_if $Subtype == 'profile' %>
-    <% include ElementContent_profile %>
+    <% include NSWDPC/Waratah/ElementContent/Profile %>
 <% end_if %>

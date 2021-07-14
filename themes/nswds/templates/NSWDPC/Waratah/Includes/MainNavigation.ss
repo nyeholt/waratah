@@ -3,5 +3,5 @@
     {$AlternateSiteNavigation}
     <% end_if %>
 <% else %>
-    <% include SiteTreeNavigation %>
+    <% include NSWDPC/Waratah/SiteTreeNavigation %>
 <% end_if %>
