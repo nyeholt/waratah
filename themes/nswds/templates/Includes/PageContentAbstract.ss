@@ -1,5 +1,5 @@
-<% if $Abstract %>
+<% if $Abstract && $ShowAbstractOnPage %>
     <p class="nsw-intro">
-        {$Abstract}
+        {$Abstract.XML}
     </p>
 <% end_if %>
