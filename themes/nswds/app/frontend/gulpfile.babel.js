@@ -13,18 +13,25 @@ import commonjs from 'rollup-plugin-commonjs'
 import del from 'del';
 import rename from 'gulp-rename';
 import filter from 'gulp-filter';
-
-
-const thirdparty = {
-    'javascript': './node_modules/nsw-design-system/dist/js/main.js',
-    'css': './node_modules/nsw-design-system/dist/css/main.css',
-}
+import mergeStream from 'merge-stream';
 
 const config = {
     'src': {
-        'css': './src/scss/**/app.scss',
-        'js': './src/js/**/*.js',
-        'svg': './src/svg/**/*.svg',
+        'css': [
+          './node_modules/nsw-design-system/dist/css/main.css',
+          './src/scss/app.scss',
+          // the relative path to the Silverstripe app folder
+          '../../../../../../../app/frontend/src/scss/app.scss'
+        ],
+        'js': [
+          './node_modules/nsw-design-system/dist/js/main.js',
+          './src/js/app.js',
+          // the relative path to the Silverstripe app folder
+          '../../../../../../../app/frontend/src/js/app.js'
+        ],
+        'svg': [
+          './src/svg/**/*.svg'
+        ],
         'svgSprite': {
             'mode': {
                 'defs': {
@@ -48,22 +55,29 @@ gulp.task('clean', function () {
 
 
 gulp.task('scss', function () {
-    return gulp.src([
-        config.src.css
-    ])
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.init())
-        .pipe(sourcemaps.write('.'))
-        // output non-minified
-        .pipe(gulp.dest(config.dist.css))
-        .pipe(filter('**/*.css'))
-        // minfify
-        .pipe(postcss([
-            cssnano()
-        ]))
-        .pipe(sourcemaps.write('.'))
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest(config.dist.css))
+    let stream = mergeStream();
+
+    config.src.css.forEach((item, i) => {
+
+      stream.add( gulp.src(item)
+          .pipe(sass().on('error', sass.logError))
+          .pipe(sourcemaps.init())
+          .pipe(sourcemaps.write('.'))
+          // output non-minified
+          .pipe(gulp.dest(config.dist.css))
+          .pipe(filter('**/*.css'))
+          // minfify
+          .pipe(postcss([
+              cssnano()
+          ]))
+          .pipe(sourcemaps.write('.'))
+          .pipe(rename({ suffix: '.min' }))
+          .pipe(gulp.dest(config.dist.css))
+      );
+    });
+
+    return stream;
+
 });
 
 gulp.task('svg', function () {
@@ -76,7 +90,10 @@ gulp.task('svg', function () {
 });
 
 gulp.task('js', function () {
-    return gulp.src([thirdparty.javascript, config.src.js])
+  let stream = mergeStream();
+
+  config.src.css.forEach((item, i) => {
+    stream.add( gulp.src(config.src.js)
         .pipe(
             rollup(
                 {
@@ -99,6 +116,12 @@ gulp.task('js', function () {
         .pipe(sourcemaps.write('.'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(config.dist.js))
+
+      );
+
+    });
+
+    return stream;
 })
 
 gulp.task('watch', function () {
