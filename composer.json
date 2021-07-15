@@ -42,6 +42,10 @@
         {
             "type":"vcs",
             "url": "https://github.com/nswdpc/silverstripe-content-boilerplate.git"
+        },
+        {
+            "type":"vcs",
+            "url": "https://github.com/nswdpc/silverstripe-field-hint.git"
         }
     ],
     "replace": {
@@ -49,7 +53,8 @@
     },
     "require": {
         "nswdpc/silverstripe-content-boilerplate": "dev-master",
-        "nswdpc/silverstripe-feedback-assist": "dev-master"
+        "nswdpc/silverstripe-feedback-assist": "dev-master",
+        "nswdpc/silverstripe-field-hint": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
