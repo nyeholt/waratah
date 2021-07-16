@@ -70,7 +70,6 @@ gulp.task('scss', function () {
           .pipe(postcss([
               cssnano()
           ]))
-          .pipe(sourcemaps.write('.'))
           .pipe(rename({ suffix: '.min' }))
           .pipe(gulp.dest(config.dist.css))
       );
@@ -113,7 +112,6 @@ gulp.task('js', function () {
         .pipe(filter('**/*.js'))
         // uglify
         .pipe(uglifyjs())
-        .pipe(sourcemaps.write('.'))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest(config.dist.js))
 
