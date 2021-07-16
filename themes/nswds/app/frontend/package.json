@@ -13,7 +13,8 @@
     "start": "node_modules/.bin/gulp",
     "build": "node_modules/.bin/gulp build",
     "patch": "npx patch-package --patch-dir ../../../../../../../mysite/frontend/patches",
-    "buildall": "npm install && npm rebuild node-sass && npm run-script patch && node_modules/.bin/gulp build"
+    "rebuild-node-sass": "npm rebuild node-sass",
+    "buildall": "npm install && npm run-script patch && node_modules/.bin/gulp build"
   },
   "author": "NSWDPC Digital",
   "contributors": [
