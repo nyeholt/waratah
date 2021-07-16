@@ -4,18 +4,24 @@
 <% end_if %>
 
     <% if $MessageType == 'good' %>
-        <% include InPageNotification Icon='check_circle', Level='success', MessageTitle='Success', Message=$Message %>
+        <% include nswds/InPageNotification Icon='check_circle', Level='success', MessageTitle='Success', Message=$Message %>
     <% else_if $MessageType == 'warning' %>
-        <% include InPageNotification Icon='error', Level='warning', MessageTitle='Warning', Message=$Message %>
+        <% include nswds/InPageNotification Icon='error', Level='warning', MessageTitle='Warning', Message=$Message %>
     <% else_if $MessageType == 'error' %>
-        <% include InPageNotification Icon='cancel', Level='error', MessageTitle='Error', Message=$Message %>
+        <% include nswds/InPageNotification Icon='cancel', Level='error', MessageTitle='Error', Message=$Message %>
     <% else %>
-        <% include InPageNotification Icon='info', Level='info', MessageTitle='Information', Message=$Message %>
+        <% include nswds/InPageNotification Icon='info', Level='info', MessageTitle='Information', Message=$Message %>
     <% end_if %>
 
     <% if $VisibleFields.count > 0 %>
         <fieldset class="nsw-form-fieldset">
-        <% if $Legend %><legend>$Legend</legend><% end_if %>
+        <% if $Legend %>
+            <legend>
+            <span class="nsw-form__legend">
+            $Legend
+            </span>
+            </legend>
+        <% end_if %>
         <% loop $Fields %>
             {$FieldHolder}
         <% end_loop %>
@@ -27,7 +33,7 @@
     <% end_if %>
 
     <% if $Actions %>
-        <fieldset class="nsw-form-fieldset">
+        <fieldset class="nsw-form-fieldset actions">
         <% loop $Actions %>
             {$Field}
         <% end_loop %>

@@ -29,3 +29,11 @@ SilverStripe\SiteConfig\SiteConfig:
 gorriecoe\Link\Models\Link:
   extensions:
     - 'NSWDPC\Waratah\Extensions\LinkExtension'
+
+Silverstripe\Assets\Image:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\ImageExtension'
+
+SilverStripe\AssetAdmin\Forms\ImageFormFactory:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\ImageAssetFormFactoryExtension'

@@ -13,8 +13,14 @@ use SilverStripe\Assets\Image;
 class PageExtension extends DataExtension
 {
 
+    /**
+     * @var array
+     */
     private static $allowed_file_types = ["jpg", "jpeg", "gif", "png", "webp"];
 
+    /**
+     * @var array
+     */
     private static $db = [
         'Abstract' => 'Text',
         'ShowAbstractOnPage' => 'Boolean',
@@ -22,6 +28,16 @@ class PageExtension extends DataExtension
         'ShowBannerImage' => 'Boolean'
     ];
 
+    /**
+     * @var array
+     */
+    private static $defaults = [
+        "ShowAbstractOnPage" => 1
+    ];
+
+    /**
+     * @var array
+     */
     private static $has_one = [
         "Image" => Image::class
     ];

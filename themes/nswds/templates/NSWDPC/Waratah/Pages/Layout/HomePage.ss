@@ -1,6 +1,6 @@
 <main id="main-content">
     <article>
-        <% include PageElemental %>
+        <% include NSWDPC/Waratah/PageElemental %>
     </article>
-    <% include PageForm %>
+    <% include NSWDPC/Waratah/PageForm %>
 </main>

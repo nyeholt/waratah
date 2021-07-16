@@ -2,29 +2,28 @@
 <html lang="en" class="no-js">
 <head>
     <% base_tag %>
-    <% include Metadata %>
-    <% include Favicon %>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <% include GTMHead %>
+    <% include NSWDPC/Waratah/Metadata %>
+    <% include NSWDPC/Waratah/Favicon %>
+    <% include NSWDPC/Waratah/GTMHead %>
 </head>
 
 <body class="nsw-body-content">
 
-<% include SkipToNav %>
+<% include nswds/SkipToNav %>
 
-<% include Masthead %>
+<% include nswds/Masthead %>
 
-<% include Header %>
+<% include nswds/Header %>
 
-<% include MainNavigation %>
+<% include NSWDPC/Waratah/MainNavigation %>
 
-<% include PageBanner %>
+<% include NSWDPC/Waratah/PageBanner %>
 
-<% include Breadcrumbs %>
+<% include nswds/Breadcrumbs %>
 
-$Layout
+{$Layout}
 
-<% include Footer %>
+<% include nswds/Footer %>
 
 <% include FeedbackAssist %>
 

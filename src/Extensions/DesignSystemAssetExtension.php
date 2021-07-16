@@ -177,7 +177,7 @@ CSS
                 );
                 return ArrayData::create([
                     'SVGSprite' => $html
-                ])->renderWith('DigitalNSW/DesignSystem/SVGSprite');
+                ])->renderWith('nswds/SVGSprite');
 
             } else {
 

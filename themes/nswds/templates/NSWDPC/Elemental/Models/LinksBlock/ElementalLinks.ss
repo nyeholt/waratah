@@ -1,7 +1,7 @@
 <% if $Subtype == 'cards' %>
-    <% include ElementalLinks_cards %>
+    <% include NSWDPC/Waratah/ElementalLinks/Cards %>
 <% else_if $Subtype == 'feature-tile' %>
-    <% include ElementalLinks_featuretile %>
+    <% include NSWDPC/Waratah/ElementalLinks/FeatureTile %>
 <% else_if $Subtype == 'link-list' %>
-    <% include ElementalLinks_linklist %>
+    <% include NSWDPC/Waratah/ElementalLinks/LinkList %>
 <% end_if %>

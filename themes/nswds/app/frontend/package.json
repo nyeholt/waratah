@@ -12,7 +12,10 @@
     "setup": "npm install",
     "start": "node_modules/.bin/gulp",
     "build": "node_modules/.bin/gulp build",
-    "buildall": "npm install && npm rebuild node-sass && node_modules/.bin/gulp build"
+    "patch": "npx patch-package --patch-dir ../../../../../../../mysite/frontend/patches",
+    "rebuild-node-sass": "npm rebuild node-sass",
+    "buildall": "npm install --prefer-offline --silent --no-audit && npm run-script patch && npm run-script build",
+    "audit": "npm audit"
   },
   "author": "NSWDPC Digital",
   "contributors": [
@@ -38,6 +41,7 @@
     "gulp-babel": "^8",
     "gulp-better-rollup": "^4.0.1",
     "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
     "gulp-filter": "^6.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
@@ -47,6 +51,7 @@
     "gulp-uglify-es": "^2",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",
+    "patch-package": "^6.4.7",
     "rollup": "^1.4",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",

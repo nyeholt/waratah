@@ -1,0 +1,20 @@
+.ss-main .ss-multi-selected {
+    font-family: Montserrat, Arial, sans-serif;
+    padding: .35rem;
+    border: 1px solid $dark60;/* nswds */
+    border-radius: .25rem;
+    line-height: 1.25;
+}
+
+.ss-main .ss-multi-selected .ss-values .ss-value {
+    font-size: 16px;
+    padding: 7px;
+    margin: 2px;
+    margin-right: 3px;
+    background-color: $nsw-secondary-blue;/* nswds */
+    border-radius: .25rem;
+}
+
+.ss-main .ss-multi-selected .ss-values .ss-disabled {
+    color: $light40;/*  nswds */
+}

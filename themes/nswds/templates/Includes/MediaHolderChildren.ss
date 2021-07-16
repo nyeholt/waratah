@@ -39,6 +39,6 @@
                 </div>
             <% end_loop %>
         </div>
-        <% include Pagination PaginatedItems=$PaginatedChildren %>
+        <% include nswds/Pagination PaginatedItems=$PaginatedChildren %>
     </section>
 <% end_if %>

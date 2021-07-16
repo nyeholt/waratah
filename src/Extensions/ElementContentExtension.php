@@ -15,6 +15,15 @@ use NSWDPC\InlineLinker\InlineLinkCompositeField;
 class ElementContentExtension extends DataExtension
 {
 
+    private static $db = [
+        'Subtype' => 'Varchar(64)'
+    ];
+
+    private static $subtypes = [
+        'callout' => 'Callout',
+        'profile' => 'Profile'
+    ];
+
     private static $has_one = [
         'Image' => Image::class,
         'ContentLink' => Link::class,
@@ -39,9 +48,14 @@ class ElementContentExtension extends DataExtension
 
         $fields->removeByName(['ContentLinkID']);
         $fields->addFieldsToTab(
-            'Root.Main',
+            'Root.Settings',
             [
-                $this->getLinkField(),
+                DropdownField::create(
+                    'Subtype',
+                    _t(__CLASS__ . '.LISTTYPE','List type'),
+                    $this->owner->config()->subtypes
+                )
+                ->setEmptyString('none'),
                 UploadField::create(
                     'Image',
                     _t(__CLASS__ . '.IMAGE', 'Image')
@@ -56,8 +70,9 @@ class ElementContentExtension extends DataExtension
                             'types' => implode(",", $this->owner->getAllowedFileTypes())
                         ]
                     )
-                )
-            ]
+                ),
+                $this->getLinkField()
+            ], 'ParentID'
         );
 
     }

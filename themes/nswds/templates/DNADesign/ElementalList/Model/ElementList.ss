@@ -6,9 +6,11 @@
     <% end_if %>
     {$Elements}
 <% else_if $Subtype == 'cards' %>
-    <% include ElementalList_cards %>
+    <% include NSWDPC/Waratah/ElementalList/Cards %>
 <% else_if $Subtype == 'accordion' %>
-    <% include ElementalList_accordion %>
+    <% include NSWDPC/Waratah/ElementalList/Accordion %>
 <% else_if $Subtype == 'tabs' %>
-    <% include ElementalList_tabs %>
+    <% include NSWDPC/Waratah/ElementalList/Tabs %>
+<% else_if $Subtype == 'grid' %>
+    <% include NSWDPC/Waratah/ElementalList/Grid %>
 <% end_if %>

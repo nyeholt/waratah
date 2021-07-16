@@ -26,7 +26,8 @@ class ElementListExtension extends DataExtension
     private static $subtypes = [
         'cards' => 'Cards',
         'accordion' => 'Accordion',
-        'tabs' => 'Tabs'
+        'tabs' => 'Tabs',
+        'grid' => 'Grid'
     ];
 
     private static $card_columns = [
@@ -39,6 +40,7 @@ class ElementListExtension extends DataExtension
         'title' => 'Title only',
         'title-abstract' => 'Title and abstract',
         'title-image-abstract' => 'Title, image, abstract',
+        'promo' => 'Promo'
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -47,9 +49,9 @@ class ElementListExtension extends DataExtension
         $subType = DropdownField::create('Subtype',_t(__CLASS__ . '.LISTTYPE','List type'),$this->owner->config()->subtypes);
         $subType->setEmptyString('none');
 
-        $cardColumns = DropdownField::create('CardColumns',_t(__CLASS__ . '.CARDCOLUMNS','Card columns'),$this->owner->config()->card_columns);
+        $cardColumns = DropdownField::create('CardColumns',_t(__CLASS__ . '.COLUMNS','Columns'),$this->owner->config()->card_columns);
         $cardColumns->setEmptyString('none');
-        $cardColumns->displayIf('Subtype')->isEqualTo('cards');
+        $cardColumns->displayIf('Subtype')->isEqualTo('cards')->orIf()->isEqualTo('grid');
 
         $cardStyle = DropdownField::create('CardStyle',_t(__CLASS__ . '.CARDSTYLE','Card style'),$this->owner->config()->card_styles);
         $cardStyle->setEmptyString('none');
