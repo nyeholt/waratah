@@ -21,13 +21,13 @@ const config = {
           './node_modules/nsw-design-system/dist/css/main.css',
           './src/scss/app.scss',
           // the relative path to the Silverstripe app folder
-          '../../../../../../../app/frontend/src/scss/app.scss'
+          '../../../../../../../mysite/frontend/src/scss/app.scss'
         ],
         'js': [
           './node_modules/nsw-design-system/dist/js/main.js',
           './src/js/app.js',
           // the relative path to the Silverstripe app folder
-          '../../../../../../../app/frontend/src/js/app.js'
+          '../../../../../../../mysite/frontend/src/js/app.js'
         ],
         'svg': [
           './src/svg/**/*.svg'
