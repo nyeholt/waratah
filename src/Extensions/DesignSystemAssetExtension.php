@@ -114,18 +114,34 @@ class DesignSystemAssetExtension extends Extension {
         );
 
         // The built NSW DS CSS, with supporting CSS
-        Requirements::css(
-            $this->getAsset("app/frontend/dist/css/app.css"),
-            "screen"
-        );
+        if(Director::isLive()) {
+            Requirements::css(
+                $this->getAsset("app/frontend/dist/css/app.min.css"),
+                "screen"
+            );
+        } else {
+            Requirements::css(
+                $this->getAsset("app/frontend/dist/css/app.css"),
+                "screen"
+            );
+        }
 
         // The built NSWDS,  with supporting JS and window.NSW.initSite() called
-        Requirements::javascript(
-            $this->getAsset("app/frontend/dist/javascript/app.js"),
-            [
-                'async' => 'async'
-            ]
-        );
+        if(Director::isLive()) {
+            Requirements::javascript(
+                $this->getAsset("app/frontend/dist/javascript/app.min.js"),
+                [
+                    'async' => 'async'
+                ]
+            );
+        } else {
+            Requirements::javascript(
+                $this->getAsset("app/frontend/dist/javascript/app.js"),
+                [
+                    'async' => 'async'
+                ]
+            );
+        }
 
     }
 
