@@ -1,0 +1,150 @@
+.nsw-page-layout {
+  .mfa-app {
+
+    @include nsw-spacing(padding, md none none none);
+    @include font-stack;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    color: $dark80;
+
+    i {
+      display: none;
+    }
+
+    .mfa-app-title {
+      @include font-size('xxl');
+      color: $dark80;
+      display : none;
+    }
+
+    .mfa-section-title {
+      @include font-size('lg');
+      color: $dark80;
+    }
+
+    .mfa-feature-list-title {
+      @include font-size('md');
+      color: $dark80;
+    }
+
+    label {
+      @extend .nsw-form__label;
+    }
+
+    input.mfa-totp__code {
+      @extend .nsw-form__input;
+    }
+
+    .mfa-totp__validate-code p {
+      @include nsw-spacing(margin, none none md none);
+    }
+
+    img {
+      filter: grayscale(1);
+    }
+
+    .mfa-feature-list {
+      &-item {
+        @include font-size('sm');
+        color: $dark80;
+
+        &__content {
+          color: $dark80;
+        }
+
+        &__title {
+          @include font-size('sm');
+          color: $dark80;
+        }
+
+        &__description {
+          @include font-size('sm');
+          color: $dark80;
+        }
+
+      }
+    }
+
+    .mfa-action-list {
+
+      &__item {
+        .btn {
+          @extend .nsw-button;
+        }
+
+        .btn-primary {
+          @extend .nsw-button--primary;
+        }
+
+        .btn-secondary {
+          @extend .nsw-button--secondary;
+        }
+      }
+
+    }
+
+    .mfa-verify-select-method__actions {
+
+      @include nsw-spacing(margin, none none md none);
+
+      a.mfa-verify-select-method__back {
+        @extend .nsw-button;
+        @extend .nsw-button--primary;
+      }
+    }
+
+    .mfa-register-backup-codes__container {
+
+      .mfa-register-backup-codes__helper-links {
+
+        @include nsw-spacing(margin, none none md none);
+
+        .btn {
+            @extend .nsw-button;
+        }
+
+        .btn-link {
+            @extend .nsw-button--secondary;
+        }
+
+      }
+
+      .btn {
+        @extend .nsw-button;
+      }
+
+      .btn-primary {
+        @extend .nsw-button--primary;
+      }
+
+    }
+
+    .mfa-register-confirmation {
+      text-align: left;
+      margin : 0;
+
+      .mfa-register-confirmation__title {
+        @include nsw-spacing(margin, none none md none);
+        @include font-size('lg');
+        color: $dark80;
+      }
+
+      .mfa-register-confirmation__description {
+        @include nsw-spacing(margin, none none md none);
+      }
+
+      .btn {
+        @extend .nsw-button;
+      }
+
+      .btn-primary {
+        @extend .nsw-button--primary;
+      }
+
+    }
+
+  }
+
+}

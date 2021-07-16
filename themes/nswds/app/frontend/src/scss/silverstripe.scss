@@ -1,6 +1,9 @@
 // NSW Design System
 @import 'node_modules/nsw-design-system/src/main';
 
+// MFA app
+@import './components/mfa';
+
 // Declarations for Silverstripe integration
 ::selection {
   color: $white;
