@@ -70,8 +70,8 @@ gulp.task('clean', function () {
 
 gulp.task('scss', function () {
 
-    return gulp.src(config.src.css)
-      .pipe( gulpDebug( {'title': 'SCSS process:' + config.src.css }))
+    return gulp.src(config.src.css, {allowEmpty: true})
+      .pipe( gulpDebug( {'title': 'SCSS process' }))
       .pipe(sass().on('error', sass.logError))
       .pipe(sourcemaps.init())
       .pipe( gulpDebug( {'title': 'concat to app.css' }))
@@ -94,7 +94,7 @@ gulp.task('scss', function () {
 gulp.task('svg', function () {
 
     return gulp.src(config.src.svg)
-        .pipe( gulpDebug( {'title': 'SVG process:' + config.src.svg }))
+        .pipe( gulpDebug( {'title': 'SVG process' }))
         .pipe(svgSprite(config.src.svgSprite))
         .on('error', (error) => {
             console.log(error)
@@ -106,8 +106,8 @@ gulp.task('svg', function () {
 
 gulp.task('js', function () {
 
-    return gulp.src(config.src.js)
-        .pipe( gulpDebug( {'title': 'JS process' + config.src.js }))
+    return gulp.src(config.src.js, {allowEmpty: true})
+        .pipe( gulpDebug( {'title': 'JS process' }))
         .pipe(
             rollup(
                 {
