@@ -15,6 +15,6 @@ echo "Binary: $NPM"
 echo "Prefix: $PREFIX"
 
 echo "Stage: buildall"
-$NPM -q --silent --prefix $PREFIX run-script buildall
+$NPM --prefix $PREFIX run-script buildall
 
 echo "Completed the NSW Design System build"
