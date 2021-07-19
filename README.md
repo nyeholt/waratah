@@ -1,21 +1,34 @@
 # NSW Design System integration for Silverstripe websites
 
-This module provides integration for Silverstripe websites with the [NSW Design System](https://github.com/digitalnsw/nsw-design-system).
+This module adds the [NSW Design System](https://github.com/digitalnsw/nsw-design-system) to a Silverstripe website. If you are a NSW Government Agency using Silverstripe, this is the module to use.
+
+This module is maintained by the NSWDPC Digital Team. We're a friendly crew that welcome pull requests and issue reports.
 
 ## Features
 
-+ Provides configuration for supported Elemental elements
-+ Requires the [nswdpc/silverstripe-content-boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate)
-+ A variety of build options for the frontend
-+ Configure specific project requirements/overrids via the `DesignSystemConfiguration` model
-+ Composer scripts `create-project` and `build-nswds`
++ ✅ Implements all components from the NSW Design System ^2.13
++ ✅ Standard page layouts
++ ✅ Integrates our supported [Elemental elements](https://github.com/silverstripe/silverstripe-elemental)
++ ✅ Includs the [NSWDPC Silverstripe content authoring boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate) containing content authoring tools.
++ ✅ Supports all Silverstripe form fields
++ ✅ Adds support for: Tiny Date Picker, StickyJS, SlimSelect, MicroModal
++ ✅ [A simple frontend build process using Yarn or NPM](./docs/en/001_index.md)
++ ✅ Supports adding project-specific JS and SCSS requirements to the build
+
+### For specific branding
+
++ 🎨 [Apply a colour palette](./docs/en/100_branding.md)
++ 🧠 [More involved configuration](./docs/en/101_advanced_configuration.md)
 
 ## Installation
 
-The recommended way of installing this module is via [composer](https://getcomposer.org/download/)
-```
+Starting within a Silverstripe install, the recommended way of installing this module is via [composer](https://getcomposer.org/download/)
+
+```shell
 composer require nswdpc/waratah
 ```
+
+Next 👉 [building the frontend assets](./docs/en/001_index.md)
 
 ## License
 
