@@ -7,7 +7,8 @@ import babel from 'rollup-plugin-babel';
 import cssnano from 'cssnano';
 import concat from 'gulp-concat';
 import svgSprite from 'gulp-svg-sprite';
-import uglifyjs from 'gulp-uglify-es';
+import gulpTerser from 'gulp-terser';
+import terser from 'terser';
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import del from 'del';
@@ -23,6 +24,15 @@ const designSystem = {
   }
 };
 
+const thirdParty = {
+  'src': {
+    'css' : [
+      './node_modules/tiny-date-picker/dist/tiny-date-picker.css',
+      './node_modules/slim-select/dist/slimselect.css'
+    ]
+  }
+};
+
 const config = {
     'src': {
         'css': [
@@ -31,7 +41,6 @@ const config = {
           '../../../../../../../mysite/frontend/src/scss/app.scss'
         ],
         'js': [
-          designSystem.src.js,
           './src/js/app.js',
           // the relative path to the Silverstripe app folder
           '../../../../../../../mysite/frontend/src/js/app.js'
@@ -50,64 +59,88 @@ const config = {
     },
     'dist': {
         'css': 'dist/css',
-        'js': 'dist/javascript',
+        'js': 'dist/js',
         'svg': 'dist/assets/svg'
     },
+    'build': {
+        'css': 'build/css',
+        'js': 'build/js'
+    }
 
-}
+};
 
-gulp.task('clean', function () {
-    gulpDebug( {'title': 'CLEAN' } );
-    let delDist = del([ 'dist/*' ], { dot: true } );
-    let mkdirCSS = mkdirp(config.dist.css);
-    gulpDebug( {'title': 'mkdirp:' + config.dist.css } );
-    let mkdirJS = mkdirp(config.dist.js);
-    gulpDebug( {'title': 'mkdirp:' + config.dist.js } );
-    let mkdirSVG = mkdirp(config.dist.svg);
-    gulpDebug( {'title': 'mkdirp:' + config.dist.svg } );
-    return delDist && mkdirCSS && mkdirJS && mkdirSVG;
+gulp.task('clean', function(done) {
+    return del([ 'dist/**/*', 'build/**/*' ], { dot: true } );
 });
 
-gulp.task('scss', function () {
-
+// CSS - sass processing
+gulp.task('sassBuild', function() {
     return gulp.src(config.src.css, {allowEmpty: true})
-      .pipe( gulpDebug( {'title': 'SCSS process' }))
-      .pipe(sass().on('error', sass.logError))
-      .pipe(sourcemaps.init())
-      .pipe( gulpDebug( {'title': 'concat to app.css' }))
-      .pipe(concat('app.css'))
-      .pipe(sourcemaps.write('.'))
-      // output non-minified
-      .pipe(gulp.dest(config.dist.css))
-      .pipe(filter('**/*.css'))
-      // minify
-      .pipe( gulpDebug( {'title': 'minify app.css' }))
-      .pipe(postcss([
-          cssnano()
-      ]))
-      .pipe(rename({ suffix: '.min' }))
-      .pipe( gulpDebug( {'title': 'write minified app.css' }))
-      .pipe(gulp.dest(config.dist.css));
-
+        .pipe( gulpDebug( {'title': 'SCSS process' }))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(concat('component.css'))
+        .pipe(gulp.dest(config.build.css));
 });
 
-gulp.task('svg', function () {
+gulp.task('cssBuild', function() {
+    return gulp.src(thirdParty.src.css)
+        .pipe( gulpDebug( {'title': 'Thirdparty CSS process' }))
+        .pipe(concat('thirdparty.css'))
+        .pipe(gulp.dest(config.build.css));
+});
 
+gulp.task('appCssBuild', function() {
+     let buildFiles = [
+       config.build.css + '/thirdparty.css',
+       config.build.css + '/component.css',
+     ];
+     return gulp.src( buildFiles )
+        .pipe( gulpDebug( {'title': 'App CSS build' }))
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.css'))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(config.dist.css))
+        .pipe(filter('**/app.css'))
+        // minify
+        .pipe(postcss([
+            cssnano()
+        ]))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest(config.dist.css));
+});
+
+// Clean up CSS build files
+gulp.task('appCssBuildCleanup', function(done) {
+  gulpDebug( {'title': 'appCssBuildCleanup' });
+  return del( config.build.css + '/*' );
+});
+
+// CSS processing
+gulp.task('css' , gulp.series('sassBuild', 'cssBuild', 'appCssBuild') );
+
+// SVG
+gulp.task('svg', function() {
     return gulp.src(config.src.svg)
         .pipe( gulpDebug( {'title': 'SVG process' }))
         .pipe(svgSprite(config.src.svgSprite))
         .on('error', (error) => {
             console.log(error)
         })
-        .pipe( gulpDebug( {'title': 'write SVG dist' }))
         .pipe(gulp.dest(config.dist.svg));
-
 });
 
-gulp.task('js', function () {
+// JS
+gulp.task('designSystemJsBuild', function() {
+  return gulp.src( designSystem.src.js )
+      .pipe( gulpDebug( {'title': 'Add NSW Design System JS' }))
+      .pipe( concat('nswdesignsystem.js') )
+      .pipe( gulp.dest(config.build.js) );
+});
 
-    return gulp.src(config.src.js, {allowEmpty: true})
-        .pipe( gulpDebug( {'title': 'JS process' }))
+// Build app components
+gulp.task('componentJsBuild', function() {
+    return gulp.src( config.src.js, { allowEmpty: true } )
+        .pipe( gulpDebug( {'title': 'Components JS build' }))
         .pipe(
             rollup(
                 {
@@ -115,29 +148,48 @@ gulp.task('js', function () {
                         babel(), resolve(), commonjs()
                     ],
                 },
-                { name: 'NSW', format: 'umd', }
+                { name: 'NSWDPC', format: 'umd', }
             )
         )
-        .pipe(sourcemaps.init())
-        .pipe( gulpDebug( {'title': 'concat app.js' }))
-        .pipe(concat('app.js'))
-        // output non-uglified
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(config.dist.js))
-        // filter only JS files
-        .pipe(filter('**/*.js'))
-        // uglify
-        .pipe( gulpDebug( {'title': 'uglify app.js' }))
-        .pipe(uglifyjs())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe( gulpDebug( {'title': 'write minified app.js' }))
-        .pipe(gulp.dest(config.dist.js));
+        .pipe(concat('component.js'))
+        .pipe(gulp.dest(config.build.js));
 
-})
-
-gulp.task('watch', function () {
-    gulp.watch('./src/**/*', gulp.parallel('scss', 'js', 'svg'));
 });
 
-gulp.task('build', gulp.parallel('clean', 'js', 'scss', 'svg'));
-gulp.task('default', gulp.parallel('build', 'watch'));
+// Combine Design System and App components
+gulp.task('appJsBuild', function() {
+  let buildFiles = [
+    config.build.js + '/nswdesignsystem.js',
+    config.build.js + '/component.js'
+  ];
+  return gulp.src( buildFiles )
+      .pipe( gulpDebug( {'title': 'App JS processing' }))
+      .pipe(sourcemaps.init())
+      .pipe(concat('app.js'))
+      .pipe(sourcemaps.write('.'))
+      .pipe( gulp.dest(config.dist.js) )
+      // filter only JS files
+      .pipe(filter('**/app.js'))
+      // terser
+      .pipe( gulpDebug( {'title': 'Terser() app.js' }))
+      .pipe( gulpTerser() )
+      .pipe(rename({ suffix: '.min' }))
+      .pipe(gulp.dest(config.dist.js));
+});
+
+// Clean up CSS build files
+gulp.task('appJsBuildCleanup', function(done) {
+  gulpDebug( {'title': 'appJsBuildCleanup' });
+  return del( config.build.js + '/*' );
+});
+
+// JS build
+gulp.task('js' , gulp.series('designSystemJsBuild', 'componentJsBuild', 'appJsBuild') );
+
+// Build task, clean first
+gulp.task('build', gulp.series( 'clean', gulp.parallel( 'js', 'css', 'svg' ) ) );
+
+// Watch, build
+gulp.task('watch', function() {
+  gulp.watch('./src/**/*', gulp.parallel( 'js', 'scss', 'svg' ));
+});

@@ -1,7 +1,7 @@
 // application of the the modules
 import initMicroModal from './components/micromodal';
 import initSlimSelect from './components/slimselect';
-import initFlatPickr from './components/flatpickr';
+import initDatePicker from './components/datepicker';
 import initStickyJS from './components/stickyjs';
 
 function initAppMain() {
@@ -13,7 +13,7 @@ function initAppMain() {
         // init components
         initMicroModal();
         initSlimSelect();
-        initFlatPickr();
+        initDatePicker();
         initStickyJS();
     } catch (e) {
         console.warn(e);

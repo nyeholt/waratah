@@ -129,14 +129,14 @@ class DesignSystemAssetExtension extends Extension {
         // The built NSWDS,  with supporting JS and window.NSW.initSite() called
         if(Director::isLive()) {
             Requirements::javascript(
-                $this->getAsset("app/frontend/dist/javascript/app.min.js"),
+                $this->getAsset("app/frontend/dist/js/app.min.js"),
                 [
                     'async' => 'async'
                 ]
             );
         } else {
             Requirements::javascript(
-                $this->getAsset("app/frontend/dist/javascript/app.js"),
+                $this->getAsset("app/frontend/dist/js/app.js"),
                 [
                     'async' => 'async'
                 ]

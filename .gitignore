@@ -3,6 +3,7 @@
 /themes/*/app/frontend/*.log
 /themes/*/app/frontend/node_modules/
 /themes/*/app/frontend/dist/
+/themes/*/app/frontend/build/
 /vendor/
 .DS_Store
 Thumbs.db
