@@ -2,7 +2,10 @@
 @import 'node_modules/nsw-design-system/src/main';
 
 // MFA app
-@import './components/mfa';
+@import './mfa';
+
+// SlimSelect
+@import './slimselect';
 
 // Declarations for Silverstripe integration
 ::selection {
@@ -66,18 +69,6 @@
     border: 0;
   }
 }
-
-
-// UserForms
-
-// .userform {
-//   fieldset.nsw-form-fieldset {
-//     > legend {
-//       @extend .nsw-form-label;
-//     }
-//   }
-// }
-
 
 .nsw-social-links {
   @include nsw-spacing(margin, md none none none);

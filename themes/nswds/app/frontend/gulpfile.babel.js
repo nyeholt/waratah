@@ -27,7 +27,6 @@ const designSystem = {
 const thirdParty = {
   'src': {
     'css' : [
-      './node_modules/tiny-date-picker/dist/tiny-date-picker.css',
       './node_modules/slim-select/dist/slimselect.css'
     ]
   }
