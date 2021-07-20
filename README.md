@@ -11,7 +11,7 @@ This module is maintained by the NSWDPC Digital Team. We're a friendly crew that
 + ✅ Integrates our supported [Elemental elements](https://github.com/silverstripe/silverstripe-elemental)
 + ✅ Includs the [NSWDPC Silverstripe content authoring boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate) containing content authoring tools.
 + ✅ Supports all Silverstripe form fields
-+ ✅ Adds support for: Tiny Date Picker, StickyJS, SlimSelect, MicroModal
++ ✅ Adds SlimSelect for `<select multiple>` support
 + ✅ [A simple frontend build process using Yarn or NPM](./docs/en/001_index.md)
 + ✅ Supports adding project-specific JS and SCSS requirements to the build
 
