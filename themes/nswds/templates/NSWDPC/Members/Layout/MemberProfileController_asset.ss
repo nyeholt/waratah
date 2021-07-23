@@ -4,7 +4,7 @@
 
         <div class="nsw-page-layout__sidebar">
 
-            <% include MemberProfileLinks %>
+            <% include NSWDPC/Members/Links %>
 
         </div>
 
