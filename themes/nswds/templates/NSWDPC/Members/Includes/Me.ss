@@ -3,7 +3,7 @@
 
         <div class="nsw-page-layout__sidebar">
 
-            <% include MemberProfileLinks %>
+            <% include NSWDPC/Members/Links %>
 
         </div>
 
@@ -17,7 +17,7 @@
 
                     <% include NSWDPC/Waratah/PageContentAbstract %>
 
-                    <% include MemberProfileMessage %>
+                    <% include NSWDPC/Members/Message %>
 
                 </div>
 
