@@ -18,7 +18,7 @@
 
                     <% include NSWDPC/Waratah/PageContentAbstract %>
 
-                    <% include NSWDPC/Waratah/MemberProfileMessage %>
+                    <% include NSWDPC/Members/Message %>
 
                 </div>
 
