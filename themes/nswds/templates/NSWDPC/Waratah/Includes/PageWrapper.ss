@@ -3,9 +3,7 @@
         <% if $IsLandingPage %>
             <% include NSWDPC/Waratah/PageContent %>
         <% else %>
-            <% if $Menu(2) %>
-                <% include NSWDPC/Waratah/Sidebar %>
-            <% end_if %>
+            <% include NSWDPC/Waratah/Sidebar %>
             <% include NSWDPC/Waratah/PageContent %>
         <% end_if %>
     </div>
