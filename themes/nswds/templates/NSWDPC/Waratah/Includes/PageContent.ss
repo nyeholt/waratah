@@ -3,6 +3,7 @@
         <div class="nsw-block">
             <% include NSWDPC/Waratah/PageContentTitle %>
             <% include NSWDPC/Waratah/PageContentAbstract %>
+            <% include NSWDPC/Waratah/PageContentAction %>
         </div>
         <% include NSWDPC/Waratah/PageContentElemental %>
     </article>
