@@ -1,4 +1,4 @@
-<div class="nsw-form">
+<% if not $HideFormWrapper %><div class="nsw-form"><% end_if %>
 <% if $IncludeFormTag %>
 <form $AttributesHTML>
 <% end_if %>
@@ -43,4 +43,4 @@
 <% if $IncludeFormTag %>
 </form>
 <% end_if %>
-</div>
+<% if not $HideFormWrapper %></div><% end_if %>
