@@ -23,8 +23,7 @@
 
 .nsw-header__logo-link > .nsw-header__logo {
   @include breakpoint('lg') {
-    width: rem(208px);
-    height: rem(64px);
+    width: auto;
   }
 }
 
