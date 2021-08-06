@@ -2,7 +2,7 @@
     <div class="nsw-container">
         <% if $Image %>
             <div class="nsw-hero-banner__image-area">
-                <img src="$Image.FocusFillMax(1920,640).URL" class="nsw-hero-banner__image" alt="$Image.Title">
+                <img src="$Image.FocusFillMax(1920,640).URL" class="nsw-hero-banner__image" alt="{$Image.AltText.XML}">
             </div>
         <% end_if %>
         <div class="nsw-hero-banner__content-area">

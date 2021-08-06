@@ -48,7 +48,7 @@
                                         <div class="three-col-carousel_carousel-item col">
                                             <button type="button" class="three-col-carousel_carousel-btn">
                                                 <figure>
-                                                    <img src="{$FocusFillMax(1600,1200).URL}" alt="<% if $Title %>{$Title.XML}<% end_if %>" data-caption="<% if Up.ShowCaptions %>{$Title.XML}<% end_if %>">
+                                                    <img src="{$FocusFillMax(1600,1200).URL}" alt="{$AltText}" data-caption="<% if Up.ShowCaptions %>{$Title.XML}<% end_if %>">
                                                     <% if $Up.ShowCaptions %><figcaption>{$Title.XML}</figcaption><% end_if %>
                                                 </figure>
                                             </button>

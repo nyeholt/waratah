@@ -12,7 +12,7 @@
         </div>
         <div class="nsw-col nsw-col-md-4">
             <div class="profile-photo">
-                <img src="{$Image.FocusFillMax(300,400).URL}" class="img-fluid img-profile" alt="$Image.Title">
+                <img src="{$Image.FocusFillMax(300,400).URL}" class="img-fluid img-profile" alt="{$Image.AltText.XML}">
             </div>
         </div>
     </div>

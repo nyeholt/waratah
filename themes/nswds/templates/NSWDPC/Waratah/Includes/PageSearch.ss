@@ -26,11 +26,11 @@
                         <li class="search-results-item">
                             <h4 class="item-title"><a href="$Link"><% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></a></h4>
                             <% if $MetaDescription %>
-                                <p class="item-abstract">$MetaDescription.ContextSummary(150)</p>
+                                <p class="item-abstract">$MetaDescription.ContextSummary(350)</p>
                             <% else_if $Abstract %>
-                                <p class="item-abstract">$Abstract.ContextSummary(150)</p>
+                                <p class="item-abstract">$Abstract.ContextSummary(350)</p>
                             <% else_if $ElementsForSearch %>
-                                <p class="item-abstract">$ElementsForSearch.RAW.ContextSummary(150)</p>
+                                <p class="item-abstract">$ElementsForSearch.RAW.ContextSummary(350)</p>
                             <% end_if %>
                         </li>
                     <% end_loop %>

@@ -8,9 +8,13 @@
 @import './slimselect';
 
 // Declarations for Silverstripe integration
-::selection {
+::selection,
+mark {
   color: $white;
   background-color: $danger;
+}
+mark {
+  padding: 0 .3rem;
 }
 
 .nsw-wysiwyg-content {

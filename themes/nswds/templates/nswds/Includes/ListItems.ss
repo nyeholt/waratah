@@ -44,7 +44,7 @@
 
         <% if $Image %>
         <div class="nsw-list-item__image-area">
-            <img src="{$Image.Fill(500,500).URL}" class="nsw-list-item__image" alt="{$Image.Title.XML}">
+            <img src="{$Image.Fill(500,500).URL}" class="nsw-list-item__image" alt="{$Image.AltText.XML}">
         </div>
         <% end_if %>
 
