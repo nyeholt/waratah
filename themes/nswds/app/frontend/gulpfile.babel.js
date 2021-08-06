@@ -35,9 +35,7 @@ const thirdParty = {
 const config = {
     'src': {
         'css': [
-          './src/scss/app.scss',
-          // the relative path to the Silverstripe app folder
-          '../../../../../../../mysite/frontend/src/scss/app.scss'
+          './src/scss/app.scss'
         ],
         'js': [
           './src/js/app.js',

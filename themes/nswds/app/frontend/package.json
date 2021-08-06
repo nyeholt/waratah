@@ -10,6 +10,10 @@
   "main": "index.js",
   "scripts": {
     "setup": "npm install",
+    "prestart": "npm run-script appscss",
+    "prebuild": "npm run-script appscss",
+    "prebuildall": "npm run-script appscss",
+    "appscss": "mkdir -p ../../../../../../../mysite/frontend/src/scss && touch ../../../../../../../mysite/frontend/src/scss/app.scss",
     "start": "node_modules/.bin/gulp",
     "build": "node_modules/.bin/gulp build",
     "patch": "npx patch-package --patch-dir ../../../../../../../mysite/frontend/patches",
