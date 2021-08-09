@@ -57,7 +57,6 @@ class ElementBannerExtension extends DataExtension
             _t(__CLASS__ . '.BANNERSTYLE','Banner style'),
             $this->owner->config()->get("banner_styles")
         );
-        $bannerStyleField->setEmptyString('none');
 
         $altStyleField =CheckboxField::create(
             'AltStyle',
