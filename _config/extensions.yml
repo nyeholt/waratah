@@ -37,3 +37,7 @@ Silverstripe\Assets\Image:
 SilverStripe\AssetAdmin\Forms\ImageFormFactory:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ImageAssetFormFactoryExtension'
+
+NSWDPC\Elemental\Models\Banner\ElementBanner:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\ElementBannerExtension'
