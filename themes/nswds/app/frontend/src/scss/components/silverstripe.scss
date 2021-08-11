@@ -1,5 +1,5 @@
 // Project defaults
-@import '../../../../../../../mysite/frontend/src/scss/defaults.scss';
+@import '../../../../../../../mysite/frontend/src/defaults.scss';
 
 // NSW Design System
 @import 'node_modules/nsw-design-system/src/main';
@@ -137,4 +137,4 @@ mark {
 
 
 // Finally, import project app.scss
-@import '../../../../../../../mysite/frontend/src/scss/app.scss'
+@import '../../../../../../../mysite/frontend/src/app.scss'
