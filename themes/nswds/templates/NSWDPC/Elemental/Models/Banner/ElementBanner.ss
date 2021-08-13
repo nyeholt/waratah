@@ -3,7 +3,7 @@
         <div class="nsw-banner__wrapper">
             <div class="nsw-banner__content nsw-wysiwyg-content">
                 <% if $ShowTitle && $Title %>
-                    <h1>{$Title.XML} <small> $AltStyle </small></h1>
+                    <h1>{$Title.XML}</h1>
                 <% end_if %>
                 <% if $HTML %>
                     <div class="nsw-intro">{$HTML}</div>
