@@ -52,7 +52,7 @@ class ElementContentExtension extends DataExtension
             [
                 DropdownField::create(
                     'Subtype',
-                    _t(__CLASS__ . '.LISTTYPE','List type'),
+                    _t(__CLASS__ . '.DISPLAYTYPE','Display type'),
                     $this->owner->config()->subtypes
                 )
                 ->setEmptyString('none'),

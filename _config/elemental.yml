@@ -37,6 +37,18 @@ DNADesign\Elemental\Models\ElementContent:
 DNADesign\ElementalList\Model\ElementList:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementListExtension'
+  allowed_elements:
+    - 'NSWDPC\Elemental\Models\Image\ElementImage'
+    - 'NSWDPC\Elemental\Models\LinksBlock\ElementalLinks'
+    - 'NSWDPC\Elemental\Models\Iframe\ElementIframe'
+    - 'NSWDPC\Elemental\Models\Mediawesome\ElementMediawesome'
+    - 'NSWDPC\Elemental\Models\FeaturedVideo\ElementVideo'
+    - 'DNADesign\Elemental\Models\ElementContent'
+    - 'DNADesign\ElementalList\Model\ElementList'
+    - 'NSWDPC\Elemental\Models\Banner\ElementBanner'
+    - 'DNADesign\ElementalVirtual\Model\ElementVirtual'
+    - 'NSWDPC\Elemental\Models\Publications\ElementPublicationList'
+    - 'NSWDPC\Waratah\Models\ElementalFeature'
 
 Dynamic\Elements\Section\Elements\ElementSectionNavigation:
   extensions:
