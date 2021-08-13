@@ -38,9 +38,7 @@ const config = {
           './src/scss/app.scss'
         ],
         'js': [
-          './src/js/app.js',
-          // the relative path to the Silverstripe app folder
-          '../../../../../../../mysite/frontend/src/app.js'
+          './src/js/app.js'
         ],
         'svg': [
           './src/svg/**/*.svg'

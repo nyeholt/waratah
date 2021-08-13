@@ -1,4 +1,4 @@
-// application of the the modules
+// Core components
 import initSlimSelect from './components/slimselect';
 
 function initAppMain() {
@@ -14,3 +14,6 @@ function initAppMain() {
     }
 }
 initAppMain();
+
+// Project components
+import '../../../../../../../../../mysite/frontend/src/app.js';
