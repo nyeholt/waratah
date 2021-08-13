@@ -1,10 +1,10 @@
-<div class="nsw-col<% if $ColumnOptions %>$ColumnOptions.XML<% else %> nsw-col-md-4<% end_if %>">
+<div class="nsw-col<% if $ColumnOptions %> $ColumnOptions.XML<% else %> nsw-col-md-4<% end_if %>">
     <div class="nsw-card nsw-card--headline<% if not $IncludeHeadline %> nsw-card--content<% end_if %>">
         <div class="nsw-card__content">
             <h2 class="nsw-card__title">
                 <a href="{$LinkURL}" class="nsw-card__link">{$Title.XML}</a>
             </h2>
-            <% if $Tag $>
+            <% if $Tag %>
                 <p class="nsw-card__tag">{$Tag.XML}</p>
             <% end_if %>
             <% if $Date %>
