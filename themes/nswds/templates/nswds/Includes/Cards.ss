@@ -1,7 +1,7 @@
 <% if $Items %>
 <div class="nsw-grid">
     <% loop $Items %>
-        <% include nswds/Card ColumnOptions=$ColumnOptions, IncludeHeadline=$IncludeHeadline, ImageWidth=$ImageWidth, ImageHeight=$ImageHeight %>
+        <% include nswds/Card ColumnOptions=$Up.ColumnOptions, IncludeHeadline=$Up.IncludeHeadline, ImageWidth=$Up.ImageWidth, ImageHeight=$Up.ImageHeight %>
     <% end_loop %>
 </div>
 <% end_if %>
