@@ -8,7 +8,7 @@
     <% else_if $ImageHeight > 0 %>
     {$Image.ScaleHeight($ImageHeight)}
     <% else %>
-    <img src="{$Image.URL}" alt="{$Image.Title.XML}">
+    <img src="{$Image.URL}" alt="{$Image.AltText.XML}">
     <% end_if %>
     <% if $Caption %>
         <figcaption>

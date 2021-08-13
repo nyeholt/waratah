@@ -32,7 +32,7 @@
                         </div>
                         <% if $Image %>
                             <div class="nsw-card__image-area">
-                                <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
+                                <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.AltText.XML}" class="nsw-card__image">
                             </div>
                         <% end_if %>
                     </div>
