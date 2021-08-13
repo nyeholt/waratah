@@ -41,3 +41,7 @@ SilverStripe\AssetAdmin\Forms\ImageFormFactory:
 NSWDPC\Elemental\Models\Banner\ElementBanner:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementBannerExtension'
+
+NSWDPC\Schema\SpecialAnnouncement\SpecialAnnouncement:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\SpecialAnnouncementExtension'

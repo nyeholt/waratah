@@ -1,21 +1,35 @@
-<div class="nsw-sitewide-message<% if $Priority=='critical' %> nsw-sitewide-message--critical<% else_if $Priority=='light' %> nsw-sitewide-message--light<% end_if %> js-sitewide-message" role="alert">
+<% if $GlobalSpecialAnnouncements %>
+    <% loop $GlobalSpecialAnnouncements %>
+    <div class="nsw-sitewide-message<% if $AlertState=='critical' %> nsw-sitewide-message--critical<% else_if $AlertState=='light' %> nsw-sitewide-message--light<% end_if %> js-sitewide-message" role="alert">
 
-    <div class="nsw-sitewide-message__wrapper">
+        <div class="nsw-sitewide-message__wrapper">
 
-        <div class="nsw-sitewide-message__content">
-            <h2 class="nsw-sitewide-message__title">{$Title.XML}</h2>
-            <p>{$Content.XML}<% if not $UseButtonLink %> <a href="{$Link}" class="nsw-sitewide-message__link">{$Link}</a><% end_if %></p>
+            <div class="nsw-sitewide-message__content">
+                <% if $Title %>
+                <h2 class="nsw-sitewide-message__title">{$Title.XML}</h2>
+                <% end_if %>
+                <% if $ShortDescription %>
+                <p>{$ShortDescription.XML}</p>
+                <% end_if %>
+            </div>
+
+            <% if $Link %>
+            <% include nswds/Button Link=$Link.LinkURL, Title='More information' %>
+            <% end_if %>
+
+            <button type="button" class="nsw-sitewide-message__close">
+                <% include nswds/Icon Icon='close' %>
+                <span class="sr-only">Close message</span>
+            </button>
+
         </div>
 
-        <% if $UseButtonLink %>
-        <% include nswds/Button Link=$Link, Title='More information' %>
+        <% if $SchemaJSON %>
+        <script type="application/ld+json">
+            $SchemaJSON.RAW
+        </script>
         <% end_if %>
 
-        <button type="button" class="nsw-sitewide-message__close">
-            <% include nswds/Icon Icon='close' %>
-            <span class="sr-only">Close message</span>
-        </button>
-
     </div>
-
-</div>
+    <% end_loop %>
+<% end_if %>

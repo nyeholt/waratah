@@ -11,6 +11,8 @@
 
 <% include nswds/SkipToNav %>
 
+<% include nswds/GlobalAlert %>
+
 <% include nswds/Masthead %>
 
 <% include nswds/Header %>
