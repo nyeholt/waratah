@@ -1,4 +1,4 @@
-<div class="nsw-banner<% if $IsDark %> nsw-banner--dark<% end_if %><% if $IsWide %> nsw-banner--wide<% end_if %>">
+<div class="nsw-banner<% if $BannerIsDark %> nsw-banner--dark<% end_if %><% if $BannerIsWide %> nsw-banner--wide<% end_if %>">
 
     <div class="nsw-banner__container">
 
@@ -6,13 +6,24 @@
 
             <div class="nsw-banner__content nsw-wysiwyg-content">
 
-                <h1>{$Title}</h1>
+                <h1>{$BannerTitle}</h1>
 
-                <p class="nsw-intro">{$Content.XML}</p>
+                <% if $BannerHTML %>
+                    <%-- simple HTML --%>
+                    <div class="nsw-intro">
+                    {$HTML}
+                    </div>
+                <% else %>
+                    <p class="nsw-intro">{$BannerContent.XML}</p>
+                <% end_if %>
 
-                <% if $Link %>
+                <% if $BannerLink %>
                 <div class="nsw-banner__button">
-                    <% include nswds/Button Link=$Link.LinkURL, Title=$Link.Title %>
+                    <% if $BannerIsDark %>
+                        <% include nswds/Button ButtonClass='nsw-button--white', Link=$BannerLink.LinkURL, Title=$BannerLink.Title %>
+                    <% else %>
+                        <% include nswds/Button Link=$BannerLink.LinkURL, Title=$BannerLink.Title %>
+                    <% end_if %>
                 </div>
                 <% end_if %>
 
