@@ -18,7 +18,7 @@
             <% if $ContentBlock_Listing %>
             <ul class="nsw-content-block__list">
                 <% loop $ContentBlock_Listing %>
-                <li><a href="{$ContentBlock_Link}">{$ContentBlock_Title.XML}</a></li>
+                <li><a href="{$Link}">{$Title.XML}</a></li>
                 <% end_loop %>
             </ul>
             <% end_if %>
