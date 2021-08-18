@@ -4,17 +4,23 @@
             <h2 class="nsw-content-block__title">
                 {$ContentBlock_Title.XML}
             </h2>
-            <p class="nsw-content-block__copy">
-            <% if $ContentBlock_Description %>
-                <p>{$ContentBlock_Description.XML}</p>
-            <% else_if $ContentBlock_Abstract %>
-                <p>{$ContentBlock_Abstract.XML}</p>
-            <% else_if $ContentBlock_MetaDescription %>
-                <p>{$ContentBlock_MetaDescription.XML}</p>
-            <% else_if $ContentBlock_Content %>
-                {$ContentBlock_Content.Summary}
+            <% if $ContentBlock_HTML %>
+            <div class="nsw-content-block__copy">
+                {$ContentBlock_HTML}
+            </div>
+            <% else %>
+                <p class="nsw-content-block__copy">
+                <% if $ContentBlock_Description %>
+                    <p>{$ContentBlock_Description.XML}</p>
+                <% else_if $ContentBlock_Abstract %>
+                    <p>{$ContentBlock_Abstract.XML}</p>
+                <% else_if $ContentBlock_MetaDescription %>
+                    <p>{$ContentBlock_MetaDescription.XML}</p>
+                <% else_if $ContentBlock_Content %>
+                    {$ContentBlock_Content.Summary}
+                <% end_if %>
+                </p>
             <% end_if %>
-            </p>
             <% if $ContentBlock_Listing %>
             <ul class="nsw-content-block__list">
                 <% loop $ContentBlock_Listing %>

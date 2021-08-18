@@ -10,18 +10,11 @@
     <div class="nsw-tabs js-tabs">
         <ul class="nsw-tabs__list">
             <% loop $Elements.Elements %>
-                <li class="nsw-tabs__list-item">
-                    <a href="#{$Anchor}" class="nsw-tabs__link">{$Title.XML}</a>
-                </li>
+                <% include nswds/TabsTab Tab_Title=$Title, Tab_URLSegment=$Anchor %>
             <% end_loop %>
         </ul>
         <% loop $Elements.Elements %>
-            <section id="{$Anchor}" class="nsw-tabs__content">
-                <div class='nsw-wysiwyg-content'>
-                    <h2>{$Title.XML}</h2>
-                    {$HTML}
-                </div>
-            </section>
+            <% include nswds/TabsContent Tab_Title=$Title, Tab_URLSegment=$Anchor, Tab_HTML=$HTML %>
         <% end_loop %>
     </div>
 <% end_if %>

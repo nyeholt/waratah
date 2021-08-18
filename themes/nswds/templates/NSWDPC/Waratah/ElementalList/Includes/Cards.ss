@@ -8,8 +8,9 @@
 <% end_if %>
 <% if $Elements.Elements %>
     <div class="nsw-grid">
+
         <% loop $Elements.Elements %>
-            <div class="nsw-col<% if $Up.Up.Columns > 1 %> {$Up.Up.Columns}<% end_if %>">
+            <div class="nsw-col<% if $Up.Up.Columns %> {$Up.Up.Columns}<% end_if %>">
                 <div class="nsw-card nsw-card--headline">
                     <div class="nsw-card__content">
                         <h2 class="nsw-card__title">

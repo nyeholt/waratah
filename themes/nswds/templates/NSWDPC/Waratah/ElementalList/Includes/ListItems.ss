@@ -7,11 +7,11 @@
     {$HTML}
 <% end_if %>
 <% if $Elements.Elements %>
-    <div class="nsw-grid">
+    <div class="nsw-block">
         <% loop $Elements.Elements %>
-            <div class="nsw-col<% if $Up.Up.Columns > 1 %> {$Up.Up.Columns}<% end_if %>">
-                {$Me}
-            </div>
+            <%-- TODO: check for element type ? this assumes ElementDecoratedContent --%>
+            <% include nswds/ListItem ListItem_Date=$PublicDate, ListItem_Title=$Title, ListItem_HTML=$HTML, ListItem_Link=$LinkTarget.LinkURL, ListItem_Image=$Image, ListItem_Info=$SubTitle %>
+
         <% end_loop %>
     </div>
 <% end_if %>

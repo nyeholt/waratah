@@ -24,18 +24,31 @@ class ElementListExtension extends DataExtension
     ];
 
     private static $subtypes = [
-        'cards' => 'Cards',
         'accordion' => 'Accordion',
+        'cards' => 'Cards',
+        'grid' => 'Grid',
+        'linklist' => 'Link list',
+        'listitem' => 'List items',
         'tabs' => 'Tabs',
-        'grid' => 'Grid'
     ];
 
     private static $card_columns = [
+        '1' => 'One',
         '2' => 'Two',
         '3' => 'Three',
         '4' => 'Four',
+        '6' => 'Six'
     ];
 
+    private static $defaults = [
+        'Subtype' => '',// no default
+        'CardColumns' => 4
+    ];
+
+    /**
+     * @var array
+     * @todo check deprecation status?
+     */
     private static $card_styles = [
         'title' => 'Title only',
         'title-abstract' => 'Title and abstract',
@@ -68,21 +81,28 @@ class ElementListExtension extends DataExtension
 
     }
 
-    public function getColumns()
+    /**
+     * Get the large grid columns, as a CSS class or classes
+     */
+    public function getColumns($large_max = 12, $xs = 1, $sm = 2, $md = 3) : string
     {
         $columns = $this->owner->CardColumns;
 
-        if ($columns == 2) {
-            return "nsw-col-sm-6";
-        }
-        if ($columns == 3) {
-            return "nsw-col-md-4";
-        }
-        if ($columns == 4) {
-            return "nsw-col-sm-6 nsw-col-md-4 nsw-col-lg-3";
+        $max = trim($large_max);
+        if(!$max) {
+            $max = 12;
         }
 
-        return false;
+        if(!$columns) {
+            return '';
+        } else {
+            // round to nearest
+            $gridLg = round($max / $columns);
+            $gridXs = round($max / $xs);
+            $gridSm = round($max / $sm);
+            $gridMd = round($max / $md);
+            return "nsw-col-xs-{$gridXs} nsw-col-sm-{$gridSm} nsw-col-md-{$gridMd} nsw-col-lg-{$gridLg}";
+        }
 
     }
 
