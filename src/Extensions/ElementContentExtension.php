@@ -10,8 +10,14 @@ use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use gorriecoe\Link\Models\Link;
 use NSWDPC\InlineLinker\InlineLinkCompositeField;
+use NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent;
 
-
+/**
+ * Quick migration of ImageID->ContentImageID
+ * This avoids collisions with historical usage of ElementDecoratedContent.Image
+ * mysql> UPDATE ElementContent SET ContentImageID = ImageID WHERE ImageID <> 0;
+ * mysql> ALTER TABLE ElementContent DROP COLUMN ImageID;
+ */
 class ElementContentExtension extends DataExtension
 {
 
@@ -25,13 +31,13 @@ class ElementContentExtension extends DataExtension
     ];
 
     private static $has_one = [
-        'Image' => Image::class,
+        'ContentImage' => Image::class,//avoid collision with ElementDecoratedContent
         'ContentLink' => Link::class,
     ];
 
     private static $allowed_file_types = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
 
-    private static $owns = ['Image', 'ContentLink'];
+    private static $owns = ['ContentImage', 'ContentLink'];
 
     public function getAllowedFileTypes()
     {
@@ -46,6 +52,15 @@ class ElementContentExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
+        /**
+         * these fields are not applied to the ElementDecoratedContent
+         * a subclass of ElementContent
+         */
+        if($this->owner instanceof ElementDecoratedContent) {
+            $fields->removeByName(['ContentLinkID','ContentLink','ContentImageID','ContentImageID']);
+            return;
+        }
+
         $fields->removeByName(['ContentLinkID']);
         $fields->addFieldsToTab(
             'Root.Settings',
@@ -57,8 +72,8 @@ class ElementContentExtension extends DataExtension
                 )
                 ->setEmptyString('none'),
                 UploadField::create(
-                    'Image',
-                    _t(__CLASS__ . '.IMAGE', 'Image')
+                    'ContentImage',
+                    _t(__CLASS__ . '.IMAGE', 'Content Image')
                 )
                 ->setAllowedExtensions($this->owner->getAllowedFileTypes())
                 ->setIsMultiUpload(false)
