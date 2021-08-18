@@ -17,12 +17,20 @@ use NSWDPC\InlineLinker\InlineLinkCompositeField;
 class ElementListExtension extends DataExtension
 {
 
+    /**
+     * DB fields for the list element
+     * @var array
+     */
     private static $db = [
         'Subtype' => 'Varchar(64)',
         'CardColumns' => 'Varchar(64)',
         'CardStyle' => 'Varchar(64)'
     ];
 
+    /**
+     * Available types of listings
+     * @var array
+     */
     private static $subtypes = [
         'accordion' => 'Accordion',
         'cards' => 'Cards',
@@ -32,6 +40,10 @@ class ElementListExtension extends DataExtension
         'tabs' => 'Tabs',
     ];
 
+    /**
+     * Available columns
+     * @var array
+     */
     private static $card_columns = [
         '1' => 'One',
         '2' => 'Two',
@@ -40,14 +52,18 @@ class ElementListExtension extends DataExtension
         '6' => 'Six'
     ];
 
+    /**
+     * Default values
+     * @var array
+     */
     private static $defaults = [
         'Subtype' => '',// no default
         'CardColumns' => 4
     ];
 
     /**
+     * Used to set how list child elements are rendered
      * @var array
-     * @todo check deprecation status?
      */
     private static $card_styles = [
         'title' => 'Title only',
@@ -82,13 +98,31 @@ class ElementListExtension extends DataExtension
     }
 
     /**
-     * Get the large grid columns, as a CSS class or classes
+     * This method is retained for BC
      */
-    public function getColumns($large_max = 12, $xs = 1, $sm = 2, $md = 3) : string
-    {
-        $columns = $this->owner->CardColumns;
+    public function getColumns() {
+        return $this->owner->ColumnClass( $this->owner->CardColumns );
+    }
 
-        $max = trim($large_max);
+    /**
+     * Return the CSS class representing a grid
+     * @param string $lg the number of large columns eg 3. An empty string, the default defers to the selected CardColumns value
+     * @param int $max the max grid size. Used to work out the CSS class. $max/$lg =  grid 'width'
+     * @param int $xs number of columns at XS media size, default = 1 col @ 100% width
+     * @param int $sm number of columns at SM media size, default = 2 cols @ 50% width
+     * @param int $sm number of columns at MD media size, default = 3 cols @ 33.3% width
+     */
+    public function ColumnClass($lg = '', $max = 12, $xs = 1, $sm = 2, $md = 3) : string
+    {
+        // If there are no override columns from code, use the saved field value
+        $lg = trim($lg);
+        if($lg) {
+            $columns = $lg;
+        } else {
+            $columns = $this->owner->CardColumns;
+        }
+
+        $max = trim($max);
         if(!$max) {
             $max = 12;
         }
@@ -97,11 +131,11 @@ class ElementListExtension extends DataExtension
             return '';
         } else {
             // round to nearest
-            $gridLg = round($max / $columns);
-            $gridXs = round($max / $xs);
-            $gridSm = round($max / $sm);
-            $gridMd = round($max / $md);
-            return "nsw-col-xs-{$gridXs} nsw-col-sm-{$gridSm} nsw-col-md-{$gridMd} nsw-col-lg-{$gridLg}";
+            $gridLg = ceil($max / $columns);
+            $gridXs = ceil($max / $xs);
+            $gridSm = ceil($max / $sm);
+            $gridMd = ceil($max / $md);
+            return " nsw-col-xs-{$gridXs} nsw-col-sm-{$gridSm} nsw-col-md-{$gridMd} nsw-col-lg-{$gridLg}";
         }
 
     }

@@ -10,13 +10,18 @@
     <div class="nsw-grid">
 
         <% loop $Elements.Elements %>
-            <div class="nsw-col<% if $Up.Up.Columns %> {$Up.Up.Columns}<% end_if %>">
+
+            <div class="nsw-col{$Up.Up.ColumnClass($Up.OverrideColumns)}">
                 <div class="nsw-card nsw-card--headline">
                     <div class="nsw-card__content">
                         <h2 class="nsw-card__title">
-                            <% if $ContentLink %><a href="{$ContentLink.LinkURL}" class="nsw-card__link"><% end_if %>
+                            <% if $ContentLink %>
+                                <a href="{$ContentLink.LinkURL}" class="nsw-card__link">{$Title.XML}</a>
+                            <% else_if $LinkTarget %>
+                                <a href="{$LinkTarget.LinkURL}" class="nsw-card__link">{$Title.XML}</a>
+                            <% else %>
                                 {$Title.XML}
-                            <% if $ContentLink %></a><% end_if %>
+                            <% end_if %>
                         </h2>
                         <% if $Up.Up.CardStyle == "title-abstract" || $Up.Up.CardStyle == "title-image-abstract" %>
                             <% if $HTML %>
@@ -25,7 +30,9 @@
                                 </div>
                             <% end_if %>
                         <% end_if %>
-                        <% if $ContentLink %><i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i><% end_if %>
+                        <% if $ContentLink || $LinkTarget %>
+                            <% include nswds/Icon Icon='east', IconExtraClass='nsw-card__icon' %>
+                        <% end_if %>
                     </div>
                     <% if $Up.Up.CardStyle == "title-image-abstract" %>
                         <% if $Image %>
