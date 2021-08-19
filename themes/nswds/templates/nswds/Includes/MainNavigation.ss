@@ -59,9 +59,7 @@
                     <li class="nsw-subnavigation__list-item">
 
                         <a href="{$Link}" class="nsw-subnavigation__link">
-                            <% if $PageIcon %>
-                            <img src="{$PageIcon}" class="waratah-icon" focusable="false" aria-hidden="true">
-                            <% end_if %>
+                            <% include nswds/MainNavigation_Project_PageIcon PageIcon=$PageIcon %>
                             <span class="nsw-navigation__link-text">{$MenuTitle.XML}</span>
                             <% if $Children %>
                             <% include nswds/Icon Icon='keyboard_arrow_right', IconExtraClass='nsw-navigation__link-icon' %>
