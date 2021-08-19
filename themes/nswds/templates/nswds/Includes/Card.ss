@@ -23,7 +23,7 @@
             </p>
             <% include nswds/Icon Icon='east', IconExtraClass='nsw-card__icon' %>
         </div>
-        <% if $Image %>
+        <% if $Card_Image %>
         <div class="nsw-card__image-area">
             <% if $Card_ImageWidth || $Card_ImageHeight %>
                 <% if not $Card_ImageHeight %>
