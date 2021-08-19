@@ -1,46 +1,38 @@
-<% if $Image || $Video %>
-<figure class="nsw-media<% if $WidthOption %>nsw-media--<% if $AlignOption %>{$AlignOption}-<% end_if %>{$WidthOption.XML}<% end_if %>">
-<% if $Image %>
-    <% if $Height == "small" %>
-        <img src="$Image.FocusFillMax(1200,320).URL" alt="$Image.AltText">
-    <% else_if $Height == "medium" %>
-        <img src="$Image.FocusFillMax(1200,640).URL" alt="$Image.AltText">
-    <% else_if $Height == "large" %>
-        <img src="$Image.FocusFillMax(1200,960).URL" alt="$Image.AltText">
+<% if $Media_Image || $Media_Video %>
+<figure class="nsw-media<% if $Media_WidthOption %>nsw-media--<% if $Media_AlignOption %>{$Media_AlignOption}-<% end_if %>{$Media_WidthOption.XML}<% end_if %>">
+
+<% if $Media_Image %>
+
+    <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
+        <img src="{$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
+    <% else_if $Media_ImageWidth > 0 %>
+        <img src="{$Media_Image.ScaleWidth($Media_ImageWidth)}.URL" alt="$Media_Image.AltText">
+    <% else_if $Media_ImageHeight > 0 %>
+        <img src="{$Media_Image.ScaleHeight($Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
     <% else %>
-        <img src="$Image.ScaleMaxWidth(1200).URL" alt="$Image.AltText">
+        <img src="{$Media_Image.URL}" alt="{$Media_Image.Title.XML}" alt="$Media_Image.AltText">
     <% end_if %>
-    <% if $Caption %>
+
+    <% if $Media_Caption %>
         <figcaption>
-        {$Caption.XML}
+        {$Media_Caption.XML}
         </figcaption>
     <% end_if %>
-<% else_if $Video %>
-    <div class="nsw-media__video">
-        {$EmbedHTML}
-    </div>
-    <% if $Caption %>
-        <figcaption>
-        {$Caption.XML}
-        </figcaption>
-        <% if $AltVideoURL %>
-            <p class="alt-url">
-                <a href="$AltVideoURL">
-                    <% _t('WATCHWITHAUDIODESC','Watch this video with an audio description') %>
-                </a>
-            </p>
-        <% end_if %>
-        <% if $Transcript %>
-            <div class="nsw-accordion js-accordion">
-                <h2 class="nsw-accordion__title">Read transcript</h2>
-                <div class="nsw-accordion__content">
-                    <div class="nsw-wysiwyg-content">
-                        {$Transcript}
-                    </div>
-                </div>
-            </div>
-        <% end_if %>
-    <% end_if %>
+
+<% else_if $Media_Video %>
+
+  <div class="nsw-media__video">
+    {$Media_EmbedCode.RAW}
+  </div>
+
+  <% if $Media_Caption %>
+      <figcaption>
+      {$Media_Caption.XML}
+      </figcaption>
+  <% end_if %>
+
 <% end_if %>
+
 </figure>
+
 <% end_if %>
