@@ -11,11 +11,11 @@
             <% else %>
                 <p class="nsw-content-block__copy">
                 <% if $ContentBlock_Description %>
-                    <p>{$ContentBlock_Description.XML}</p>
+                    {$ContentBlock_Description.XML}
                 <% else_if $ContentBlock_Abstract %>
-                    <p>{$ContentBlock_Abstract.XML}</p>
+                    {$ContentBlock_Abstract.XML}
                 <% else_if $ContentBlock_MetaDescription %>
-                    <p>{$ContentBlock_MetaDescription.XML}</p>
+                    {$ContentBlock_MetaDescription.XML}
                 <% else_if $ContentBlock_Content %>
                     {$ContentBlock_Content.Summary}
                 <% end_if %>
@@ -28,21 +28,27 @@
                 <% end_loop %>
             </ul>
             <% end_if %>
-            <% if $ContentBlock_Link %>
-            <div class="nsw-content-block__link"><a href="$ContentBlock_Link.LinkURL"><%t nswds.VIEW_MORE 'View more' %></a></div>
+            <% if $ContentBlock_URL %>
+            <div class="nsw-content-block__link">
+                <a href="$ContentBlock_URL"><%t nswds.VIEW_MORE 'View more' %></a>
+            </div>
+            <% else_if $ContentBlock_Link %>
+            <div class="nsw-content-block__link">
+                <a href="$ContentBlock_Link.LinkURL"><%t nswds.VIEW_MORE 'View more' %></a>
+            </div>
             <% end_if %>
         </div>
         <div class="nsw-content-block__image-area">
         <% if $ContentBlock_Image || $ContentBlock_Icon %>
             <% if $ContentBlock_Image %>
-                <% if $ContentBlock_ImageWidth || $ContentBlock_ImageHeight %>
-                    <% if not $ContentBlock_ImageHeight %>
-                        {$ContentBlock_Image.ScaleWidth($ContentBlock_ImageWidth)}
-                    <% else %>
-                        {$ContentBlock_Image.Fill($ContentBlock_ImageWidth, $ContentBlock_ImageHeight)}
-                    <% end_if %>
+                <% if $ContentBlock_ImageWidth && $ContentBlock_ImageHeight %>
+                    {$ContentBlock_Image.FocusFill($ContentBlock_ImageWidth, $ContentBlock_ImageHeight)}
+                <% else_if $ContentBlock_ImageWidth %>
+                    {$ContentBlock_Image.ScaleWidth($ContentBlock_ImageWidth)}
+                <% else_if $ContentBlock_ImageHeight %>
+                    {$ContentBlock_Image.ScaleHeight($ContentBlock_ImageHeight)}
                 <% else %>
-                     {$ContentBlock_Image.ScaleHeight(200)}
+                    {$ContentBlock_Image.ScaleHeight(200)}
                 <% end_if %>
             <% else_if $ContentBlock_Icon %>
                 <div class="nsw-content-block__icon">
