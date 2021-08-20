@@ -1,15 +1,3 @@
-// Project defaults
-@import '../../../../../../../mysite/frontend/src/defaults.scss';
-
-// NSW Design System
-@import 'node_modules/nsw-design-system/src/main';
-
-// MFA app
-@import './mfa';
-
-// SlimSelect
-@import './slimselect';
-
 // Declarations for Silverstripe integration
 ::selection,
 mark {
@@ -134,7 +122,3 @@ mark {
     }
   }
 }
-
-
-// Finally, import project app.scss
-@import '../../../../../../../mysite/frontend/src/app.scss'
