@@ -1,0 +1,21 @@
+/**
+ * Provide some extra button-y things not in the NSW Design System
+ */
+.wrth-button {
+
+  &--icon {
+    display:flex;
+    align-items: center;
+  }
+
+}
+
+.nsw-button--highlight.wrth-button--icon,
+.nsw-button--primary.wrth-button--icon {
+
+  .nsw-material-icons {
+      color: $white;
+      margin-right : 0.5rem;
+  }
+
+}
