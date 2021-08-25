@@ -21,7 +21,9 @@
 
 <% include NSWDPC/Waratah/PageBanner %>
 
+<div class="nsw-container">
 <% include nswds/Breadcrumbs Breadcrumbs_List=$CurrentPage.Breadcrumbs %>
+</div>
 
 {$Layout}
 
