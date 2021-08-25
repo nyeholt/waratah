@@ -5,7 +5,7 @@
     <% with $Top.SiteConfig %>
 
     <% if $FooterLinksCol1 || $FooterLinksCol2 || $FooterLinksCol3 || $FooterLinksCol4 %>
-        <div class="nsw-footer__upper">
+        <div class="nsw-_upper">
             <div class="nsw-container section-links">
                 <% if $FooterLinksCol1 %>
                     <div class="section-links__group">
@@ -91,7 +91,7 @@
         </div>
     <% end_if %>
 
-    <div class="nsw-footer__lower">
+    <div class="nsw-_lower">
 
         <div class="nsw-container">
 
@@ -129,9 +129,9 @@
                 </ul>
             <% end_if %>
 
-            <div class="nsw-footer__info">
-                <p class="nsw-footer__copyright">
-                    <% if $CopyrightOwner %>{$CopyrightOwner.XML} <% else %>Copyright<% end_if %> &copy; {$Now.Year}
+            <div class="nsw-_info">
+                <p class="nsw-_copyright">
+                    <% if $CopyrightOwner %>{$CopyrightOwner.XML} <% else %><%t nswds.COPYRIGHT 'Copyright' %><% end_if %> &copy; {$Now.Year}
                 </p>
             </div>
 

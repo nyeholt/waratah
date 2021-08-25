@@ -1,25 +1,25 @@
-<% if $Menu %>
+<% if $MainNavigation_Menu %>
 
 <nav id="main-navigation" class="nsw-navigation js-mega-menu" aria-label="<%t nswds.MAIN_MENU 'Main menu' %>">
 
     <div class="nsw-navigation__header">
         <h2 id="nsw-navigation"><%t nswds.MENU 'Menu' %></h2>
         <button type="button" class="nsw-navigation__close js-close-navigation" aria-expanded="true">
-            <% include nswds/Icon Icon='close' %>
+            <% include nswds/Icon Icon_Icon='close' %>
             <span class="sr-only"><%t nswds.CLOSE_MENU 'Close Menu' %></span>
         </button>
     </div>
 
     <ul class="nsw-navigation__list">
 
-        <% loop $Menu %>
+        <% loop $MainNavigation_Menu %>
 
         <li class="nsw-navigation__list-item">
 
             <a href="{$Link}" class="nsw-navigation__link">
                 <span class="nsw-navigation__link-text">{$MenuTitle.XML}</span>
                 <% if $Children %>
-                <% include nswds/Icon Icon='keyboard_arrow_right', IconExtraClass='nsw-navigation__link-icon' %>
+                <% include nswds/Icon Icon_Icon='keyboard_arrow_right', Icon_IconExtraClass='nsw-navigation__link-icon' %>
                 <% end_if %>
             </a>
 
@@ -30,12 +30,12 @@
                 <div class="nsw-subnavigation__header">
 
                     <button type="button" class="nsw-subnavigation__back-btn js-close-subnav" aria-controls="subnav-{$ID}" aria-expanded="true">
-                        <% include nswds/Icon Icon='keyboard_arrow_right', IconExtraClass='nsw-material-icons--rotate-180' %>
+                        <% include nswds/Icon Icon_Icon='keyboard_arrow_right', Icon_IconExtraClass='nsw-material-icons--rotate-180' %>
                         <span><%t nswds.BACK 'Back' %><span class="sr-only"> <%t nswds.TO_PREVIOUS_MENU 'to previous menu' %></span></span>
                     </button>
 
                     <button type="button" class="nsw-navigation__close js-close-navigation" aria-expanded="true">
-                        <% include nswds/Icon Icon='close' %>
+                        <% include nswds/Icon Icon_Icon='close' %>
                         <span class="sr-only"><%t nswds.CLOSE_MENU 'Close Menu' %></span>
                     </button>
 
@@ -44,7 +44,7 @@
                 <h2 class="nsw-subnavigation__title">
                     <a href="{$Link}" class="nsw-subnavigation__title-link">
                         <span>{$Title.XML}</span>
-                        <% include nswds/Icon Icon='east' %>
+                        <% include nswds/Icon Icon_Icon='east' %>
                     </a>
                 </h2>
 
@@ -59,10 +59,10 @@
                     <li class="nsw-subnavigation__list-item">
 
                         <a href="{$Link}" class="nsw-subnavigation__link">
-                            <% include nswds/MainNavigation_Project_PageIcon PageIcon=$PageIcon %>
+                            <% include nswds/MainNavigation_Project_PageIcon PageIcon_Icon=$PageIcon %>
                             <span class="nsw-navigation__link-text">{$MenuTitle.XML}</span>
                             <% if $Children %>
-                            <% include nswds/Icon Icon='keyboard_arrow_right', IconExtraClass='nsw-navigation__link-icon' %>
+                            <% include nswds/Icon Icon_Icon='keyboard_arrow_right', Icon_IconExtraClass='nsw-navigation__link-icon' %>
                             <% end_if %>
                         </a>
 
@@ -73,12 +73,12 @@
                             <div class="nsw-subnavigation__header">
 
                                 <button type="button" class="nsw-subnavigation__back-btn js-close-subnav" aria-controls="subnav-{$ID}" aria-expanded="true">
-                                    <% include nswds/Icon Icon='keyboard_arrow_right', IconExtraClass='nsw-material-icons--rotate-180' %>
+                                    <% include nswds/Icon Icon_Icon='keyboard_arrow_right', Icon_IconExtraClass='nsw-material-icons--rotate-180' %>
                                     <span><%t nswds.BACK 'Back' %><span class="sr-only"> <%t nswds.TO_PREVIOUS_MENU 'to previous menu' %></span></span>
                                 </button>
 
                                 <button type="button" class="nsw-navigation__close js-close-navigation" aria-expanded="true">
-                                    <% include nswds/Icon Icon='close' %>
+                                    <% include nswds/Icon Icon_Icon='close' %>
                                     <span class="sr-only"><%t nswds.CLOSE_MENU 'Close Menu' %></span>
                                 </button>
 
@@ -87,7 +87,7 @@
                             <h2 class="nsw-subnavigation__title">
                                 <a href="{$Link}" class="nsw-subnavigation__title-link">
                                     <span>{$Title.XML}</span>
-                                    <% include nswds/Icon Icon='east' %>
+                                    <% include nswds/Icon Icon_Icon='east' %>
                                 </a>
                             </h2>
 

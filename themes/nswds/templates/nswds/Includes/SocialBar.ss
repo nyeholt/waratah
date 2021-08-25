@@ -1,5 +1,5 @@
 
-    <section aria-label="Page tools">
+    <section aria-label="<%t nswds.PAGE_TOOLS 'Page tools' %>">
       <ul class="nsw-socials">
         <li class="nsw-socials__item">
           <a class="nsw-socials__link js-share-this fbc-has-badge fbc-UID_1" href="https://facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.service.nsw.gov.au" target="_blank" rel="noopener">
@@ -20,7 +20,7 @@
           </a>
         </li>
         <li class="nsw-socials__item">
-          <a class="nsw-socials__link " href="mailto:?body=https%3A%2F%2Fwww.service.nsw.gov.au" target="_self" rel="noopener">
+          <a class="nsw-socials__link " href="mailto:?body={$CurrentPage.AbsoluteLink.RAWURLATT}" target="_self" rel="noopener">
             <svg class="nsw-socials__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 32"><path d="M36 0H4C1.8 0 .02 1.8.02 4L0 28c0 2.2 1.8 4 4 4h32c2.2 0 4-1.8 4-4V4c0-2.2-1.8-4-4-4zm0 8L20 18 4 8V4l16 10L36 4v4z"></path></svg>
             <span class="sr-only">Email</span>
           </a>

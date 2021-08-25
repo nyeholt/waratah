@@ -23,13 +23,13 @@
 
                 <% if $Member %>
                     <% if $ProfilePages %>
-                        <% include nswds/InPageNotification Level='info', Icon='article', MessageTitle='Information', Message='You have access to the following pages on this website' %>
-                        <% include nswds/ContentBlocks Items=$ProfilePages %>
+                        <% include nswds/InPageNotification InPageNotification_Level='info', InPageNotification_Icon='article', InPageNotification_MessageTitle='Information', InPageNotification_Message='You have access to the following pages on this website' %>
+                        <% include nswds/ContentBlocks ContentBlocks_Items=$ProfilePages %>
                     <% else %>
-                        <% include nswds/InPageNotification Level='info', Icon='article', MessageTitle='Information', Message='Nothing is available here, at the moment' %>
+                        <% include nswds/InPageNotification InPageNotification_Level='info', InPageNotification_Icon='article', InPageNotification_MessageTitle='Information', InPageNotification_Message='Nothing is available here, at the moment' %>
                     <% end_if %>
                 <% else %>
-                    <% include nswds/InPageNotification Level='warning', Icon='warning', MessageTitle='Information', Message='Access denied' %>
+                    <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_MessageTitle='Information', InPageNotification_Message='Access denied' %>
                 <% end_if %>
 
             </article>

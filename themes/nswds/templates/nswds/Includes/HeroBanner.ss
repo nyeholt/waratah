@@ -20,9 +20,9 @@
                 <% if $HeroBanner_Link %>
                 <div class="nsw-banner__button">
                     <% if $HeroBanner_IsDark %>
-                        <% include nswds/Button ButtonClass='nsw-button--white', Link=$HeroBanner_Link.LinkURL, Title=$HeroBanner_Link.Title %>
+                        <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
                     <% else %>
-                        <% include nswds/Button Link=$HeroBanner_Link.LinkURL, Title=$HeroBanner_Link.Title %>
+                        <% include nswds/Button Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
                     <% end_if %>
                 </div>
                 <% end_if %>

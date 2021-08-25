@@ -4,18 +4,18 @@
 
 
     <% if $MessageType == 'good' %>
-    <% include nswds/InPageNotification Icon='check_circle', Level='success', MessageTitle='Success', Message=$Message %>
+        <% include nswds/InPageNotification InPageNotification_Icon='check_circle', InPageNotification_Level='success', InPageNotification_MessageTitle='Success', InPageNotification_Message=$Message %>
     <% else_if $MessageType == 'warning' %>
-    <% include nswds/InPageNotification Icon='error', Level='warning', MessageTitle='Warning', Message=$Message %>
+        <% include nswds/InPageNotification InPageNotification_Icon='error', InPageNotification_Level='warning', InPageNotification_MessageTitle='Warning', InPageNotification_Message=$Message %>
     <% else_if $MessageType == 'error' %>
-    <% include nswds/InPageNotification Icon='cancel', Level='error', MessageTitle='Error', Message=$Message %>
+        <% include nswds/InPageNotification InPageNotification_Icon='cancel', InPageNotification_Level='error', InPageNotification_MessageTitle='Error', InPageNotification_Message=$Message %>
     <% else %>
-    <% include nswds/InPageNotification Icon='info', Level='info', MessageTitle='Information', Message=$Message %>
+        <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Level='info', InPageNotification_MessageTitle='Information', InPageNotification_Message=$Message %>
     <% end_if %>
 
     <div class="nsw-filters__controls">
         <button>
-            <% include nswds/Icon Icon='tune' %>
+            <% include nswds/Icon Icon_Icon='tune' %>
             <span><%t nswds.FILTER_RESULTS 'Filter results' %></span>
         </button>
     </div>
@@ -24,7 +24,7 @@
 
         <div class="nsw-filters__back">
             <button>
-                <% include nswds/Icon Icon='keyboard_arrow_left' %>
+                <% include nswds/Icon Icon_Icon='keyboard_arrow_left' %>
                 <span><%t nswds.BACK 'Back' %></span>
             </button>
         </div>

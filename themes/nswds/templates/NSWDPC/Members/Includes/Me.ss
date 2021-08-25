@@ -41,7 +41,7 @@
                     <% include NSWDPC/Waratah/PageForm %>
 
                 <% else %>
-                    <% include nswds/InPageNotification Level='warning', Icon='warning', Message='Your profile does not exist' %>
+                    <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_Message='Your profile does not exist' %>
                 <% end_if %>
 
             </article>

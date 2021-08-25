@@ -1,7 +1,7 @@
-<% if $Message %>
-    <% if $MessageType == 'bad' || $MessageType == 'error' || $MessageType == 'required' %>
-        <% include nswds/FormFieldNotification Icon='cancel', Level='error', MessageTitle='Error', Message=$Message %>
+<% if $FormFieldMessage_Message %>
+    <% if $FormFieldMessage_MessageType == 'bad' || $FormFieldMessage_MessageType == 'error' || $FormFieldMessage_MessageType == 'required' %>
+        <% include nswds/FormFieldNotification FormFieldNotification_Icon='cancel', FormFieldNotification_Level='error', FormFieldNotification_MessageTitle='Error', FormFieldNotification_Message=$FormFieldMessage_Message %>
     <% else %>
-        <% include nswds/FormFieldNotification Icon='valid', Level='valid', MessageTitle='Information', Message=$Message %>
+        <% include nswds/FormFieldNotification FormFieldNotification_Icon='valid', FormFieldNotification_Level='valid', FormFieldNotification_MessageTitle='Information', FormFieldNotification_Message=$FormFieldMessage_Message %>
     <% end_if %>
 <% end_if %>

@@ -31,7 +31,7 @@
                             <% end_if %>
                         <% end_if %>
                         <% if $ContentLink || $LinkTarget %>
-                            <% include nswds/Icon Icon='east', IconExtraClass='nsw-card__icon' %>
+                            <% include nswds/Icon Icon_Icon='east', Icon_IconExtraClass='nsw-card__icon' %>
                         <% end_if %>
                     </div>
                     <% if $Up.Up.CardStyle == "title-image-abstract" %>

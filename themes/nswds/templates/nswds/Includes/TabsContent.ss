@@ -1,6 +1,7 @@
 <section id="tabcontent-{$Tab_URLSegment.ATT}" class="nsw-tabs__content">
 
     <% if $Tab_Tabs %>
+        <%-- nested tabs --%>
         <% include nswds/Tabs Tabs=$Tab_Tabs %>
     <% else %>
         <div class="nsw-wysiwyg-content">

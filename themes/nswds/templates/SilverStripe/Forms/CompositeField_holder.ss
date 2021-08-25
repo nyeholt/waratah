@@ -2,7 +2,7 @@
 <% if $FormFieldHint == 'callout' %>
 
     <div class="nsw-callout">
-        <% include nswds/Icon Icon='info', IconExtraClass='nsw-callout__icon' %>
+        <% include nswds/Icon Icon_Icon='info', Icon_IconExtraClass='nsw-callout__icon' %>
         <div class="nsw-callout__content">
         <% loop $FieldList %>
             <% if $Pos == 1 %>

@@ -13,7 +13,7 @@
         <% end_if %>
 
         <h3 class="nsw-list-item__title">
-            <a href="{$ListItem_Link}"<% if $ListItem_UseBlockLink %> class="nsw-list-item__link"<% end_if %>>
+            <a href="{$ListItem_LinkURL}"<% if $ListItem_UseBlockLink %> class="nsw-list-item__link"<% end_if %>>
             <% if $ListItem_MenuTitle %>{$ListItem_MenuTitle.XML}<% else %>{$ListItem_Title.XML}<% end_if %>
             </a>
         </h3>
@@ -25,17 +25,21 @@
         <% end_if %>
 
         <% if $ListItem_Abstract %>
-        <p class="nsw-list-item__copy">
-            {$ListItem_Abstract.XML}
-        </p>
+            <p class="nsw-list-item__copy">
+                {$ListItem_Abstract.XML}
+            </p>
+        <% else_if $ListItem_Content %>
+            <p class="nsw-list-item__copy">
+                {$ListItem_Content.XML}
+            </p>
         <% else_if $ListItem_HTML %>
-        <div class="nsw-list-item__copy">
-            {$ListItem_HTML}
-        </div>
+            <div class="nsw-list-item__copy">
+                {$ListItem_HTML}
+            </div>
         <% end_if %>
 
         <% if $ListItem_Tags %>
-            <% include nswds/Tags TagsList=$ListItem_Tags %>
+            <% include nswds/Tags Tags_List=$ListItem_Tags %>
         <% end_if %>
 
     </div>

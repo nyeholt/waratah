@@ -1,1 +1,1 @@
-<% include nswds/MainNavigation Menu=$Menu(1) %>
+<% include nswds/MainNavigation MainNavigation_Menu=$Menu(1) %>

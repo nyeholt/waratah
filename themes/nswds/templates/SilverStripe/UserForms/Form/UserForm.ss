@@ -4,7 +4,7 @@
 <% include SilverStripe\\UserForms\\Form\\UserFormStepErrors %>
 
 <% if $Message %>
-    <% include nswds/FormFieldMessage Message=$Message, MessageType=$MessageType %>
+    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 <% end_if %>
 
 <% if $Legend %>

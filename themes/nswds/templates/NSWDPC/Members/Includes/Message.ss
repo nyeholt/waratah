@@ -1,14 +1,14 @@
 <% if $ProfileMessages %>
     <% loop $ProfileMessages %>
         <% if $MessageType == 'good' %>
-            <% include nswds/InPageNotification Icon='check', Message=$Message, Level='success' %>
+            <% include nswds/InPageNotification InPageNotification_Icon='check', InPageNotification_Message=$Message, InPageNotification_Level='success' %>
         <% else_if $MessageType == 'bad' || $MessageType == 'error' || $MessageType == 'required' %>
-            <% include nswds/InPageNotification Icon='check', Message=$Message, Level='error' %>
+            <% include nswds/InPageNotification InPageNotification_Icon='check', InPageNotification_Message=$Message, InPageNotification_Level='error' %>
         <% else_if $MessageType == 'warning' %>
-            <% include nswds/InPageNotification Icon='check', Message=$Message, Level='warning' %>
+            <% include nswds/InPageNotification InPageNotification_Icon='check', InPageNotification_Message=$Message, InPageNotification_Level='warning' %>
         <% else %>
             <%-- default to info level --%>
-            <% include nswds/InPageNotification Icon='info', Message=$Message, Level='info' %>
+            <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Message=$Message, InPageNotification_Level='info' %>
         <% end_if %>
     <% end_loop %>
 <% end_if %>

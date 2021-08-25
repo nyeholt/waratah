@@ -6,7 +6,7 @@
 
     {$Field}
 
-    <% include nswds/FormFieldMessage Message=$Message, MessageType=$MessageType %>
+    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 
     <% if $RightTitle %><span class="nsw-form-helper right" for="$ID">$RightTitle</span><% end_if %>
 

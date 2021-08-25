@@ -8,4 +8,4 @@
         {$HTML}
     </div>
 <% end_if %>
-<% include nswds/LinkList Items=$ElementLinks %>
+<% include nswds/LinkList LinkList_Items=$ElementLinks %>
