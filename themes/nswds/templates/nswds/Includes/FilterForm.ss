@@ -61,7 +61,7 @@
         <div class="nsw-filters__cancel">
         <% if $ClearLink %>
             <%-- a link to clear results and reset to an unfiltered listing --%>
-            <a href="{$Link}"><%t ausday.CLEAR_FILTERS 'Clear all filters' %></a>
+            <a href="{$ClearLink}"><%t ausday.CLEAR_FILTERS 'Clear all filters' %></a>
         <% else %>
             <button type="reset"><%t nswds.CLEAR_ALL_FILTERS 'Clear all filters' %></button>
         <% end_if %>
