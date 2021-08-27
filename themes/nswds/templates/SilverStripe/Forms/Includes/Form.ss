@@ -3,6 +3,7 @@
 <form $AttributesHTML>
 <% end_if %>
 
+    <div class="notifications">
     <% if $MessageType == 'good' %>
         <% include nswds/InPageNotification InPageNotification_Icon='check_circle', InPageNotification_Level='success', InPageNotification_Title='Success', InPageNotification_Content=$Message %>
     <% else_if $MessageType == 'warning' %>
@@ -12,6 +13,9 @@
     <% else %>
         <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Level='info', InPageNotification_Title='Information', InPageNotification_Message=$Message %>
     <% end_if %>
+    </div>
+
+    <div class="main">
 
     <% if $VisibleFields.count > 0 %>
         <fieldset class="nsw-form-fieldset">
@@ -39,6 +43,8 @@
         <% end_loop %>
         </fieldset>
     <% end_if %>
+
+    </div>
 
 <% if $IncludeFormTag %>
 </form>
