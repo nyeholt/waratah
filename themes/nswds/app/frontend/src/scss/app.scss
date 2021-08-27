@@ -1,6 +1,9 @@
 // Project defaults
 @import '../../../../../../../../../mysite/frontend/src/defaults.scss';
 
+// Mixins
+@import './components/waratah/mixins';
+
 // NSW Design System
 @import 'node_modules/nsw-design-system/src/main';
 
