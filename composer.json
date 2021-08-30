@@ -52,7 +52,7 @@
         "nswdpc/silverstripe-nsw-design-system": "self.version"
     },
     "require": {
-        "nswdpc/silverstripe-content-boilerplate": "dev-master",
+        "nswdpc/silverstripe-content-boilerplate": "dev-feat-tinymce-improvements",
         "nswdpc/silverstripe-feedback-assist": "dev-master",
         "nswdpc/silverstripe-field-hint": "dev-master"
     },
