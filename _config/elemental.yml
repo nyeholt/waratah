@@ -55,13 +55,24 @@ Dynamic\Elements\Section\Elements\ElementSectionNavigation:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementSectionNavigationExtension'
 ---
-Name: nswdpc-waratah-elemental-decoratedcontent
+Name: nswdpc-waratah-elemental-gridhelpers
 After:
   - '#nswdpc-waratah-elemental'
-Only:
-  moduleexists: 'nswdpc/silverstripe-elemental-decoratedcontent'
 ---
-# Apply display choice extension if installed
+DNADesign\ElementalList\Model\ElementList:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementHasChildrenExtension'
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'
 NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent:
   extensions:
     - 'NSWDPC\GridHelper\Extensions\ElementDisplayChoiceExtension'
+NSWDPC\Elemental\Models\Slider\ElementSlider:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementHasChildrenExtension'
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'
+NSWDPC\Elemental\Models\Slider\Slide:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementDisplayChoiceExtension'
+NSWDPC\Elemental\Models\QuickGallery\ElementQuickGallery:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'
