@@ -1,16 +1,27 @@
-<% if $Media_Image || $Media_Video %>
-<figure class="nsw-media<% if $Media_WidthOption %>nsw-media--<% if $Media_AlignOption %>{$Media_AlignOption}-<% end_if %>{$Media_WidthOption.XML}<% end_if %>">
+<figure class="nsw-media<% if $Media_WidthOption %>nsw-media--<% if $Media_AlignOption %>{$Media_AlignOption}-<% end_if %>{$Media_WidthOption.XML}<% end_if %>"<% if $Media_Image %> data-original="{$Media_Image.AbsoluteURL.XML}"<% end_if %>>
 
-<% if $Media_Image %>
+<% if $Media_Image || $Media_Caption %>
 
-    <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
-        <img src="{$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
-    <% else_if $Media_ImageWidth > 0 %>
-        <img src="{$Media_Image.ScaleWidth($Media_ImageWidth)}.URL" alt="$Media_Image.AltText">
-    <% else_if $Media_ImageHeight > 0 %>
-        <img src="{$Media_Image.ScaleHeight($Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
+    <% if $Media_Image %>
+
+        <% if Media_LinkToImage == 1 %><a href="{$Media_Image.AbsoluteURL.XML}"><% end_if %>
+
+        <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
+            <img src="{$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
+        <% else_if $Media_ImageWidth > 0 %>
+            <img src="{$Media_Image.ScaleWidth($Media_ImageWidth)}.URL" alt="$Media_Image.AltText">
+        <% else_if $Media_ImageHeight > 0 %>
+            <img src="{$Media_Image.ScaleHeight($Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
+        <% else %>
+            <img src="{$Media_Image.URL}" alt="{$Media_Image.Title.XML}" alt="$Media_Image.AltText">
+        <% end_if %>
+
+        <% if Media_LinkToImage %></a><% end_if %>
+
     <% else %>
-        <img src="{$Media_Image.URL}" alt="{$Media_Image.Title.XML}" alt="$Media_Image.AltText">
+
+        <div class="no-image"></div>
+
     <% end_if %>
 
     <% if $Media_Caption %>
@@ -19,11 +30,15 @@
         </figcaption>
     <% end_if %>
 
-<% else_if $Media_Video %>
+<% else_if $Media_Video || $Media_Caption %>
 
-  <div class="nsw-media__video">
-    {$Media_EmbedCode.RAW}
-  </div>
+  <% if $Media_Video %>
+
+      <div class="nsw-media__video">
+        {$Media_EmbedCode.RAW}
+      </div>
+
+  <% end_if %>
 
   <% if $Media_Caption %>
       <figcaption>
@@ -34,5 +49,3 @@
 <% end_if %>
 
 </figure>
-
-<% end_if %>
