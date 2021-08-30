@@ -37,6 +37,7 @@ DNADesign\Elemental\Models\ElementContent:
 DNADesign\ElementalList\Model\ElementList:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementListExtension'
+    - 'NSWDPC\GridHelper\Extensions\ElementHasChildrenExtension'
   allowed_elements:
     - 'NSWDPC\Elemental\Models\Image\ElementImage'
     - 'NSWDPC\Elemental\Models\LinksBlock\ElementalLinks'
@@ -53,3 +54,14 @@ DNADesign\ElementalList\Model\ElementList:
 Dynamic\Elements\Section\Elements\ElementSectionNavigation:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementSectionNavigationExtension'
+---
+Name: nswdpc-waratah-elemental-decoratedcontent
+After:
+  - '#nswdpc-waratah-elemental'
+Only:
+  moduleexists: 'nswdpc/silverstripe-elemental-decoratedcontent'
+---
+# Apply display choice extension if installed
+NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementDisplayChoiceExtension'

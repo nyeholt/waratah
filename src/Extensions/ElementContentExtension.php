@@ -4,8 +4,6 @@ namespace NSWDPC\Waratah\Extensions;
 
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\CheckboxField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use gorriecoe\Link\Models\Link;
@@ -13,51 +11,63 @@ use NSWDPC\InlineLinker\InlineLinkCompositeField;
 use NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent;
 
 /**
+ * Provides a "Content Image" and "Content Link" field for ElementContent
+ *
+ *
+ * For BC:
  * Quick migration of ImageID->ContentImageID
  * This avoids collisions with historical usage of ElementDecoratedContent.Image
  * mysql> UPDATE ElementContent SET ContentImageID = ImageID WHERE ImageID <> 0;
  * mysql> ALTER TABLE ElementContent DROP COLUMN ImageID;
+ *
+ * @author Mark Taylor
+ * @author James Ellis
  */
 class ElementContentExtension extends DataExtension
 {
 
-    private static $db = [
-        'Subtype' => 'Varchar(64)'
-    ];
-
-    private static $subtypes = [
-        'callout' => 'Callout',
-        'profile' => 'Profile'
-    ];
-
+    /**
+     * @var array
+     */
     private static $has_one = [
         'ContentImage' => Image::class,//avoid collision with ElementDecoratedContent
         'ContentLink' => Link::class,
     ];
 
+    /**
+     * @var array
+     */
     private static $allowed_file_types = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
 
+    /**
+     * @var array
+     */
     private static $owns = ['ContentImage', 'ContentLink'];
 
+    /**
+     * @var array
+     */
     public function getAllowedFileTypes()
     {
         $types = $this->owner->config()->get('allowed_file_types');
-        if (empty($types)) {
+        if (empty($types) || !is_array($types)) {
             $types = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
         }
         $types = array_unique($types);
         return $types;
     }
 
+    /**
+     * Apply image and link fields to the Settings tab
+     */
     public function updateCMSFields(FieldList $fields)
     {
 
         /**
-         * these fields are not applied to the ElementDecoratedContent
-         * a subclass of ElementContent
+         * These fields can only be applied to ElementContent directly, not subclasses
          */
-        if($this->owner instanceof ElementDecoratedContent) {
-            $fields->removeByName(['ContentLinkID','ContentLink','ContentImageID','ContentImageID']);
+        if(get_class($this->owner) != ElementContent::class) {
+            $fields->removeByName(['ContentLinkID','ContentLink','ContentImageID','ContentImage']);
             return;
         }
 
@@ -65,12 +75,6 @@ class ElementContentExtension extends DataExtension
         $fields->addFieldsToTab(
             'Root.Settings',
             [
-                DropdownField::create(
-                    'Subtype',
-                    _t(__CLASS__ . '.DISPLAYTYPE','Display type'),
-                    $this->owner->config()->subtypes
-                )
-                ->setEmptyString('none'),
                 UploadField::create(
                     'ContentImage',
                     _t(__CLASS__ . '.IMAGE', 'Content Image')
@@ -92,7 +96,11 @@ class ElementContentExtension extends DataExtension
 
     }
 
-    protected function getLinkField() {
+    /**
+     * Return the inline link field to handle link selection
+     * @return InlineLinkCompositeField
+     */
+    protected function getLinkField() : InlineLinkCompositeField {
         $field = InlineLinkCompositeField::create(
             'ContentLink',
             _t(
