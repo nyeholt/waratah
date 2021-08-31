@@ -1,9 +1,5 @@
-<%-- use a nswds component --%>
-<% if $ShowTitle && $Title %>
-    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-        {$Title}
-    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-<% end_if %>
+<%-- TODO: use a nswds component --%>
+<% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 <% if $Image %>
     <div class="nsw-grid">
         <div class="nsw-col nsw-col-md-8">

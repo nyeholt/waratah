@@ -32,19 +32,34 @@
 
 <% else_if $Media_Video || $Media_Caption %>
 
-  <% if $Media_Video %>
-
-      <div class="nsw-media__video">
+    <div class="nsw-media__video">
         {$Media_EmbedCode.RAW}
-      </div>
+    </div>
 
-  <% end_if %>
+    <% if $Media_Caption %>
+        <figcaption>
+        {$Media_Caption.XML}
+        </figcaption>
+    <% end_if %>
 
-  <% if $Media_Caption %>
-      <figcaption>
-      {$Media_Caption.XML}
-      </figcaption>
-  <% end_if %>
+    <% if $Media_AltVideoURL %>
+        <p class="alt-url">
+            <a href="$Media_AltVideoURL">
+                <% _t('nswds.WATCHWITHAUDIODESC','Watch this video with an audio description') %>
+            </a>
+        </p>
+    <% end_if %>
+
+    <% if $Media_Transcript %>
+        <div class="nsw-accordion js-accordion">
+            <h2 class="nsw-accordion__title"><%t nswds.READ_TRANSCRIPT 'Read transcript' %></h2>
+            <div class="nsw-accordion__content">
+                <div class="nsw-wysiwyg-content">
+                    {$Media_Transcript}
+                </div>
+            </div>
+        </div>
+    <% end_if %>
 
 <% end_if %>
 

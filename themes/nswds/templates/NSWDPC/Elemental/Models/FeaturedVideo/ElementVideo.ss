@@ -1,8 +1,2 @@
-<% if $ShowTitle && $Title %>
-    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-        {$Title}
-    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-<% end_if %>
-<% include nswds/Media Video=1 %>
-
-
+<% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
+<% include nswds/Media Media_Video=1, Media_EmbedCode=$EmbedHTML %>

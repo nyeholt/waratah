@@ -1,9 +1,7 @@
-<% if $ShowTitle && $Title %>
-    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-        {$Title}
-    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-<% end_if %>
 <% if $SectionNavigation %>
+
+    <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
+
     <div class="nsw-grid">
         <% loop $SectionNavigation %>
             <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
