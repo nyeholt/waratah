@@ -24,6 +24,15 @@ class BaseElementExtension extends DataExtension
         'h6' => 'Heading Six',
     ];
 
+    /**
+     * Use Reflection to get the element shortname for a CSS class
+     */
+    public function ElementShortName() {
+        $rc = new \ReflectionClass($this->owner);
+        $short = $rc->getShortName();
+        return strtolower(preg_replace("[^A-Za-z_0-9]", "", $short));
+    }
+
     public function updateCMSFields(FieldList $fields)
     {
 
