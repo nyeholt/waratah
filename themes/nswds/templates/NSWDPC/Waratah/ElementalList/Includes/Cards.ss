@@ -11,7 +11,7 @@
 
         <% loop $Elements.Elements %>
 
-            <div class="nsw-col{$Up.Up.ColumnClass($Up.OverrideColumns)}">
+            <div class="nsw-col {$Up.Up.ColumnClass($Up.OverrideColumns)}">
                 <div class="nsw-card nsw-card--headline">
                     <div class="nsw-card__content">
                         <h2 class="nsw-card__title">

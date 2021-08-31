@@ -9,7 +9,7 @@
 <% if $Elements.Elements %>
     <div class="nsw-grid">
         <% loop $Elements.Elements %>
-            <div class="nsw-col{$Up.Up.ColumnClass($Up.OverrideColumns)}">
+            <div class="nsw-col {$Up.Up.ColumnClass($Up.OverrideColumns)}">
                 {$Me}
             </div>
         <% end_loop %>
