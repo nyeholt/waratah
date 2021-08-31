@@ -2,6 +2,7 @@
 
 namespace NSWDPC\Waratah\Extensions;
 
+use DNADesign\Elemental\Models\ElementContent;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -73,11 +74,11 @@ class ElementContentExtension extends DataExtension
 
         $fields->removeByName(['ContentLinkID']);
         $fields->addFieldsToTab(
-            'Root.Settings',
+            'Root.Main',
             [
                 UploadField::create(
                     'ContentImage',
-                    _t(__CLASS__ . '.IMAGE', 'Content Image')
+                    _t(__CLASS__ . '.IMAGE', 'Image')
                 )
                 ->setAllowedExtensions($this->owner->getAllowedFileTypes())
                 ->setIsMultiUpload(false)
