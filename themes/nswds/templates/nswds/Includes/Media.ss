@@ -7,11 +7,11 @@
         <% if Media_LinkToImage == 1 %><a href="{$Media_Image.AbsoluteURL.XML}"><% end_if %>
 
         <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
-            <img src="{$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
+            <img src="{$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight).URL}" alt="$Media_Image.AltText">
         <% else_if $Media_ImageWidth > 0 %>
-            <img src="{$Media_Image.ScaleWidth($Media_ImageWidth)}.URL" alt="$Media_Image.AltText">
+            <img src="{$Media_Image.ScaleWidth($Media_ImageWidth).URL}" alt="$Media_Image.AltText">
         <% else_if $Media_ImageHeight > 0 %>
-            <img src="{$Media_Image.ScaleHeight($Media_ImageHeight)}.URL" alt="$Media_Image.AltText">
+            <img src="{$Media_Image.ScaleHeight($Media_ImageHeight).URL}" alt="$Media_Image.AltText">
         <% else %>
             <img src="{$Media_Image.URL}" alt="{$Media_Image.Title.XML}" alt="$Media_Image.AltText">
         <% end_if %>
