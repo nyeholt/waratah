@@ -5,6 +5,7 @@ Name: nswdpc-waratah-extensions
 Page:
   extensions:
     - 'NSWDPC\Waratah\Extensions\PageExtension'
+    - 'NSWDPC\Waratah\Extensions\MultipleElementalAreaExtension'
     - 'NSWDPC\Waratah\Extensions\BreadcrumbExtension'
 SilverStripe\ErrorPage\ErrorPage:
   extensions:
