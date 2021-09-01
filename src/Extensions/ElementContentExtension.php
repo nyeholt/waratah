@@ -78,13 +78,13 @@ class ElementContentExtension extends DataExtension
             [
                 UploadField::create(
                     'ContentImage',
-                    _t(__CLASS__ . '.IMAGE', 'Image')
+                    _t('nswds.IMAGE', 'Image')
                 )
                 ->setAllowedExtensions($this->owner->getAllowedFileTypes())
                 ->setIsMultiUpload(false)
                 ->setDescription(
                     _t(
-                        __CLASS__ . 'ALLOWED_FILE_TYPES',
+                        'nswds.ALLOWED_FILE_TYPES',
                         'Allowed file types: {types}',
                         [
                             'types' => implode(",", $this->owner->getAllowedFileTypes())
@@ -105,7 +105,7 @@ class ElementContentExtension extends DataExtension
         $field = InlineLinkCompositeField::create(
             'ContentLink',
             _t(
-                __CLASS__ . '.LINK',
+                'nswds.LINK',
                 'Link'
             ),
             $this->owner
