@@ -8,7 +8,7 @@
 
             <div class="nsw-sitewide-message__content">
                 <h2 class="nsw-sitewide-message__title">{$GlobalAlert_Title.XML}</h2>
-                <p>{$GlobalAlert_Content.XML}<% if not $GlobalAlert_UseButtonLink %> <a href="{$GlobalAlert_LinkURL}" class="nsw-sitewide-message__link"><% if $GlobalAlert_LinkTitle %>{$GlobalAlert_LinkTitle}<% else %><%t nswds.MORE_INFORMATION 'More information' %></a><% end_if %></p>
+                <p>{$GlobalAlert_Content.XML}<% if not $GlobalAlert_UseButtonLink %> <a href="{$GlobalAlert_LinkURL}" class="nsw-sitewide-message__link"><% if $GlobalAlert_LinkTitle %>{$GlobalAlert_LinkTitle}<% else %><%t nswds.MORE_INFORMATION 'More information' %></a><% end_if %><% end_if %></p>
             </div>
 
             <% if $GlobalAlert_UseButtonLink %>
