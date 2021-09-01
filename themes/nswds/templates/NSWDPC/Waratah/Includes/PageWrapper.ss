@@ -1,5 +1,14 @@
 
-<% if $HasSideElements %>
+<% if $IsLandingPage %>
+
+    <!-- a landing page -->
+    <div class="nsw-p-top-sm nsw-p-bottom-lg" data-page-type="1">
+        <main id="content">
+        <% include NSWDPC/Waratah/PageContent %>
+        </main>
+    </div>
+
+<% else_if $HasSideElements %>
 
     <%-- a content page, sidebar on the right --%>
     <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="3">
@@ -11,15 +20,6 @@
             <% include NSWDPC/Waratah/Sidebar %>
             </aside>
         </div>
-    </div>
-
-<% else_if $IsLandingPage %>
-
-    <!-- a landing page -->
-    <div class="nsw-p-top-sm nsw-p-bottom-lg" data-page-type="1">
-        <main id="content">
-        <% include NSWDPC/Waratah/PageContent %>
-        </main>
     </div>
 
 <% else %>
