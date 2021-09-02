@@ -2,12 +2,6 @@
 
     <div class="nsw-page-layout">
 
-        <div class="nsw-page-layout__sidebar">
-
-            <% include NSWDPC/Members/Links %>
-
-        </div>
-
         <main id="main-content" class="nsw-page-layout__main">
 
             <article>
@@ -29,6 +23,16 @@
             </article>
 
         </main>
+
+        <div class="nsw-page-layout__sidebar">
+
+            <% include NSWDPC/Members/Links %>
+
+            <% if $HasSideElements %>
+                {$SideElementalArea}
+            <% end_if %>
+
+        </div>
 
     </div>
 
