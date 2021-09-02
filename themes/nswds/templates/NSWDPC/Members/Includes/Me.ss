@@ -5,6 +5,10 @@
 
             <% include NSWDPC/Members/Links %>
 
+            <% if $HasSideElements %>
+                {$SideElementalArea}
+            <% end_if %>
+
         </div>
 
         <main id="main-content" class="nsw-page-layout__main">
@@ -41,7 +45,7 @@
                     <% include NSWDPC/Waratah/PageForm %>
 
                 <% else %>
-                    <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_Message='Your profile does not exist' %>
+                    <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_Content='Your profile does not exist' %>
                 <% end_if %>
 
             </article>
