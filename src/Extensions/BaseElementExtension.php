@@ -27,6 +27,15 @@ class BaseElementExtension extends DataExtension
     ];
 
     /**
+     * By default all elements have a container, elements not on landing/full width pages
+     * will ignore the container value and never be in a container, in any case
+     * @var array
+     */
+    private static $defaults = [
+        'AddContainer' => 1
+    ];
+
+    /**
      * @var array
      */
     private static $headings = [
@@ -83,14 +92,24 @@ class BaseElementExtension extends DataExtension
                     'AddContainer',
                     _t(
                         'nswds.ADD_CONTAINER_TO_BLOCK',
-                        'Add a container to this block (landing pages only)'
+                        'Add a container to this block'
+                    )
+                )->setDescription(
+                    _t(
+                        'nswds.IGNORED_ON_CERTAIN_PAGES',
+                        'Not applicable to landing pages. Pages with specific layouts may ignore this setting'
                     )
                 ),
                 CheckboxField::create(
                     'AddBackground',
                     _t(
                         'nswds.ADD_BACKGROUND',
-                        'Add a light grey background to this block (landing pages only)'
+                        'Add a light grey background to this block'
+                    )
+                )->setDescription(
+                    _t(
+                        'nswds.IGNORED_ON_CERTAIN_PAGES',
+                        'Not applicable to landing pages. Pages with specific layouts may ignore this setting'
                     )
                 )
             ]
