@@ -1,4 +1,4 @@
-<div class="nsw-list-item<% if $ListItem_IsReversed %> nsw-list-item--reversed<% end_if %>">
+<div class="nsw-list-item<% if $ListItem_IsReversed == 1 %> nsw-list-item--reversed<% end_if %>">
 
     <div class="nsw-list-item__content">
 
