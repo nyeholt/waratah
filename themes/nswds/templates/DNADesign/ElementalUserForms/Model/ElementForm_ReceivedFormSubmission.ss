@@ -1,1 +1,1 @@
-<% include nswds/InPageNotification InPageNotification_Message=$OnCompleteMessage, InPageNotification_Icon='info' %>
+<% include nswds/InPageNotification InPageNotification_Content=$OnCompleteMessage, InPageNotification_Icon='info' %>
