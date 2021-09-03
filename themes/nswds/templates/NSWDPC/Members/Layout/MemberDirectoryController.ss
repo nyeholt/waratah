@@ -24,7 +24,7 @@
 
         </main>
 
-        <div class="nsw-page-layout__sidebar">
+        <aside class="nsw-page-layout__sidebar">
 
             <% include NSWDPC/Members/Links %>
 
@@ -32,7 +32,7 @@
                 {$SideElementalArea}
             <% end_if %>
 
-        </div>
+        </aside>
 
     </div>
 
