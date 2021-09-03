@@ -19,8 +19,8 @@ class MultipleElementalAreaExtension extends DataExtension
      * @var array
      */
     private static $has_one = [
-        'SideElementalArea' => SideElementalArea::class,
-        'TopElementalArea' => TopElementalArea::class,
+        'SideElementalArea' => ElementalArea::class,
+        'TopElementalArea' => ElementalArea::class,
     ];
 
     /**
@@ -64,34 +64,73 @@ class MultipleElementalAreaExtension extends DataExtension
     private $_cache_has_top_elements = null;
 
     /**
-     * Update elemental areas
+     * Ensure the records are correctly applied, when the owner is saved
+     * As ensureElementalAreasExist creates ElementalArea classes only and not a subclass
+     */
+    public function onAfterWrite() {
+        parent::onAfterWrite();
+        $this->ensureCorrectSettings();
+    }
+
+    /**
+     * Whenever this record is written, ensure the correct settings are applied
+     * @access private
+     */
+    private function ensureCorrectSettings() {
+
+        // Settings for side area
+        $side = $this->owner->SideElementalArea();
+        if(!empty($side->ID)) {
+            $side->IsSideArea = 1;
+            $side->IsTopArea = 0;
+            $side->AllowContainer = 0;
+            $side->AllowSectionModification = 0;
+            $side->RenderElementDirectly = 1;
+            $side->write();
+        }
+
+        // Settings for top area
+        $top = $this->owner->TopElementalArea();
+        if(!empty($side->ID)) {
+            $top->IsSideArea = 0;
+            $top->IsTopArea = 1;
+            $top->AllowContainer = 0;
+            $top->AllowSectionModification = 0;
+            $top->RenderElementDirectly = 1;
+            $top->write();
+        }
+
+    }
+
+    /**
+     * Ensure classnames are correct, as ensureElementalAreasExist creates ElementalArea classes
      */
     public function requireDefaultRecords() {
-        /*
+
         $sql = "UPDATE ElementalArea ea"
             . " JOIN Page p ON p.SideElementalAreaID = ea.ID "
-            . " SET ea.ClassName = '" . Convert::raw2sql(SideElementalArea::Class) . "'";
+            . " SET ea.IsSideArea = 1, ea.IsTopArea = 0, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
         DB::query($sql);
-        DB::alteration_message("Fixed draft " . DB::affected_rows(), 'changed');
+        DB::alteration_message("Ensure draft SideElementArea records have correct settings " . DB::affected_rows(), 'changed');
 
         $sql = "UPDATE ElementalArea_Live ea"
             . " JOIN Page_Live p ON p.SideElementalAreaID = ea.ID "
-            . " SET ea.ClassName = '" . Convert::raw2sql(SideElementalArea::Class) . "'";
+            . " SET ea.IsSideArea = 1, ea.IsTopArea = 0, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
         DB::query($sql);
-        DB::alteration_message("Fixed live " . DB::affected_rows(), 'changed');
+        DB::alteration_message("Ensure published SideElementArea records have correct settings " . DB::affected_rows(), 'changed');
 
         $sql = "UPDATE ElementalArea ea"
             . " JOIN Page p ON p.TopElementalAreaID = ea.ID "
-            . " SET ea.ClassName = '" . Convert::raw2sql(TopElementalArea::Class) . "'";
+            . " SET ea.IsSideArea = 0, ea.IsTopArea = 1, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
         DB::query($sql);
-        DB::alteration_message("Fixed draft " . DB::affected_rows(), 'changed');
+        DB::alteration_message("Ensure draft TopElementalArea records have correct settings: " . DB::affected_rows(), 'changed');
 
         $sql = "UPDATE ElementalArea_Live ea"
             . " JOIN Page_Live p ON p.TopElementalAreaID = ea.ID "
-            . " SET ea.ClassName = '" . Convert::raw2sql(TopElementalArea::Class) . "'";
+            . " SET ea.IsSideArea = 0, ea.IsTopArea = 1, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
         DB::query($sql);
-        DB::alteration_message("Fixed live " . DB::affected_rows(), 'changed');
-        */
+        DB::alteration_message("Ensure published TopElementalArea records have correct settings " . DB::affected_rows(), 'changed');
+
     }
 
     /**

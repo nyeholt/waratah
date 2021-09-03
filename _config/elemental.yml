@@ -1,4 +1,15 @@
 ---
+Name: nswdpc-waratah-elemental-areas
+After:
+  - '#nswdpc-waratah-elemental'
+---
+Page:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\MultipleElementalAreaExtension'
+DNADesign\Elemental\Models\ElementalArea:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\ElementalAreaExtension'
+---
 Name: nswdpc-waratah-elemental
 ---
 Page:
