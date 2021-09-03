@@ -1,12 +1,11 @@
+<%-- this include holds scaffolding for main and side elements --%>
 
 <% if $IsLandingPage %>
 
     <!-- a landing page -->
-    <div class="nsw-p-top-sm nsw-p-bottom-lg" data-page-type="1">
-        <main id="content">
-        <% include NSWDPC/Waratah/PageContent %>
-        </main>
-    </div>
+    <main id="content" data-page-type="1">
+    <% include NSWDPC/Waratah/PageContent %>
+    </main>
 
 <% else_if $HasSideElements %>
 

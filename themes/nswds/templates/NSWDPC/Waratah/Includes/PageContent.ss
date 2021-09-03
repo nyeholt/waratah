@@ -1,5 +1,6 @@
 
 <% if $CurrentPage.IsLandingPage %>
+    <section class="nsw-section--white">
     <div class="nsw-container">
 <% end_if %>
 
@@ -10,7 +11,8 @@
     </div>
 
 <% if $CurrentPage.IsLandingPage %>
-</div>
+    </div>
+    </section>
 <% end_if %>
 
 <%-- elements handle their own container-isation --%>

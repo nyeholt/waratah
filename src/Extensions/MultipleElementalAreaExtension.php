@@ -3,9 +3,13 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use DNADesign\Elemental\Models\ElementalArea;
+use NSWDPC\Waratah\Models\SideElementalArea;
+use NSWDPC\Waratah\Models\TopElementalArea;
 use NSWDPC\Elemental\Models\Banner\ElementBanner;
 use NSWDPC\Elemental\Models\ExtensibleSearch\ElementalExtensibleSearch;
+use Silverstripe\Core\Convert;
 use Silverstripe\ORM\DataExtension;
+use Silverstripe\ORM\DB;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 
@@ -15,8 +19,8 @@ class MultipleElementalAreaExtension extends DataExtension
      * @var array
      */
     private static $has_one = [
-        'SideElementalArea' => ElementalArea::class,
-        'TopElementalArea' => ElementalArea::class,
+        'SideElementalArea' => SideElementalArea::class,
+        'TopElementalArea' => TopElementalArea::class,
     ];
 
     /**
@@ -58,6 +62,37 @@ class MultipleElementalAreaExtension extends DataExtension
      * @var mixed
      */
     private $_cache_has_top_elements = null;
+
+    /**
+     * Update elemental areas
+     */
+    public function requireDefaultRecords() {
+        /*
+        $sql = "UPDATE ElementalArea ea"
+            . " JOIN Page p ON p.SideElementalAreaID = ea.ID "
+            . " SET ea.ClassName = '" . Convert::raw2sql(SideElementalArea::Class) . "'";
+        DB::query($sql);
+        DB::alteration_message("Fixed draft " . DB::affected_rows(), 'changed');
+
+        $sql = "UPDATE ElementalArea_Live ea"
+            . " JOIN Page_Live p ON p.SideElementalAreaID = ea.ID "
+            . " SET ea.ClassName = '" . Convert::raw2sql(SideElementalArea::Class) . "'";
+        DB::query($sql);
+        DB::alteration_message("Fixed live " . DB::affected_rows(), 'changed');
+
+        $sql = "UPDATE ElementalArea ea"
+            . " JOIN Page p ON p.TopElementalAreaID = ea.ID "
+            . " SET ea.ClassName = '" . Convert::raw2sql(TopElementalArea::Class) . "'";
+        DB::query($sql);
+        DB::alteration_message("Fixed draft " . DB::affected_rows(), 'changed');
+
+        $sql = "UPDATE ElementalArea_Live ea"
+            . " JOIN Page_Live p ON p.TopElementalAreaID = ea.ID "
+            . " SET ea.ClassName = '" . Convert::raw2sql(TopElementalArea::Class) . "'";
+        DB::query($sql);
+        DB::alteration_message("Fixed live " . DB::affected_rows(), 'changed');
+        */
+    }
 
     /**
      * Return whether the owner has side elements
