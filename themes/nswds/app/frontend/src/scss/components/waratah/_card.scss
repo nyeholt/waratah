@@ -221,7 +221,7 @@
       display: flex;
       @include font-size('lg');
       line-height: (28em/21);
-      @include font-weight('regular');
+      @include font-stack('regular');
 
       &::before {
         content: '';
@@ -231,7 +231,8 @@
       a {
         flex: 0 0 100%;
         max-width: 100%;
-        text-decoration: none;
+
+        @include link;
 
         &::after {
           content: '';
@@ -243,23 +244,12 @@
           z-index: 2;
         }
 
-        &:hover {
-          @include nsw-link-hover;
-        }
-
-        &:focus {
-          @include nsw-focus($offset: false);
-        }
-
-        &:active {
-          @include nsw-active;
-        }
       }
     }// end title
 
     // Card item time
     &__time {
-      @include font-weight('regular');
+      @include font-stack('regular');
       line-height: (22em/16);
       margin: 0;
       color: $dark80;
