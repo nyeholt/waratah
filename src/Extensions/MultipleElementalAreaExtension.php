@@ -103,37 +103,6 @@ class MultipleElementalAreaExtension extends DataExtension
     }
 
     /**
-     * Ensure classnames are correct, as ensureElementalAreasExist creates ElementalArea classes
-     */
-    public function requireDefaultRecords() {
-
-        $sql = "UPDATE ElementalArea ea"
-            . " JOIN Page p ON p.SideElementalAreaID = ea.ID "
-            . " SET ea.IsSideArea = 1, ea.IsTopArea = 0, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
-        DB::query($sql);
-        DB::alteration_message("Ensure draft SideElementArea records have correct settings " . DB::affected_rows(), 'changed');
-
-        $sql = "UPDATE ElementalArea_Live ea"
-            . " JOIN Page_Live p ON p.SideElementalAreaID = ea.ID "
-            . " SET ea.IsSideArea = 1, ea.IsTopArea = 0, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
-        DB::query($sql);
-        DB::alteration_message("Ensure published SideElementArea records have correct settings " . DB::affected_rows(), 'changed');
-
-        $sql = "UPDATE ElementalArea ea"
-            . " JOIN Page p ON p.TopElementalAreaID = ea.ID "
-            . " SET ea.IsSideArea = 0, ea.IsTopArea = 1, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
-        DB::query($sql);
-        DB::alteration_message("Ensure draft TopElementalArea records have correct settings: " . DB::affected_rows(), 'changed');
-
-        $sql = "UPDATE ElementalArea_Live ea"
-            . " JOIN Page_Live p ON p.TopElementalAreaID = ea.ID "
-            . " SET ea.IsSideArea = 0, ea.IsTopArea = 1, ea.AllowContainer = 0, ea.AllowSectionModification = 0, ea.RenderElementDirectly = 1";
-        DB::query($sql);
-        DB::alteration_message("Ensure published TopElementalArea records have correct settings " . DB::affected_rows(), 'changed');
-
-    }
-
-    /**
      * Return whether the owner has side elements
      * Rely on cache value if not null, to avoid DB hits
      */
