@@ -22,7 +22,7 @@
 <%-- where the Top Elemental Areas live --%>
 <% include NSWDPC/Waratah/PageBanner %>
 
-<% if $CurrentPage.Breadcrumbs.Count > 0 %>
+<% if $CurrentPage.Breadcrumbs != '' %>
 <div class="nsw-container">
 <% include nswds/Breadcrumbs Breadcrumbs_List=$CurrentPage.Breadcrumbs %>
 </div>
