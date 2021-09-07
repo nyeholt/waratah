@@ -1,4 +1,4 @@
-<% if $ElementNav %>
+<% if $supportsElemental && $ElementNav %>
 
     <% include nswds/InPageNavigation InPageNavigation_Links=$ElementNav %>
 
