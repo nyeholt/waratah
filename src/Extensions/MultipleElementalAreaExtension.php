@@ -13,6 +13,10 @@ use Silverstripe\ORM\DB;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 
+/**
+ * Extension applied to Page and other Elemental supporting DataObject
+ * You should also apply the ElementalAreaExtension to the same DataObject
+ */
 class MultipleElementalAreaExtension extends DataExtension
 {
     /**
@@ -100,6 +104,16 @@ class MultipleElementalAreaExtension extends DataExtension
             $top->write();
         }
 
+        // Settings for the main area
+        $main = $this->owner->ElementalArea();
+        if(!empty($main->ID)) {
+            $main->IsSideArea = 0;
+            $main->IsTopArea = 0;
+            $main->AllowContainer = 1;
+            $main->AllowSectionModification = 1;
+            $main->RenderElementDirectly = 0;
+            $main->write();
+        }
     }
 
     /**
