@@ -46,10 +46,10 @@
 
         </div>
 
-        <div class="nsw-content-block__image-area">
-        <%-- note: content block image height is restricted to 200px @ 16px/em --%>
         <% if $ContentBlock_Image || $ContentBlock_Icon %>
+            <div class="nsw-content-block__image-area">
             <% if $ContentBlock_Image %>
+                <%-- note: content block image height is restricted to 200px @ 16px/em --%>
                 <% if $ContentBlock_ImageWidth && $ContentBlock_ImageHeight %>
                     {$ContentBlock_Image.FocusFill($ContentBlock_ImageWidth, $ContentBlock_ImageHeight)}
                 <% else_if $ContentBlock_ImageWidth %>
@@ -65,10 +65,8 @@
                 {$ContentBlock_Icon.RAW}
                 </div>
             <% end_if %>
-        <% else %>
-            <div class="no-image"></div>
+            </div>
         <% end_if %>
-        </div>
 
     </div>
 </div>
