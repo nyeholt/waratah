@@ -1,7 +1,7 @@
 ---
 Name: nswdpc-memberprofile-extensions
 Only:
-  moduleexists: 'burnbright/silverstripe-members'
+  moduleexists: 'nswdpc/silverstripe-members'
 ---
 NSWDPC\Members\MemberController:
   extensions:
