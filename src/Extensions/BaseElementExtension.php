@@ -97,7 +97,7 @@ class BaseElementExtension extends DataExtension
                 )->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Not applicable to landing pages. Pages with specific layouts may ignore this setting'
+                        'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
                 ),
                 CheckboxField::create(
@@ -109,7 +109,7 @@ class BaseElementExtension extends DataExtension
                 )->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Not applicable to landing pages. Pages with specific layouts may ignore this setting'
+                        'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
                 )
             ]
