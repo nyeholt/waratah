@@ -46,10 +46,6 @@
         {
             "type":"vcs",
             "url": "https://github.com/nswdpc/silverstripe-field-hint.git"
-        },
-        {
-            "type": "vcs",
-            "url" : "git@gitlab.symbiote.com.au:dpc/silverstripe-grid-helpers.git"
         }
     ],
     "replace": {
@@ -59,7 +55,7 @@
         "nswdpc/silverstripe-content-boilerplate": "dev-master",
         "nswdpc/silverstripe-feedback-assist": "dev-master",
         "nswdpc/silverstripe-field-hint": "dev-master",
-        "nswdpc/silverstripe-grid-helpers": "dev-feat-waratah"
+        "nswdpc/silverstripe-grid-helpers": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
