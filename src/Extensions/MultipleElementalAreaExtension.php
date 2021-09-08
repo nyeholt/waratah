@@ -95,7 +95,7 @@ class MultipleElementalAreaExtension extends DataExtension
 
         // Settings for top area
         $top = $this->owner->TopElementalArea();
-        if(!empty($side->ID)) {
+        if(!empty($top->ID)) {
             $top->IsSideArea = 0;
             $top->IsTopArea = 1;
             $top->AllowContainer = 0;
