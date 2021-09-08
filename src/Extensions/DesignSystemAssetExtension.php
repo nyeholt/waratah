@@ -3,6 +3,7 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use NSWDPC\Waratah\Models\DesignSystemConfiguration;
+use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Extension;
@@ -26,9 +27,14 @@ class DesignSystemAssetExtension extends Extension {
 
     /**
      * Include the Design System after controller init
+     * Note that some modules call controller->init(), so need to check here that the current
+     * controller actually has this class as an extension
      */
     public function onAfterInit()
     {
+        if(!Controller::curr()->hasExtension(DesignSystemAssetExtension::class)) {
+            return;
+        }
         if(!$this->getConfigurationValue('frontend_provided')) {
             $this->requireDesignSystem();
         }
