@@ -78,6 +78,7 @@ class MultipleElementalAreaExtension extends DataExtension
 
     /**
      * Whenever this record is written, ensure the correct settings are applied
+      * TODO: possibly better to do this outside the ORM to avoid writing a new version of each ElementalArea on every owner write event
      * @access private
      */
     private function ensureCorrectSettings() {
@@ -87,6 +88,7 @@ class MultipleElementalAreaExtension extends DataExtension
         if(!empty($side->ID)) {
             $side->IsSideArea = 1;
             $side->IsTopArea = 0;
+            // side elements do not have containers
             $side->AllowContainer = 0;
             $side->AllowSectionModification = 0;
             $side->RenderElementDirectly = 1;
@@ -98,6 +100,7 @@ class MultipleElementalAreaExtension extends DataExtension
         if(!empty($top->ID)) {
             $top->IsSideArea = 0;
             $top->IsTopArea = 1;
+            //elements in this area are expected to render their own containers, if required
             $top->AllowContainer = 0;
             $top->AllowSectionModification = 0;
             $top->RenderElementDirectly = 1;
@@ -109,7 +112,9 @@ class MultipleElementalAreaExtension extends DataExtension
         if(!empty($main->ID)) {
             $main->IsSideArea = 0;
             $main->IsTopArea = 0;
+            // on landing pages, main content elements *may* have a container
             $main->AllowContainer = 1;
+            // and they may have section backgrounds
             $main->AllowSectionModification = 1;
             $main->RenderElementDirectly = 0;
             $main->write();
