@@ -19,9 +19,14 @@
 
 <% include NSWDPC/Waratah/MainNavigation %>
 
+<%-- where the Top Elemental Areas live --%>
 <% include NSWDPC/Waratah/PageBanner %>
 
-<% include nswds/Breadcrumbs %>
+<% if $CurrentPage.Breadcrumbs != '' %>
+<div class="nsw-container">
+<% include nswds/Breadcrumbs Breadcrumbs_List=$CurrentPage.Breadcrumbs %>
+</div>
+<% end_if %>
 
 {$Layout}
 

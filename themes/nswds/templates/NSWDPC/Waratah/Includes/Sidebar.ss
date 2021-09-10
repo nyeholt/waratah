@@ -1,2 +1,5 @@
-<aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
-</aside>
+<% if $HasSideElements %>
+    {$SideElementalArea}
+<% else %>
+    <% include nswds/SideNavigation SideNavigation_SideNavItems=$Children, SideNavigation_SideNavLabel=$URLSegment, SideNavigation_SideNavLink=$Link, SideNavigation_SideNavHeader=$MenuTitle %>
+<% end_if %>

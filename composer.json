@@ -54,7 +54,8 @@
     "require": {
         "nswdpc/silverstripe-content-boilerplate": "dev-master",
         "nswdpc/silverstripe-feedback-assist": "dev-master",
-        "nswdpc/silverstripe-field-hint": "dev-master"
+        "nswdpc/silverstripe-field-hint": "dev-master",
+        "nswdpc/silverstripe-grid-helpers": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",

@@ -1,3 +1,3 @@
-<% if $Image && $ShowBannerImage %>
-    <% include nswds/HeroBanner BannerImage=$Image %>
+<% if $HasTopElements %>
+    {$TopElementalArea}
 <% end_if %>

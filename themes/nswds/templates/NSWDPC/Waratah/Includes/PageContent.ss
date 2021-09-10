@@ -1,9 +1,10 @@
-<main id="content" class="nsw-page-layout__main">
-    <div class="nsw-block">
-        <% include NSWDPC/Waratah/PageContentTitle %>
-        <% include NSWDPC/Waratah/PageContentAbstract %>
-        <% include NSWDPC/Waratah/PageContentAction %>
-    </div>
-    <% include NSWDPC/Waratah/PageContentElemental %>
-    <% include NSWDPC/Waratah/PageForm %>
-</main>
+
+<% include NSWDPC/Waratah/PageIntro %>
+
+<%-- elements handle their own container-isation --%>
+<% include NSWDPC/Waratah/PageElemental %>
+
+<%-- allow inclusion of any static non elemental content in a project on a per-layout basis --%>
+<% include NSWDPC/Waratah/PerLayoutContent %>
+
+<% include NSWDPC/Waratah/PageForm %>

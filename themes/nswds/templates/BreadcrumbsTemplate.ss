@@ -1,14 +1,21 @@
+<%-- this template is generated as  the global template variable $Breadcrumbs, and included in nswds/Breadcrumbs --%>
 <% if $Pages %>
-    <li class="nsw-breadcrumb__item">
-        <a href="$BaseHref" class="nsw-breadcrumb__link">Home</a>
+<ol class="nsw-breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="nsw-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="<% if $Breadcrumbs_HomeLink %>{$Breadcrumbs_HomeLink}<% else %>/<% end_if %>" class="nsw-breadcrumb__link"><span itemprop="name"><%t wrth.HOME 'Home' %></span></a>
+        <meta itemprop="position" content="1" />
     </li>
     <% loop $Pages %>
-        <li class="nsw-breadcrumb__item">
+        <li class="nsw-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
         <% if $Last %>
-            <a href="{$BreadcrumbLink}" class="nsw-breadcrumb__link nsw-breadcrumb--current" aria-current="page">{$MenuTitle}</a>
+            <a itemprop="item" href="{$BreadcrumbLink}" class="nsw-breadcrumb__link nsw-breadcrumb--current" aria-current="page"><span itemprop="name">{$MenuTitle}</span></a>
         <% else %>
-            <a href="{$BreadcrumbLink}" class="nsw-breadcrumb__link">{$MenuTitle}</a>
+            <a itemprop="item" href="{$BreadcrumbLink}" class="nsw-breadcrumb__link"><span itemprop="name">{$MenuTitle}</span></a>
         <% end_if %>
+        <meta itemprop="position" content="{$Pos(2)}" />
         </li>
     <% end_loop %>
+</ol>
+<% else %>
+<!-- no breadcrumbs found -->
 <% end_if %>

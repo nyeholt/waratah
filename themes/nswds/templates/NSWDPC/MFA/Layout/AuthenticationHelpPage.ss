@@ -2,10 +2,6 @@
 
     <div class="nsw-page-layout">
 
-        <% if $Menu(2) %>
-            <% include NSWDPC/Waratah/Sidebar %>
-        <% end_if %>
-
         <main id="main-content" class="nsw-page-layout__main">
 
             <article>
@@ -17,8 +13,6 @@
 
 
                 </div>
-
-                <% include nswds/InPageNavigation InPageNavigation=$ElementNav %>
 
                 <% if $AuthenticationHelpShowAbove %>
                     <% if $AuthenticationHelpHeading %>
@@ -44,6 +38,12 @@
             <% include NSWDPC/Waratah/PageForm %>
 
         </main>
+
+        <% if $HasSideElements %>
+            <aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
+                <% include NSWDPC/Waratah/Sidebar %>
+            </aside>
+        <% end_if %>
 
     </div>
 

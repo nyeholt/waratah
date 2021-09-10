@@ -1,9 +1,30 @@
-<section class="nsw-block<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %> $SimpleClassName.LowerCase" id="$Anchor">
-    <div<% if $Element.AddBackground %> class="nsw-section--light-10"<% end_if %>>
-        <% if $Element.AddContainer %><div class="nsw-container"><% end_if %>
-    	    $Element
-        <% if $Element.AddContainer %></div><% end_if %>
+<% if $Parent.RenderElementDirectly %>
+
+    <%-- elements that can render directly --%>
+
+    <div data-direct="1" data-side="{$IsSideArea}">
+    {$Element}
     </div>
-</section>
 
+<% else_if $CurrentPage.IsLandingPage %>
 
+    <%-- note:landing pages never render a sidebar element area, these are all the main elements --%>
+
+    <section class="nsw-section--<% if $AddBackground %>light-10<% else %>white<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+
+        <%-- landing page elements can have containers and backgrounds --%>
+        <% if $AddContainer %><div class="nsw-container"><% end_if %>
+            {$Element}
+        <% if $AddContainer %></div><% end_if %>
+
+    </section>
+
+<% else %>
+
+    <%-- any element not rendered directly,  not in a landing page --%>
+
+    <div class="nsw-block<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+        {$Element}
+    </div>
+
+<% end_if %>

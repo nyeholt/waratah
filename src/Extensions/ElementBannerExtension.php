@@ -17,11 +17,20 @@ use NSWDPC\InlineLinker\InlineLinkCompositeField;
 use UncleCheese\DisplayLogic\Forms\Wrapper;
 
 
+/**
+ * Design system integration for Banner element
+ */
 class ElementBannerExtension extends DataExtension
 {
 
+    /**
+     * @var bool
+     */
     private static $inline_editable = false;
 
+    /**
+     * @var array
+     */
     private static $db = [
         'BannerStyle' => 'Varchar(64)',
         'AltStyle' => 'Boolean',
@@ -29,16 +38,25 @@ class ElementBannerExtension extends DataExtension
         'BannerLinksTitle' => 'Varchar(128)',
     ];
 
+    /**
+     * @var array
+     */
     private static $many_many = [
         'BannerLinks' => Link::class
     ];
 
+    /**
+     * @var array
+     */
     private static $many_many_extraFields = [
         'BannerLinks' => [
             'Sort' => 'Int'
         ]
     ];
 
+    /**
+     * @var array
+     */
     private static $banner_styles = [
         'title-content' => 'Title and content',
         'title-content-image' => 'Title and content - with image',
@@ -54,13 +72,13 @@ class ElementBannerExtension extends DataExtension
 
         $bannerStyleField = DropdownField::create(
             'BannerStyle',
-            _t(__CLASS__ . '.BANNERSTYLE','Banner style'),
+            _t('nswds.BANNERSTYLE','Banner style'),
             $this->owner->config()->get("banner_styles")
         );
 
         $altStyleField =CheckboxField::create(
             'AltStyle',
-            _t(__CLASS__ . '.ALTSTYLE','Show in alternative style')
+            _t('nswds.ALTSTYLE','Show in alternative style')
         );
         $altStyleField
             ->displayUnless('BannerStyle')
@@ -68,13 +86,13 @@ class ElementBannerExtension extends DataExtension
 
         $imageField = UploadField::create(
             "Image",
-            _t(__CLASS__ . ".SLIDE_IMAGE", "Image")
+            _t("nswds.SLIDE_IMAGE", "Image")
         );
         $imageField->setAllowedExtensions($this->owner->getAllowedFileTypes());
         $imageField->setIsMultiUpload(false);
         $imageField->setDescription(
             _t(
-                __CLASS__ . "ALLOWED_FILE_TYPES",
+                "nswds.ALLOWED_FILE_TYPES",
                 "Allowed file types: {types}",
                 [
                     'types' => implode(",", $this->owner->getAllowedFileTypes())
@@ -89,7 +107,7 @@ class ElementBannerExtension extends DataExtension
         $linkField = Wrapper::create(InlineLinkCompositeField::create(
             'BannerLink',
             _t(
-                __CLASS__ . 'LINK', 'Link'
+                'nswds.LINK', 'Link'
             ),
             $this->owner
         ));
@@ -100,7 +118,7 @@ class ElementBannerExtension extends DataExtension
 
         $linksFieldTitle = TextField::create(
             'BannerLinksTitle',
-            _t(__CLASS__ . '.LINKSTITLE','Links title'),
+            _t('nswds.LINKSTITLE','Links title'),
         );
         $linksFieldTitle
             ->displayIf('BannerStyle')
@@ -108,7 +126,7 @@ class ElementBannerExtension extends DataExtension
 
         $linksField = LinkField::create(
             'BannerLinks',
-            _t(__CLASS__ . '.LINKS','Links'),
+            _t('nswds.LINKS','Links'),
             $this->owner
         );
         $linksField->setSortColumn('Sort');
@@ -119,7 +137,7 @@ class ElementBannerExtension extends DataExtension
         $contentField = HTMLEditorField::create(
             'HTML',
             _t(
-                __CLASS__ . '.HTML',
+                'nswds.HTML',
                 'Content'
             )
         );

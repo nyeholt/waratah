@@ -1,11 +1,7 @@
-<% if $ShowTitle && $Title %>
-    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-        {$Title.XML}
-    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-<% end_if %>
+<% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 <% if $HTML %>
     <div class="nsw-body-content">
         {$HTML}
     </div>
 <% end_if %>
-<% include nswds/LinkList Items=$ElementLinks %>
+<% include nswds/LinkList LinkList_Items=$ElementLinks %>

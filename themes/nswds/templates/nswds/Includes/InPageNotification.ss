@@ -1,13 +1,19 @@
-<div class="nsw-notification nsw-notification--<% if $Level %>{$Level}<% else %>info<% end_if %>"<% if $Message == '' %> style="display: none"<% end_if %>>
-  <% if $Icon %>
-    <i class="material-icons nsw-material-icons nsw-notification__icon" focusable="false" aria-hidden="true">{$Icon}</i>
+<div class="nsw-notification nsw-notification--<% if $InPageNotification_Level %>{$InPageNotification_Level}<% else %>info<% end_if %>"<% if $InPageNotification_Content == '' %> style="display: none"<% end_if %>>
+
+  <% if $InPageNotification_Icon %>
+    <% include nswds/Icon Icon_Icon=$InPageNotification_Icon, Icon_IconExtraClass='nsw-notification__icon' %>
   <% end_if %>
+
   <div class="nsw-notification__content">
-    <% if $MessageTitle %>
-        <h4 class="nsw-notification__title">{$MessageTitle}</h4>
+
+    <% if $InPageNotification_Title %>
+        <h4 class="nsw-notification__title">{$InPageNotification_Title.XML}</h4>
     <% end_if %>
-    <% if $Message %>
-        <p>{$Message}</p>
+
+    <% if $InPageNotification_Content %>
+        <p>{$InPageNotification_Content.XML}</p>
     <% end_if %>
+
   </div>
+
 </div>

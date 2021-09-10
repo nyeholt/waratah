@@ -1,14 +1,18 @@
 <div class="nsw-callout">
-    <% if $Icon %>
-        <% include nswds/Icon Icon=$Icon, IconExtraClass='nsw-callout__icon' %>
+    <% if $Callout_Icon %>
+        <% include nswds/Icon Icon_Icon=$Callout_Icon, Icon_IconExtraClass='nsw-callout__icon' %>
     <% end_if %>
     <div class="nsw-callout__content">
-        <h4 class="nsw-callout__title">{$Title.XML}</h4>
-        <p>{$Content.XML}</p>
-        <% if $LinkText && $LinkURL %>
-            <a href="{$LinkURL}" class="nsw-text-link">{$LinkText}</a>
-        <% else_if $Link %>
-            <% with $Link %>
+        <h4 class="nsw-callout__title">{$Callout_Title.XML}</h4>
+        <% if $Callout_HTML %>
+            {$Callout_HTML}
+        <% else_if $Callout_Content %>
+            <p>{$Callout_Content.XML}</p>
+        <% end_if %>
+        <% if $Callout_LinkText && $Callout_LinkURL %>
+            <a href="{$Callout_LinkURL}" class="nsw-text-link">{$Callout_LinkText}</a>
+        <% else_if $Callout_Link %>
+            <% with $Callout_Link %>
                 <a href="{$LinkURL}" class="nsw-text-link">{$Title}</a>
             <% end_with %>
         <% end_if %>

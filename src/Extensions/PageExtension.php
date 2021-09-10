@@ -61,7 +61,7 @@ class PageExtension extends DataExtension
             'MenuTitle',
             TextareaField::create(
                 'Abstract',
-                _t(__CLASS__. '.ABSTRACT', 'Abstract')
+                _t('nswds.ABSTRACT', 'Abstract')
             )
             ->setDescription('This will be displayed in listings and search results')
             ->setTargetLength(160, 90, 200)
@@ -71,7 +71,7 @@ class PageExtension extends DataExtension
             'Abstract',
             CheckboxField::create(
                 'ShowAbstractOnPage',
-                _t(__CLASS__. '.SHOWABSTRACT', 'Show abstract on the page, below the title')
+                _t('nswds.SHOWABSTRACT', 'Show abstract on the page, below the title')
             )
         );
 
@@ -79,20 +79,20 @@ class PageExtension extends DataExtension
             'ShowAbstractOnPage',
             CheckboxField::create(
                 'IsLandingPage',
-                _t(__CLASS__. '.ISLANDINGPAGE', 'Show this page as a landing page')
+                _t('nswds.ISLANDINGPAGE', 'Show this page as a landing page')
             )->setDescription('This will remove any side navigation or other extras')
         );
 
         $fields->addFieldsToTab("Root.Image", [
             UploadField::create(
                 "Image",
-                _t(__CLASS__ . ".SLIDE_IMAGE", "Image used for social media")
+                _t("nswds.SLIDE_IMAGE", "Image used for social media")
             )
             ->setAllowedExtensions($this->owner->getAllowedFileTypes())
             ->setIsMultiUpload(false)
             ->setDescription(
                 _t(
-                    __CLASS__ . "ALLOWED_FILE_TYPES",
+                    "nswds.ALLOWED_FILE_TYPES",
                     "Allowed file types: {types}",
                     [
                         'types' => implode(",", $this->owner->getAllowedFileTypes())
@@ -101,7 +101,7 @@ class PageExtension extends DataExtension
             ),
             CheckboxField::create(
                 'ShowBannerImage',
-                _t(__CLASS__. '.SHOWBANNERIMAGE', 'Show this image at top of the page as a banner')
+                _t('nswds.SHOWBANNERIMAGE', 'Show this image at top of the page as a banner')
             )
 
         ]);

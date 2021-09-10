@@ -9,17 +9,26 @@ use SilverStripe\Forms\DropdownField;
 class ElementSectionNavigationExtension extends DataExtension
 {
 
+    /**
+     * @var array
+     */
     private static $db = [
         'CardColumns' => 'Varchar(64)',
         'CardStyle' => 'Varchar(64)'
     ];
 
+    /**
+     * @var array
+     */
     private static $card_columns = [
         '2' => 'Two',
         '3' => 'Three',
         '4' => 'Four',
     ];
 
+    /**
+     * @var array
+     */
     private static $card_styles = [
         'title' => 'Title only',
         'title-abstract' => 'Title and abstract',

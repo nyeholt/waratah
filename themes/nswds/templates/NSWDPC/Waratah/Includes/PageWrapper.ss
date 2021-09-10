@@ -1,13 +1,38 @@
-<div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
-    <div class="nsw-page-layout">
-        <% if $IsLandingPage %>
+<%-- this include holds scaffolding for main and side elements --%>
+
+<% if $IsLandingPage %>
+
+    <!-- a landing page -->
+    <main id="content" data-page-type="1">
+    <% include NSWDPC/Waratah/PageContent %>
+    </main>
+
+<% else_if $HasSideElements %>
+
+    <%-- a content page, sidebar on the right --%>
+    <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="3">
+        <div class="nsw-page-layout">
+            <main id="content" class="nsw-page-layout__main">
             <% include NSWDPC/Waratah/PageContent %>
-        <% else_if $Menu(2) %>
-            <% include NSWDPC/Waratah/SidebarNav %>
-            <% include NSWDPC/Waratah/PageContent %>
-        <% else %>
-            <% include NSWDPC/Waratah/PageContent %>
+            </main>
+            <aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
             <% include NSWDPC/Waratah/Sidebar %>
-        <% end_if %>
+            </aside>
+        </div>
     </div>
-</div>
+
+<% else %>
+
+    <%-- default: a page with navigation, sidebar on the left --%>
+    <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="2">
+        <div class="nsw-page-layout">
+            <aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
+            <% include NSWDPC/Waratah/SidebarNav %>
+            </aside>
+            <main id="content" class="nsw-page-layout__main">
+            <% include NSWDPC/Waratah/PageContent %>
+            </main>
+        </div>
+    </div>
+
+<% end_if %>

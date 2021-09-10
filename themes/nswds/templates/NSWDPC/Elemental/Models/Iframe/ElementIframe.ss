@@ -1,8 +1,4 @@
-<% if $ShowTitle && $Title %>
-    <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-        {$Title}
-    </<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %>>
-<% end_if %>
+<% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 <div class="outer<% if $IsResponsive %> responsive-iframe is-{$IsResponsive.XML}<% end_if %>">
     <% if $IsLazy %><noscript class="loading-lazy"><% end_if %>
         <iframe

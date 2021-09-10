@@ -1,4 +1,15 @@
 ---
+Name: nswdpc-waratah-elemental-areas
+After:
+  - '#nswdpc-waratah-elemental'
+---
+Page:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\MultipleElementalAreaExtension'
+DNADesign\Elemental\Models\ElementalArea:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\ElementalAreaExtension'
+---
 Name: nswdpc-waratah-elemental
 ---
 Page:
@@ -37,6 +48,7 @@ DNADesign\Elemental\Models\ElementContent:
 DNADesign\ElementalList\Model\ElementList:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementListExtension'
+    - 'NSWDPC\GridHelper\Extensions\ElementHasChildrenExtension'
   allowed_elements:
     - 'NSWDPC\Elemental\Models\Image\ElementImage'
     - 'NSWDPC\Elemental\Models\LinksBlock\ElementalLinks'
@@ -53,3 +65,25 @@ DNADesign\ElementalList\Model\ElementList:
 Dynamic\Elements\Section\Elements\ElementSectionNavigation:
   extensions:
     - 'NSWDPC\Waratah\Extensions\ElementSectionNavigationExtension'
+---
+Name: nswdpc-waratah-elemental-gridhelpers
+After:
+  - '#nswdpc-waratah-elemental'
+---
+DNADesign\ElementalList\Model\ElementList:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementHasChildrenExtension'
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'
+NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementDisplayChoiceExtension'
+NSWDPC\Elemental\Models\Slider\ElementSlider:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementHasChildrenExtension'
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'
+NSWDPC\Elemental\Models\Slider\Slide:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementDisplayChoiceExtension'
+NSWDPC\Elemental\Models\QuickGallery\ElementQuickGallery:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'

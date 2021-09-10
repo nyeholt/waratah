@@ -5,7 +5,7 @@
         <legend>
            <% if $Title %><span class="nsw-form-label">$Title</span><% end_if %>
            <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
-           <% include nswds/FormFieldMessage Message=$Message, MessageType=$MessageType %>
+           <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
          </legend>
 
          <div class="nsw-form-radio">

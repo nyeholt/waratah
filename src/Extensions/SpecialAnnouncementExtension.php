@@ -20,11 +20,11 @@ class SpecialAnnouncementExtension extends DataExtension
             'Category',
             DropdownField::create(
                 'AlertState',
-                'Alert state',
+                _t('nswds.ALERT_STATE','Alert state'),
                 [
-                    'default' => 'Default alert',
-                    'critical' => 'Critical alert',
-                    'light' => 'Light alert'
+                    'default' => _t('nswds.DEFAULT_ALERT','Default alert'),
+                    'critical' => _t('nswds.CRITICAL_ALERT','Critical alert'),
+                    'light' => _t('nswds.LIGHT_ALERT','Light alert')
                 ]
             )
         );

@@ -1,0 +1,39 @@
+/**
+ * This component provides the ability to have a canvas and off canvas element to a page
+ * Eg. a side bar
+ * Ensure that the first child of the <body> is a div with a wrth-canvas class
+ * Then add a div with wrth-off-canvas
+ * The rest is up to you - add the open class to both elements to style a slide in sidebar from the right
+ */
+.wrth-off-canvas{
+  width: 100vw;
+  margin-right: -100vw;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: $light10;
+  height: 100vh;
+  overflow: auto;
+
+  @include breakpoint("sm"){
+    margin-right: rem(-410px);
+    width: rem(410px);
+  }
+}
+
+.wrth-canvas,
+.wrth-off-canvas {
+  &.open {
+    transition-duration: 300ms;
+    transform: translateX(-100vw);
+    @include breakpoint("sm"){
+      transform: translateX(rem(-410px));
+    }
+  }
+
+  &.closing {
+    transform: translateX(0);
+  }
+
+}

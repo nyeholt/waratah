@@ -11,6 +11,7 @@ use Silverstripe\Forms\FieldList;
 use Silverstripe\Forms\HeaderField;
 use Silverstripe\Forms\CheckboxField;
 use Silverstripe\Forms\TextField;
+use Silverstripe\Forms\TextareaField;
 use Silverstripe\Forms\HTMLEditor\HTMLEditorField;
 use gorriecoe\Link\Models\Link;
 use gorriecoe\LinkField\LinkField;
@@ -18,6 +19,9 @@ use gorriecoe\LinkField\LinkField;
 class SiteConfigExtension extends DataExtension
 {
 
+    /**
+     * @var array
+     */
     private static $db = [
 
         // Copyright and ownership
@@ -32,22 +36,33 @@ class SiteConfigExtension extends DataExtension
         'FooterLinksCol3Title' => 'Varchar(255)',
         'FooterLinksCol4Title' => 'Varchar(255)',
         'FooterContent' => 'HTMLText',
+        'DisplayWelcomeToCountry' => 'Boolean',
+        'WelcomeToCountry' => 'Text',
 
         // Accessibility
         'EnableTextToSpeech' => 'Boolean'
 
     ];
 
+    /**
+     * @var array
+     */
     private static $has_one = [
         'LogoSVG' => File::class,
         'LogoImage' => File::class
     ];
 
+    /**
+     * @var array
+     */
     private static $owns = [
         'LogoSVG',
         'LogoImage'
     ];
 
+    /**
+     * @var array
+     */
     private static $many_many = [
         'FooterLinksCol1' => Link::class,
         'FooterLinksCol2' => Link::class,
@@ -57,6 +72,9 @@ class SiteConfigExtension extends DataExtension
         'SocialLinks' => Link::class
     ];
 
+    /**
+     * @var array
+     */
     private static $many_many_extraFields = [
         'FooterLinksCol1' => ['Sort' => 'Int'],
         'FooterLinksCol2' => ['Sort' => 'Int'],
@@ -64,6 +82,13 @@ class SiteConfigExtension extends DataExtension
         'FooterLinksCol4' => ['Sort' => 'Int'],
         'FooterLinksSub' => ['Sort' => 'Int'],
         'SocialLinks' => ['Sort' => 'Int']
+    ];
+
+    /**
+     * @var array
+     */
+    private static $defaults = [
+        'DisplayWelcomeToCountry' => 1
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -148,7 +173,21 @@ class SiteConfigExtension extends DataExtension
                 $this->owner
             )->setSortColumn('Sort'),
 
-            HTMLEditorField::create('FooterContent', 'Footer content')->setRows(6),
+            CheckboxField::create(
+                'DisplayWelcomeToCountry',
+                _t('nswds.DISPLAY_WELCOME_TO_COUNTRY', 'Display \'Welcome to Country\' text')
+            ),
+            TextareaField::create(
+                'WelcomeToCountry',
+                _t('nswds.WELCOME_TO_COUNTRY_TITLE', 'Welcome to Country')
+            ),
+            HTMLEditorField::create(
+                'FooterContent',
+                _t(
+                    'nswds.FOOTER_CONTENT',
+                    'Footer content'
+                )
+            )->setRows(6),
 
         ]);
 
@@ -156,6 +195,20 @@ class SiteConfigExtension extends DataExtension
         $fields->addFieldsToTab('Root.Accessibility', [
             CheckboxField::create('EnableTextToSpeech', _t('SiteConfig.ENABLE_TEXT_TO_SPEECH', 'Enable text to speech'))
         ]);
+    }
+
+    /**
+     * Get the default
+     */
+    public function getWelcomeToCountry() {
+        $value = $this->owner->getField('WelcomeToCountry');
+        if(!$value) {
+            $value = _t(
+                'nswds.WELCOME_TO_COUNTRY',
+                'We pay respect to the Traditional Custodians and First Peoples of NSW, and acknowledge their continued connection to their country and culture.'
+            );
+        }
+        return $value;
     }
 
 }

@@ -1,0 +1,277 @@
+/**
+ * The nswdpc/waratah card component
+ * This component provides a richer card layout will retaining consistency with nsw-card
+ * Additional features include:
+ *  message/priority, favourite, featured-card, location, date, time
+ *
+ */
+.nsw-body-content {
+
+  .wrth-card {
+
+    @extend .nsw-card;
+
+    // Card messages
+    &__message {
+
+      padding: rem(16px);
+      margin-top: 0.5rem;
+      background-color: $info-background;
+      color : $info;
+      order : 10;
+
+      &.info {
+        background-color: $info-background;
+        color : $info;
+      }
+
+      &.success {
+        background-color: $success-background;
+        color : $success;
+      }
+
+      &.warning {
+        background-color: $warning-background;
+        color : $warning;
+      }
+
+      &.critical {
+        background-color: $critical-background;
+        color : $critical;
+      }
+
+    }
+
+    // The featured card container
+    &--featured {
+
+      .wrth-card {
+
+        &__inner {
+
+          &::before {
+            color: $white;
+            background-color: $nsw-primary-blue;
+            position: absolute;
+            left: 0;
+            top: rem(10px);
+            @include font-size(sm);
+            line-height: (22em/14);
+            padding: rem(2px) rem(10px);
+            z-index: 1;
+          }
+
+        }
+
+        @include breakpoint('lg') {
+
+          &__inner {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+          }
+
+          &__message {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-top: 0;
+          }
+
+          &__image {
+
+            width: calc((100% / 2) - 16px);
+            height: auto;
+
+            &-placeholder {
+              height: 100%;
+            }
+          }
+
+          &__text {
+            flex: 1 1 auto;
+            max-width: calc((100% / 2) + 16px);
+            padding: rem(36px) rem(49px) rem(40px) rem(32px);
+          }
+
+          &__location {
+            position: relative;
+            left: auto;
+            bottom: auto;
+            transform: none;
+            display: block;
+            margin-bottom: rem(16px);
+            max-width: 100%;
+          }
+
+        }
+
+      }
+
+    } // end featured
+
+    // Card inner
+    &__inner {
+
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      flex: 0 0 100%;
+      max-width: 100%;
+
+      &:hover {
+
+        .wrth-card__image {
+          img {
+            transform: scale(1.05);
+          }
+        }
+
+      }
+
+    }// end inner
+
+    &__image {
+
+      @extend .nsw-card__image-area;
+
+      overflow: hidden;
+      height: rem(174px);
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        display: block;
+        transition: transform .25s ease-in-out;
+      }
+
+      &-placeholder {
+        width: 100%;
+        height: rem(174px);
+        background-color: $light20;
+        display: block;
+      }
+    }// end img
+
+    &__favourite,
+    &__favourite-vue {
+      position: absolute;
+      z-index: 3;
+      right: rem(10px);
+      top: rem(10px);
+      width: rem(26px);
+      height: rem(26px);
+      color: $white;
+      cursor: pointer;
+      background-color: $nsw-primary-blue;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-icon {
+        font-size: 1rem;
+        line-height: 1em;
+        pointer-events: none;
+        color: $white;
+
+        &--active {
+          display: none;
+        }
+      }
+
+      &--active {
+        .wrth-card__favourite-icon {
+          &--inactive {
+            display: none;
+          }
+
+          &--active {
+            display: block;
+          }
+        }
+      }
+    } // end favourite
+
+    // Card text
+    &__text {
+      @extend .nsw-card__content;
+      padding: rem(29px) rem(16px) rem(16px);
+    }
+
+    // Card item location
+    &__location {
+      background-color: $nsw-secondary-blue;
+      display: inline-block;
+      @include font-size('sm');
+      line-height: rem(22px);
+      padding: rem(2px) rem(9px);
+      color: $white;
+      position: absolute;
+      z-index: 20;
+      left: rem(16px);
+      bottom: 100%;
+      transform: translateY(rem(174px + 26px / 2));
+      max-width: calc(100% - #{rem(32px)});
+    }
+
+    // Card item title
+    &__title {
+      margin: 0 0 rem(16px);
+      display: flex;
+      @include font-size('lg');
+      line-height: (28em/21);
+      @include font-stack('regular');
+
+      &::before {
+        content: '';
+        height: (28em/21 * 3);
+      }
+
+      a {
+        flex: 0 0 100%;
+        max-width: 100%;
+
+        @include link;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 2;
+        }
+
+      }
+    }// end title
+
+    // Card item time
+    &__time {
+      @include font-stack('regular');
+      line-height: (22em/16);
+      margin: 0;
+      color: $dark80;
+    }
+
+    // Card item date
+    &__date {
+      @include font-size('sm');
+      line-height: (22em/14);
+      margin: 0;
+      color: $dark60;
+    }
+
+  }//end wth-card
+
+
+  .wrth-card--content {
+      @extend .nsw-card--content;
+  }
+
+  .wrth-card--headline {
+      @extend .nsw-card--headline;
+  }
+
+}

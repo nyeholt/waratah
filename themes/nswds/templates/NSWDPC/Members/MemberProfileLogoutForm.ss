@@ -1,6 +1,6 @@
 <% if $Top.CurrentMember %>
 <div class="nsw-callout">
-    <% include nswds/Icon Icon='person', IconExtraClass='nsw-callout__icon' %>
+    <% include nswds/Icon Icon_Icon='person', Icon_IconExtraClass='nsw-callout__icon' %>
     <div class="nsw-callout__content">
         <h4 class="nsw-callout__title"><%t bandc.LOGGED_IN 'Logged in' %></h4>
 

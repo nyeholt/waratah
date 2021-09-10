@@ -1,2 +1,25 @@
+// Project defaults
+@import '../../../../../../../../../mysite/frontend/src/defaults.scss';
+
+// Mixins
+@import './components/waratah/mixins';
+
+// NSW Design System
+@import 'node_modules/nsw-design-system/src/main';
+
+// MFA app
+@import './components/silverstripe/mfa';
+
+// SlimSelect
+@import './components/thirdparty/slimselect';
+
+// nswdpc/waratah components
+@import './components/waratah/card';
+@import './components/waratah/canvas';
+@import './components/waratah/icon-button';
+
 // import Silverstripe specifics
-@import './components/silverstripe';
+@import './components/silverstripe/silverstripe';
+
+// Finally, import project app.scss
+@import '../../../../../../../../../mysite/frontend/src/app.scss'

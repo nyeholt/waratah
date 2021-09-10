@@ -1,4 +1,4 @@
-<h1>$Title.XML</h1>
+<h1>{$Title.XML}</h1>
 <% if $Date %>
     <p>
         {$Date.Full}

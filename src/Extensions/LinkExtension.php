@@ -12,11 +12,16 @@ use SilverStripe\Assets\Image;
 
 class LinkExtension extends DataExtension
 {
-
+    /**
+     * @var array
+     */
     private static $db = [
         'Description' => 'Text'
     ];
 
+    /**
+     * @var array
+     */
     private static $has_one = [
         "Image" => Image::class,
     ];
@@ -44,7 +49,7 @@ class LinkExtension extends DataExtension
                 TextareaField::create(
                     'Description',
                     _t(
-                        __CLASS__ . '.DESCRIPTION',
+                        'nswds.DESCRIPTION',
                         'Description'
                     )
                 )
@@ -52,13 +57,13 @@ class LinkExtension extends DataExtension
                 ->setTargetLength(100, 50, 150),
                 UploadField::create(
                     "Image",
-                    _t(__CLASS__ . ".IMAGE", "Image")
+                    _t("nswds.IMAGE", "Image")
                 )
                 ->setAllowedExtensions($this->owner->getAllowedFileTypes())
                 ->setIsMultiUpload(false)
                 ->setDescription(
                     _t(
-                        __CLASS__ . "ALLOWED_FILE_TYPES",
+                        "nswds.ALLOWED_FILE_TYPES",
                         "Allowed file types: {types}",
                         [
                             'types' => implode(",", $this->owner->getAllowedFileTypes())

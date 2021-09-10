@@ -1,4 +1,4 @@
-.nsw-page-layout {
+
   .mfa-app {
 
     @include nsw-spacing(padding, md none none none);
@@ -71,15 +71,15 @@
 
       &__item {
         .btn {
-          @extend .nsw-button;
+          @include wrth-button;
         }
 
         .btn-primary {
-          @extend .nsw-button--primary;
+          @include button-variant(map-get($button-variations, primary));
         }
 
         .btn-secondary {
-          @extend .nsw-button--secondary;
+          @include button-variant(map-get($button-variations, secondary));
         }
       }
 
@@ -90,8 +90,8 @@
       @include nsw-spacing(margin, none none md none);
 
       a.mfa-verify-select-method__back {
-        @extend .nsw-button;
-        @extend .nsw-button--primary;
+        @include wrth-button;
+        @include button-variant(map-get($button-variations, primary));
       }
     }
 
@@ -102,21 +102,21 @@
         @include nsw-spacing(margin, none none md none);
 
         .btn {
-            @extend .nsw-button;
+            @include wrth-button;
         }
 
         .btn-link {
-            @extend .nsw-button--secondary;
+            @include button-variant(map-get($button-variations, secondary));
         }
 
       }
 
       .btn {
-        @extend .nsw-button;
+        @include wrth-button;
       }
 
       .btn-primary {
-        @extend .nsw-button--primary;
+        @include button-variant(map-get($button-variations, primary));
       }
 
     }
@@ -136,15 +136,13 @@
       }
 
       .btn {
-        @extend .nsw-button;
+        @include wrth-button;
       }
 
       .btn-primary {
-        @extend .nsw-button--primary;
+        @include button-variant(map-get($button-variations, primary));
       }
 
     }
 
   }
-
-}

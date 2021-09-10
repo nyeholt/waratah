@@ -1,1 +1,0 @@
-<% include NSWDPC/Waratah/PageElemental %>

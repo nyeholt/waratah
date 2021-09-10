@@ -1,3 +1,1 @@
-<% if $FilterForm %>
-    {$FilterForm}
-<% end_if %>
+<% include nswds/FilterForm %>

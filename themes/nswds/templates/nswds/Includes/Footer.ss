@@ -95,15 +95,20 @@
 
         <div class="nsw-container">
 
-            <% if $FooterContent %>
-                <p>{$FooterContent.XML}</p>
-                <hr>
-            <% else_if $WelcomeToCountry %>
+            <% if $DisplayWelcomeToCountry %>
                 <p>
-                <%t nswds.WELCOME_TO_COUNTRY 'We pay respect to the Traditional Custodians and First Peoples of NSW, and acknowledge their continued connection to their country and culture.' %>
+                {$WelcomeToCountry.XML}
                 </p>
+                <% if $FooterContent == '' %>
+                <hr>
+                <% end_if %>
+            <% end_if %>
+
+            <% if $FooterContent %>
+                <p>{$FooterContent.Plain.XML}</p>
                 <hr>
             <% end_if %>
+
 
             <% if $FooterLinksSub %>
                 <ul class="nsw-footer-links">
@@ -131,7 +136,7 @@
 
             <div class="nsw-footer__info">
                 <p class="nsw-footer__copyright">
-                    <% if $CopyrightOwner %>{$CopyrightOwner.XML} <% else %>Copyright<% end_if %> &copy; {$Now.Year}
+                    <% if $CopyrightOwner %>{$CopyrightOwner.XML} <% else %><%t nswds.COPYRIGHT 'Copyright' %><% end_if %> &copy; {$Now.Year}
                 </p>
             </div>
 

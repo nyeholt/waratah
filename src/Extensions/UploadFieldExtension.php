@@ -24,12 +24,12 @@ class UploadFieldExtension extends Extension {
 
         if($is_versioned) {
             $message = _t(
-                __CLASS__ . '.FILES_WILL_PUBLISH_ON_PUBLISH',
+                'nswds.FILES_WILL_PUBLISH_ON_PUBLISH',
                 'Uploaded files remain in the draft state until they or this record is published'
             );
         } else {
             $message = _t(
-                __CLASS__ . '.FILES_WILL_PUBLISH_ON_PUBLISH',
+                'nswds.FILES_WILL_PUBLISH_ON_PUBLISH',
                 'Uploaded files remain in the draft state until they are published or this record is saved'
             );
         }
