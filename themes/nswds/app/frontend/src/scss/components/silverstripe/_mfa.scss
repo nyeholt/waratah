@@ -1,10 +1,10 @@
 
   .mfa-app {
 
-    @include nsw-spacing(padding, md none none none);
+    padding : 1rem 0 0 0;
     @include font-stack;
-    min-width: 0;
-    max-width: 100%;
+    min-width: 0 !important;
+    max-width: 100% !important;
     width: 100%;
     margin: 0;
     color: $dark80;
