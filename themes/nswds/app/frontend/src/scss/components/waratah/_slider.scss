@@ -1,0 +1,28 @@
+/**
+ * An ultra basic CSS only slider of content
+ * This modifies a grid with the relevant selector
+ * to be one row in height and horizontal scrolling
+ */
+
+.no-image {
+  background-color: $light20;
+  min-height : 100px;
+}
+
+.nsw-grid[data-gallery="slideshow"] {
+  overflow-x : scroll;
+  flex-wrap: nowrap;
+  margin : 0;
+  /*box-shadow: inset 0 0 1rem rgba(0,0,0,0.15);*/
+  border: 1px solid $light20;
+  align-items: center;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  width: 0;
+  min-width : 100%;
+}
+
+.nsw-grid[data-gallery="slideshow"] figure.nsw-media {
+   margin-top : 0;
+   margin-bottom : 0;
+}

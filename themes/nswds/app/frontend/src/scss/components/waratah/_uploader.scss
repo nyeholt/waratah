@@ -1,0 +1,43 @@
+/**
+ * Provides some styles for an Uppy uploader
+ */
+.nsw-body-content {
+
+  .uppy-Root {
+
+    @include font-stack;
+
+    .uppy-StatusBar {
+
+      button {
+        @include wrth-button;
+      }
+
+      &:not(.is-waiting) {
+
+        height: 80px;
+
+        .uppy-StatusBar-actionBtn--upload {
+          @include button-variant(map-get($button-variations, secondary));
+          margin-top : 0;
+        }
+
+      }
+
+      &.is-waiting {
+
+        height: 80px;
+
+        .uppy-StatusBar-actionBtn--upload {
+          @include wrth-button;
+          @include button-variant(map-get($button-variations, primary));
+          margin-top : 0;
+        }
+
+      }
+
+    }
+
+  }
+
+}

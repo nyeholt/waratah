@@ -1,3 +1,6 @@
+/**
+ * nswdpc/waratah mixins for wrth- extensions
+ */
 @mixin wrth-button {
   @include font-stack('heading');
   @include font-size('sm');
