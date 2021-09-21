@@ -5,8 +5,13 @@ Only:
 ---
 NSWDPC\Members\MemberController:
   extensions:
+    # apply theme requirements
     - 'NSWDPC\Waratah\Extensions\DesignSystemAssetExtension'
+    # apply search extension (for global search form)
+    - 'nglasl\extensible\ExtensibleSearchExtension'
 NSWDPC\Members\MemberProfileController:
   extensions:
     # apply theme requirements
     - 'NSWDPC\Waratah\Extensions\DesignSystemAssetExtension'
+    # apply search extension (for global search form)
+    - 'nglasl\extensible\ExtensibleSearchExtension'
