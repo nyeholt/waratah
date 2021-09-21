@@ -11,7 +11,12 @@
     <% end_if %>
 
     <% if $InPageNotification_Content %>
-        <p>{$InPageNotification_Content.XML}</p>
+        <% if $InPageNotification_Cast == 'html' %>
+            <%-- TODO: limited HTML? --%>
+            <div>{$InPageNotification_Content.RAW}</div>
+        <% else %>
+            <p>{$InPageNotification_Content.XML}</p>
+        <% end_if %>
     <% end_if %>
 
   </div>
