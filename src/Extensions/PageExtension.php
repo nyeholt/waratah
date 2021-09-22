@@ -25,14 +25,16 @@ class PageExtension extends DataExtension
         'Abstract' => 'Text',
         'ShowAbstractOnPage' => 'Boolean',
         'IsLandingPage' => 'Boolean',
-        'ShowBannerImage' => 'Boolean'
+        'ShowBannerImage' => 'Boolean',
+        'HideBreadcrumbs' => 'Boolean'
     ];
 
     /**
      * @var array
      */
     private static $defaults = [
-        "ShowAbstractOnPage" => 1
+        "ShowAbstractOnPage" => 1,
+        "HideBreadcrumbs" => 0
     ];
 
     /**
@@ -81,6 +83,14 @@ class PageExtension extends DataExtension
                 'IsLandingPage',
                 _t('nswds.ISLANDINGPAGE', 'Show this page as a landing page')
             )->setDescription('This will remove any side navigation or other extras')
+        );
+
+        $fields->insertAfter(
+            'IsLandingPage',
+            CheckboxField::create(
+                'HideBreadcrumbs',
+                _t('nswds.HIDEBREADCRUMBS', 'Hide standard breadcrumbs')
+            )->setDescription('Use this option if you wish to hide breadcrumb navigation on this page, or if the page\'s template provides its own breadcrumbs')
         );
 
         $fields->addFieldsToTab("Root.Image", [
