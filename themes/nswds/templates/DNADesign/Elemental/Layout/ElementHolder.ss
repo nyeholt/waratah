@@ -6,9 +6,9 @@
     {$Element}
     </div>
 
-<% else_if $CurrentPage.IsLandingPage %>
+<% else_if $CurrentPage.IsLandingPage || $CurrentPage.ClassName == "NSWDPC\Waratah\Pages\HomePage" %>
 
-    <%-- note:landing pages never render a sidebar element area, these are all the main elements --%>
+    <%-- note:landing pages / home pages never render a sidebar element area, these are all the main elements --%>
 
     <section class="nsw-section--<% if $AddBackground %>light-10<% else %>white<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
 
