@@ -6,7 +6,7 @@
     {$Element}
     </div>
 
-<% else_if $CurrentPage.IsLandingPage || $CurrentPage.ClassName == "NSWDPC\Waratah\Pages\HomePage" %>
+<% else_if $CurrentPage.IsLandingPage %>
 
     <%-- note:landing pages / home pages never render a sidebar element area, these are all the main elements --%>
 
