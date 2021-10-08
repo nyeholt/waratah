@@ -4,7 +4,7 @@
 
     <% if $Media_Image %>
 
-        <% if Media_LinkToImage == 1 %><a href="{$Media_Image.AbsoluteURL.XML}"><% end_if %>
+        <% if Media_LinkToImage == 1 %><a <% if Media_GalleryClass %>class="$Media_GalleryClass"<% end_if %> href="{$Media_Image.ScaleMaxWidth(1920).AbsoluteURL.XML}"><% end_if %>
 
         <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
             <img src="{$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight).URL}" alt="$Media_Image.AltText">

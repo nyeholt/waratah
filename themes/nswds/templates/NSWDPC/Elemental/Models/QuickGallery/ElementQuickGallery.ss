@@ -17,12 +17,12 @@
     <% if $GalleryType == 'grid' %>
 
         <div class="nsw-col nsw-col-12">
-            <div class="nsw-grid" data-gallery="grid">
+            <div class="nsw-grid gallery" data-gallery="grid">
             <% loop $SortedImages %>
 
                 <div class="nsw-col {$Up.ColumnClass}">
 
-                <% include nswds/Media Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
+                <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
 
                 </div>
 
@@ -34,12 +34,14 @@
 
         <div class="nsw-col nsw-col-12">
 
-            <div class="nsw-grid" data-gallery="slideshow">
+            <div class="nsw-grid gallery" data-gallery="slideshow">
 
             <% loop $SortedImages %>
 
                 <div class="nsw-col {$Up.ColumnClass}">
-                    <% include nswds/Media Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, ContentBlock_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
+
+                <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, ContentBlock_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
+
                 </div>
 
             <% end_loop %>
