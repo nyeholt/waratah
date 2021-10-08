@@ -17,3 +17,5 @@ initAppMain();
 
 // Project components
 import '../../../../../../../../../mysite/frontend/src/app.js';
+
+$('.nsw-page-layout__main table').wrap('<div class="nsw-table-responsive" role="region" aria-labelledby="caption0" tabindex="0">');

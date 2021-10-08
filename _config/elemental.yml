@@ -29,6 +29,7 @@ Page:
     - 'DNADesign\ElementalVirtual\Model\ElementVirtual'
     - 'NSWDPC\Elemental\Models\Publications\ElementPublicationList'
     - 'NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent'
+    - 'NSWDPC\Elemental\Models\QuickGallery\ElementQuickGallery'
   extensions:
     - 'DNADesign\Elemental\Extensions\ElementalPageExtension'
 # as dnadesign/silverstripe-elemental-userforms is available
@@ -63,6 +64,7 @@ DNADesign\ElementalList\Model\ElementList:
     - 'NSWDPC\Elemental\Models\Publications\ElementPublicationList'
     - 'NSWDPC\Waratah\Models\ElementalFeature'
     - 'NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent'
+    - 'NSWDPC\Elemental\Models\QuickGallery\ElementQuickGallery'
 
 Dynamic\Elements\Section\Elements\ElementSectionNavigation:
   extensions:

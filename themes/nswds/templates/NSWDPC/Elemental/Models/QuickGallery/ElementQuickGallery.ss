@@ -22,7 +22,7 @@
 
                 <div class="nsw-col {$Up.ColumnClass}">
 
-                <% include nswds/Media Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
+                <% include nswds/Media Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
 
                 </div>
 
@@ -39,7 +39,7 @@
             <% loop $SortedImages %>
 
                 <div class="nsw-col {$Up.ColumnClass}">
-                    <% include nswds/Media Media_Caption=$Title, Media_Image=$Me, ContentBlock_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
+                    <% include nswds/Media Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, ContentBlock_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
                 </div>
 
             <% end_loop %>

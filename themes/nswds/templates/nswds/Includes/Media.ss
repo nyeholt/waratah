@@ -24,7 +24,7 @@
 
     <% end_if %>
 
-    <% if $Media_Caption %>
+    <% if $Media_ShowCaption %>
         <figcaption>
         {$Media_Caption.XML}
         </figcaption>
@@ -36,7 +36,7 @@
         {$Media_EmbedCode.RAW}
     </div>
 
-    <% if $Media_Caption %>
+    <% if $Media_ShowCaption %>
         <figcaption>
         {$Media_Caption.XML}
         </figcaption>
