@@ -8,22 +8,10 @@
                 {$ContentBlock_Title.XML}
             </h2>
 
-            <% if $ContentBlock_HTML %>
+            <% if $ContentBlock_Content %>
                 <div class="nsw-content-block__copy">
-                    {$ContentBlock_HTML}
+                    {$ContentBlock_Content}
                 </div>
-            <% else %>
-                <p class="nsw-content-block__copy">
-                <% if $ContentBlock_Description %>
-                    {$ContentBlock_Description.XML}
-                <% else_if $ContentBlock_Abstract %>
-                    {$ContentBlock_Abstract.XML}
-                <% else_if $ContentBlock_MetaDescription %>
-                    {$ContentBlock_MetaDescription.XML}
-                <% else_if $ContentBlock_Content %>
-                    {$ContentBlock_Content.Summary}
-                <% end_if %>
-                </p>
             <% end_if %>
 
             <% if $ContentBlock_Listing %>
@@ -34,11 +22,7 @@
             </ul>
             <% end_if %>
 
-            <% if $ContentBlock_URL %>
-            <div class="nsw-content-block__link">
-                <a href="$ContentBlock_URL"><%t nswds.VIEW_MORE 'View more' %></a>
-            </div>
-            <% else_if $ContentBlock_Link %>
+            <% if $ContentBlock_Link %>
             <div class="nsw-content-block__link">
                 <a href="$ContentBlock_Link.LinkURL">{$ContentBlock_Link.Title.XML}</a>
             </div>
@@ -46,23 +30,17 @@
 
         </div>
 
-        <% if $ContentBlock_Image || $ContentBlock_Icon %>
+        <% if $ContentBlock_Image || $ContentBlock_IconImage || ContentBlock_IconSVG %>
             <div class="nsw-content-block__image-area">
             <% if $ContentBlock_Image %>
-                <%-- note: content block image height is restricted to 200px @ 16px/em --%>
-                <% if $ContentBlock_ImageWidth && $ContentBlock_ImageHeight %>
-                    {$ContentBlock_Image.FocusFill($ContentBlock_ImageWidth, $ContentBlock_ImageHeight)}
-                <% else_if $ContentBlock_ImageWidth %>
-                    {$ContentBlock_Image.ScaleWidth($ContentBlock_ImageWidth)}
-                <% else_if $ContentBlock_ImageHeight %>
-                    {$ContentBlock_Image.ScaleHeight($ContentBlock_ImageHeight)}
-                <% else %>
-                    {$ContentBlock_Image.ScaleHeight(200)}
-                <% end_if %>
-            <% else_if $ContentBlock_Icon %>
+                <img src="$ContentBlock_Image.FocusFillMax(600,400).URL" alt="{$ContentBlock_Image.AltText.XML}" class="nsw-content-block__image">
+            <% else_if $ContentBlock_IconImage %>
                 <div class="nsw-content-block__icon">
-                <%-- an (sanitised) SVG icon --%>
-                {$ContentBlock_Icon.RAW}
+                <img src="{$ContentBlock_IconImage.FocusFillMax(64,64).URL}" alt="{$ContentBlock_IconImage.AltText.XML}">
+                </div>
+            <% else_if $ContentBlock_IconSVG %>
+                <div class="nsw-content-block__icon">
+                <img src="{$ContentBlock_IconSVG.URL}">
                 </div>
             <% end_if %>
             </div>

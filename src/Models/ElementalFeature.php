@@ -48,15 +48,15 @@ class ElementalFeature extends ElementContent
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName(['Links','Subtype']);
+        $fields->removeByName(['Links','Subtype','IconSVG','IconImage']);
 
         $fields->fieldByName('Root.Main.HTML')->setRows(12);
 
-        $fields->addFieldToTab('Root.Settings', LinkField::create('Links', 'Links', $this), 'ParentID');
+        $fields->addFieldToTab('Root.Main', LinkField::create('Links', 'Links', $this), 'ParentID');
 
         $admin = Permission::check('ADMIN');
         if($admin) {
-            $fields->insertAfter('Image', UploadField::create('IconSVG','SVG version of icon'));
+            $fields->insertAfter('ContentImage', UploadField::create('IconSVG','SVG version of icon'));
             $fields->insertAfter('IconSVG', UploadField::create('IconImage','Image version of icon'));
         }
 
