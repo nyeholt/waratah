@@ -67,7 +67,7 @@ class ElementContentExtension extends DataExtension
         /**
          * These fields can only be applied to ElementContent directly, not subclasses
          */
-        if(get_class($this->owner) != ElementContent::class) {
+        if(get_class($this->owner) == ElementDecoratedContent::class) {
             $fields->removeByName(['ContentLinkID','ContentLink','ContentImageID','ContentImage']);
             return;
         }
