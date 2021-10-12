@@ -1,3 +1,4 @@
+<% if LinkOrSection = section %>
 <% if $SideNavigation_Children %>
 <ul class="nsw-sidenav__list<% if $SideNavigation_PageLevel %> nsw-sidenav__list--level-{$SideNavigation_PageLevel}<% end_if %>">
     <% loop $SideNavigation_Children %>
@@ -10,3 +11,7 @@
     <% end_loop %>
 </ul>
 <% end_if %>
+<% end_if %>
+
+
+
