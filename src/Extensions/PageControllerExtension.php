@@ -28,4 +28,13 @@ class PageControllerExtension extends Extension
 
     }
 
+    public function getSectionNavLevel()
+    {
+        if ($this->owner->ShowSectionNav) {
+            return $this->owner->getPageLevel();
+        } else {
+            return 1;
+        }
+    }
+
 }

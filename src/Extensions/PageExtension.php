@@ -25,6 +25,7 @@ class PageExtension extends DataExtension
         'Abstract' => 'Text',
         'ShowAbstractOnPage' => 'Boolean',
         'IsLandingPage' => 'Boolean',
+        'ShowSectionNav' => 'Boolean',
         'ShowBannerImage' => 'Boolean',
         'HideBreadcrumbs' => 'Boolean'
     ];
@@ -87,6 +88,14 @@ class PageExtension extends DataExtension
 
         $fields->insertAfter(
             'IsLandingPage',
+            CheckboxField::create(
+                'ShowSectionNav',
+                _t('nswds.SHOWSECTIONNAV', 'Show this page as a section')
+            )->setDescription('This will remove pages at this level from the side navigaiton')
+        );
+
+        $fields->insertAfter(
+            'ShowSectionNav',
             CheckboxField::create(
                 'HideBreadcrumbs',
                 _t('nswds.HIDEBREADCRUMBS', 'Hide standard breadcrumbs')
