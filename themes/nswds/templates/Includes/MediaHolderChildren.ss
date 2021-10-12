@@ -1,5 +1,26 @@
 <% if $PaginatedChildren %>
+<% if $CurrentPage.IsLandingPage %>
+    <div class="nsw-container">
+<% end_if %>
+
     <section>
+        <% if $MediaType.Title == "Publication" %>
+        <ul class="search-results">
+            <% loop $PaginatedChildren(12) %>
+                <li class="search-results-item">
+                    <h4 class="item-title"><a href="$Link"><% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></a></h4>
+                    <% include NSWDPC/Waratah/PageContentMetadata %>
+                    <% if $MetaDescription %>
+                        <p class="item-abstract">$MetaDescription.ContextSummary(350)</p>
+                    <% else_if $Abstract %>
+                        <p class="item-abstract">$Abstract.ContextSummary(350)</p>
+                    <% else_if $ElementsForSearch %>
+                        <p class="item-abstract">$ElementsForSearch.RAW.ContextSummary(350)</p>
+                    <% end_if %>
+                </li>
+            <% end_loop %>
+        </ul>
+        <% else %>
         <div class="nsw-grid">
             <% loop $PaginatedChildren(12) %>
                 <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
@@ -39,6 +60,11 @@
                 </div>
             <% end_loop %>
         </div>
+        <% end_if %>
         <% include nswds/Pagination Pagination_PaginatedItems=$PaginatedChildren %>
     </section>
+
+<% if $CurrentPage.IsLandingPage %>
+</div>
+<% end_if %>
 <% end_if %>

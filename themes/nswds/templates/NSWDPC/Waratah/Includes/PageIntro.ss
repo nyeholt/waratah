@@ -6,6 +6,7 @@
     <div class="nsw-block">
         <% include NSWDPC/Waratah/PageContentTitle %>
         <% include NSWDPC/Waratah/PageContentAbstract %>
+        <% include NSWDPC/Waratah/PageContentMetadata %>
         <% include NSWDPC/Waratah/PageContentAction %>
     </div>
 
