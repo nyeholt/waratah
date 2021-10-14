@@ -45,3 +45,6 @@ NSWDPC\Elemental\Models\Banner\ElementBanner:
 NSWDPC\Schema\SpecialAnnouncement\SpecialAnnouncement:
   extensions:
     - 'NSWDPC\Waratah\Extensions\SpecialAnnouncementExtension'
+
+SilverStripe\Assets\AssetControlExtension:
+  keep_archived_assets: true
