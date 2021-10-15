@@ -6,7 +6,7 @@
     <section>
         <% if $MediaType.Title == "Publication" %>
         <ul class="search-results">
-            <% loop $PaginatedChildren(12) %>
+            <% loop $PaginatedChildren(12,"Title","ASC") %>
                 <li class="search-results-item">
                     <h4 class="item-title"><a href="$Link"><% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></a></h4>
                     <% include NSWDPC/Waratah/PageContentMetadata %>
