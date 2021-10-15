@@ -1,0 +1,9 @@
+---
+Name: nswdpc-waratah-performance
+---
+Symbiote\AdvancedWorkflow\DataObjects\WorkflowInstance:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\WorkflowInstance'
+Symbiote\UserTemplates\UserTemplate:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\UserTemplate'
