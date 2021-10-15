@@ -3,7 +3,7 @@
     <% if $IsLazy %><noscript class="loading-lazy"><% end_if %>
         <iframe
             <% if $AlternateContent %>title="{$AlternateContent.XML}"<% end_if %>
-            <% if $IsResponsive %>class="responsive-item"<% end_if %>
+            class="<% if $IsDynamic %>dynamic-item<% end_if %><% if $IsResponsive %> responsive-item<% end_if %>"
             width="{$IframeWidth.XML}"
             height="{$IframeHeight.XML}"
             id="{$Anchor.XML}-frame"
