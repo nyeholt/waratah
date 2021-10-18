@@ -3,6 +3,8 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use Page;
+use SilverStripe\Control\Director;
+use SilverStripe\CMS\Model\SiteTree;
 use Silverstripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextareaField;
@@ -25,6 +27,7 @@ class PageExtension extends DataExtension
         'Abstract' => 'Text',
         'ShowAbstractOnPage' => 'Boolean',
         'IsLandingPage' => 'Boolean',
+        'ShowSectionNav' => 'Boolean',
         'ShowBannerImage' => 'Boolean',
         'HideBreadcrumbs' => 'Boolean'
     ];
@@ -54,6 +57,28 @@ class PageExtension extends DataExtension
         }
         $types = array_unique($types);
         return $types;
+    }
+
+    /**
+     * Get the sidebar section parent, which may be a parent of this record
+     * Returns the parent record, or false
+     * @return SiteTree|bool
+     */
+    public function getSidebarSectionParent() {
+        if($this->owner->isCurrent() && $this->owner->ShowSectionNav == 1) {
+            // Current record is set to show it's own children
+            return $this->owner;
+        } else {
+            // Check parents in the hierarchy
+            $page = Director::get_current_page();
+            while ($page instanceof SiteTree && $page->exists()) {
+                if ($page->owner->ShowSectionNav == 1) {
+                    return $page;
+                }
+                $page = $page->Parent();
+            }
+            return false;
+        }
     }
 
     public function updateCMSFields(FieldList $fields)
@@ -87,6 +112,14 @@ class PageExtension extends DataExtension
 
         $fields->insertAfter(
             'IsLandingPage',
+            CheckboxField::create(
+                'ShowSectionNav',
+                _t('nswds.SHOWSECTIONNAV', 'Show this page as a section')
+            )->setDescription('This will remove pages at this level from the side navigaiton')
+        );
+
+        $fields->insertAfter(
+            'ShowSectionNav',
             CheckboxField::create(
                 'HideBreadcrumbs',
                 _t('nswds.HIDEBREADCRUMBS', 'Hide standard breadcrumbs')
