@@ -7,7 +7,10 @@
                 <a href="{$Card_LinkURL}" class="nsw-card__link">{$Card_Title.XML}</a>
             </h2>
 
-            <% if $Card_Tag %>
+            <% if $Card_Tags && $Card_Tags.Count > 0 %>
+                <%-- only the first in the list is shown --%>
+                <p class="nsw-card__tag">{$Card_Tags.First.Name.XML}</p>
+            <% else_if $Card_Tag %>
                 <p class="nsw-card__tag">{$Card_Tag.XML}</p>
             <% end_if %>
 
