@@ -1,8 +1,8 @@
 <% if $Pagination_PaginatedItems %>
 
-    <% if $Pagination_PaginatedItems.PaginatedItems.MoreThanOnePage %>
+    <% if $Pagination_PaginatedItems.MoreThanOnePage %>
 
-    <div class="nsw-container">
+    <div class="nsw-block">
 
         <nav aria-label="Pagination">
 
@@ -19,7 +19,7 @@
                     </li>
                 <% end_if %>
 
-                <% loop $Pagination_PaginatedItems.PaginationSummary($Limit) %>
+                <% loop $Pagination_PaginatedItems.PaginationSummary($SummaryLimit) %>
 
                     <% if $CurrentBool %>
 

@@ -61,7 +61,7 @@
             <% end_loop %>
         </div>
         <% end_if %>
-        <% include nswds/Pagination Pagination_PaginatedItems=$PaginatedChildren %>
+        <% include nswds/Pagination Pagination_PaginatedItems=$PaginatedChildren(12), SummaryLimit=4 %>
     </section>
 
 <% if $CurrentPage.IsLandingPage %>
