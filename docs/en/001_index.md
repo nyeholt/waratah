@@ -7,14 +7,21 @@
 
 ## Build
 
-After installation, you will need to build the frontend assets. We don't ship distribution assets as our build system allows per-project configuration.
+After installation, you will need to build the frontend assets using one of our build processes.
+
+These are required steps.
 
 ### Add theme configuration
 
 Each Silverstripe project needs a theme configuration specified either in the project's `mysite` or `app` directory.
 
+This change should be committed to version control.
+
+
 ```yaml
 # mysite/_config/theme.yml
+# or
+# app/_config/theme.yml
 ---
 Name: project-theme
 ---
@@ -32,7 +39,7 @@ Then, run a dev/build and a flush in the normal Silverstripe way:
 /path/to/php vendor/framework/cli-script.php dev/build flush=1
 ```
 
-You may also need to flush from the browser due to split caching between the shell and the web.
+You may also need to flush from the browser
 
 ### Build the frontend
 
@@ -40,21 +47,21 @@ You can build the frontend in a variety of ways, depending on your build system 
 
 The buildall target:
 + Runs an `npm install --prefer-offline --silent --no-audit`
-+ Runs any patches to be applied
-+ Runs the gulp build
++ Ensures the location for per-project configuration is available (see `defaults.sh`)
++ Runs the `gulp build`
 
-> Pick and choose which is best for you CI, build and deployment process.
+> Pick and choose which is best for your CI, build and deployment process.
 
 #### yarn or npm in the project root
 
-Use yarn from the project root with a working directory and the `buildall` target.
+```shell
+npm --prefix ./vendor/nswdpc/waratah/themes/nswds/app/frontend run-script buildall
+```
+
+Or, use yarn:
 
 ```shell
 yarn --cwd ./vendor/nswdpc/waratah/themes/nswds/app/frontend run buildall
-```
-
-```shell
-npm --prefix ./vendor/nswdpc/waratah/themes/nswds/app/frontend run-script buildall
 ```
 
 #### build.sh
@@ -64,6 +71,10 @@ This script uses `npm` to run the buildall target:
 ```shell
 cd ./vendor/nswdpc/waratah
 ./build.sh
+```
+or
+```shell
+./vendor/nswdpc/waratah/build.sh
 ```
 
 #### Directly
@@ -95,6 +106,11 @@ The `post-create-project-cmd` scripts will run after `composer create-project` i
 When the module is updated or installed `composer run-script build-nswds` should be run.
 
 Both script targets run ./build.sh
+
+
+### Loading CSS and JS assets
+
+Once built, assets are available in the `vendor/nswdpc/waratah/themes/nswds/app/frontend/dist` location. This path is vendor-exposed in `composer.json` and automatically exposed when the module is installed.
 
 ### Deeper integration
 

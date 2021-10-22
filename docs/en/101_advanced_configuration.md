@@ -2,7 +2,7 @@
 
 ## Template overrides
 
-You can override templates in the standard Silverstripe way by providing `SSViewer` a theme with higher priority in your project configuration:
+You can override templates in the standard Silverstripe way by providing `SSViewer` a theme with higher priority in your project configuration.
 
 ```yaml
 SilverStripe\View\SSViewer:
@@ -23,7 +23,7 @@ NSWDPC\Waratah\Models\DesignSystemConfiguration:
   theme: 'my-specific-theme'
 ```
 
-The system will look for app.js and app.css in `vendor/me/some-module/themes/my-specific-theme/app/frontend/dist`
+The system will look for built app.js and app.css in `vendor/me/some-module/themes/my-specific-theme/app/frontend/dist`
 
 ## Even more advanced configuration:
  

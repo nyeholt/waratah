@@ -1,83 +1,72 @@
 # Branding
 
-The module supports branding via `npx patch-package`.
+The module supports branding by including settings and overrides in the following project locations:
 
-Creating a colour palette for a co-branded site is fairly simple.
++ mysite/frontend/src/app.js
++ mysite/frontend/src/defaults.scss
++ mysite/frontend/src/app.scss
 
-## Edit the settings.scss
+> mysite will change to app in a future release
 
-In your favourite editor, open `themes/nswds/app/frontend/node_modules/nsw-design-system/src/global/scss/settings/_settings.scss` in the module. 
 
-Modify the desired settings:
+## Javascript overrides
 
-```scss
-$nsw-primary-blue: darken(#78b143, 20%);
-$nsw-primary-highlight: #78b143;
-```
-Save the changes and ...
+Any requirement you add in app.js will be included in the main build.
 
-## Create a patch file
+Your project's app.js is included after the Design System is included (see `themes/nswds/app/frontend/src/js/app.js`)
 
-In your project root
+### Example app.js
 
-### Create the patch directory
-
-```
-$ mkdir -p mysite/frontend/patches
-```
-### Switch to the module
-
-```
-$ cd vendor/nswdpc/waratah/themes/nswds/app/frontend
+```javascript
+import MySpecialComponent from "./components/myproject/myspecialcomponent";
+function initMyProject() {
+  new MySpecialComponent().init();
+}
+initMyProject();
 ```
 
-### Run patch-package
+## CSS overrides
 
-```shell
-$ npx patch-package --patch-dir ../../../../../../../mysite/frontend/patches nsw-design-system
-```
-(patch-package is a dev requirement)
+You can override default SCSS settings by adding them to `mysite/frontend/src/defaults.scss` or `mysite/frontend/src/app.scss` in your project.
 
-This will create a patch in `mysite/frontend/patches`
+The file `defaults.scss` will load prior to the main NSWDS scss and allows you to set default settings.
 
-```shell
-$ ls -1 mysite/frontend/patches
-nsw-design-system+2.13.0.patch
-```
+The file `app.scss` will load after the main NSWDS scss and allows you to incorporate CSS for your own components.
 
-Build the frontend again to apply the patch (and any other patches in `mysite/frontend/patches`)
-
-```shell
-$ pwd
-/path/to/vendor/nswdpc/waratah/themes/nswds/app/frontend
-$ npm run-script buildall
+### Example defaults.scss
+```css
+// Change the font-family
+$font-stack: 'Comic Sans MS', Arial, sans-serif !default;
+// Modify shades
+$dark80: #222222 !default;
+// Modify branding colours
+$nsw-primary-blue: #000066 !default;
 ```
 
-You can also run `npm run-script patch` to only apply patches.
+Obviously, you need to follow the branding guidelines.
 
-When a patch is applied, you will see this build output:
-```shell
-patch-package 6.4.7
-Applying patches...
-nsw-design-system@2.13.0 ✔
+
+### Example app.scss
+
+```css
+// NSW Design System style overrides
+@import 'styles/myproject/base';
 ```
 
-If no patches are applied:
-```shell
-patch-package 6.4.7
-Applying patches...
-No patch files found
+Your base component may have some styles like this, or not:
+
+```css
+.nsw-wysiwyg-content,
+.nsw-body-content,
+.nsw-content-block {
+  font-weight: $light;
+}
 ```
 
-### After patching
+## Building
 
-1. Refresh the development site to see changes.
-1. Commit the patch to version control so that your CI/Build process finds it.
+After adding a component you should build the requirements again. Watch for any errors and fix as required.
 
-### Revert the patch
+Your project components will be included in the /vendor/nswdpc/waratah/themes/nswds/frontend/dist/*/app.* assets created from the build process.
 
-1. Remove the patch from `mysite/frontend/patches` (or move it aside)
-2. `npm install --prefer-online nsw-design-system`
-3. Build `npm run-script buildall`
-
-To create a new patch, start again after reverting.
+The path `themes/nswds/app/frontend/dist` is vendor-exposed via `composer.json`

@@ -31,6 +31,13 @@ The standard build created by this module provides:
 
 Provides support for tag based `<select multiple>` fields.
 
+### Extra extras
+
+Galleries are a common component not found in the Design System. We provide a simple gallery frontend using Slick Lightbox. This enhanced gallery is enable in the gallery element itself.
+
+Enabling it will add CSS and JavaScript requirements from cdnjs.cloudflare.com
+
+
 ### Project extras
 
 Some projects require external libraries beyond those provided in this module. In this case you can add the following to your `mysite` directly:

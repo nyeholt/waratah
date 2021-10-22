@@ -1,19 +1,19 @@
 # NSW Design System integration for Silverstripe websites
 
-This module adds the [NSW Design System](https://github.com/digitalnsw/nsw-design-system) to a Silverstripe website. If you are a NSW Government Agency using Silverstripe, this is the module to use.
+This module adds the [NSW Design System v2.13](https://github.com/digitalnsw/nsw-design-system) to a Silverstripe website. If you are a NSW Government Agency using Silverstripe framework and/or CMS, this is the module to use.
 
 This module is maintained by the NSWDPC Digital Team. We're a friendly crew that welcome pull requests and issue reports.
 
 ## Features
 
-+ ✅ Implements all components from the NSW Design System ^2.13
++ ✅ Implements all components from the NSW Design System v2.13
 + ✅ Standard page layouts
 + ✅ Integrates our supported [Elemental elements](https://github.com/silverstripe/silverstripe-elemental)
-+ ✅ Includs the [NSWDPC Silverstripe content authoring boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate) containing content authoring tools.
++ ✅ Includes the [NSWDPC Silverstripe content authoring boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate) containing content authoring tools.
 + ✅ Supports all Silverstripe form fields
 + ✅ Adds SlimSelect for `<select multiple>` support
 + ✅ [A simple frontend build process using Yarn or NPM](./docs/en/001_index.md)
-+ ✅ Supports adding project-specific JS and SCSS requirements to the build
++ ✅ Branding: supports adding project-specific JS and SCSS requirements to the build, including templates and settings overrides
 
 ### For specific branding
 
@@ -25,7 +25,7 @@ This module is maintained by the NSWDPC Digital Team. We're a friendly crew that
 Starting within a Silverstripe install, the recommended way of installing this module is via [composer](https://getcomposer.org/download/)
 
 ```shell
-composer require nswdpc/waratah
+composer require nswdpc/waratah:^0.2
 ```
 
 Next 👉 [building the frontend assets](./docs/en/001_index.md)
