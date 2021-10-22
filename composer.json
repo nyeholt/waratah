@@ -52,10 +52,10 @@
         "nswdpc/silverstripe-nsw-design-system": "self.version"
     },
     "require": {
-        "nswdpc/silverstripe-content-boilerplate": "dev-master",
-        "nswdpc/silverstripe-feedback-assist": "dev-master",
-        "nswdpc/silverstripe-field-hint": "dev-master",
-        "nswdpc/silverstripe-grid-helpers": "dev-master"
+        "nswdpc/silverstripe-content-boilerplate": "^0.1",
+        "nswdpc/silverstripe-feedback-assist": "^0.1",
+        "nswdpc/silverstripe-field-hint": "^0.1",
+        "nswdpc/silverstripe-grid-helpers": "^0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
