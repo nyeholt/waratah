@@ -16,9 +16,8 @@
     "project-defaults": "./defaults.sh",
     "start": "node_modules/.bin/gulp",
     "build": "node_modules/.bin/gulp build",
-    "patch": "npx patch-package --patch-dir ../../../../../../../mysite/frontend/patches",
     "rebuild-node-sass": "npm rebuild node-sass",
-    "buildall": "npm install --no-fund --prefer-offline --silent --no-audit && npm run-script patch && npm run-script build",
+    "buildall": "npm install --no-fund --prefer-offline --silent --no-audit && npm run-script build",
     "audit": "npm audit"
   },
   "author": "NSWDPC Digital",
@@ -52,7 +51,6 @@
     "gulp-terser": "^2.0.1",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",
-    "patch-package": "^6.4.7",
     "rollup": "^1.4",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
