@@ -1,1 +1,1 @@
-<% include SilverStripe/Forms/OptionsetField_holder %>
+<% include SilverStripe/Forms/OptionsetField_holder HolderID=$Name %>
