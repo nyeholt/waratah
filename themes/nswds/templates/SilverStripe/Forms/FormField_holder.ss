@@ -1,4 +1,4 @@
-<div id="$HolderID" class="nsw-form-group $ExtraClass">
+<div id="$HolderID" class="nsw-form-group">
 
     <% if $Title %><label class="nsw-form-label left" for="$ID">$Title</label><% end_if %>
 
