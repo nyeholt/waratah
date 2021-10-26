@@ -19,6 +19,9 @@ SilverStripe\Forms\CheckboxField:
   default_classes: ['nsw-form-checkbox__input']
 SilverStripe\Forms\OptionsetField:
   default_classes: ['nsw-form-radio__input']
+SilverStripe\Forms\FormField:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\FormFieldExtension'
 ---
 Name: 'nswdpc-waratah-field-hint'
 After:

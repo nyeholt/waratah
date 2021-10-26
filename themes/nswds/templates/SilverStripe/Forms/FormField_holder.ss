@@ -1,4 +1,4 @@
-<div id="$HolderID" class="nsw-form-group">
+<div id="$HolderID" class="nsw-form-group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
     <% if $Title %><label class="nsw-form-label left" for="$ID">$Title</label><% end_if %>
 
@@ -8,6 +8,6 @@
 
     <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
 
-    <% if $RightTitle %><span class="nsw-form-helper right" for="$ID">$RightTitle</span><% end_if %>
+    <% if $RightTitle %><span class="nsw-form-helper right" for="$ID">{$RightTitle}</span><% end_if %>
 
 </div>
