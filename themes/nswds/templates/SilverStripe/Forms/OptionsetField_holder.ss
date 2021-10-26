@@ -8,7 +8,7 @@
            <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
          </legend>
 
-         <div class="nsw-form-radio">
+         <div class="nsw-form-radio middleColumn">
          {$Field}
          </div>
 
