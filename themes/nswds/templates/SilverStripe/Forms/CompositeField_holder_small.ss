@@ -1,4 +1,4 @@
-<fieldset class="nsw-form-fieldset small<% if $Zebra %> $Zebra<% end_if %>" id="$HolderID">
+<fieldset class="nsw-form-fieldset small<% if $Zebra %> $Zebra<% end_if %><% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>" id="$HolderID">
 
     <!-- compositefieldholder_small -->
 

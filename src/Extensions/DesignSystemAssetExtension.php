@@ -97,9 +97,6 @@ class DesignSystemAssetExtension extends Extension {
         Requirements::block("//code.jquery.com/jquery-3.4.1.min.js");
         Requirements::block("//code.jquery.com/jquery-3.5.1.min.js");
 
-        // Block modules providing userforms.css on the frontend
-        Requirements::block('silverstripe/userforms:client/dist/styles/userforms.css');
-
         // Require jQuery latest
         Requirements::javascript(
             "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",

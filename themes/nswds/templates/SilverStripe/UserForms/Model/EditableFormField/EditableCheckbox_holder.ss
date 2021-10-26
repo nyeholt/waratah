@@ -1,1 +1,1 @@
-<% include SilverStripe/Forms/CheckboxField_holder %>
+<% include SilverStripe/Forms/CheckboxField_holder HolderID=$Name %>
