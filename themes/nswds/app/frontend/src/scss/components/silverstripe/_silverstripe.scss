@@ -8,6 +8,23 @@ mark {
   padding: 0 .3rem;
 }
 
+// Userforms error handling
+.userform-fields {
+
+  .nsw-form-group {
+
+    span.message {
+      @extend .nsw-form-helper;
+    }
+
+    span.error {
+        @extend .nsw-form__helper--error;
+    }
+
+  }
+
+}
+
 .nsw-wysiwyg-content {
   .nsw-page-nav,
   .nsw-intro,
