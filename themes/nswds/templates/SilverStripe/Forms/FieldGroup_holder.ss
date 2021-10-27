@@ -1,4 +1,4 @@
-<div id="$HolderID" class="nsw-form-group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
+<div id="$HolderID" class="field nsw-form-group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
 <!-- fieldgroup_holder -->
 

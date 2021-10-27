@@ -1,4 +1,4 @@
-<div id="$HolderID" class="nsw-form-group small<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
+<div id="$HolderID" class="field nsw-form-group small<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
      <div class="nsw-form-checkbox checkbox field">
         {$Field}
