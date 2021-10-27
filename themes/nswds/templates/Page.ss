@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <% include NSWDPC/Waratah/GTMHead %>
     <% base_tag %>
     <% include NSWDPC/Waratah/Metadata %>
     <% include NSWDPC/Waratah/Favicon %>
-    <% include NSWDPC/Waratah/GTMHead %>
 </head>
 
 <body class="nsw-body-content">
+
+<% include NSWDPC/Waratah/GTMBody %>
 
 <% include nswds/SkipToNav %>
 
