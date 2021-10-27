@@ -1,7 +1,13 @@
-<% if $SiteConfig.GoogleTagManagerCode %>
-<%-- Google Tag Manager (noscript) --%>
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id={$SiteConfig.GoogleTagManagerCode.XML}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
-<%-- End Google Tag Manager (noscript) --%>
+<% if not $AnalyticsOptOut %>
+<% with $SiteConfig %>
+<% if $GoogleTagManagerCode && $GoogleImplementation %>
+<% if $GoogleImplementation == 'GTM' %>
+    <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id={$GoogleTagManagerCode.URLATT}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+<% else_if $GoogleImplementation == 'Custom' %>
+    {$CustomGoogleImplementation('BodyStart')}
+<% end_if %>
+<% end_if %>
+<% end_with %>
 <% end_if %>
