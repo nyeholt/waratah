@@ -32,6 +32,7 @@
       @extend .nsw-form__label;
     }
 
+    input#backup-code,
     input.mfa-totp__code {
       @extend .nsw-form__input;
     }
