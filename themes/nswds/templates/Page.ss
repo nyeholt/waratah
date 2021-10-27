@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <meta charset="utf-8">
     <% include NSWDPC/Waratah/GTMHead %>
     <% base_tag %>
     <% include NSWDPC/Waratah/Metadata %>
