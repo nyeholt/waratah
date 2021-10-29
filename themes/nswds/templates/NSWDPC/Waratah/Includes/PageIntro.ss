@@ -1,4 +1,4 @@
-<% if $CurrentPage.IsLandingPage %>
+<% if $Top.IsLandingPage %>
     <section class="nsw-section--white">
     <div class="nsw-container">
 <% end_if %>
@@ -11,7 +11,7 @@
         <% include NSWDPC/Waratah/PageContentAction %>
     </div>
 
-<% if $CurrentPage.IsLandingPage %>
+<% if $Top.IsLandingPage %>
     </div>
     </section>
 <% end_if %>

@@ -1,12 +1,12 @@
 <% if $Parent.RenderElementDirectly %>
 
-    <%-- elements that can render directly --%>
+    <%-- elements that can render directly, parent is an ElementalArea --%>
 
-    <div data-direct="1" data-side="{$IsSideArea}">
+    <div data-direct="1" data-side="{$Parent.IsSideArea}">
     {$Element}
     </div>
 
-<% else_if $CurrentPage.IsLandingPage %>
+<% else_if $CurrentPage.IsLandingPage || $Parent.OwnerPage.IsLandingPage %>
 
     <%-- note:landing pages / home pages never render a sidebar element area, these are all the main elements --%>
 

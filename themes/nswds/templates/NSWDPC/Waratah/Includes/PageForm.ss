@@ -1,5 +1,5 @@
 <% if $Form %>
-<% if $CurrentPage.IsLandingPage %>
+<% if $Top.IsLandingPage %>
     <div class="nsw-container">
 <% end_if %>
 
@@ -7,7 +7,7 @@
         {$Form}
     </section>
 
-<% if $CurrentPage.IsLandingPage %>
+<% if $Top.IsLandingPage %>
 </div>
 <% end_if %>
 <% end_if %>

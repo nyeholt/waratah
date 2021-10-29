@@ -1,13 +1,13 @@
 <%-- this include holds scaffolding for main and side elements --%>
 
-<% if $IsLandingPage %>
+<% if $Top.IsLandingPage %>
 
     <!-- a landing page -->
     <main id="content" data-page-type="1">
     <% include NSWDPC/Waratah/PageContent %>
     </main>
 
-<% else_if $HasSideElements %>
+<% else_if $Top.HasSideElements %>
 
     <%-- a content page, sidebar on the right --%>
     <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="3">
