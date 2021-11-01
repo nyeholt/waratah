@@ -33,7 +33,7 @@
                     <div class="hero-search__suggested">
                         <ul>
                             <% loop $HeroSearch_Links.Sort('SortOrder') %>
-                                <li><a href="{$LinkURL.URL}">{$Title.XML}</a></li>
+                                <li><a href="{$LinkURL}">{$Title.XML}</a></li>
                             <% end_loop %>
                         </ul>
                     </div>
