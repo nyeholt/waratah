@@ -84,6 +84,21 @@ class DesignSystemAssetExtension extends Extension {
     }
 
     /**
+     * Require default font stack for the NSWDS
+     * @return void
+     */
+    protected function requireFonts() {
+        Requirements::css(
+            "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap",
+            "screen"
+        );
+        Requirements::css(
+            "https://fonts.googleapis.com/icon?family=Material+Icons&display=block",
+            "screen"
+        );
+    }
+
+    /**
      * Require the built assets
      */
     protected function requireDesignSystem() : void {
@@ -106,15 +121,7 @@ class DesignSystemAssetExtension extends Extension {
             ]
         );
 
-        // Fonts and icons for the NSWDS
-        Requirements::css(
-            "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap",
-            "screen"
-        );
-        Requirements::css(
-            "https://fonts.googleapis.com/icon?family=Material+Icons",
-            "screen"
-        );
+        $this->requireFonts();
 
         // The built NSW DS CSS, with supporting CSS
         if(Director::isLive()) {
