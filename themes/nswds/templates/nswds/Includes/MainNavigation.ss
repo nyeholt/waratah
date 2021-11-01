@@ -19,7 +19,7 @@
             <a href="{$Link}" class="nsw-navigation__link">
                 <span class="nsw-navigation__link-text">{$MenuTitle.XML}</span>
                 <% if $Children %>
-                <% include nswds/Icon Icon_Icon='keyboard_arrow_right', Icon_IconExtraClass='nsw-navigation__link-icon' %>
+                <% include nswds/Icon Icon_Icon='keyboard_arrow_down', Icon_IconExtraClass='nsw-navigation__link-icon' %>
                 <% end_if %>
             </a>
 
