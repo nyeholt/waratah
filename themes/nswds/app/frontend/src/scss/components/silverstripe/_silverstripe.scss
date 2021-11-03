@@ -75,10 +75,118 @@ mark {
   }
 }
 
+
+// images
 .img-fluid {
   max-width: 100%;
   height: auto;
 }
+
+.img-full {
+  width: 99.225vw;
+  position: relative;
+  margin-left: -49.59vw;
+  left: 24%;
+  height: auto;
+}
+
+main {
+  img.left {
+    float: left;
+    max-width: 50%;
+    margin: 0.5rem 2rem 1rem 0;
+  }
+
+  img.right {
+    float: right;
+    max-width: 50%;
+    margin: 0.5rem 0 1rem 2rem;
+  }
+
+  img.leftAlone {
+    float: left;
+    margin-right: 100%;
+    margin-bottom: 1rem;
+    clear: both;
+  }
+
+  img.rightAlone {
+    float: right;
+    margin-left: 100%;
+    margin-bottom: 1rem;
+    clear: both;
+  }
+
+  img.center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 1rem;
+    clear: both;
+  }
+
+  .captionImage {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .captionImage img {
+    margin: 0;
+  }
+
+  .captionImage.left {
+    float: left;
+    margin: 0.5rem 3rem 2rem 0;
+  }
+
+  .captionImage.right {
+    float: right;
+    margin: 0.5rem 0 2rem 3rem;
+  }
+
+  .captionImage.left[style],
+  .captionImage.right[style] {
+    max-width: 50%;
+  }
+
+  .captionImage.left img,
+  .captionImage.right img {
+    float: none;
+    max-width: none;
+    width: 100%;
+  }
+
+  .captionImage.left img {
+    margin-right: -1rem;
+  }
+
+  .captionImage.right img {
+    margin-left: -1rem;
+  }
+
+  .captionImage.right p {
+    margin-left: -1rem;
+    text-align: left;
+    margin-left: -1rem;
+  }
+
+  .captionImage.leftAlone {
+    float: none;
+    margin: 0 2rem 2rem 0;
+  }
+
+  .captionImage.center {
+    margin: 0 auto 2rem;
+  }
+
+  .captionImage p {
+    clear: both;
+  }
+
+}
+
+
 
 .embed-responsive,
 .ss-htmleditorfield-file.embed {
