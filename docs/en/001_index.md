@@ -13,14 +13,12 @@ These are required steps.
 
 ### Add theme configuration
 
-Each Silverstripe project needs a theme configuration specified either in the project's `mysite` or `app` directory.
+Each Silverstripe project needs a theme configuration specified in the project's `app` configuration file.
 
 This change should be committed to version control.
 
 
 ```yaml
-# mysite/_config/theme.yml
-# or
 # app/_config/theme.yml
 ---
 Name: project-theme

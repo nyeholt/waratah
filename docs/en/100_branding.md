@@ -2,11 +2,9 @@
 
 The module supports branding by including settings and overrides in the following project locations:
 
-+ mysite/frontend/src/app.js
-+ mysite/frontend/src/defaults.scss
-+ mysite/frontend/src/app.scss
-
-> mysite will change to app in a future release
++ waratah-branding/frontend/src/app.js
++ waratah-branding/frontend/src/defaults.scss
++ waratah-branding/frontend/src/app.scss
 
 
 ## Javascript overrides
@@ -27,7 +25,7 @@ initMyProject();
 
 ## CSS overrides
 
-You can override default SCSS settings by adding them to `mysite/frontend/src/defaults.scss` or `mysite/frontend/src/app.scss` in your project.
+You can override default SCSS settings by adding them to `waratah-branding/frontend/src/defaults.scss` or `waratah-branding/frontend/src/app.scss` in your project.
 
 The file `defaults.scss` will load prior to the main NSWDS scss and allows you to set default settings.
 

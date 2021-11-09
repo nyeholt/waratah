@@ -40,10 +40,10 @@ Enabling it will add CSS and JavaScript requirements from cdnjs.cloudflare.com
 
 ### Project extras
 
-Some projects require external libraries beyond those provided in this module. In this case you can add the following to your `mysite` directly:
+Some projects require external libraries beyond those provided in this module. In this case you can add the following to your `waratah-branding` directly:
 
 ```
-mysite/
+waratah-branding/
     frontend/
         src/
             js/
@@ -57,5 +57,3 @@ Project-based components will be included in the main app[.min].js and app[.min]
 The implementation details for the external library are for the project to decide. If you have project assets for a specific area, a better option is to load these as-required rather than add them to the main build output.
 
 Either way, you will need to load any external libraries into your project e.g via cdnjs or locally hosted assets.
-
-> The project directory will change from mysite to app in a future release
