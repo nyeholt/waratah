@@ -88,14 +88,24 @@ class DesignSystemAssetExtension extends Extension {
      * @return void
      */
     protected function requireFonts() {
-        Requirements::css(
-            "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap",
-            "screen"
-        );
+
+        if($this->getConfigurationValue('branding_version') >= 3) {
+            Requirements::css(
+                "https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&display=swap",
+                "screen"
+            );
+        } else {
+            Requirements::css(
+                "https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap",
+                "screen"
+            );
+        }
+
         Requirements::css(
             "https://fonts.googleapis.com/icon?family=Material+Icons&display=block",
             "screen"
         );
+
     }
 
     /**

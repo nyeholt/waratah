@@ -83,6 +83,12 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     private static $element_section_class = "wrth-section nsw-section";
 
+    /*
+     * @var float
+     * This is a fun way to define some branding options in code
+     */
+    private static $branding_version = 3.0;
+
     /**
      * Returns an array of strings of the method names of methods on the call that should be exposed
      * as global variables in the templates.
@@ -110,6 +116,4 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     public static function get_element_section_class() : string {
         return self::config()->get('element_section_class');
     }
-
-
 }
