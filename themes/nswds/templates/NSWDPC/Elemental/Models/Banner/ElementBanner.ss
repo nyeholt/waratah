@@ -1,4 +1,4 @@
-<div class="nsw-banner<% if $BannerStyle == "title-content" ||  $BannerStyle == "call-to-action" %> nsw-banner--wide<%end_if %><% if $AltStyle %> nsw-banner--light<% else %> nsw-banner--dark<% end_if %>">
+<div class="nsw-banner<% if $BannerStyle == "title-content" ||  $BannerStyle == "call-to-action" %> nsw-banner--wide<%end_if %><% if $BannerBrand  != '' %> nsw-banner--{$BannerBrand.XML}<% end_if %>">
     <div class="nsw-banner__container">
         <div class="nsw-banner__wrapper">
             <div class="nsw-banner__content nsw-wysiwyg-content">
@@ -9,8 +9,9 @@
                     <div class="nsw-intro">{$HTML}</div>
                 <% end_if %>
                 <% if $BannerStyle == "call-to-action" || $BannerStyle == "call-to-action-image" %>
+                    <%-- dark branding: nswds requires light button --%>
                     <div class="nsw-banner__button">
-                        <a href="{$BannerLink.LinkURL}" class="nsw-button<% if $AltStyle %> nsw-button--primary<% else %> nsw-button--white<% end_if %>">{$BannerLink.Title.XML}</a>
+                        <a href="{$BannerLink.LinkURL}" class="nsw-button<% if $BannerBrand == 'dark' %> nsw-button--white<% else %> nsw-button--dark<% end_if %>">{$BannerLink.Title.XML}</a>
                     </div>
                 <% end_if %>
             </div>

@@ -24,6 +24,13 @@ class ElementBannerExtension extends DataExtension
 {
 
     /**
+     * Branding constants
+     */
+    const BRAND_NONE = '';
+    const BRAND_DARK = 'dark';
+    const BRAND_LIGHT = 'light';
+
+    /**
      * @var bool
      */
     private static $inline_editable = false;
@@ -33,7 +40,8 @@ class ElementBannerExtension extends DataExtension
      */
     private static $db = [
         'BannerStyle' => 'Varchar(64)',
-        'AltStyle' => 'Boolean',
+        'AltStyle' => 'Boolean',// deprecated - see BannerBrand
+        'BannerBrand' => 'Varchar(8)',// @since nswds v2.14
         'HTML' => 'HTMLText',
         'BannerLinksTitle' => 'Varchar(128)',
     ];
@@ -68,21 +76,23 @@ class ElementBannerExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
-        $fields->removeByName(['BannerLinks','BannerLink']);
+        $fields->removeByName(['BannerLinks','BannerLink', 'AltStyle']);
 
         $bannerStyleField = DropdownField::create(
             'BannerStyle',
-            _t('nswds.BANNERSTYLE','Banner style'),
+            _t('nswds.BANNERSTYLE','Layout'),
             $this->owner->config()->get("banner_styles")
         );
 
-        $altStyleField =CheckboxField::create(
-            'AltStyle',
-            _t('nswds.ALTSTYLE','Show in alternative style')
+        $bannerBrandingField = DropdownField::create(
+            'BannerBrand',
+            _t('nswds.BANNERBRAND','Brand'),
+            [
+                self::BRAND_NONE => _t('nswds.BANNERBRAND_NONE_WHITE','Default (white)'),
+                self::BRAND_LIGHT => _t('nswds.BANNERBRAND_LIGHT','Light'),
+                self::BRAND_DARK => _t('nswds.BANNERBRAND_DARK','Dark')
+            ]
         );
-        $altStyleField
-            ->displayUnless('BannerStyle')
-            ->isEqualTo('links-list');
 
         $imageField = UploadField::create(
             "Image",
@@ -146,7 +156,7 @@ class ElementBannerExtension extends DataExtension
 
         $fields->addFieldsToTab("Root.Main", [
             $bannerStyleField,
-            $altStyleField,
+            $bannerBrandingField,
             $contentField,
             $imageField,
             $linkField,
@@ -159,8 +169,16 @@ class ElementBannerExtension extends DataExtension
     public function onBeforeWrite()
     {
         parent::onBeforeWrite();
-        if ($this->owner->BannerStyle == 'links-list') {
-            $this->owner->AltStyle = 1;
+        /*
+         * Backwards compatibility
+         * AltStyle in 2.13 was interpreted as "light" by template
+         * "--light" in v2.13 had no effect resulting in transparent (white)
+         * "--light" in v2.14 is light blue, so reset to no brand if AltStyle is enabled in a one-off move
+         * Future update will remove the AltStyle field
+         */
+        if($this->owner->AltStyle == 1) {
+            $this->owner->BannerBrand = self::BRAND_NONE;
+            $this->owner->AltStyle = 0;// turn off
         }
     }
 
