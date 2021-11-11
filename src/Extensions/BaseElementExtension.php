@@ -27,6 +27,15 @@ class BaseElementExtension extends DataExtension
     ];
 
     /**
+     * By default all elements have a container, elements not on landing/full width pages
+     * will ignore the container value and never be in a container, in any case
+     * @var array
+     */
+    private static $defaults = [
+        'AddContainer' => 1
+    ];
+
+    /**
      * @var array
      */
     private static $headings = [
@@ -122,6 +131,10 @@ class BaseElementExtension extends DataExtension
             ]
         );
 
+    }
+
+    public function getBackground() {
+        return $this->owner->AddBackground;
     }
 
 }
