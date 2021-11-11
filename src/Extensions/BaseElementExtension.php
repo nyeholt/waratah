@@ -23,16 +23,7 @@ class BaseElementExtension extends DataExtension
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
-        'AddBackground' => 'Boolean'
-    ];
-
-    /**
-     * By default all elements have a container, elements not on landing/full width pages
-     * will ignore the container value and never be in a container, in any case
-     * @var array
-     */
-    private static $defaults = [
-        'AddContainer' => 1
+        'AddBackground' => 'Varchar(32)'
     ];
 
     /**
@@ -43,6 +34,16 @@ class BaseElementExtension extends DataExtension
         'h4' => 'Heading Four',
         'h5' => 'Heading Five',
         'h6' => 'Heading Six',
+    ];
+
+    /**
+     * @var array
+     */
+    private static $backgrounds = [
+        'white' => 'White',
+        'light-10' => 'Light 10',
+        'light-20' => 'Light 20',
+        'light-40' => 'Light 40',
     ];
 
     /**
@@ -77,6 +78,10 @@ class BaseElementExtension extends DataExtension
         if(!is_array($headings)) {
             $headings = [];
         }
+        $backgrounds = $this->owner->config()->get('backgrounds');
+        if(!is_array($backgrounds)) {
+            $backgrounds = [];
+        }
         $fields->addFieldsToTab(
             'Root.Settings',
             [
@@ -100,13 +105,15 @@ class BaseElementExtension extends DataExtension
                         'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
                 ),
-                CheckboxField::create(
+                DropdownField::create(
                     'AddBackground',
                     _t(
                         'nswds.ADD_BACKGROUND',
-                        'Add a light grey background to this block'
-                    )
-                )->setDescription(
+                        'Add a background to this block'
+                    ),
+                    $backgrounds
+                )->setEmptyString('Choose a background')
+                ->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
                         'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
@@ -117,5 +124,34 @@ class BaseElementExtension extends DataExtension
 
 
     }
+
+//     // public function onBeforeWrite()
+//     // {
+//     //     parent::onBeforeWrite();
+//     //     /*
+//     //      * Backwards compatibility
+//     //      * Allow CMS user to choose different background options
+//     //      */
+//     //     if($this->owner->AddBackground == 1) {
+//     //         $this->owner->AddBackground = 'light-10'; // set to previous single option
+//     //     }
+//     // }
+//
+//     public function Background() {
+//         /*
+//          * Backwards compatibility
+//          * Allow for unset values
+//          */
+//         if ($this->owner->AddBackground > 0) {
+//             return $this->owner->AddBackground;
+//         } elseif ($this->owner->AddBackground == 1) {
+//             return 'light-10';
+//         } else ($this->owner->AddBackground == 0) {
+//             return false;
+//         }
+//
+//     }
+//
+// //    MAKE A TASK
 
 }
