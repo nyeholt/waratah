@@ -90,6 +90,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $branding_version = 3.0;
 
     /**
+     * @var string
+     * Co-Branding configuration, by default this is off
+     * Applicable values are '','vertical' or 'horizontal'
+     */
+    private static $co_branding = '';
+
+    /**
      * Returns an array of strings of the method names of methods on the call that should be exposed
      * as global variables in the templates.
      *
@@ -115,5 +122,37 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     public static function get_element_section_class() : string {
         return self::config()->get('element_section_class');
+    }
+
+    /**
+     * Returns an array of strings of the method names of methods on the call that should be exposed
+     * as global variables in the templates.
+     *
+     * @return array
+     */
+    public static function get_template_global_variables()
+    {
+        return [
+            'Waratah_CoBrand' => 'waratah_cobrand',
+            'Waratah_BrandVersion' => 'waratah_brandversion'
+        ];
+    }
+
+    /**
+     * Waratah co brand value
+     * @return string
+     */
+    public static function waratah_cobrand()
+    {
+        return self::config()->get('co_branding');
+    }
+
+    /**
+     * Waratah branding version
+     * @return int
+     */
+    public static function waratah_brandversion()
+    {
+        return self::config()->get('branding_version');
     }
 }
