@@ -122,36 +122,6 @@ class BaseElementExtension extends DataExtension
             ]
         );
 
-
     }
-
-//     // public function onBeforeWrite()
-//     // {
-//     //     parent::onBeforeWrite();
-//     //     /*
-//     //      * Backwards compatibility
-//     //      * Allow CMS user to choose different background options
-//     //      */
-//     //     if($this->owner->AddBackground == 1) {
-//     //         $this->owner->AddBackground = 'light-10'; // set to previous single option
-//     //     }
-//     // }
-//
-//     public function Background() {
-//         /*
-//          * Backwards compatibility
-//          * Allow for unset values
-//          */
-//         if ($this->owner->AddBackground > 0) {
-//             return $this->owner->AddBackground;
-//         } elseif ($this->owner->AddBackground == 1) {
-//             return 'light-10';
-//         } else ($this->owner->AddBackground == 0) {
-//             return false;
-//         }
-//
-//     }
-//
-// //    MAKE A TASK
 
 }
