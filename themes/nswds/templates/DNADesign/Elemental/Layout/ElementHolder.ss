@@ -10,7 +10,7 @@
 
     <%-- note:landing pages / home pages never render a sidebar element area, these are all the main elements --%>
 
-    <section class="nsw-section--<% if $AddBackground %>light-10<% else %>white<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+    <section class="<% if $Background %>$Background<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
 
         <%-- landing page elements can have containers and backgrounds --%>
         <% if $AddContainer %><div class="nsw-container"><% end_if %>
