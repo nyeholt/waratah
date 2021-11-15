@@ -23,7 +23,7 @@ class BaseElementExtension extends DataExtension
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
-        'AddBackground' => "Enum('Transparent,White,Light-10,Light-20,Light-40', 'Transparent')",
+        'AddBackground' => "Enum('0,1,White,Light-10,Light-20,Light-40', '0')",
     ];
 
     /**
@@ -49,11 +49,10 @@ class BaseElementExtension extends DataExtension
      * @var array
      */
     private static $backgrounds = [
-        'Transparent' => 'Transparent (default)',
-        'White' => 'White',
-        'Light-10' => 'Light 10',
-        'Light-20' => 'Light 20',
-        'Light-40' => 'Light 40',
+        'white' => 'White',
+        'light-10' => 'Light 10',
+        'light-20' => 'Light 20',
+        'light-40' => 'Light 40',
     ];
 
     /**
@@ -88,10 +87,6 @@ class BaseElementExtension extends DataExtension
         if(!is_array($headings)) {
             $headings = [];
         }
-        $backgrounds = $this->owner->config()->get('backgrounds');
-        if(!is_array($backgrounds)) {
-            $backgrounds = [];
-        }
         $fields->addFieldsToTab(
             'Root.Settings',
             [
@@ -121,7 +116,7 @@ class BaseElementExtension extends DataExtension
                         'nswds.ADD_BACKGROUND',
                         'Add a background to this block'
                     ),
-                    $backgrounds
+                    $this->getBackgrounds()
                 )->setEmptyString('Choose a background')
                 ->setDescription(
                     _t(
@@ -134,16 +129,48 @@ class BaseElementExtension extends DataExtension
 
     }
 
-    public function getBackground() {
-        $bg = $this->owner->AddBackground;
-        if ($bg == 'Transparent') {
-            return 'nsw-block';
-        } elseif ($bg == NULL) {
-            return false;
-        } else {
-            return 'nsw-section--' . strtolower($bg);
+    /**
+     * Return an array of available backgrounds, based on the nswds background choices
+     * from `_section.scss`
+     */
+    protected function getBackgrounds() : array {
+        $backgrounds = $this->owner->config()->get('backgrounds');
+        if(!is_array($backgrounds)) {
+            $backgrounds = [];
         }
+        return $backgrounds;
+    }
 
+    /**
+     * Return the supported background value, if it exists
+     * Return an empty string if the value is not supported
+     */
+    protected function getSupportedBackground(string $bg) : string {
+        $backgrounds = $this->getBackgrounds();
+        return array_key_exists($bg, $backgrounds) ? $bg : '';
+    }
+
+    /**
+     * Return the nswds background value or an empty value, taking into account previous 0/1 or empty values
+     * https://github.com/digitalnsw/nsw-design-system-v2/blob/master/src/styles/section/_section.scss
+     * Use by a template as $Background
+     */
+    public function getBackground() : string {
+        $bg = $this->owner->AddBackground;
+        if (empty($bg)) {
+            // BC handling for the original value of 0 and other empty() values
+            // including string '0'
+            $bg = '';
+        } else if($bg === '1' || $bg === 1) {
+            // BC handling for the original value of 1 meaning light-10
+            $bg = 'light-10';
+        }
+        $bg = $this->getSupportedBackground(strval($bg));
+        if(!$bg) {
+            return 'nsw-block';
+        } else {
+            return 'nsw-section--' . $bg;
+        }
     }
 
 }
