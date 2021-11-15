@@ -23,7 +23,7 @@ class BaseElementExtension extends DataExtension
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
-        'AddBackground' => 'Varchar(32)'
+        'AddBackground' => "Enum('Transparent,White,Light-10,Light-20,Light-40', 'Transparent')",
     ];
 
     /**
@@ -49,10 +49,11 @@ class BaseElementExtension extends DataExtension
      * @var array
      */
     private static $backgrounds = [
-        'white' => 'White',
-        'light-10' => 'Light 10',
-        'light-20' => 'Light 20',
-        'light-40' => 'Light 40',
+        'Transparent' => 'Transparent (default)',
+        'White' => 'White',
+        'Light-10' => 'Light 10',
+        'Light-20' => 'Light 20',
+        'Light-40' => 'Light 40',
     ];
 
     /**
@@ -125,7 +126,7 @@ class BaseElementExtension extends DataExtension
                 ->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
+                        'Adding a background will add some padding to top and bottom of your block<br>Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
                 )
             ]
@@ -134,7 +135,15 @@ class BaseElementExtension extends DataExtension
     }
 
     public function getBackground() {
-        return $this->owner->AddBackground;
+        $bg = $this->owner->AddBackground;
+        if ($bg == 'Transparent') {
+            return 'nsw-block';
+        } elseif ($bg == NULL) {
+            return false;
+        } else {
+            return 'nsw-section--' . strtolower($bg);
+        }
+
     }
 
 }
