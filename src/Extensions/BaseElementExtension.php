@@ -23,7 +23,7 @@ class BaseElementExtension extends DataExtension
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
-        'AddBackground' => "Enum('0,1,White,Light-10,Light-20,Light-40', '0')",
+        'AddBackground' => "Enum('0,1,white,light-10,light-20,light-40', '0')",
     ];
 
     /**
