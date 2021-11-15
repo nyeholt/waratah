@@ -1,6 +1,6 @@
 
 
-<div class="nsw-grid">
+<div class="nsw-grid nsw-video-gallery">
 
     <div class="nsw-col">
 

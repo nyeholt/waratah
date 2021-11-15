@@ -186,7 +186,21 @@ main {
 
 }
 
+.nsw-video-gallery {
+  .nsw-media {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
+  .nsw-accordion {
+    margin-top: 0;
+
+    &__button {
+      @include font-size('xs');
+      margin-top: 0;
+    }
+  }
+}
 
 .embed-responsive,
 .ss-htmleditorfield-file.embed {
