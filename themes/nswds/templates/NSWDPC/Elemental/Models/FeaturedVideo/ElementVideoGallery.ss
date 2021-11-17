@@ -14,7 +14,7 @@
 
                     <h4>{$Title.XML}</h4>
 
-                    <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description=$Description, LinkTarget=$LinkTarget, Anchor=$Anchor %>
+                    <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description=$Description, LinkTarget=$LinkTarget, Anchor=$Up.Anchor, WillLazyLoad=$WillLazyLoad %>
 
                     <% if $Transcript %>
                     <div class="nsw-accordion js-accordion">

@@ -7,7 +7,7 @@
 
             <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
-            <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description='', LinkTarget='', Anchor=$Anchor %>
+            <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description='', LinkTarget='', Anchor=$Anchor, WillLazyLoad=$WillLazyLoad %>
 
         </div>
 

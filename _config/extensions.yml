@@ -49,5 +49,13 @@ NSWDPC\Schema\SpecialAnnouncement\SpecialAnnouncement:
   extensions:
     - 'NSWDPC\Waratah\Extensions\SpecialAnnouncementExtension'
 
+NSWDPC\Elemental\Models\FeaturedVideo\ElementFeaturedVideo:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\IframeVideoExtension'
+
+NSWDPC\Elemental\Models\FeaturedVideo\GalleryVideo:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\IframeVideoExtension'
+
 SilverStripe\Assets\AssetControlExtension:
   keep_archived_assets: true
