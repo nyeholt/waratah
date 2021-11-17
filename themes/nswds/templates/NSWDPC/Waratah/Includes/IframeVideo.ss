@@ -4,7 +4,7 @@
 
 <% if $Provider == 'vimeo' %>
 
-    <iframe loading="lazy" src="https://player.vimeo.com/video/{$Video.XML}?color=ffffff&title=0&byline=0&portrait=0" width="100%" height="360" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    <iframe loading="lazy" id="video-{$Anchor}" src="https://player.vimeo.com/video/{$Video.XML}?color=ffffff&title=0&byline=0&portrait=0" width="100%" height="360" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 <% else_if $Provider == 'youtube' %>
 
