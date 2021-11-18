@@ -2,9 +2,9 @@
 
     <%-- elements that can render directly, parent is an ElementalArea --%>
 
-    <div data-direct="1" data-side="{$Parent.IsSideArea}">
+    <section data-direct="1" data-side="{$Parent.IsSideArea}">
     {$Element}
-    </div>
+    </section>
 
 <% else_if $CurrentPage.IsLandingPage || $Parent.OwnerPage.IsLandingPage %>
 
@@ -23,8 +23,9 @@
 
     <%-- any element not rendered directly,  not in a landing page --%>
 
-    <div class="nsw-block<% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+    <section class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+    {$ElementShortName}
         {$Element}
-    </div>
+    </section>
 
 <% end_if %>
