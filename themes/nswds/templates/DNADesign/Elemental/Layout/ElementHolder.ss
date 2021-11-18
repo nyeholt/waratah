@@ -2,9 +2,17 @@
 
     <%-- elements that can render directly, parent is an ElementalArea --%>
 
-    <section data-direct="1" data-side="{$Parent.IsSideArea}">
-    {$Element}
-    </section>
+    <% if $Parent.IsSideArea %>
+        <%-- sidebar elements can have spacing --%>
+        <section class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %>" data-direct="1" data-side="1">
+        {$Element}
+        </section>
+    <% else %>
+        <%-- top element --%>
+        <div data-direct="1" data-side="0">
+        {$Element}
+        </div>
+    <% end_if %>
 
 <% else_if $CurrentPage.IsLandingPage || $Parent.OwnerPage.IsLandingPage %>
 
