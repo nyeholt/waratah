@@ -1,61 +1,50 @@
 <% if $SortedImages %>
 
-<div class="nsw-grid">
+    <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
-    <div class="nsw-col nsw-col-12">
+    <% if $HTML %>
+    {$HTML}
+    <% end_if %>
 
-        <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
+    <% if $ContentLink %>
+    <a href="$ContentLink.LinkURL" class="nsw-button nsw-button--primary">{$ContentLink.Title}</a>
+    <% end_if %>
 
-        <% if $HTML %>
-        {$HTML}
-        <% end_if %>
+    <div class="gallery">
 
-        <% if $ContentLink %>
-        <a href="$ContentLink.LinkURL" class="nsw-button nsw-button--primary">{$ContentLink.Title}</a>
-        <% end_if %>
+    <% if $GalleryType == 'grid' %>
 
-        <% if $GalleryType == 'grid' %>
+        <div class="nsw-grid" data-gallery="grid">
+        <% loop $SortedImages %>
 
-            <div class="nsw-col nsw-col-12">
+            <div class="nsw-col {$Up.ColumnClass}">
 
-                <div class="nsw-grid gallery" data-gallery="grid">
-                <% loop $SortedImages %>
-
-                    <div class="nsw-col {$Up.ColumnClass}">
-
-                    <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
-
-                    </div>
-
-                <% end_loop %>
-                </div>
+            <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
 
             </div>
 
-        <% else %>
+        <% end_loop %>
+        </div>
 
-            <div class="nsw-col nsw-col-12">
+    <% else %>
 
-                <div class="nsw-grid gallery" data-gallery="slideshow">
 
-                <% loop $SortedImages %>
+        <div class="nsw-grid" data-gallery="slideshow">
 
-                    <div class="nsw-col {$Up.ColumnClass}">
+        <% loop $SortedImages %>
 
-                    <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
+            <div class="nsw-col {$Up.ColumnClass}">
 
-                    </div>
-
-                <% end_loop %>
-
-                </div>
+            <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1 %>
 
             </div>
 
-        <% end_if %>
+        <% end_loop %>
+
+        </div>
+
+    <% end_if %>
 
     </div>
-
-</div>
 
 <% end_if %>
