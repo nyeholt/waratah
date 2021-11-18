@@ -72,7 +72,7 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     /**
      * @var string
      */
-    private static $spacing_class = "nsw-p-bottom-lg";
+    private static $spacing_class = "nsw-p-bottom-md";
 
     /**
      * Returns an array of strings of the method names of methods on the call that should be exposed
