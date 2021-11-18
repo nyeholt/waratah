@@ -2,6 +2,7 @@
 
 namespace NSWDPC\Waratah\Extensions;
 
+use NSWDPC\Waratah\Models\DesignSystemConfiguration;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
