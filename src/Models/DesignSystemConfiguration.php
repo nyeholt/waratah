@@ -3,6 +3,7 @@
 namespace NSWDPC\Waratah\Models;
 
 use SilverStripe\Core\Config\Configurable;
+use SilverStripe\View\TemplateGlobalProvider;
 
 /**
  *
@@ -44,7 +45,7 @@ use SilverStripe\Core\Config\Configurable;
  * @author James
  *
  */
-class DesignSystemConfiguration {
+class DesignSystemConfiguration implements TemplateGlobalProvider {
 
     use Configurable;
 
@@ -67,4 +68,30 @@ class DesignSystemConfiguration {
      * @var string
      */
     private static $theme = "nswds";
+
+    /**
+     * @var string
+     */
+    private static $spacing_class = "nsw-p-bottom-lg";
+
+    /**
+     * Returns an array of strings of the method names of methods on the call that should be exposed
+     * as global variables in the templates.
+     *
+     * @return array
+     */
+    public static function get_template_global_variables()
+    {
+        return [
+            'SpacingClass' => 'get_spacing_class',
+        ];
+    }
+
+    /**
+     * Return the configured spacing class, used to implement consistent spacing in a project
+     */
+    public static function get_spacing_class() : string {
+        return self::config()->get('spacing_class');
+    }
+
 }
