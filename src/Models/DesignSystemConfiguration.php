@@ -83,7 +83,7 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     public static function get_template_global_variables()
     {
         return [
-            'SpacingClass' => 'get_spacing_class',
+            'SpacingClass' => 'get_spacing_class'
         ];
     }
 
