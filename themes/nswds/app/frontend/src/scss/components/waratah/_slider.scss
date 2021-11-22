@@ -9,6 +9,10 @@
   min-height : 100px;
 }
 
+.nsw-grid[data-gallery] {
+  background-color: $white;
+}
+
 .nsw-grid[data-gallery="slideshow"] {
   overflow-x : scroll;
   flex-wrap: nowrap;

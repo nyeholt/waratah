@@ -18,7 +18,7 @@
 
             <div class="nsw-col nsw-col-12">
 
-                <div class="nsw-grid gallery" data-gallery="grid">
+                <div class="nsw-grid" data-gallery="grid">
                 <% loop $SortedImages %>
 
                     <div class="nsw-col {$Up.ColumnClass}">
