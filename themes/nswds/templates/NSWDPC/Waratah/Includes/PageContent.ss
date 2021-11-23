@@ -1,5 +1,4 @@
-<%-- Page Content: render all page content, for landing pages wrapped in a nsw-section --%>
-<% if $Top.IsLandingPage %><section class="nsw-section"><% end_if %>
+<%-- Page Content: render all page content --%>
 
 <% include NSWDPC/Waratah/PageIntro %>
 
@@ -10,5 +9,3 @@
 <% include NSWDPC/Waratah/PerLayoutContent %>
 
 <% include NSWDPC/Waratah/PageForm %>
-
-<% if $Top.IsLandingPage %></section><% end_if %>
