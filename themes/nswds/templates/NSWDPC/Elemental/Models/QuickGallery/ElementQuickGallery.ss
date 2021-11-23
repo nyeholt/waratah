@@ -10,7 +10,6 @@
     <a href="$ContentLink.LinkURL" class="nsw-button nsw-button--primary">{$ContentLink.Title}</a>
     <% end_if %>
 
-    <div class="gallery">
 
     <% if $GalleryType == 'grid' %>
 
@@ -28,9 +27,9 @@
 
     <% else %>
 
+        <div class="nsw-block">
 
         <div class="nsw-grid" data-gallery="slideshow">
-
         <% loop $SortedImages %>
 
             <div class="nsw-col {$Up.ColumnClass}">
@@ -40,11 +39,10 @@
             </div>
 
         <% end_loop %>
+        </div>
 
         </div>
 
     <% end_if %>
-
-    </div>
 
 <% end_if %>

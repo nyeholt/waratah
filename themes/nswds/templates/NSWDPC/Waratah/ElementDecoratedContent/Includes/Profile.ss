@@ -1,18 +1,25 @@
 <%-- TODO: use a nswds component --%>
-<% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 <% if $Image %>
     <div class="nsw-grid">
+    <% if $ImageAlignment == "left" %>
+        <div class="nsw-col nsw-col-md-4">
+        <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileImage %>
+        </div>
         <div class="nsw-col nsw-col-md-8">
-            <div class="profile-content">
-                {$HTML}
-            </div>
+        <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileContent %>
+        </div>
+    <% else %>
+        <div class="nsw-col nsw-col-md-8">
+        <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileContent %>
         </div>
         <div class="nsw-col nsw-col-md-4">
-            <div class="profile-photo">
-                <img src="{$Image.FocusFillMax(300,400).URL}" class="img-fluid img-profile" alt="{$Image.AltText.XML}">
-            </div>
+        <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileImage %>
         </div>
+    <% end_if %>
     </div>
 <% else %>
     {$HTML}
 <% end_if %>
+
+
+

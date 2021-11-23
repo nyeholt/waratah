@@ -11,14 +11,8 @@
   min-height : 100px;
 }
 
-.gallery {
-  padding-top: rem($grid-gutters);
-}
-
-@include breakpoint('md') {
-  .gallery {
-    padding-top: rem($grid-gutters*2);
-  }
+.nsw-grid[data-gallery] {
+  background-color: $white;
 }
 
 .nsw-grid[data-gallery="slideshow"] {
