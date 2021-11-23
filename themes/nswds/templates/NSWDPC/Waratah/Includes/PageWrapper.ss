@@ -2,17 +2,15 @@
 
 <% if $Top.IsLandingPage %>
 
-    <!-- a landing page -->
-    <div class="nsw-page-layout">
-        <main id="content" class="nsw-page-layout__main" data-page-type="1">
-        <% include NSWDPC/Waratah/PageContent %>
-        </main>
-    </div>
+    <%-- a landing page --%>
+    <main id="content" class="nsw-p-top-md" data-page-type="1">
+    <% include NSWDPC/Waratah/PageContent %>
+    </main>
 
 <% else_if $Top.HasSideElements %>
 
     <%-- a content page, sidebar on the right --%>
-    <div class="nsw-container" data-page-type="3">
+    <div class="nsw-container nsw-p-top-sm" data-page-type="3">
         <div class="nsw-page-layout">
             <main id="content" class="nsw-page-layout__main">
             <% include NSWDPC/Waratah/PageContent %>
@@ -26,7 +24,7 @@
 <% else %>
 
     <%-- default: a page with navigation, sidebar on the left --%>
-    <div class="nsw-container" data-page-type="2">
+    <div class="nsw-container nsw-p-top-sm" data-page-type="2">
         <div class="nsw-page-layout">
             <aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
             <% include NSWDPC/Waratah/SidebarNav %>
