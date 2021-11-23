@@ -6,5 +6,4 @@
     <% include NSWDPC/Waratah/PerLayoutContent %>
     <% include NSWDPC/Waratah/PageForm %>
     <% if $Top.IsLandingPage %></section><% end_if %>
-    </section>
 </main>
