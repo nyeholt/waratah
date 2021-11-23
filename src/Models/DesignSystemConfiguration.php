@@ -97,20 +97,6 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $co_branding = '';
 
     /**
-     * Returns an array of strings of the method names of methods on the call that should be exposed
-     * as global variables in the templates.
-     *
-     * @return array
-     */
-    public static function get_template_global_variables()
-    {
-        return [
-            'SpacingClass' => 'get_spacing_class',
-            'ElementSectionClass' => 'get_element_section_class'
-        ];
-    }
-
-    /**
      * Return the configured spacing class, used to implement consistent spacing in a project
      */
     public static function get_spacing_class() : string {
@@ -134,7 +120,9 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     {
         return [
             'Waratah_CoBrand' => 'waratah_cobrand',
-            'Waratah_BrandVersion' => 'waratah_brandversion'
+            'Waratah_BrandVersion' => 'waratah_brandversion',
+            'SpacingClass' => 'get_spacing_class',
+            'ElementSectionClass' => 'get_element_section_class'
         ];
     }
 
