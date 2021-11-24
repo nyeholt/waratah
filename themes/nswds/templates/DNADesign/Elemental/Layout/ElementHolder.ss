@@ -4,7 +4,7 @@
 
     <% if $Parent.IsSideArea %>
         <%-- sidebar elements can have spacing --%>
-        <section class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %>" data-direct="1" data-side="1">
+        <section class="wrth-section nsw-section<% if $SpacingClass %> $SpacingClass<% end_if %>" data-direct="1" data-side="1">
         {$Element}
         </section>
     <% else %>
@@ -31,7 +31,7 @@
 
     <%-- any element not rendered directly,  not in a landing page --%>
 
-    <section class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+    <section class="wrth-section nsw-section<% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
         {$Element}
     </section>
 

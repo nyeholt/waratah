@@ -1,4 +1,4 @@
-<main id="main-content">
+<main id="main-content" class="wrth-section nsw-section">
     <article>
         <% include NSWDPC/Waratah/PageElemental %>
     </article>
