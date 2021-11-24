@@ -1,7 +1,7 @@
 <% if $ElementControllers.count > 0 %>
     <% loop $ElementControllers %>
         <% if $isTemplated %>
-            {$TemplatedContent}
+            <% include NSWDPC/Waratah/ElementHolder Element=$TemplatedContent %>
         <% else %>
             {$Me}
         <% end_if %>
