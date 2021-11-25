@@ -16,4 +16,10 @@ class HomePage extends \Page
 
     private static $table_name = 'HomePage';
 
+    /**
+     * This page is a homepage
+     */
+    public function getIsHomePage() {
+        return 1;
+    }
 }
