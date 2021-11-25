@@ -77,6 +77,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $spacing_class = "";
 
     /**
+     * @var string
+     * The class to be used on element sections ->for landing pages<-
+     * In other contexts,
+     */
+    private static $element_section_class = "wrth-section nsw-section";
+
+    /**
      * Returns an array of strings of the method names of methods on the call that should be exposed
      * as global variables in the templates.
      *
@@ -85,7 +92,8 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     public static function get_template_global_variables()
     {
         return [
-            'SpacingClass' => 'get_spacing_class'
+            'SpacingClass' => 'get_spacing_class',
+            'ElementSectionClass' => 'get_element_section_class'
         ];
     }
 
@@ -95,5 +103,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     public static function get_spacing_class() : string {
         return self::config()->get('spacing_class');
     }
+
+    /**
+     * Return the configured element section class for
+     */
+    public static function get_element_section_class() : string {
+        return self::config()->get('element_section_class');
+    }
+
 
 }

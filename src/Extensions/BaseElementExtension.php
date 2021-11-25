@@ -170,7 +170,9 @@ class BaseElementExtension extends DataExtension
         $spacing = DesignSystemConfiguration::get_spacing_class();
         $classes = [];
         if(!$bg) {
-            $classes[] = 'nsw-section wrth-section';
+            if($section_class = DesignSystemConfiguration::get_element_section_class()) {
+                $classes[] = $section_class;
+            }
             if($spacing) {
                 $classes[] = $spacing;
             }
