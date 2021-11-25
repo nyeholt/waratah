@@ -3,7 +3,7 @@
     <fieldset class="nsw-form-fieldset">
 
         <legend>
-           <% if $Title %><span class="nsw-form-label">$Title</span><% end_if %>
+           <% if $Title %><span class="nsw-form-label<% if $Required %> nsw-form__required<% end_if %>">$Title</span><% end_if %>
            <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
            <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
          </legend>
