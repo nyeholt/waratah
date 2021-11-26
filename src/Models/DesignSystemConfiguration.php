@@ -97,6 +97,38 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $co_branding = '';
 
     /**
+     * @var array brand options
+     * https://nswdesignsystem.surge.sh/styles/colour/index.html
+     */
+    private static $colour_brand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'supplementary' => 'Brand supplementary',
+        'accent' => 'Brand Accent'
+    ];
+
+    /**
+     * @var array section options
+     * https://nswdesignsystem.surge.sh/styles/section/index.html
+     */
+    private static $colour_section_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'supplementary' => 'Brand supplementary',
+        'black' => 'Brand Black',
+        'white' => 'Brand White',
+        'off-white' => 'Brand Off White',
+        'grey-01' => 'Grey 01',
+        'grey-02' => 'Grey 02',
+        'grey-03' => 'Grey 03',
+        'grey-04' => 'Grey 04',
+        // 2.13 options (legacy)
+        'light-10' => 'Light 10 (legacy)' ,
+        'light-20' => 'Light 20 (legacy)',
+        'light-40' => 'Light 40 (legacy)',
+    ];
+
+    /**
      * Return the configured spacing class, used to implement consistent spacing in a project
      */
     public static function get_spacing_class() : string {

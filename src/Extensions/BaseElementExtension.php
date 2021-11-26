@@ -3,6 +3,8 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use NSWDPC\Waratah\Models\DesignSystemConfiguration;
+use NSWDPC\Waratah\Forms\SectionSelectionField;
+use NSWDPC\Waratah\Traits\DesignSystemSelections;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
@@ -16,6 +18,8 @@ use SilverStripe\Forms\CheckboxField;
  */
 class BaseElementExtension extends DataExtension
 {
+
+    use DesignSystemSelections;
 
     /**
      * @var array
@@ -111,15 +115,13 @@ class BaseElementExtension extends DataExtension
                         'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
                 ),
-                DropdownField::create(
+                SectionSelectionField::create(
                     'AddBackground',
                     _t(
                         'nswds.ADD_BACKGROUND',
                         'Add a background to this block'
-                    ),
-                    $this->getBackgrounds()
-                )->setEmptyString('Choose a background')
-                ->setDescription(
+                    )
+                )->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
                         'Adding a background will add some padding to top and bottom of your block<br>Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
@@ -131,11 +133,11 @@ class BaseElementExtension extends DataExtension
     }
 
     /**
-     * Return an array of available backgrounds, based on the nswds background choices
-     * from `_section.scss`
+     * Return an array of available backgrounds
+     * See: https://nswdesignsystem.surge.sh/styles/section/index.html
      */
     protected function getBackgrounds() : array {
-        $backgrounds = $this->owner->config()->get('backgrounds');
+        $backgrounds = $this->getColourSelectionOptions('section');
         if(!is_array($backgrounds)) {
             $backgrounds = [];
         }
@@ -164,7 +166,7 @@ class BaseElementExtension extends DataExtension
             $bg = '';
         } else if($bg === '1' || $bg === 1) {
             // BC handling for the original value of 1 meaning light-10
-            $bg = 'light-10';
+            $bg = 'off-white';
         }
         $bg = $this->getSupportedBackground(strval($bg));
         $spacing = DesignSystemConfiguration::get_spacing_class();
