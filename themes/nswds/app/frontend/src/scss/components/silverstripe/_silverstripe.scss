@@ -51,6 +51,63 @@ mark {
 
 }
 
+// Chimple element form
+form.chimple {
+
+  @include breakpoint('md') {
+    .nsw-form-fieldset,
+    .main {
+      display: flex;
+
+    }
+
+    .main {
+      align-items: center;
+    }
+
+    .nsw-form-fieldset > .nsw-form-group {
+      margin-top: 0;
+      padding-right: 1rem;
+    }
+  }
+
+
+  .nsw-button.signup {
+    margin: 0;
+  }
+}
+
+// Chimple element
+.nsw-card.nsw-card--subscribe {
+  @include breakpoint('md') {
+    .nsw-card__content {
+      .nsw-card__icon {
+        left: 35%;
+      }
+    }
+
+  }
+
+  @include breakpoint('md') {
+    flex-direction: row;
+
+    .nsw-card__image-area {
+      height: auto;
+      width: 33%;
+      border-top: 6px solid $danger;
+      &.right {
+        order: 2;
+      }
+    }
+
+    .nsw-card__content {
+      width: 67%;
+      &.no-subscribe-image {
+        width: 100%;
+      }
+    }
+  }
+}
 
 .nsw-wysiwyg-content {
   .nsw-page-nav,
