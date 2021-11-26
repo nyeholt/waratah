@@ -53,7 +53,7 @@
 
     <% if $Media_Transcript %>
         <div class="nsw-accordion js-accordion">
-            <h2 class="nsw-accordion__title"><%t nswds.READ_TRANSCRIPT 'Read transcript' %></h2>
+            <div class="nsw-accordion__title"><%t nswds.READ_TRANSCRIPT 'Read transcript' %></div>
             <div class="nsw-accordion__content">
                 <div class="nsw-wysiwyg-content">
                     {$Media_Transcript}

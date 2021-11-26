@@ -1,7 +1,8 @@
 <% if $Accordion_Items %>
 <div class="nsw-accordion js-accordion">
+    <% include nswds/Accordion_ExpandContract Accordion_ExpandContract=$Accordion_ExpandContract %>
     <% loop $Accordion_Items %>
-    <h2 class="nsw-accordion__title">{$Title.XML}</h2>
+    <div class="nsw-accordion__title">{$Title.XML}</div>
     <div class="nsw-accordion__content">
         <div class="nsw-wysiwyg-content">
         <% if $Content %>
