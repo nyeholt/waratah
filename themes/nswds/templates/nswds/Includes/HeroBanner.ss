@@ -1,4 +1,4 @@
-<div class="nsw-banner<% if $HeroBanner_IsDark %> nsw-banner--dark<% end_if %><% if $HeroBanner_IsWide %> nsw-banner--wide<% end_if %>">
+<div class="nsw-banner<% if $HeroBanner_Brand %> nsw-banner--{$HeroBanner_Brand.XML}<% end_if %><% if $HeroBanner_IsWide %> nsw-banner--wide<% end_if %>">
 
     <div class="nsw-banner__container">
 
