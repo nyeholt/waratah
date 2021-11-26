@@ -1,5 +1,5 @@
 <div class="nsw-col<% if $Card_ColumnOptions %> $Card_ColumnOptions.XML<% else %> nsw-col-md-4<% end_if %>">
-    <div class="nsw-card<% if $Card_HeadlineOnly != '' %> nsw-card--headline<% else %> nsw-card--content<% end_if %>">
+    <div class="nsw-card<% if $Card_HeadlineOnly != '' %> nsw-card--headline<% else %> nsw-card--content<% end_if %><% if $Card_Brand %> nsw-card--{$Card_Brand.XML}<% end_if %>">
 
         <div class="nsw-card__content">
 
