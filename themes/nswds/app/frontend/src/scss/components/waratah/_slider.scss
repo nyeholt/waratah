@@ -2,11 +2,17 @@
  * An ultra basic CSS only slider of content
  * This modifies a grid with the relevant selector
  * to be one row in height and horizontal scrolling
+ *
+ * <figure> elements in the gallery grid have no margin top/bottom
  */
 
 .no-image {
   background-color: $light20;
   min-height : 100px;
+}
+
+.nsw-grid[data-gallery] {
+  background-color: $white;
 }
 
 .nsw-grid[data-gallery="slideshow"] {
@@ -22,7 +28,7 @@
   min-width : 100%;
 }
 
-.nsw-grid[data-gallery="slideshow"] figure.nsw-media {
+.nsw-grid[data-gallery] figure.nsw-media {
    margin-top : 0;
    margin-bottom : 0;
 }

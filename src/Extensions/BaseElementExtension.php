@@ -2,6 +2,7 @@
 
 namespace NSWDPC\Waratah\Extensions;
 
+use NSWDPC\Waratah\Models\DesignSystemConfiguration;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
@@ -166,11 +167,19 @@ class BaseElementExtension extends DataExtension
             $bg = 'light-10';
         }
         $bg = $this->getSupportedBackground(strval($bg));
+        $spacing = DesignSystemConfiguration::get_spacing_class();
+        $classes = [];
         if(!$bg) {
-            return 'nsw-block';
+            if($section_class = DesignSystemConfiguration::get_element_section_class()) {
+                $classes[] = $section_class;
+            }
+            if($spacing) {
+                $classes[] = $spacing;
+            }
         } else {
-            return 'nsw-section--' . $bg;
+            $classes[] = 'nsw-section--' . $bg;
         }
+        return implode(" ", $classes);
     }
 
 }

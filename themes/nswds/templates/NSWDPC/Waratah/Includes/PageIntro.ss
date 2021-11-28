@@ -1,17 +1,19 @@
 <% if $Top.IsLandingPage %>
-    <section class="nsw-section--white">
+<section class="nsw-section--white">
     <div class="nsw-container">
+<% else %>
+    <div class="nsw-block {$SpacingClass}">
 <% end_if %>
 
-    <div class="nsw-block">
         <% include NSWDPC/Waratah/PageContentTitle %>
         <% include NSWDPC/Waratah/PageContentAbstract %>
         <% include NSWDPC/Waratah/PageContentMetadata %>
         <% include NSWDPC/Waratah/PageContentRelated %>
         <% include NSWDPC/Waratah/PageContentAction %>
-    </div>
 
 <% if $Top.IsLandingPage %>
     </div>
-    </section>
+</section>
+<% else %>
+    </div>
 <% end_if %>

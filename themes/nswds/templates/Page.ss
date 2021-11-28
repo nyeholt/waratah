@@ -25,10 +25,8 @@
 <%-- where the Top Elemental Areas live --%>
 <% include NSWDPC/Waratah/PageBanner %>
 
-<% if not $Top.HideBreadcrumbs && $Top.Breadcrumbs %>
-<div class="nsw-container">
-<% include nswds/Breadcrumbs Breadcrumbs_List=$Top.Breadcrumbs %>
-</div>
+<% if not $InSection(home) && not $Top.HideBreadcrumbs && $Top.Breadcrumbs %>
+<% include nswds/Breadcrumbs Breadcrumbs_List=$Top.Breadcrumbs, Breadcrumbs_IncludeContainer=1 %>
 <% end_if %>
 
 {$Layout}

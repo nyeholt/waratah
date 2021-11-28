@@ -65,6 +65,6 @@ Your base component may have some styles like this, or not:
 
 After adding a component you should build the requirements again. Watch for any errors and fix as required.
 
-Your project components will be included in the /vendor/nswdpc/waratah/themes/nswds/frontend/dist/*/app.* assets created from the build process.
+Your project components will be included in the `/vendor/nswdpc/waratah/themes/nswds/app/frontend/dist/*/app.*` assets created from the build process.
 
 The path `themes/nswds/app/frontend/dist` is vendor-exposed via `composer.json`

@@ -1,0 +1,11 @@
+/**
+ * Apply section classes from >= v2.14
+ * This can be removed when merged in to a 2.14 supporting build
+ */
+.wrth-section {
+  padding: rem($grid-gutters*2) 0;
+
+  @include breakpoint('md') {
+    padding: rem($grid-gutters*4) 0;
+  }
+}

@@ -14,7 +14,8 @@
 @import './components/thirdparty/slimselect';
 
 // nswdpc/waratah components
-@import './components/waratah/_main-navigation';
+@import './components/waratah/main-navigation';
+@import './components/waratah/section';
 @import './components/waratah/card';
 @import './components/waratah/canvas';
 @import './components/waratah/slider';

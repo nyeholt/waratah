@@ -28,27 +28,6 @@ mark {
     margin-bottom: 2rem;
   }
 
-  h1 {
-    @include font-size('xxxl');
-  }
-
-  h2 {
-     @include font-size('xxl');
-  }
-
-  h3 {
-    @include font-size('lg');
-  }
-
-  h4 {
-     @include font-size('md');
-  }
-
-  h5,
-  h6 {
-     @include font-size('sm');
-  }
-
 }
 
 
