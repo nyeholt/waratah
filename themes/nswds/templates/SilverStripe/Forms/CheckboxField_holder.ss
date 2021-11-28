@@ -2,7 +2,7 @@
 
      <div class="nsw-form-checkbox checkbox field">
         {$Field}
-        <% if $Title %><label class="nsw-form-checkbox__label" for="$ID">$Title</label><% end_if %>
+        <% if $Title %><label class="nsw-form-checkbox__label" for="$ID">$Title<% if $Required %><span class="nsw-form__required"></span><% end_if %></label><% end_if %>
      </div>
 
      <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
