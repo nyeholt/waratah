@@ -13,7 +13,9 @@
                     </div>
                 <% end_if %>
 
-                {$SubscribeForm}
+                <div class="wrth-card__form">
+                    {$SubscribeForm}
+                </div>
 
                 <% if $BeforeFormContent %>
                     <div class="content after">
