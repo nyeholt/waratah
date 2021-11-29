@@ -1,7 +1,7 @@
 
-<div class="nsw-video-gallery">
+<% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
-    <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
+<div class="nsw-video-gallery">
 
     <div class="nsw-grid">
 
