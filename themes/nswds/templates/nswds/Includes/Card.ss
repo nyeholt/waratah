@@ -36,20 +36,23 @@
 
         </div>
 
-        <% if $Card_Image %>
+        <% if $Card_Image || $Card_ImageURL %>
         <%-- note: card image height is restricted to 200px @ 16px/em --%>
         <div class="nsw-card__image-area">
-            <% if $Card_ImageWidth || $Card_ImageHeight %>
-                <% if not $Card_ImageHeight %>
-                    {$Card_Image.ScaleWidth($Card_ImageWidth)}
+            <% if $Card_Image %>
+                <% if $Card_ImageWidth || $Card_ImageHeight %>
+                    <% if not $Card_ImageHeight %>
+                        {$Card_Image.ScaleWidth($Card_ImageWidth)}
+                    <% else %>
+                        {$Card_Image.Fill($Card_ImageWidth, $Card_ImageHeight)}
+                    <% end_if %>
                 <% else %>
-                    {$Card_Image.Fill($Card_ImageWidth, $Card_ImageHeight)}
+                     {$Card_Image.ScaleHeight(200)}
                 <% end_if %>
             <% else %>
-                 {$Card_Image.ScaleHeight(200)}
+                <img src="{$Card_ImageURL.XML}" height="200">
             <% end_if %>
         </div>
-
         <% end_if %>
 
     </div>
