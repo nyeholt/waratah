@@ -1,5 +1,12 @@
 <div class="nsw-col<% if $Card_ColumnOptions %> $Card_ColumnOptions.XML<% else %> nsw-col-md-4<% end_if %>">
-    <div class="nsw-card<% if $Card_HeadlineOnly != '' %> nsw-card--headline<% else %> nsw-card--content<% end_if %><% if $Card_Brand %> nsw-card--{$Card_Brand.XML}<% end_if %>">
+
+    <% if $Card_Description == '' && $Card_Content == '' %>
+        <%-- if there is no copy --%>
+        <div class="nsw-card nsw-card--headline<% if not $Card_HeadlineOnly %> nsw-card--content<% end_if %><% if $Card_Brand %> nsw-card--{$Card_Brand.XML}<% end_if %>">
+    <% else %>
+        <%-- a card with copy --%>
+        <div class="nsw-card<% if not $Card_HeadlineOnly %> nsw-card--content<% end_if %><% if $Card_Brand %> nsw-card--{$Card_Brand.XML}<% end_if %>">
+    <% end_if %>
 
         <div class="nsw-card__content">
 
