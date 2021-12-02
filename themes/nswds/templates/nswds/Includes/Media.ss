@@ -1,4 +1,4 @@
-<figure class="nsw-media<% if $Media_WidthOption %> nsw-media--<% if $Media_AlignOption %>{$Media_AlignOption}-<% end_if %>{$Media_WidthOption.XML}<% end_if %>"<% if $Media_Image %> data-original="{$Media_Image.AbsoluteURL.XML}"<% end_if %>>
+<figure class="nsw-media<% if $Media_Brand %> nsw-media--{$Media_Brand.XML}<% end_if %><% if $Media_WidthOption %> nsw-media--<% if $Media_AlignOption %>{$Media_AlignOption}-<% end_if %>{$Media_WidthOption.XML}<% end_if %>"<% if $Media_Image %> data-original="{$Media_Image.AbsoluteURL.XML}"<% end_if %>>
 
 <% if $Media_Image || $Media_Caption %>
 
