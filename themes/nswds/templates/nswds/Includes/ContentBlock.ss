@@ -24,16 +24,18 @@
 
             <% if $ContentBlock_Link %>
             <div class="nsw-content-block__link">
-                <a href="$ContentBlock_Link.LinkURL">{$ContentBlock_Link.Title.XML}</a>
+                <a href="$ContentBlock_Link.LinkURL"><% if $ContentBlock_Link.Title %>{$ContentBlock_Link.Title.XML}<% else %><%t nswds.VIEW_MORE 'View more' %><% end_if %></a>
             </div>
             <% end_if %>
 
         </div>
 
-        <% if $ContentBlock_Image || $ContentBlock_IconImage || ContentBlock_IconSVG %>
+        <% if $ContentBlock_Image || $ContentBlock_IconImage || ContentBlock_IconSVG || $ContentBlock_ImageURL %>
             <div class="nsw-content-block__image-area">
             <% if $ContentBlock_Image %>
                 <img src="$ContentBlock_Image.FocusFillMax(600,400).URL" alt="{$ContentBlock_Image.AltText.XML}" class="nsw-content-block__image">
+            <% else_if $ContentBlock_ImageURL %>
+                <img src="{$ContentBlock_ImageURL.XML}" width="600" height="400" alt="{$ContentBlock_Image.AltText.XML}" class="nsw-content-block__image">
             <% else_if $ContentBlock_IconImage %>
                 <div class="nsw-content-block__icon">
                 <img src="{$ContentBlock_IconImage.FocusFillMax(64,64).URL}" alt="{$ContentBlock_IconImage.AltText.XML}">
