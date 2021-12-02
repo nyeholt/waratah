@@ -1,4 +1,4 @@
-<section id="tabcontent-{$Tab_URLSegment.ATT}" class="nsw-tabs__content">
+<section id="tabcontent-<% if $Tab_URLSegment %>{$Tab_URLSegment.ATT}<% else %>{$Tab_Pos}<% end_if %>" class="nsw-tabs__content">
 
     <% if $Tab_Tabs %>
         <%-- nested tabs --%>
