@@ -41,7 +41,9 @@
         <% end_if %>
 
         <% if $ListItem_Tags %>
+            <div class="nsw-list-item__tags">
             <% include nswds/Tags Tags_List=$ListItem_Tags %>
+            </div>
         <% end_if %>
 
     </div>
