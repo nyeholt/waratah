@@ -6,7 +6,9 @@
             <div class="nsw-list-item__label">{$ListItem_PrimaryLabel.XML}</div>
         <% end_if %>
 
-        <% if $ListItem_Date %>
+        <% if $ListItem_DateString %>
+            <div class="nsw-list-item__info">{$ListItem_DateString.XML}</div>
+        <% else_if $ListItem_Date %>
             <div class="nsw-list-item__info">{$ListItem_Date.Nice}</div>
         <% else_if $ListItem_DateTime %>
             <div class="nsw-list-item__info">{$ListItem_DateTime.Nice}</div>
@@ -39,7 +41,9 @@
         <% end_if %>
 
         <% if $ListItem_Tags %>
+            <div class="nsw-list-item__tags">
             <% include nswds/Tags Tags_List=$ListItem_Tags %>
+            </div>
         <% end_if %>
 
     </div>

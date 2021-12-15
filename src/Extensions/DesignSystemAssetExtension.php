@@ -121,6 +121,10 @@ class DesignSystemAssetExtension extends Extension {
         Requirements::block("//code.jquery.com/jquery-3.3.1.min.js");
         Requirements::block("//code.jquery.com/jquery-3.4.1.min.js");
         Requirements::block("//code.jquery.com/jquery-3.5.1.min.js");
+        Requirements::block("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js");
+        Requirements::block("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js");
+        Requirements::block("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js");
+        Requirements::block('silverstripe/userforms:client/dist/js/jquery.min.js');
 
         // Require jQuery latest
         Requirements::javascript(

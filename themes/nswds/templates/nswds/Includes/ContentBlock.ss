@@ -26,6 +26,10 @@
             <div class="nsw-content-block__link">
                 <a href="$ContentBlock_Link.LinkURL"><% if $ContentBlock_Link.Title %>{$ContentBlock_Link.Title.XML}<% else %><%t nswds.VIEW_MORE 'View more' %><% end_if %></a>
             </div>
+            <% else_if $ContentBlock_LinkURL %>
+            <div class="nsw-content-block__link">
+                <a href="$ContentBlock_LinkURL.XML">{$ContentBlock_LinkTitle.XML}</a>
+            </div>
             <% end_if %>
 
         </div>

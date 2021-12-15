@@ -31,8 +31,8 @@
       }
 
       &.warning {
-        background-color: $warning-background;
-        color : $warning;
+        background-color: $warning;
+        color : $white;
       }
 
       &.critical {

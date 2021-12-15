@@ -18,13 +18,31 @@
                 <% end_if %>
 
                 <% if $HeroBanner_Link %>
-                <div class="nsw-banner__button">
-                    <% if $HeroBanner_Brand == 'dark' %>
-                        <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
-                    <% else %>
-                        <% include nswds/Button Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
-                    <% end_if %>
-                </div>
+                    <%-- a URL passed as a Link object --%>
+                    <div class="nsw-banner__button">
+                        <% if $HeroBanner_Brand == 'dark' %>
+                            <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
+                        <% else %>
+                            <% include nswds/Button Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
+                        <% end_if %>
+                    </div>
+                <% else_if $HeroBanner_LinkURL %>
+                    <%-- a URL passed as a string --%>
+                    <div class="nsw-banner__button">
+                        <% if $HeroBanner_Brand == 'dark' %>
+                            <% if $HeroBanner_LinkTitle %>
+                                <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_LinkURL, Button_Title=$HeroBanner_LinkTitle %>
+                            <% else %>
+                                <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_LinkURL, Button_Title='Read more' %>
+                            <% end_if %>
+                        <% else %>
+                            <% if $HeroBanner_LinkTitle %>
+                                <% include nswds/Button Button_LinkURL=$HeroBanner_LinkURL, Button_Title=$HeroBanner_LinkTitle %>
+                            <% else %>
+                                <% include nswds/Button Button_LinkURL=$HeroBanner_LinkURL, Button_Title='Read more' %>
+                            <% end_if %>
+                        <% end_if %>
+                    </div>
                 <% end_if %>
 
             </div>

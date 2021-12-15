@@ -1,4 +1,5 @@
 <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
+<div class="nsw-block">
 <div class="outer<% if $IsResponsive %> responsive-iframe is-{$IsResponsive.XML}<% end_if %>">
     <% if $IsLazy %><noscript class="loading-lazy"><% end_if %>
         <iframe
@@ -13,4 +14,5 @@
             frameborder="0">
         </iframe>
     <% if $IsLazy %></noscript><% end_if %>
+</div>
 </div>

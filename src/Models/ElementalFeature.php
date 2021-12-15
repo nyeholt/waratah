@@ -57,9 +57,9 @@ class ElementalFeature extends ElementContent
         $admin = Permission::check('ADMIN');
         if($admin) {
             $fields->insertAfter('ContentImage', UploadField::create('IconSVG','SVG version of icon'));
-            $fields->insertAfter('IconSVG', UploadField::create('IconImage','Image version of icon'));
         }
 
+        $fields->insertAfter('ContentImage', UploadField::create('IconImage','Image version of icon'));
 
         return $fields;
     }
