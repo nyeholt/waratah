@@ -1,6 +1,6 @@
 <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 <div class="nsw-block">
-<div class="outer<% if $IsResponsive %> responsive-iframe is-{$IsResponsive.XML}<% end_if %>">
+<div class="outer<% if $IsDynamic %> iframe-resizer<% end_if %><% if $IsResponsive %> responsive-iframe is-{$IsResponsive.XML}<% end_if %>">
     <% if $IsLazy %><noscript class="loading-lazy"><% end_if %>
         <iframe
             <% if $AlternateContent %>title="{$AlternateContent.XML}"<% end_if %>
