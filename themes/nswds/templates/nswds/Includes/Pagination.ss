@@ -19,7 +19,7 @@
                     </li>
                 <% end_if %>
 
-                <% loop $Pagination_PaginatedItems.PaginationSummary($SummaryLimit) %>
+                <% loop $Pagination_PaginatedItems.PaginationSummary() %>
 
                     <% if $CurrentBool %>
 
