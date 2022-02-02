@@ -31,3 +31,4 @@ After:
 SilverStripe\Forms\FormField:
   hint_class_mapping:
     'secondary': 'nsw-button--secondary'
+    'danger':   'nsw-button--danger'
