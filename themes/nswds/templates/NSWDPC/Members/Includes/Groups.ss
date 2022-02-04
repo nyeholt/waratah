@@ -17,12 +17,14 @@
 
                 <% include NSWDPC/Waratah/PageElemental %>
 
-                <% if $PendingForm %>
-                    {$PendingForm}
-                <% end_if %>
+                <% include nswds/Callout Callout_Title='Help', Callout_Content='In this section you can request access to the listed groups, remove your access requests or remove yourself from current group memberships', Callout_Icon='group_add' %>
 
                 <% if $GroupsForm %>
                     {$GroupsForm}
+                <% end_if %>
+
+                <% if $PendingForm %>
+                    {$PendingForm}
                 <% end_if %>
 
             </article>
