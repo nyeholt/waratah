@@ -2,8 +2,8 @@
 <table class="nsw-table">
     <thead>
         <tr>
-            <th><%t profiles.FIRST_NAME 'First Name' %></th>
-            <th>%t profiles.LAST_NAME 'Last Name' %></th>
+            <th><%t nswds.FIRST_NAME 'First Name' %></th>
+            <th>%t nswds.LAST_NAME 'Last Name' %></th>
         </tr>
     </thead>
     <tbody>
