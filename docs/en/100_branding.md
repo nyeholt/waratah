@@ -1,8 +1,21 @@
 # Branding
 
-The module supports branding and co-branding
+The module supports branding and co-branding as set by the [NSW Government branding guidelines](https://digitalnsw.github.io/nsw-design-system/)
 
-## Header component (co-branding)
+## Branding version
+
+As v2.14 of the NSW Design System acts as a bridge to version v3.0 we have introduced a branding version:
+
+```yml
+private static $branding_version = 3.0;
+```
+Version 0.3.x of this module ships with the value 3.0.
+
+At this point in time, the only change made via the `branding_version` value is the inclusion of the 'Public Sans' font if the value is >= 3.0. When the value is < 3.0, Montserrat will be used.
+
+## Co-branding
+
+### Header component
 
 By default, the module ships with co-branding turned off.
 
@@ -27,15 +40,23 @@ You should use HTML from the Header component guidelines based on your choice of
 Co-branding was introduced in nswds v2.14.0
 
 
-## Javascript and CSS
+## Supplying custom Javascript and CSS
 
-Adding JS and CSS, or overriding CSS is possible. The following project locations are used:
+Adding JS and CSS, or overriding CSS is possible. The 'waratah-branding' project directory is automatically created if it does not already exist. It should be committed to version control.
 
-+ waratah-branding/frontend/src/app.js
-+ waratah-branding/frontend/src/defaults.scss
-+ waratah-branding/frontend/src/app.scss
+The following locations are used:
 
-A good example of this is the NSWDPC Australia Day website.
+
+```
+waratah-branding/
+    frontend/
+        src/
+            app.js
+            defaults.scss
+            app.scss
+```
+
+A good example of custom branding is the NSWDPC Australia Day website.
 
 ### Javascript overrides
 
@@ -94,8 +115,8 @@ Your base component may have some styles like this, or not:
 
 ## Building
 
-After adding a component you should build the requirements again. Watch for any errors and fix as required.
+After adding a component you should [build the requirements again](./001_index.md). Watch for any errors and fix as required.
 
-Your project components will be included in the `/vendor/nswdpc/waratah/themes/nswds/app/frontend/dist/*/app.*` assets created from the build process.
+Your project components in the `waratah-branding` directory will be included in the `/vendor/nswdpc/waratah/themes/nswds/app/frontend/dist/*/app.*` assets created from the build process.
 
 The path `themes/nswds/app/frontend/dist` is vendor-exposed via `composer.json`
