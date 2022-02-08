@@ -1,5 +1,5 @@
 <% if $Top.IsLandingPage %>
-<section class="nsw-section--white">
+<section class="nsw-section">
     <div class="nsw-container">
 <% else %>
     <div class="nsw-block {$SpacingClass}">

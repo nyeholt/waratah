@@ -24,7 +24,7 @@
         <div class="nsw-grid">
             <% loop $PaginatedChildren(12) %>
                 <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
-                    <div class="nsw-card nsw-card--content">
+                    <div class="nsw-card nsw-card--content<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
                         <div class="nsw-card__content">
                             <h2 class="nsw-card__title">
                                 <a href="{$Link}" class="nsw-card__link" title="More information about $Title">{$MenuTitle.XML}</a>

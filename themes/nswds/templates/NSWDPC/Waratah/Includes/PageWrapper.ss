@@ -3,7 +3,7 @@
 <% if $Top.IsLandingPage %>
 
     <%-- a landing page --%>
-    <main id="content" class="wrth-section nsw-section" data-page-type="1">
+    <main id="content" class="nsw-section" data-page-type="1">
     <% include NSWDPC/Waratah/PageContent %>
     </main>
 

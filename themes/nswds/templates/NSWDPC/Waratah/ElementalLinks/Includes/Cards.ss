@@ -6,7 +6,7 @@
     <div class="nsw-grid">
         <% loop $ElementLinks.Sort('Sort') %>
             <div class="nsw-col<% if $Up.Up.Columns > 1 %> {$Up.Up.Columns}<% end_if %>">
-                <div class="nsw-card nsw-card--headline">
+                <div class="nsw-card nsw-card--headline<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
                     <div class="nsw-card__content">
                         <h2 class="nsw-card__title">
                             <a href="{$LinkURL}" class="nsw-card__link">{$Title.XML}</a>

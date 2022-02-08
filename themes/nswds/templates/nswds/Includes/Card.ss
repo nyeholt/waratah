@@ -1,5 +1,12 @@
 <div class="nsw-col<% if $Card_ColumnOptions %> $Card_ColumnOptions.XML<% else %> nsw-col-md-4<% end_if %>">
-    <div class="nsw-card<% if $Card_HeadlineOnly != '' %> nsw-card--headline<% else %> nsw-card--content<% end_if %>">
+
+    <% if $Card_Description == '' && $Card_Content == '' %>
+        <%-- if there is no copy --%>
+        <div class="nsw-card nsw-card--headline<% if not $Card_HeadlineOnly %> nsw-card--content<% end_if %><% if $Card_Brand %> nsw-card--{$Card_Brand.XML}<% end_if %>">
+    <% else %>
+        <%-- a card with copy --%>
+        <div class="nsw-card<% if not $Card_HeadlineOnly %> nsw-card--content<% end_if %><% if $Card_Brand %> nsw-card--{$Card_Brand.XML}<% end_if %>">
+    <% end_if %>
 
         <div class="nsw-card__content">
 
@@ -36,20 +43,23 @@
 
         </div>
 
-        <% if $Card_Image %>
+        <% if $Card_Image || $Card_ImageURL %>
         <%-- note: card image height is restricted to 200px @ 16px/em --%>
         <div class="nsw-card__image-area">
-            <% if $Card_ImageWidth || $Card_ImageHeight %>
-                <% if not $Card_ImageHeight %>
-                    {$Card_Image.ScaleWidth($Card_ImageWidth)}
+            <% if $Card_Image %>
+                <% if $Card_ImageWidth || $Card_ImageHeight %>
+                    <% if not $Card_ImageHeight %>
+                        {$Card_Image.ScaleWidth($Card_ImageWidth)}
+                    <% else %>
+                        {$Card_Image.Fill($Card_ImageWidth, $Card_ImageHeight)}
+                    <% end_if %>
                 <% else %>
-                    {$Card_Image.Fill($Card_ImageWidth, $Card_ImageHeight)}
+                     {$Card_Image.ScaleHeight(200)}
                 <% end_if %>
             <% else %>
-                 {$Card_Image.ScaleHeight(200)}
+                <img src="{$Card_ImageURL.XML}" height="200">
             <% end_if %>
         </div>
-
         <% end_if %>
 
     </div>

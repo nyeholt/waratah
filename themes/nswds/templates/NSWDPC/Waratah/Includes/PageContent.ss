@@ -1,3 +1,4 @@
+<%-- Page Content: render all page content --%>
 
 <% include NSWDPC/Waratah/PageIntro %>
 

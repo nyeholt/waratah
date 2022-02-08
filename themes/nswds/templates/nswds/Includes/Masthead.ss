@@ -1,4 +1,4 @@
-<div class="nsw-masthead">
+<div class="nsw-masthead<% if $MastHead_Brand %> nsw-masthead--{$MastHead_Brand.XML}<% end_if %>">
     <div class="nsw-container">
     <% if $Masthead_Title != '' %>
         <p>{$Masthead_Title.XML}</p>

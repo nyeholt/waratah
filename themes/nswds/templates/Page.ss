@@ -12,11 +12,11 @@
 
 <% include NSWDPC/Waratah/GTMBody %>
 
-<% include nswds/SkipToNav %>
+<% include nswds/SkipToNav MastHead_Brand='light' %>
 
 <% include nswds/GlobalAlert %>
 
-<% include nswds/Masthead %>
+<% include nswds/Masthead MastHead_Brand='light' %>
 
 <% include nswds/Header %>
 

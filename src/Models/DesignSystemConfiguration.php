@@ -83,19 +83,82 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     private static $element_section_class = "wrth-section nsw-section";
 
-    /**
-     * Returns an array of strings of the method names of methods on the call that should be exposed
-     * as global variables in the templates.
-     *
-     * @return array
+    /*
+     * @var float
+     * This is a fun way to define some branding options in code
      */
-    public static function get_template_global_variables()
-    {
-        return [
-            'SpacingClass' => 'get_spacing_class',
-            'ElementSectionClass' => 'get_element_section_class'
-        ];
-    }
+    private static $branding_version = 3.0;
+
+    /**
+     * @var string
+     * Co-Branding configuration, by default this is off
+     * Applicable values are '','vertical' or 'horizontal'
+     */
+    private static $co_branding = '';
+
+    /**
+     * @var array brand options
+     * https://nswdesignsystem.surge.sh/styles/colour/index.html
+     */
+    private static $colour_brand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'supplementary' => 'Brand supplementary',
+        'accent' => 'Brand Accent'
+    ];
+
+    /**
+     * @var array button branding options
+     * https://nswdesignsystem.surge.sh/components/card/index.html
+     */
+    private static $colour_cardbrand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light'
+    ];
+
+    /**
+     * @var array alert state options
+     * https://nswdesignsystem.surge.sh/components/site-wide-message/index.html
+     */
+    private static $colour_alertstate_options = [
+        '' => 'Information',
+        'light' => 'Light',
+        'critical' => 'Critical',
+    ];
+
+    /**
+     * @var array card branding options
+     * https://nswdesignsystem.surge.sh/components/button/index.html
+     */
+    private static $colour_buttonstate_options = [
+        'dark' => 'Brand Dark',
+        'dark-outline' => 'Brand Dark Outline',
+        'light' => 'Brand Light',
+        'light-outline' => 'Brand Light Outline',
+        'white' => 'White',
+        'danger' => 'Danger'
+    ];
+
+    /**
+     * @var array section options
+     * https://nswdesignsystem.surge.sh/styles/section/index.html
+     */
+    private static $colour_section_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'supplementary' => 'Brand supplementary',
+        'black' => 'Brand Black',
+        'white' => 'Brand White',
+        'off-white' => 'Brand Off White',
+        'grey-01' => 'Grey 01',
+        'grey-02' => 'Grey 02',
+        'grey-03' => 'Grey 03',
+        'grey-04' => 'Grey 04',
+        // 2.13 options (legacy)
+        'light-10' => 'Light 10 (legacy)' ,
+        'light-20' => 'Light 20 (legacy)',
+        'light-40' => 'Light 40 (legacy)',
+    ];
 
     /**
      * Return the configured spacing class, used to implement consistent spacing in a project
@@ -111,5 +174,37 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
         return self::config()->get('element_section_class');
     }
 
+    /**
+     * Returns an array of strings of the method names of methods on the call that should be exposed
+     * as global variables in the templates.
+     *
+     * @return array
+     */
+    public static function get_template_global_variables()
+    {
+        return [
+            'Waratah_CoBrand' => 'waratah_cobrand',
+            'Waratah_BrandVersion' => 'waratah_brandversion',
+            'SpacingClass' => 'get_spacing_class',
+            'ElementSectionClass' => 'get_element_section_class'
+        ];
+    }
 
+    /**
+     * Waratah co brand value
+     * @return string
+     */
+    public static function waratah_cobrand()
+    {
+        return self::config()->get('co_branding');
+    }
+
+    /**
+     * Waratah branding version
+     * @return int
+     */
+    public static function waratah_brandversion()
+    {
+        return self::config()->get('branding_version');
+    }
 }

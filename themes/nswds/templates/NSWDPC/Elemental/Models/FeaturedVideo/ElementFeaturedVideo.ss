@@ -26,7 +26,7 @@
         <% if $Transcript %>
         <div class="nsw-col nsw-col-xs-12">
             <div class="nsw-accordion js-accordion">
-                <h2 class="nsw-accordion__title"><%t ausday.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></h2>
+                <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
                 <div class="nsw-accordion__content">
                     <div class="nsw-wysiwyg-content">
                         {$Transcript}

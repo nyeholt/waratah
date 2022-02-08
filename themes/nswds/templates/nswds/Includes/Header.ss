@@ -2,25 +2,13 @@
 
     <div class="nsw-header__container">
 
-        <div class="nsw-header__wrapper">
+        <div class="nsw-header__inner">
 
-            <div class="nsw-header__center">
-                <a href="{$BaseHref}" class="nsw-header__logo-link">
-                    <% with SiteConfig %>
-                        <% if $LogoSVG %>
-                            <%-- TODO base64 data uri ? --%>
-                            <img class="nsw-header__logo" src="{$LogoSVG.URL}" alt="{$Title.XML}">
-                        <% else_if $LogoImage %>
-                            <img class="nsw-header__logo" src="{$LogoImage.URL}" alt="{$Title.XML}">
-                        <% else %>
-                            <img class="nsw-header__logo" src="$resourceURL('nswdpc/waratah:themes/nswds/app/static/img/nsw-waratah.svg')" alt="{$Title.XML}">
-                        <% end_if %>
-                        <span class="sr-only">{$Title.XML}</span>
-                    <% end_with %>
-                </a>
+            <div class="nsw-header__main">
+                <% include nswds/Waratah %>
             </div>
 
-            <div class="nsw-header__left">
+            <div class="nsw-header__menu">
                 <button type="button" class="nsw-header-btn nsw-header-btn--menu js-open-navigation" aria-expanded="false" aria-controls="main-navigation">
                     <i class="material-icons nsw-material-icons nsw-header-btn__icon" focusable="false" aria-hidden="true">menu</i>
                     <span class="nsw-header-btn__sub"><span class="sr-only"><%t nswds.OPEN 'Open' %></span> <%t nswds.MENU 'Menu' %></span>
@@ -29,7 +17,7 @@
 
             <% if $SearchForm %>
 
-            <div class="nsw-header__right">
+            <div class="nsw-header__search">
 
                 <% if $SearchForm %>
                 <button type="button" class="nsw-header-btn nsw-header-btn--search js-open-search" aria-expanded="false" aria-controls="header-search">

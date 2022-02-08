@@ -1,5 +1,5 @@
 <%-- render this decorated content element into a card --%>
-<div class="nsw-card nsw-card--headline">
+<div class="nsw-card nsw-card--headline<% if $Brand %> nsw-card--{$Brand.XML}<% end_if %>">
     <div class="nsw-card__content">
         <h2 class="nsw-card__title">
             <a href="{$LinkURL}" class="nsw-card__link">{$Title.XML}</a>

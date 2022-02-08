@@ -1,4 +1,4 @@
-<div class="nsw-banner<% if $HeroBanner_IsDark %> nsw-banner--dark<% end_if %><% if $HeroBanner_IsWide %> nsw-banner--wide<% end_if %>">
+<div class="nsw-banner<% if $HeroBanner_Brand %> nsw-banner--{$HeroBanner_Brand.XML}<% end_if %><% if $HeroBanner_IsWide %> nsw-banner--wide<% end_if %>">
 
     <div class="nsw-banner__container">
 
@@ -20,7 +20,7 @@
                 <% if $HeroBanner_Link %>
                     <%-- a URL passed as a Link object --%>
                     <div class="nsw-banner__button">
-                        <% if $HeroBanner_IsDark %>
+                        <% if $HeroBanner_Brand == 'dark' %>
                             <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
                         <% else %>
                             <% include nswds/Button Button_LinkURL=$HeroBanner_Link.LinkURL, Button_Title=$HeroBanner_Link.Title %>
@@ -29,7 +29,7 @@
                 <% else_if $HeroBanner_LinkURL %>
                     <%-- a URL passed as a string --%>
                     <div class="nsw-banner__button">
-                        <% if $HeroBanner_IsDark %>
+                        <% if $HeroBanner_Brand == 'dark' %>
                             <% if $HeroBanner_LinkTitle %>
                                 <% include nswds/Button Button_ExtraClass='nsw-button--white', Button_LinkURL=$HeroBanner_LinkURL, Button_Title=$HeroBanner_LinkTitle %>
                             <% else %>
@@ -60,14 +60,18 @@
             </div>
             <% end_if %>
 
-            <% if not $HeroBanner_IsWide || $HeroBanner_Image %>
-            <div class="nsw-banner__box" role="presentation">
-                <% if $HeroBanner_Image %>
-                    <img class="nsw-banner__image" src="{$HeroBanner_Image.FocusFill(500,500).URL}" alt="{$HeroBanner_Image.AltText.XML}">
-                <% else %>
-                    <div class="nsw-banner__bg"></div>
+            <% if not $HeroBanner_Links %>
+                <% if not $HeroBanner_IsWide || $HeroBanner_Image || $HeroBanner_ImageURL %>
+                <div class="nsw-banner__box" role="presentation">
+                    <% if $HeroBanner_Image %>
+                        <img class="nsw-banner__image" src="{$HeroBanner_Image.FocusFill(500,500).URL}" alt="{$HeroBanner_Image.AltText.XML}">
+                    <% else_if $HeroBanner_ImageURL %>
+                        <img class="nsw-banner__image" src="{$HeroBanner_ImageURL}" width="500" height="500" alt="">
+                    <% else %>
+                        <div class="nsw-banner__bg"></div>
+                    <% end_if %>
+                </div>
                 <% end_if %>
-            </div>
             <% end_if %>
 
         </div>
