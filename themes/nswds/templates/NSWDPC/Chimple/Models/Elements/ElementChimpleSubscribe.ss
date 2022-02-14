@@ -27,7 +27,9 @@
 
         <% if $Image %>
         <div class="nsw-col nsw-col-6">
+            <div class="img-fluid">
             {$Image.FocusFillMax(720,600)}
+            </div>
         </div>
         <% end_if %>
 

@@ -2,13 +2,37 @@
  * Image class styling
  */
 
+/**
+ * @deprecated, use descendant selector below
+ */
 img {
-  .img-fluid {
+
+  &.img-fluid {
     max-width: 100%;
     height: auto;
   }
 
-  .img-full {
+  &.img-full {
+    width: 99.225vw;
+    position: relative;
+    margin-left: -49.59vw;
+    left: 24%;
+    height: auto;
+  }
+}
+
+/**
+ * These allow assigning styles via a parent of the image in a template
+ */
+.img-fluid {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.img-full {
+  img {
     width: 99.225vw;
     position: relative;
     margin-left: -49.59vw;
