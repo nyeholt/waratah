@@ -1,74 +1,36 @@
 
 <% if $SubscribeForm %>
 
-    <% if $IsCallout %>
+    <div class="nsw-grid">
 
-        <div class="nsw-callout wrth-callout__subscribe">
+        <div class="nsw-col nsw-col-6">
 
-            <% include nswds/Icon Icon_Icon='mail', Icon_IconExtraClass='nsw-callout__icon' %>
+            <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
-            <div class="nsw-callout__content">
-
-                <h4 class="nsw-callout__title">
-                    {$Title.XML}
-                </h4>
-
-                <% if $BeforeFormContent %>
-                    <div class="before">
-                        {$BeforeFormContent}
-                    </div>
-                <% end_if %>
-
-                <div class="form wrth-callout__form">
-                    {$SubscribeForm}
+            <% if $BeforeFormContent %>
+                <div class="nsw-intro">
+                    {$BeforeFormContent}
                 </div>
+            <% end_if %>
 
-                <% if $BeforeFormContent %>
-                    <div class="after">
-                        {$AfterFormContent}
-                    </div>
-                <% end_if %>
+            <div class="nsw-m-top-sm">
+                {$SubscribeForm}
             </div>
 
-        </div>
-
-    <% else %>
-
-        <div class="nsw-content-block">
-
-            <div class="nsw-content-block__content">
-
-                <h2 class="nsw-content-block__title">{$Title.XML}</h2>
-
-                <div class="nsw-content-block__copy">
-
-                    <% if $BeforeFormContent %>
-                        <div class="nsw-intro">
-                            {$BeforeFormContent}
-                        </div>
-                    <% end_if %>
-
-                    <div class="form wrth-callout__form">
-                        {$SubscribeForm}
-                    </div>
-
-                    <% if $BeforeFormContent %>
-                        <div class="small">
-                            {$AfterFormContent}
-                        </div>
-                    <% end_if %>
+            <% if $BeforeFormContent %>
+                <div class="nsw-m-top-sm">
+                    {$AfterFormContent}
                 </div>
-
-            </div>
-
-            <% if $Image %>
-            <div class="nsw-content-block__image-area">
-                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.Title.XML}" class="nsw-content-block__image">
-            </div>
             <% end_if %>
 
         </div>
 
-    <% end_if %>
+        <% if $Image %>
+        <div class="nsw-col nsw-col-6">
+            {$Image.FocusFillMax(720,600)}
+        </div>
+        <% end_if %>
+
+    </div>
 
 <% end_if %>
