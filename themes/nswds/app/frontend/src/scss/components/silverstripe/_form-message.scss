@@ -1,0 +1,38 @@
+/**
+ * Form validation messages
+ * Extend NSWDS styles to the SS ValidationResult TYPE_* constants
+ * errpr good, info, warning, error
+ * Plus: bad, required
+ */
+form {
+
+  .message {
+
+    &.required,
+    &.error,
+    &.bad {
+      @extend .nsw-form__helper--error;
+    }
+
+    /**
+     * There is no warning in NSWDS
+     * TODO: change background-color
+     */
+    &.warning {
+      @extend .nsw-form__helper--error;
+    }
+
+    &.info {
+      /**
+       * There is no info in NSWDS
+       * TODO: change background-color
+       */
+      @extend .nsw-form__helper--valid;
+    }
+
+    &.good {
+      @extend .nsw-form__helper--valid;
+    }
+
+  }
+}

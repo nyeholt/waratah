@@ -1,19 +1,7 @@
 /**
- * Userforms module styles
+ * Userforms module overrides
  */
  .userform-fields {
-
-   .nsw-form-group {
-
-     span.message {
-       @extend .nsw-form-helper;
-     }
-
-     span.error {
-         @extend .nsw-form__helper--error;
-     }
-
-   }
 
    .CompositeField {
      margin-top: 2rem;
