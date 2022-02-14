@@ -1,34 +1,74 @@
 
 <% if $SubscribeForm %>
 
-    <div class="nsw-card wrth-card--subscribe">
-        <div class="nsw-card__content<% if not $Image %> no-subscribe-image<% end_if %>">
-            <h2 class="nsw-card__title">
+    <% if $IsCallout %>
+
+        <div class="nsw-callout wrth-callout__subscribe">
+
+            <% include nswds/Icon Icon_Icon='mail', Icon_IconExtraClass='nsw-callout__icon' %>
+
+            <div class="nsw-callout__content">
+
+                <h4 class="nsw-callout__title">
                     {$Title.XML}
-            </h2>
-            <div class="nsw-card__copy">
+                </h4>
+
                 <% if $BeforeFormContent %>
-                    <div class="content before">
+                    <div class="before">
                         {$BeforeFormContent}
                     </div>
                 <% end_if %>
 
-                <div class="wrth-card__form">
+                <div class="form wrth-callout__form">
                     {$SubscribeForm}
                 </div>
 
                 <% if $BeforeFormContent %>
-                    <div class="content after">
+                    <div class="after">
                         {$AfterFormContent}
                     </div>
                 <% end_if %>
             </div>
+
         </div>
-        <% if $Image %>
-            <div class="nsw-card__image-area<% if $ImageAlignment %> {$ImageAlignment}<% end_if %>">
-                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.Title.XML}" class="nsw-card__image">
+
+    <% else %>
+
+        <div class="nsw-content-block">
+
+            <div class="nsw-content-block__content">
+
+                <h2 class="nsw-content-block__title">{$Title.XML}</h2>
+
+                <div class="nsw-content-block__copy">
+
+                    <% if $BeforeFormContent %>
+                        <div class="nsw-intro">
+                            {$BeforeFormContent}
+                        </div>
+                    <% end_if %>
+
+                    <div class="form wrth-callout__form">
+                        {$SubscribeForm}
+                    </div>
+
+                    <% if $BeforeFormContent %>
+                        <div class="small">
+                            {$AfterFormContent}
+                        </div>
+                    <% end_if %>
+                </div>
+
             </div>
-        <% end_if %>
-    </div>
+
+            <% if $Image %>
+            <div class="nsw-content-block__image-area">
+                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.Title.XML}" class="nsw-content-block__image">
+            </div>
+            <% end_if %>
+
+        </div>
+
+    <% end_if %>
 
 <% end_if %>
