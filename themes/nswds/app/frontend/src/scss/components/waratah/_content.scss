@@ -1,0 +1,20 @@
+/**
+ * General content overrides
+ */
+
+::selection,
+mark {
+  color: $white;
+  background-color: $danger;
+}
+mark {
+  padding: 0 .3rem;
+}
+
+.nsw-wysiwyg-content {
+  .nsw-page-nav,
+  .nsw-intro,
+  > section:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}

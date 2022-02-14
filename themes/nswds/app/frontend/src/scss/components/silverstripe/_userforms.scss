@@ -1,0 +1,23 @@
+/**
+ * Userforms module styles
+ */
+ .userform-fields {
+
+   .nsw-form-group {
+
+     span.message {
+       @extend .nsw-form-helper;
+     }
+
+     span.error {
+         @extend .nsw-form__helper--error;
+     }
+
+   }
+
+   .CompositeField {
+     margin-top: 2rem;
+     margin-bottom: 2rem;
+   }
+
+ }
