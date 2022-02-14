@@ -1,0 +1,8 @@
+/**
+ * Logo and logo link
+ */
+.nsw-header__logo-link > .nsw-header__logo {
+  @include breakpoint('lg') {
+    width: auto;
+  }
+}

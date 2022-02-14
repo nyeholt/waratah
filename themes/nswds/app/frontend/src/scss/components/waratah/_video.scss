@@ -1,0 +1,47 @@
+/**
+ * Video and video gallery
+ */
+.wrth-video-gallery,
+.nsw-video-gallery {
+   .nsw-media {
+     margin-top: 0;
+     margin-bottom: 0;
+   }
+
+   .nsw-accordion {
+     margin-top: 0;
+
+     &__button {
+       @include font-size('xs');
+       margin-top: 0;
+     }
+   }
+ }
+
+ .embed-responsive,
+ .ss-htmleditorfield-file.embed {
+   position: relative;
+   display: block;
+   width: 100%;
+   padding: 0;
+   overflow: hidden;
+
+   &::before {
+     display: block;
+     content: '';
+   }
+
+   .embed-responsive-item,
+   iframe,
+   embed,
+   object,
+   video {
+     position: absolute;
+     top: 0;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     border: 0;
+   }
+ }

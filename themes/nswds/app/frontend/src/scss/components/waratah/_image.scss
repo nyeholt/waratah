@@ -1,0 +1,18 @@
+/**
+ * Image class styling
+ */
+
+img {
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .img-full {
+    width: 99.225vw;
+    position: relative;
+    margin-left: -49.59vw;
+    left: 24%;
+    height: auto;
+  }
+}
