@@ -41,29 +41,6 @@ class BaseElementExtension extends DataExtension
     ];
 
     /**
-     * @var array
-     */
-    private static $has_one = [
-        'SectionImage' => Image::class // nsw-section--image
-    ];
-
-    /**
-     * Publish section image via ownership
-     * @var array
-     */
-    private static $owns = [
-        'SectionImage'
-    ];
-
-    /**
-     * Delete the section image when this block is deleted
-     * @var array
-     */
-    private static $cascade_deletes = [
-        'SectionImage'
-    ];
-
-    /**
      * By default all elements have a container, elements not on landing/full width pages
      * will ignore the container value and never be in a container, in any case
      * @var array
@@ -186,18 +163,7 @@ class BaseElementExtension extends DataExtension
                         'nswds.IS_BOXED',
                         'Apply a box outline to this block'
                     )
-                ),
-                UploadField::create(
-                    'SectionImage',
-                    _t(
-                        'nswds.SECTION_IMAGE',
-                        'Add a background image to this block'
-                    )
-                )->setIsMultiUpload(false)
-                ->setAllowedMaxFileNumber(1)
-                ->setAllowedExtensions('jpg')
-                ->setAttachEnabled(false)
-                ->setFolderName('SectionBackgrounds')
+                )
             ]
         );
 
@@ -254,21 +220,6 @@ class BaseElementExtension extends DataExtension
             $classes[] = 'nsw-section--' . $bg;
         }
         return implode(" ", $classes);
-    }
-
-    /**
-     * Hook into rendering, add requirements
-     * In this case add the requirement for setting a background image on the section
-     */
-    public function updateRenderTemplates($templates, $suffix) {
-        if( ($image = $this->owner->SectionImage()) && $image->exists() ) {
-            $imageURL = $image->AbsoluteLink();
-            $id = $this->owner->getAnchor();
-            Requirements::customCss(
-                "#{$id}.nsw-section--image { background-image: url('{$imageURL}');}",
-                "backgroundImageFor{$id}"
-            );
-        }
     }
 
 }
