@@ -22,13 +22,17 @@ class BaseElementExtension extends DataExtension
     use DesignSystemSelections;
 
     /**
+     * AddBackround - the options light-10,light-20,light-40 are nswds v2.13 options and will be deprecated in v1.0.
+     * The AddBackground option '1' is a legacy option that triggered 'light-10' background. This now triggers 'off-white'
+     * The AddBackground value of 0, the default, produces a nsw-section without suffixed classes
+     * See the getBackground method which templates should use to retrieve the correct background class for the section ({$Background})
      * @var array
      */
     private static $db = [
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
-        'AddBackground' => "Enum('0,1,white,light-10,light-20,light-40', '0')",
+        'AddBackground' => "Enum('brand-dark,brand-light,brand-supplementary,black,white,off-white,grey-01,grey-02,grey-03,grey-04,0,1,light-10,light-20,light-40', '0')",
     ];
 
     /**
@@ -37,7 +41,8 @@ class BaseElementExtension extends DataExtension
      * @var array
      */
     private static $defaults = [
-        'AddContainer' => 1
+        'AddContainer' => 1,
+        'AddBackground' => 0,
     ];
 
     /**
@@ -51,6 +56,7 @@ class BaseElementExtension extends DataExtension
     ];
 
     /**
+     * @deprecated v1.0
      * @var array
      */
     private static $backgrounds = [
@@ -124,7 +130,7 @@ class BaseElementExtension extends DataExtension
                 )->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Adding a background will add some padding to top and bottom of your block<br>Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
+                        'Adding a background may add some padding to top and bottom of your block<br>Backgrounds are applied to content in the landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
                 )
             ]
