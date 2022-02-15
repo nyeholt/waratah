@@ -98,6 +98,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $co_branding = '';
 
     /**
+     * @var string
+     * Options are light or dark
+     * Can be set to 'light' when co_branding outcomes demand it
+     */
+    private static $masthead_brand = "dark";
+
+    /**
      * @var array brand options
      * https://nswdesignsystem.surge.sh/styles/colour/index.html
      */
@@ -189,8 +196,20 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
             'Waratah_CoBrand' => 'waratah_cobrand',
             'Waratah_BrandVersion' => 'waratah_brandversion',
             'SpacingClass' => 'get_spacing_class',
-            'ElementSectionClass' => 'get_element_section_class'
+            'ElementSectionClass' => 'get_element_section_class',
+            'MastHead_Brand' => 'get_masthead_brand'
         ];
+    }
+
+
+
+    /**
+     * Waratah masthead brand value
+     * @return string
+     */
+    public static function get_masthead_brand()
+    {
+        return self::config()->get('masthead_brand');
     }
 
     /**
