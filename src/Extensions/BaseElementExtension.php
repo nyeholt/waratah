@@ -105,17 +105,22 @@ class BaseElementExtension extends DataExtension
         if(!is_array($headings)) {
             $headings = [];
         }
+
         $fields->addFieldsToTab(
             'Root.Settings',
+            DropdownField::create(
+                'HeadingLevel',
+                _t(
+                    'nswds.HEADING_LEVEL_OVERRIDE',
+                    'Heading level override'
+                ),
+                $headings
+            )->setEmptyString('Default (Heading Two)')
+        );
+
+        $fields->addFieldsToTab(
+            'Root.DisplayOptions',
             [
-                DropdownField::create(
-                    'HeadingLevel',
-                    _t(
-                        'nswds.HEADING_LEVEL_OVERRIDE',
-                        'Heading level override'
-                    ),
-                    $headings
-                )->setEmptyString('Default (Heading Two)'),
                 CheckboxField::create(
                     'AddContainer',
                     _t(
@@ -125,7 +130,7 @@ class BaseElementExtension extends DataExtension
                 )->setDescription(
                     _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Applicable to landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
+                        'Applicable to landing page \'Main content\' area, only.'
                     )
                 ),
                 SectionSelectionField::create(
@@ -137,13 +142,8 @@ class BaseElementExtension extends DataExtension
                 )->setDescription(
                     _t(
                         'nswds.BACKGROUND_APPLICATION_NOTES',
-                        'Backgrounds are applied to content in the landing page \'Main content\' area, only'
-                        . '<br>Adding a background may add some padding to top and bottom of this block.'
-                    )
-                )->setRightTitle(
-                    _t(
-                        'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Pages with specific layouts may ignore this setting'
+                        'Backgrounds are applied to blocks in the landing page \'Main content\' area, only.'
+                        . '<br>Adding a background may add some padding to the top and bottom of this block.'
                     )
                 ),
                 DropdownField::create(
@@ -161,7 +161,12 @@ class BaseElementExtension extends DataExtension
                     'IsBoxed',
                     _t(
                         'nswds.IS_BOXED',
-                        'Apply a box outline to this block'
+                        'Apply an outline to this block'
+                    )
+                )->setDescription(
+                    _t(
+                        'nswds.IS_BOXED_DESCRIPTION',
+                        'Outlines are applied to blocks on non-landing pages, only.'
                     )
                 )
             ]
