@@ -250,6 +250,7 @@ class BaseElementExtension extends DataExtension
                 $classes[] = $spacing;
             }
         } else {
+            $classes[] = 'nsw-section';
             $classes[] = 'nsw-section--' . $bg;
         }
         return implode(" ", $classes);
