@@ -5,10 +5,13 @@ namespace NSWDPC\Waratah\Extensions;
 use NSWDPC\Waratah\Models\DesignSystemConfiguration;
 use NSWDPC\Waratah\Forms\SectionSelectionField;
 use NSWDPC\Waratah\Traits\DesignSystemSelections;
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\View\Requirements;
 
 
 /**
@@ -33,6 +36,31 @@ class BaseElementExtension extends DataExtension
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
         'AddBackground' => "Enum('brand-dark,brand-light,brand-supplementary,black,white,off-white,grey-01,grey-02,grey-03,grey-04,0,1,light-10,light-20,light-40', '0')",
+        'IsBoxed' => 'Boolean',// nsw-section--box
+        'VerticalSpacing' => "Enum('half-padding,no-padding')", // nsw-section--no-padding etc
+    ];
+
+    /**
+     * @var array
+     */
+    private static $has_one = [
+        'SectionImage' => Image::class // nsw-section--image
+    ];
+
+    /**
+     * Publish section image via ownership
+     * @var array
+     */
+    private static $owns = [
+        'SectionImage'
+    ];
+
+    /**
+     * Delete the section image when this block is deleted
+     * @var array
+     */
+    private static $cascade_deletes = [
+        'SectionImage'
     ];
 
     /**
@@ -43,6 +71,8 @@ class BaseElementExtension extends DataExtension
     private static $defaults = [
         'AddContainer' => 1,
         'AddBackground' => 0,
+        'IsBoxed' => 0,
+        'VerticalSpacing' => null,// default
     ];
 
     /**
@@ -132,7 +162,36 @@ class BaseElementExtension extends DataExtension
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
                         'Adding a background may add some padding to top and bottom of your block<br>Backgrounds are applied to content in the landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
                     )
-                )
+                ),
+                DropdownField::create(
+                    'VerticalSpacing',
+                    _t(
+                        'nswds.VERTICAL_SPACING_TITLE',
+                        'Specify optional vertical spacing for this block'
+                    ),
+                    [
+                        'half-padding' => _t('nswds.HALF_PADDING', 'Half vertical spacing'),
+                        'no-padding' => _t('nswds.NO_PADDING', 'No vertical spacing'),
+                    ]
+                )->setEmptyString(''),
+                CheckboxField::create(
+                    'IsBoxed',
+                    _t(
+                        'nswds.IS_BOXED',
+                        'Apply a box outline to this block'
+                    )
+                ),
+                UploadField::create(
+                    'SectionImage',
+                    _t(
+                        'nswds.SECTION_IMAGE',
+                        'Add a background image to this block'
+                    )
+                )->setIsMultiUpload(false)
+                ->setAllowedMaxFileNumber(1)
+                ->setAllowedExtensions('jpg')
+                ->setAttachEnabled(false)
+                ->setFolderName('SectionBackgrounds')
             ]
         );
 
@@ -188,6 +247,21 @@ class BaseElementExtension extends DataExtension
             $classes[] = 'nsw-section--' . $bg;
         }
         return implode(" ", $classes);
+    }
+
+    /**
+     * Hook into rendering, add requirements
+     * In this case add the requirement for setting a background image on the section
+     */
+    public function updateRenderTemplates($templates, $suffix) {
+        if( $image = $this->owner->SectionImage() ) {
+            $imageURL = $image->AbsoluteLink();
+            $id = $this->owner->getAnchor();
+            Requirements::customCss(
+                "#{$id} { background-image: url('{$imageURL}');}",
+                "backgroundImageFor{$id}"
+            );
+        }
     }
 
 }

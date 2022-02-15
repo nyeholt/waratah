@@ -4,7 +4,7 @@
 
     <% if $Parent.IsSideArea %>
         <%-- sidebar elements can have spacing --%>
-        <div class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %>" data-direct="1" data-side="1">
+        <div class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %><% if $IsBoxed %> nsw-section--box<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $SectionImage %> nsw-section--image<% end_if %>" data-direct="1" data-side="1">
         {$Element}
         </div>
     <% else %>
@@ -17,7 +17,7 @@
 <% else_if $CurrentPage.IsLandingPage || $Parent.OwnerPage.IsLandingPage %>
 
     <%-- note:landing pages / home pages never render a sidebar element area, these are all the main elements --%>
-    <section class="<% if $Background %>$Background<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+    <section class="<% if $Background %>$Background<% end_if %><% if $IsBoxed %> nsw-section--box<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $SectionImage %> nsw-section--image<% end_if %><% if $StyleVariant %> {$StyleVariant}<% end_if %><% if $ExtraClass %> {$ExtraClass}<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
 
         <%-- landing page elements can have containers and backgrounds --%>
         <% if $AddContainer %><div class="nsw-container"><% end_if %>
@@ -29,7 +29,7 @@
 <% else %>
 
     <%-- any element not rendered directly,  not in a landing page --%>
-    <div class="nsw-block<% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}" data-page-type="2">
+    <div class="nsw-block<% if $IsBoxed %> nsw-section--box<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $SectionImage %> nsw-section--image<% end_if %><% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}" data-page-type="2">
         {$Element}
     </div>
 
