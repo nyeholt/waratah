@@ -260,11 +260,11 @@ class BaseElementExtension extends DataExtension
      * In this case add the requirement for setting a background image on the section
      */
     public function updateRenderTemplates($templates, $suffix) {
-        if( $image = $this->owner->SectionImage() ) {
+        if( ($image = $this->owner->SectionImage()) && $image->exists() ) {
             $imageURL = $image->AbsoluteLink();
             $id = $this->owner->getAnchor();
             Requirements::customCss(
-                "#{$id} { background-image: url('{$imageURL}');}",
+                "#{$id}.nsw-section--image { background-image: url('{$imageURL}');}",
                 "backgroundImageFor{$id}"
             );
         }
