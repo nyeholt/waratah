@@ -79,9 +79,10 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     /**
      * @var string
      * The class to be used on element sections ->for landing pages<-
-     * In other contexts,
+     * In other contexts, nsw-block would be used
+     * Since v0.3.x (nswds 2.14.x), wrth-section has been dropped
      */
-    private static $element_section_class = "wrth-section nsw-section";
+    private static $element_section_class = "nsw-section";
 
     /*
      * @var float
