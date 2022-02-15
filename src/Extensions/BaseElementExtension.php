@@ -159,8 +159,14 @@ class BaseElementExtension extends DataExtension
                     )
                 )->setDescription(
                     _t(
+                        'nswds.BACKGROUND_APPLICATION_NOTES',
+                        'Backgrounds are applied to content in the landing page \'Main content\' area, only'
+                        . '<br>Adding a background may add some padding to top and bottom of this block.'
+                    )
+                )->setRightTitle(
+                    _t(
                         'nswds.IGNORED_ON_CERTAIN_PAGES',
-                        'Adding a background may add some padding to top and bottom of your block<br>Backgrounds are applied to content in the landing page \'Main content\' area, only. Pages with specific layouts may ignore this setting'
+                        'Pages with specific layouts may ignore this setting'
                     )
                 ),
                 DropdownField::create(
