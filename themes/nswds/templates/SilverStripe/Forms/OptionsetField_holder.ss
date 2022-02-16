@@ -1,18 +1,18 @@
-<div id="$HolderID" class="field nsw-form-group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
+<div id="$HolderID" class="field nsw-form__group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
-    <fieldset class="nsw-form-fieldset">
+    <fieldset class="nsw-form__fieldset">
 
         <legend>
-           <% if $Title %><span class="nsw-form-label<% if $Required %> nsw-form__required<% end_if %>">$Title</span><% end_if %>
-           <% if $Description %><span class="nsw-form-helper">$Description</span><% end_if %>
+           <% if $Title %><span class="nsw-form__legend<% if $Required %> nsw-form__required<% end_if %>">$Title</span><% end_if %>
+           <% if $Description %><span class="nsw-form__helper">$Description</span><% end_if %>
            <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
          </legend>
 
-         <div class="nsw-form-radio middleColumn">
+         <div class="wrth-form-radio">
          {$Field}
          </div>
 
-         <% if $RightTitle %><span class="nsw-form-helper right">$RightTitle</span><% end_if %>
+         <% if $RightTitle %><span class="nsw-form__helper right">$RightTitle</span><% end_if %>
 
     </fieldset>
 
