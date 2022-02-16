@@ -19,8 +19,8 @@
     <% if $Actions %>
     <div class="nsw-m-top-md">
         <fieldset class="nsw-form__fieldset actions btn-toolbar">
-            <legend class="nsw-form__legend">
-                <span class="nsw-form-legend-text"><%t nswds.STEP_FORM_ACTION_LEGEND 'Choose an action to complete the form' %></span>
+            <legend>
+                <span class="nsw-form__legend"><%t nswds.STEP_FORM_ACTION_LEGEND 'Choose an action to complete the form' %></span>
             </legend>
             <% loop $Actions %>
                 {$Field}

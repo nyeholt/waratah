@@ -1,8 +1,8 @@
 <fieldset class="nsw-form__fieldset nsw-m-bottom-md<% if $extraClass %> {$extraClass}<% end_if %>"<% if $RightTitle %> aria-describedby="{$Name}_right_title"<% end_if %>>
 
     <% if $Legend %>
-        <legend class="nsw-form__legend">
-            <span class="nsw-form-legend-text">{$Legend}</span>
+        <legend>
+            <span class="nsw-form__legend">{$Legend}</span>
         </legend>
     <% end_if %>
 
