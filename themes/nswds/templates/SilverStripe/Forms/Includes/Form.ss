@@ -18,7 +18,7 @@
     <div class="main">
 
     <% if $VisibleFields.count > 0 %>
-        <fieldset class="nsw-form-fieldset">
+        <fieldset class="nsw-form__fieldset">
         <% if $Legend %>
             <legend>
             <span class="nsw-form__legend">
@@ -37,7 +37,7 @@
     <% end_if %>
 
     <% if $Actions %>
-        <fieldset class="nsw-form-fieldset actions">
+        <fieldset class="nsw-form__fieldset actions">
         <% loop $Actions %>
             {$Field}
         <% end_loop %>

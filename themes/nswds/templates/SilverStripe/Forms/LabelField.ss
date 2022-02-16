@@ -1,1 +1,1 @@
-<label id="$ID" class="nsw-form-label">$Title</label>
+<label id="$ID" class="nsw-form__label">$Title</label>
