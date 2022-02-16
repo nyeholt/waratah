@@ -9,8 +9,8 @@
 
 <% if $Legend %>
     <fieldset class="nsw-form__fieldset">
-        <legend class="nsw-form__legend">
-            <span class="nsw-form-legend-text">$Legend</span>
+        <legend>
+            <span class="nsw-form__legend">{$Legend}</span>
         </legend>
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
     </fieldset>
