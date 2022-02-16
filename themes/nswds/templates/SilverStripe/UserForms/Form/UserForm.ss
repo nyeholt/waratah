@@ -8,14 +8,14 @@
 <% end_if %>
 
 <% if $Legend %>
-    <fieldset>
-        <legend>$Legend</legend>
+    <fieldset class="nsw-form__fieldset">
+        <legend class="nsw-form__legend">
+            <span class="nsw-form-legend-text">$Legend</span>
+        </legend>
         <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
     </fieldset>
 <% else %>
-    <div class="userform-fields">
-        <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
-    </div>
+    <% include SilverStripe\\UserForms\\Form\\UserFormFields %>
 <% end_if %>
 
 <% if $Steps.Count > 1 %>

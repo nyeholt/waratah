@@ -1,19 +1,15 @@
-<$Tag class="CompositeField $extraClass<% if $ColumnCount %> multicolumn<% end_if %>"<% if $Tag == 'fieldset' && $RightTitle %> aria-describedby="{$Name}_right_title"<% end_if %>>
-	<% if $Tag == 'fieldset' && $Legend %>
-		<legend>$Legend</legend>
-	<% end_if %>
+<fieldset class="nsw-form__fieldset nsw-m-bottom-md<% if $extraClass %> {$extraClass}<% end_if %>"<% if $RightTitle %> aria-describedby="{$Name}_right_title"<% end_if %>>
 
-	<div class="middleColumn">
-	<% loop $FieldList %>
-		<% if $ColumnCount %>
-			<div class="column-{$ColumnCount} $FirstLast">
-				$FieldHolder
-			</div>
-		<% else %>
-			$FieldHolder
-		<% end_if %>
-	<% end_loop %>
-	</div>
+    <% if $Legend %>
+        <legend class="nsw-form__legend">
+            <span class="nsw-form-legend-text">{$Legend}</span>
+        </legend>
+    <% end_if %>
 
-	<% if $RightTitle %><span id="{$Name}_right_title" class="right-title">$RightTitle</span><% end_if %>
-</$Tag>
+    <% loop $FieldList %>
+        {$FieldHolder}
+    <% end_loop %>
+
+    <% if $RightTitle %><span id="{$Name}_right_title" class="nsw-form__helper">{$RightTitle}</span><% end_if %>
+
+</fieldset>

@@ -1,11 +1,51 @@
 /**
- * Userforms module overrides
+ * Userforms styles for nswdpc/waratah
+ * See silverstripe/userforms:client/src/styles/userforms.scss
+ * nswdpc/waratah sets  block_default_userforms_css: true
  */
- .userform-fields {
+.userform {
 
-   .CompositeField {
-     margin-top: 2rem;
-     margin-bottom: 2rem;
-   }
+  @extend .nsw-form;
 
- }
+  .nsw-progress-indicator__bar {
+
+    width: 100% !important;
+
+    .step-button-wrapper {
+
+      height: 0 !important;
+      overflow : hidden;
+
+      &.current {
+          @extend .nsw-progress-indicator__step--active;
+      }
+
+      .step-button-jump {
+        span {
+          font-size: 0;
+        }
+      }
+    }
+
+  }
+
+  .hide {
+    display: none;
+  }
+
+  label.left,
+  .field label.right {
+    @extend .nsw-form__label;
+  }
+
+  .checkbox .right-title,
+  .right-title {
+    @extend .nsw-form__helper;
+  }
+
+  fieldset.userformsgroup {
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+}
