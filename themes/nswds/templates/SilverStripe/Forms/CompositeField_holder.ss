@@ -16,12 +16,12 @@
 
 <% else %>
 
-<fieldset class="nsw-form-fieldset<% if $Zebra %> $Zebra<% end_if %><% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>" id="$HolderID">
+<fieldset class="nsw-form__fieldset<% if $Zebra %> $Zebra<% end_if %><% if $ParentExtraClass %> {$ParentExtraClass}<% end_if %>" id="$HolderID">
 
     <% if $Legend %>
-        <legend><span class="nsw-form-legend-text">$Legend</span></legend>
+        <legend><span class="nsw-form__legend">$Legend</span></legend>
     <% else_if $Title %>
-        <legend><span class="nsw-form-legend-text">$Title</span></legend>
+        <legend><span class="nsw-form__legend">$Title</span></legend>
     <% end_if %>
 
     $Field
