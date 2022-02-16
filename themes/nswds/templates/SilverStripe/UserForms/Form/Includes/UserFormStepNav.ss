@@ -1,27 +1,32 @@
-<nav id="step-navigation" class="step-navigation">
-	<ul class="step-buttons">
-		<%--
-			If JavaScript is disabled multi-step forms are displayed as a single page
-			so the 'prev' and 'next' button are not used. These buttons are made visible via JavaScript.
-		--%>
-		<li class="step-button-wrapper" aria-hidden="true" style="display:none;">
-			<button class="step-button-prev">
-                <%t SilverStripe\\UserForms\\Model\\EditableFormField\\EditableFormStep.STEP_PREV "Prev" %>
-            </button>
-		</li>
-		<li class="step-button-wrapper" aria-hidden="true" style="display:none;">
-			<button class="step-button-next">
-                <%t SilverStripe\\UserForms\\Model\\EditableFormField\\EditableFormStep.STEP_NEXT "Next" %>
-            </button>
-		</li>
+<%--
+    If JavaScript is disabled multi-step forms are displayed as a single page
+    so the 'prev' and 'next' button are not used. These buttons are made visible via JavaScript.
+--%>
 
-		<% if $Actions %>
-		<li class="step-button-wrapper btn-toolbar Actions">
-		<% loop $Actions %>
-			$Field
-		<% end_loop %>
-		</li>
-		<% end_if %>
+<fieldset id="step-navigation" class="step-navigation nsw-form__fieldset">
+    <div class="step-buttons">
 
-	</ul>
-</nav>
+        <button class="step-button-prev nsw-button nsw-button--dark-outline nsw-button--full-width" aria-hidden="true" style="display:none;">
+            <%t nswds.STEP_PREVIOUS "Previous" %>
+        </button>
+
+        <button class="step-button-next nsw-button nsw-button--dark-outline nsw-button--full-width" aria-hidden="true" style="display:none;">
+            <%t nswds.STEP_NEXT "Next" %>
+        </button>
+
+    </div>
+
+    <% if $Actions %>
+    <div class="nsw-m-top-md">
+        <fieldset class="nsw-form__fieldset actions btn-toolbar">
+            <legend class="nsw-form__legend">
+                <span class="nsw-form-legend-text"><%t nswds.STEP_FORM_ACTION_LEGEND 'Choose an action to complete the form' %></span>
+            </legend>
+            <% loop $Actions %>
+                {$Field}
+            <% end_loop %>
+        </fieldset>
+    </div>
+    <% end_if %>
+
+</fieldset>

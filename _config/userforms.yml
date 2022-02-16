@@ -1,0 +1,10 @@
+---
+Name: nswdpc-waratah-userforms
+After:
+  - '#nswdpc-content-userforms'
+  - '#userformsconfig'
+---
+SilverStripe\UserForms\Model\UserDefinedForm:
+  block_default_userforms_css: true
+DNADesign\ElementalUserForms\Model\ElementForm:
+  block_default_userforms_css: true
