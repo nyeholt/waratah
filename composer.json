@@ -35,6 +35,9 @@
             ],
             "NSWDPC\\Waratah\\Services\\": [
                 "src/Services/"
+            ],
+            "NSWDPC\\Waratah\\Models\\": [
+                "src/Models/"
             ]
         }
     },
