@@ -135,6 +135,17 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
+     * @var array alert state options
+     * https://nswdesignsystem.surge.sh/components/notification/index.html
+     */
+    private static $colour_notificationstate_options = [
+        'info' => 'Information',
+        'warning' => 'Warning',
+        'error' => 'Critical',
+        'success' => 'Success',
+    ];
+
+    /**
      * @var array card branding options
      * https://nswdesignsystem.surge.sh/components/button/index.html
      */
