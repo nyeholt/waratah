@@ -29,14 +29,14 @@
     width: 24px;
     display: block;
     background-repeat: no-repeat;
-    color: $white;
+    color: var(--nsw-white);
 
     &:hover {
       text-decoration: none;
     }
 
     &:focus {
-      @include nsw-focus($color: $white);
+      @include nsw-focus($color: var(--nsw-white));
     }
 
     &-facebook {

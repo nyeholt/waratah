@@ -6,7 +6,7 @@
     max-width: 100% !important;
     width: 100%;
     margin: 0;
-    color: $dark80;
+    color: var(--nsw-grey-01);
 
     i {
       display: none;
@@ -14,18 +14,18 @@
 
     .mfa-app-title {
       @include font-size('xxl');
-      color: $dark80;
+      color: var(--nsw-grey-01);
       display : none;
     }
 
     .mfa-section-title {
       @include font-size('lg');
-      color: $dark80;
+      color: var(--nsw-grey-01);
     }
 
     .mfa-feature-list-title {
       @include font-size('md');
-      color: $dark80;
+      color: var(--nsw-grey-01);
     }
 
     label {
@@ -48,20 +48,20 @@
     .mfa-feature-list {
       &-item {
         @include font-size('sm');
-        color: $dark80;
+        color: var(--nsw-grey-01);
 
         &__content {
-          color: $dark80;
+          color: var(--nsw-grey-01);
         }
 
         &__title {
           @include font-size('sm');
-          color: $dark80;
+          color: var(--nsw-grey-01);
         }
 
         &__description {
           @include font-size('sm');
-          color: $dark80;
+          color: var(--nsw-grey-01);
         }
 
       }
@@ -128,7 +128,7 @@
       .mfa-register-confirmation__title {
         @include nsw-spacing(margin, none none md none);
         @include font-size('lg');
-        color: $dark80;
+        color: var(--nsw-grey-01);
       }
 
       .mfa-register-confirmation__description {

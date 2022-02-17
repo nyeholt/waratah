@@ -1,5 +1,6 @@
 /**
  * Provide some extra button-y things not in the NSW Design System
+ * @deprecated v2.14 supports icons on buttons natively
  */
 .wrth-button {
 
@@ -10,11 +11,10 @@
 
 }
 
-.nsw-button--highlight.wrth-button--icon,
-.nsw-button--primary.wrth-button--icon {
+.nsw-button.wrth-button--icon {
 
   .nsw-material-icons {
-      color: $white;
+      color: inherit;
       margin-right : 0.5rem;
   }
 

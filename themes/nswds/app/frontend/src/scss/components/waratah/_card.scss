@@ -16,28 +16,28 @@
 
       padding: rem(16px);
       margin-top: 0.5rem;
-      background-color: $info-background;
-      color : $info;
+      background-color: var(--nsw-status-info-bg);
+      color : var(--nsw-status-info);
       order : 10;
 
       &.info {
-        background-color: $info-background;
-        color : $info;
+        background-color: var(--nsw-status-info-bg);
+        color : var(--nsw-status-info);
       }
 
       &.success {
-        background-color: $success-background;
-        color : $success;
+        background-color: var(--nsw-status-success-bg);
+        color : var(--nsw-status-success);
       }
 
       &.warning {
-        background-color: $warning;
-        color : $white;
+        background-color: var(--nsw-status-warning-bg);
+        color : var(--nsw-status-warning) ;
       }
 
       &.critical {
-        background-color: $critical-background;
-        color : $critical;
+        background-color: var(--nsw-status-error-bg);
+        color : var(--nsw-status-error);
       }
 
     }
@@ -50,8 +50,8 @@
         &__inner {
 
           &::before {
-            color: $white;
-            background-color: $nsw-primary-blue;
+            color: var(--nsw-white);
+            background-color: var(--nsw-brand-dark);
             position: absolute;
             left: 0;
             top: rem(10px);
@@ -148,7 +148,7 @@
       &-placeholder {
         width: 100%;
         height: rem(174px);
-        background-color: $light20;
+        background-color: var(--nsw-grey-04);
         display: block;
       }
     }// end img
@@ -161,9 +161,9 @@
       top: rem(10px);
       width: rem(26px);
       height: rem(26px);
-      color: $white;
+      color: var(--nsw-white);
       cursor: pointer;
-      background-color: $nsw-primary-blue;
+      background-color: var(--nsw-brand-dark);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -173,7 +173,7 @@
         font-size: 1rem;
         line-height: 1em;
         pointer-events: none;
-        color: $white;
+        color: var(--nsw-white);
 
         &--active {
           display: none;
@@ -201,12 +201,12 @@
 
     // Card item location
     &__location {
-      background-color: $nsw-secondary-blue;
+      background-color: var(--nsw-brand-supplementary);
       display: inline-block;
       @include font-size('sm');
       line-height: rem(22px);
       padding: rem(2px) rem(9px);
-      color: $white;
+      color: var(--nsw-white);
       position: absolute;
       z-index: 20;
       left: rem(16px);
@@ -252,7 +252,7 @@
       @include font-stack('regular');
       line-height: (22em/16);
       margin: 0;
-      color: $dark80;
+      color: var(--nsw-grey-01);
     }
 
     // Card item date
@@ -260,7 +260,7 @@
       @include font-size('sm');
       line-height: (22em/14);
       margin: 0;
-      color: $dark60;
+      color: var(--nsw-grey-02);
     }
 
   }//end wrth-card

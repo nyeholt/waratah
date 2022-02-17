@@ -29,14 +29,14 @@
 
   &:active {
     @include nsw-active;
-    border-color: $focus-color;
+    border-color: var(--nsw-focus);
   }
 
   &:disabled,
   &.disabled {
-    background-color: $light10;
-    color: $light40;
-    border-color: $light10;
+    background-color: var(--nsw-off-white);
+    color: var(--nsw-grey-03);
+    border-color: var(--nsw-off-white);
     cursor: not-allowed;
   }
 }// end wrth-button

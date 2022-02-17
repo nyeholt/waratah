@@ -4,8 +4,8 @@
 
 ::selection,
 mark {
-  color: $white;
-  background-color: $danger;
+  color: var(--nsw-status-error);
+  background-color: var(--nsw-status-error-bg);
 }
 mark {
   padding: 0 .3rem;
