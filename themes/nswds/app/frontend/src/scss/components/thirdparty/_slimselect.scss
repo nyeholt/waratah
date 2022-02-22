@@ -1,20 +1,40 @@
-.ss-main .ss-multi-selected {
-    font-family: var(--nsw-font-family);
-    padding: .35rem;
-    border: 1px solid var(--nsw-grey-02);
-    border-radius: .25rem;
-    line-height: 1.25;
-}
+/**
+ * SlimSelect styling for listbox fields
+ */
+.ss-main {
 
-.ss-main .ss-multi-selected .ss-values .ss-value {
-    font-size: 16px;
-    padding: 7px;
-    margin: 2px;
-    margin-right: 3px;
-    background-color: var(--nsw-brand-supplementary);/* nswds */
-    border-radius: .25rem;
-}
+  @extend .nsw-form__input;
+  margin-top: rem(4px);
 
-.ss-main .ss-multi-selected .ss-values .ss-disabled {
-    color: var(--nsw-grey-03);/*  nswds */
+  .ss-multi-selected {
+
+    border: none;
+    background: transparent;
+    min-height : auto;
+    padding: 0;
+    border-radius: 0;
+
+    .ss-values {
+
+      .ss-value {
+        @include font-size('sm');
+        padding: rem(4px) rem(12px);
+        margin: 0 rem(2px) rem(2px) 0;
+        background-color: var(--nsw-brand-dark);
+        color: var(--nsw-text-light);
+        border-radius: var(--nsw-border-radius);
+      }
+
+      .ss-disabled {
+        @include font-size('sm');
+        color: var(--nsw-grey-01);
+        background: transparent;
+        padding: rem(4px) 0;
+        margin: 0 0 rem(2px) 0;
+      }
+
+    }
+
+  }
+
 }
