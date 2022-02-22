@@ -1,6 +1,6 @@
 <% if $supportsElemental && $ElementalArea && $ElementalArea.Elements.count > 0 %>
     {$ElementalArea}
-<% else %>
+<% else_if $Content %>
     <% if $Top.IsLandingPage %>
     <div class="nsw-container">
         {$Content}
