@@ -5,3 +5,4 @@
         {$FieldHolder}
     </div>
 <% end_loop %>
+</div>
