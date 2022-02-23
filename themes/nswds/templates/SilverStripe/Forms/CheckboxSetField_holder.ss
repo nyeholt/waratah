@@ -1,4 +1,4 @@
-<div id="$HolderID" class="field nsw-form__group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
+<div id="$HolderID" class="nsw-form__group wrth-form__checkboxset<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
     <fieldset class="nsw-form__fieldset">
 
@@ -9,7 +9,7 @@
             <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
         </legend>
 
-        <div class="wrth-form-checkbox checkbox field">
+        <div class="field">
         {$Field}
         </div>
 

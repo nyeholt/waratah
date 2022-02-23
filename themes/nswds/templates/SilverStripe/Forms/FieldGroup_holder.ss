@@ -1,4 +1,4 @@
-<div id="$HolderID" class="field nsw-form__group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
+<div id="$HolderID" class="nsw-form__group wrth-form__fieldgroup<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
 <!-- fieldgroup_holder -->
 
@@ -13,9 +13,9 @@
 
     <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 
-    <fieldset class="nsw-form__fieldset<% if $Zebra %> $Zebra<% end_if %>">
-        {$Field}
-    </fieldset>
+    <div class="field">
+    {$Field}
+    </div>
 
     <% if $RightTitle %><span class="nsw-form__helper right">$RightTitle</span><% end_if %>
 

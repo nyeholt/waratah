@@ -1,6 +1,6 @@
-<div id="$HolderID" class="field nsw-form__group<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
+<div id="$HolderID" class="nsw-form__group wrth-form__checkbox<% if $ParentExtraClass %> {$ParentExtraClass}<%end_if %>">
 
-     <div class="wrth-form-checkbox checkbox field">
+     <div class="field">
         {$Field}
         <% if $Title %><label class="nsw-form__checkbox-label" for="$ID">$Title<% if $Required %><span class="nsw-form__required"></span><% end_if %></label><% end_if %>
      </div>
