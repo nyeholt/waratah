@@ -119,7 +119,7 @@ class BaseElementExtension extends DataExtension
         );
 
         $fields->addFieldsToTab(
-            'Root.DisplayOptions',
+            'Root.Display',
             [
                 CheckboxField::create(
                     'AddContainer',
