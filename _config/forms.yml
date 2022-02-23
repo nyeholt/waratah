@@ -10,7 +10,7 @@ SilverStripe\Forms\FileField:
 #SilverStripe\Forms\ReadonlyField:
 #  default_classes: ['nsw-form-input']
 SilverStripe\Forms\FormAction:
-  default_classes: ['nsw-button','nsw-button--primary']
+  default_classes: ['nsw-button','nsw-button--dark']
 SilverStripe\Forms\DropdownField:
   default_classes: ['nsw-form__select']
 SilverStripe\Forms\GroupedDropdownField:
@@ -30,5 +30,5 @@ After:
 # add nswds hint/class mapping
 SilverStripe\Forms\FormField:
   hint_class_mapping:
-    'secondary': 'nsw-button--secondary'
+    'secondary': 'nsw-button--dark-outline'
     'danger':   'nsw-button--danger'
