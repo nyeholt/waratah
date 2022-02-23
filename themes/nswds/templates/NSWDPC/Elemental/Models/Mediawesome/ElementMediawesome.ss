@@ -4,8 +4,8 @@
 <% end_if %>
 <div class="nsw-grid">
     <% loop $RecentPosts %>
-        <div class="nsw-col<% if $Up.Columns > 1 %> {$Up.Columns}<% end_if %>" data-test="$Up.Title">
-            <div class="nsw-card nsw-card--content">
+        <div class="nsw-col<% if $Up.Columns > 1 %> {$Up.Columns}<% end_if %>">
+            <div class="nsw-card nsw-card--content<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
                 <div class="nsw-card__content">
                     <h2 class="nsw-card__title">
                         <a href="{$Link}" class="nsw-card__link" title="More information about $Title">{$MenuTitle.XML}</a>
