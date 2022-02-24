@@ -24,9 +24,9 @@
 
     <% if $Description || $LinkTarget %>
     <figcaption>
-        <% if $Description %>{$Description.XML}<% end_if %>
+        <% if $Description %><p>{$Description.XML}</p><% end_if %>
         <% if $LinkTarget %>
-            <a href="{$LinkTarget.LinkURL}" class="nsw-button">{$LinkTarget.Title}</a>
+            <p><a href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a></p>
         <% end_if %>
     </figcaption>
     <% end_if %>
