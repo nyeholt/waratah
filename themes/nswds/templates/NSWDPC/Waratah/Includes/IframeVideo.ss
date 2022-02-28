@@ -1,24 +1,14 @@
 <figure class="nsw-media">
 
-    <div class="nsw-media__video">
+    <div class="nsw-media__video embed video">
 
-<% if $Provider == 'vimeo' || $Provider == 'youtube' %>
+    <% if $EmbedURL %>
 
     <% if $WillLazyLoad %>{$Polyfill}<noscript class="loading-lazy"><% end_if %>
-
-<% if $Provider == 'vimeo' %>
-
-    <iframe loading="lazy" id="video-{$ID}-{$Anchor}" src="https://player.vimeo.com/video/{$Video.XML}?color=ffffff&title=0&byline=0&portrait=0" width="100%" height="360" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-
-<% else_if $Provider == 'youtube' %>
-
-    <iframe loading="lazy" id="video-{$ID}-{$Anchor}" type="text/html" width="100%" height="360" src="https://www.youtube.com/embed/{$Video.XML}?autoplay=0&modestbranding=0&fs=1&rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<% end_if %>
-
+    <iframe loading="lazy" id="video-{$ID}-{$Anchor}" src="{$EmbedURL}" allow="{$AllowAttribute}" allowfullscreen></iframe>
     <% if $WillLazyLoad %></noscript><% end_if %>
 
-<% end_if %>
+    <% end_if %>
 
     </div>
 
@@ -29,6 +19,17 @@
             <p><a href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a></p>
         <% end_if %>
     </figcaption>
+    <% end_if %>
+
+    <% if $Transcript %>
+    <div class="nsw-accordion js-accordion">
+        <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
+        <div class="nsw-accordion__content">
+            <div class="nsw-wysiwyg-content">
+                {$Transcript}
+            </div>
+        </div>
+    </div>
     <% end_if %>
 
 </figure>
