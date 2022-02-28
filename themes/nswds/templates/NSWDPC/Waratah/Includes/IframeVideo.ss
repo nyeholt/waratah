@@ -3,23 +3,27 @@
     <div class="nsw-media__video embed video">
 
     <% if $EmbedURL %>
-
     <% if $WillLazyLoad %>{$Polyfill}<noscript class="loading-lazy"><% end_if %>
     <iframe loading="lazy" id="video-{$ID}-{$Anchor}" src="{$EmbedURL}" allow="{$AllowAttribute}" allowfullscreen></iframe>
     <% if $WillLazyLoad %></noscript><% end_if %>
-
     <% end_if %>
 
     </div>
 
-    <% if $Description || $LinkTarget %>
     <figcaption>
-        <% if $Description %><p>{$Description.XML}</p><% end_if %>
+
+        <% if $HTML %>
+            <%-- HTML content --%>
+            {$HTML}
+        <% else_if $Description %>
+            <p>{$Description.XML}</p>
+        <% end_if %>
+
         <% if $LinkTarget %>
             <p><a href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a></p>
         <% end_if %>
+
     </figcaption>
-    <% end_if %>
 
     <% if $Transcript %>
     <div class="nsw-accordion js-accordion">
