@@ -60,6 +60,24 @@ class PageExtension extends DataExtension
     }
 
     /**
+     * Return the sidebar navigation parent for the current page or null if none exists
+     * @param int $level
+     */
+    public function getSidebarNavigation(int $level = 1) : ?SiteTree {
+        $parent = null;
+        if( !( $parent = $this->owner->getSidebarSectionParent() ) ) {
+            $parent = $this->owner->Level($level);
+        }
+        if($parent) {
+            $children = $parent->Children();
+            if($children && $children->count() > 0) {
+                return $parent;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Get the sidebar section parent, which may be a parent of this record
      * Returns the parent record, or false
      * @return SiteTree|bool
