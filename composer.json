@@ -58,7 +58,7 @@
         "nswdpc/silverstripe-nsw-design-system": "self.version"
     },
     "require": {
-        "nswdpc/silverstripe-content-boilerplate": "^0.1",
+        "nswdpc/silverstripe-content-boilerplate": "^0.2",
         "nswdpc/silverstripe-notification-boilerplate": "^0.1",
         "nswdpc/silverstripe-feedback-assist": "^0.1",
         "nswdpc/silverstripe-field-hint": "^0.1",
