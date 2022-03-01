@@ -1,48 +1,38 @@
 <figure class="nsw-media<% if $Media_Brand %> nsw-media--{$Media_Brand.XML}<% end_if %><% if $Media_WidthOption %> nsw-media--<% if $Media_AlignOption %>{$Media_AlignOption}-<% end_if %>{$Media_WidthOption.XML}<% end_if %>"<% if $Media_Image %> data-original="{$Media_Image.AbsoluteURL.XML}"<% end_if %>>
 
-<% if $Media_Image || $Media_Caption %>
+<% if $Media_Image %>
 
-    <% if $Media_Image %>
+    <% if Media_LinkToImage == 1 %><a <% if Media_GalleryClass %>class="$Media_GalleryClass"<% end_if %> href="{$Media_Image.ScaleMaxWidth(1920).AbsoluteURL.XML}"><% end_if %>
 
-        <% if Media_LinkToImage == 1 %><a <% if Media_GalleryClass %>class="$Media_GalleryClass"<% end_if %> href="{$Media_Image.ScaleMaxWidth(1920).AbsoluteURL.XML}"><% end_if %>
-
-        <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
-            {$Media_Image.ProgressiveFocusFill($Media_ImageWidth, $Media_ImageHeight)}
-        <% else_if $Media_ImageWidth > 0 %>
-            {$Media_Image.ProgressiveScaleWidth($Media_ImageWidth)}
-        <% else_if $Media_ImageHeight > 0 %>
-            {$Media_Image.ScaleHeight($Media_ImageHeight)}
-        <% else %>
-            <%-- both are 0 --%>
-            <img src="{$Media_Image.URL}" alt="{$Media_Image.AltText}">
-        <% end_if %>
-
-        <% if Media_LinkToImage %></a><% end_if %>
-
+    <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
+        {$Media_Image.ProgressiveFocusFill($Media_ImageWidth, $Media_ImageHeight)}
+    <% else_if $Media_ImageWidth > 0 %>
+        {$Media_Image.ProgressiveScaleWidth($Media_ImageWidth)}
+    <% else_if $Media_ImageHeight > 0 %>
+        {$Media_Image.ScaleHeight($Media_ImageHeight)}
     <% else %>
-
-        <div class="no-image"></div>
-
+        <%-- both are 0 --%>
+        <img src="{$Media_Image.URL}" alt="{$Media_Image.AltText}">
     <% end_if %>
 
-    <% if $Media_ShowCaption %>
+    <% if Media_LinkToImage %></a><% end_if %>
+
+    <% if $Media_Caption && $Media_ShowCaption %>
         <figcaption>
         {$Media_Caption.XML}
         </figcaption>
     <% end_if %>
 
-<% else_if $Media_Video || $Media_Caption %>
+<% else_if $Media_Video %>
 
     <div class="nsw-media__video">
         {$Media_EmbedCode.RAW}
     </div>
 
-    <% if $Media_ShowCaption %>
-        <figcaption>
+    <figcaption>
+    <% if $Media_Caption && $Media_ShowCaption %>
         {$Media_Caption.XML}
-        </figcaption>
     <% end_if %>
-
     <% if $Media_AltVideoURL %>
         <p class="alt-url">
             <a href="$Media_AltVideoURL">
@@ -50,10 +40,11 @@
             </a>
         </p>
     <% end_if %>
+    </figcaption>
 
     <% if $Media_Transcript %>
         <div class="nsw-accordion js-accordion">
-            <div class="nsw-accordion__title"><%t nswds.READ_TRANSCRIPT 'Read transcript' %></div>
+            <div class="nsw-accordion__title"><%t nswds.READ_TRANSCRIPT "Read transcript of the '{videoTitle}' video" videoTitle=$Title %></div>
             <div class="nsw-accordion__content">
                 <div class="nsw-wysiwyg-content">
                     {$Media_Transcript}

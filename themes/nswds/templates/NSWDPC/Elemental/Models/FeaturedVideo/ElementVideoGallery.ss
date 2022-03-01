@@ -1,31 +1,12 @@
 
 <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
-<div class="nsw-video-gallery">
+<div class="wrth-video-gallery">
 
     <div class="nsw-grid">
 
         <% loop SortedVideos %>
-
-            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-6">
-
-                <h4>{$Title.XML}</h4>
-
-                <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description=$Description, LinkTarget=$LinkTarget, Anchor=$Up.Anchor, WillLazyLoad=$WillLazyLoad %>
-
-                <% if $Transcript %>
-                <div class="nsw-accordion js-accordion">
-                    <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
-                    <div class="nsw-accordion__content">
-                        <div class="nsw-wysiwyg-content">
-                            {$Transcript}
-                        </div>
-                    </div>
-                </div>
-                <% end_if %>
-
-            </div>
-
+        {$Me}
         <% end_loop %>
 
     </div>

@@ -10,6 +10,7 @@ use SilverStripe\Assets\Image;
 use gorriecoe\Link\Models\Link;
 use NSWDPC\InlineLinker\InlineLinkCompositeField;
 use NSWDPC\Elemental\Models\DecoratedContent\ElementDecoratedContent;
+use NSWDPC\Elemental\Models\FeaturedVideo\ElementFeaturedVideo;
 
 /**
  * Provides a "Content Image" and "Content Link" field for ElementContent
@@ -59,16 +60,32 @@ class ElementContentExtension extends DataExtension
     }
 
     /**
+     * These fields can only be applied to ElementContent directly, not subclasses
+     * If the current owner is ignored, remove the fields and return true
+     */
+    public function handleIgnoredOwner(FieldList $fields) : bool {
+        $classes = [
+            ElementDecoratedContent::class,
+            ElementFeaturedVideo::class
+        ];
+        $ignored_subclasses = $this->owner->config()->get('ignored_subclasses');
+        if(is_array($ignored_subclasses)) {
+            $classes = array_merge($classes, $ignored_subclasses);
+        }
+        if( in_array(get_class($this->owner), $classes) ) {
+            $fields->removeByName(['ContentLinkID','ContentLink','ContentImageID','ContentImage']);
+            return true;
+        }
+        return false;
+    }
+
+    /**
      * Apply image and link fields to the Settings tab
      */
     public function updateCMSFields(FieldList $fields)
     {
 
-        /**
-         * These fields can only be applied to ElementContent directly, not subclasses
-         */
-        if(get_class($this->owner) == ElementDecoratedContent::class) {
-            $fields->removeByName(['ContentLinkID','ContentLink','ContentImageID','ContentImage']);
+        if($this->owner->handleIgnoredOwner($fields)) {
             return;
         }
 
