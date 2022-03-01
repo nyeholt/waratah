@@ -5,11 +5,13 @@
     <% if $Image %>
         <figure class="nsw-media">
             <% include NSWDPC/Elemental/Models/FeaturedVideo/LinkedVideo %>
-            <% if $HTML %>
+            <% if $HTML || $FeatureLink %>
             <figcaption>
+                <% if $HTML %>
                 {$HTML}
-                <% if $LinkTarget %>
-                    <p><a href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a></p>
+                <% end_if %>
+                <% if $FeatureLink %>
+                    <p><a href="{$FeatureLink.LinkURL}">{$FeatureLink.Title}</a></p>
                 <% end_if %>
             </figcaption>
             <% end_if %>
