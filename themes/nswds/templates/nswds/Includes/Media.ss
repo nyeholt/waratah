@@ -17,7 +17,7 @@
 
     <% if Media_LinkToImage %></a><% end_if %>
 
-    <% if $Media_ShowCaption %>
+    <% if $Media_Caption && $Media_ShowCaption %>
         <figcaption>
         {$Media_Caption.XML}
         </figcaption>
@@ -29,12 +29,10 @@
         {$Media_EmbedCode.RAW}
     </div>
 
-    <% if $Media_ShowCaption %>
-        <figcaption>
+    <figcaption>
+    <% if $Media_Caption && $Media_ShowCaption %>
         {$Media_Caption.XML}
-        </figcaption>
     <% end_if %>
-
     <% if $Media_AltVideoURL %>
         <p class="alt-url">
             <a href="$Media_AltVideoURL">
@@ -42,6 +40,7 @@
             </a>
         </p>
     <% end_if %>
+    </figcaption>
 
     <% if $Media_Transcript %>
         <div class="nsw-accordion js-accordion">
