@@ -2,7 +2,6 @@
 
     <div class="nsw-page-layout">
 
-
         <aside class="nsw-page-layout__sidebar">
 
             <% include NSWDPC/Members/Links %>
@@ -27,8 +26,7 @@
 
                 </div>
 
-
-                <% include NSWDPC/Members/Directory %>
+                <% include NSWDPC/Members/DirectoryMember %>
 
 
             </article>
