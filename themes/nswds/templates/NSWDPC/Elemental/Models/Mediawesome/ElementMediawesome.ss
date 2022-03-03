@@ -4,7 +4,7 @@
 <% end_if %>
 <div class="nsw-grid">
     <% loop $RecentPosts %>
-        <div class="nsw-col nsw-col-md-4">
+        <div class="nsw-col {$Up.ColumnClass}">
             <div class="nsw-card nsw-card--content">
                 <div class="nsw-card__content">
                     <h2 class="nsw-card__title">
