@@ -182,6 +182,12 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
+     * @var string
+     * Allow alternate homepage, provided as URL or path
+     */
+    private static $alt_home_page = "";
+
+    /**
      * Return the configured spacing class, used to implement consistent spacing in a project
      */
     public static function get_spacing_class() : string {
@@ -208,7 +214,8 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
             'Waratah_BrandVersion' => 'waratah_brandversion',
             'SpacingClass' => 'get_spacing_class',
             'ElementSectionClass' => 'get_element_section_class',
-            'MastHead_Brand' => 'get_masthead_brand'
+            'MastHead_Brand' => 'get_masthead_brand',
+            'AlternateHomeURL' => 'get_alt_home_page'
         ];
     }
 
@@ -240,4 +247,12 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     {
         return self::config()->get('branding_version');
     }
+
+    /*
+     * Return the alternate home page URL or path, if configured
+     */
+    public static function get_alt_home_page() : string {
+        return self::config()->get('alt_home_page');
+    }
+
 }
