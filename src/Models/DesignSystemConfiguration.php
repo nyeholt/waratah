@@ -84,6 +84,12 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $element_section_class = "wrth-section nsw-section";
 
     /**
+     * @var string
+     * Allow alternate homepage
+     */
+    private static $alt_home_page = "";
+
+    /**
      * Returns an array of strings of the method names of methods on the call that should be exposed
      * as global variables in the templates.
      *
@@ -109,6 +115,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     public static function get_element_section_class() : string {
         return self::config()->get('element_section_class');
+    }
+
+    /**
+     * Return the configured element section class for
+     */
+    public static function get_alt_home_page() : string {
+        return self::config()->get('alt_home_page');
     }
 
 

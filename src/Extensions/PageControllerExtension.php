@@ -3,6 +3,7 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use SilverStripe\Core\Extension;
+use NSWDPC\Waratah\Models\DesignSystemConfiguration;
 
 
 class PageControllerExtension extends Extension
@@ -26,6 +27,11 @@ class PageControllerExtension extends Extension
             return false;
         }
 
+    }
+
+    public function HomeURL() {
+        $homeURL = DesignSystemConfiguration::get_alt_home_page();
+        return $homeURL ? $homeURL : false;
     }
 
 }

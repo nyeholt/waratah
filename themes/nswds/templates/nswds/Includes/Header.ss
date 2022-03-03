@@ -5,7 +5,7 @@
         <div class="nsw-header__wrapper">
 
             <div class="nsw-header__center">
-                <a href="{$BaseHref}" class="nsw-header__logo-link">
+                <a href="<% if $HomeURL %>{$HomeURL}<% else %>{$BaseHref}<% end_if %>" class="nsw-header__logo-link">
                     <% with SiteConfig %>
                         <% if $LogoSVG %>
                             <%-- TODO base64 data uri ? --%>
