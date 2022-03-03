@@ -5,7 +5,7 @@
 <div class="nsw-grid">
     <% loop $RecentPosts %>
         <div class="nsw-col {$Up.ColumnClass}">
-            <div class="nsw-card wrt-card nsw-card--headline">
+            <div class="nsw-card wrth-card nsw-card--headline">
                 <div class="nsw-card__content">
                     <h2 class="nsw-card__title">
                         <a href="{$Link}" class="nsw-card__link" title="More information about $Title">{$MenuTitle.XML}</a>
