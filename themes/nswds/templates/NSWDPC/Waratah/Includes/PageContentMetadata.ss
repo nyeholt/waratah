@@ -6,7 +6,7 @@
         <strong>
             <% loop $MediaAttributes %>
                 <% if $Join.Content %>
-                    <strong>{$Join.Title}: {$Join.Content}</strong><% if not $Last %><br><% end_if %>
+                    <strong>{$Join.Content}</strong><% if not $Last %><br><% end_if %>
                 <% end_if %>
             <% end_loop %>
         </strong>
@@ -23,4 +23,3 @@
         <% end_loop %>
     </div>
 <% end_if %>
-
