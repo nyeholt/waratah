@@ -16,9 +16,9 @@ SilverStripe\Forms\DropdownField:
 SilverStripe\Forms\GroupedDropdownField:
   default_classes: ['nsw-form__select']
 SilverStripe\Forms\CheckboxField:
-  default_classes: ['nsw-form-checkbox__input']
+  default_classes: ['nsw-form__checkbox-input']
 SilverStripe\Forms\OptionsetField:
-  default_classes: ['nsw-form-radio__input']
+  default_classes: ['nsw-form__radio-input']
 SilverStripe\Forms\FormField:
   extensions:
     - 'NSWDPC\Waratah\Extensions\FormFieldExtension'
