@@ -1,4 +1,4 @@
-<% if $Members %>
+<% if $DirectoryMembers %>
 
     <% if $DirectoryDisplay == 'table' %>
         <table class="nsw-table">
@@ -9,7 +9,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% loop $Members %>
+                <% loop $DirectoryMembers %>
                     <tr>
                         <td><a href="{$PublicProfileLink}">$FirstName.XML</a></td>
                         <td><a href="{$PublicProfileLink}">$Surname.XML</a></td>
@@ -19,10 +19,9 @@
         </table>
     <% else %>
 
-        <%-- card view --%>
-        <div class="nsw-grid">
-        <% loop $Members %>
-            <% include nswds/Card Card_Title=$ProfileProvider.DisplayName, Card_Description=$ProfileProvider.Biography, Card_LinkURL=$PublicProfileLink, Card_Date=$ProfileProvider.Created, Card_Tag=$ProfileProvider.Organisation %>
+        <%-- list item view --%>
+        <% loop $DirectoryMembers %>
+            <% include nswds/ListItem ListItem_Image=$ProfileProvider.ProfileImage, ListItem_Title=$ProfileProvider.DisplayName, ListItem_Abstract=$ProfileProvider.Biography, ListItem_LinkURL=$PublicProfileLink, ListItem_Date=$ProfileProvider.Created, ListItem_PrimaryLabel=$ProfileProvider.Organisation %>
         <% end_loop %>
         </div>
 

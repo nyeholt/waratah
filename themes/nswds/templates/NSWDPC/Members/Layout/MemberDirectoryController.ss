@@ -2,8 +2,26 @@
 
     <div class="nsw-page-layout">
 
+        <div class="nsw-page-layout__main">
+
+        <% include NSWDPC/Waratah/PageContentTitle %>
+
+        <% include NSWDPC/Waratah/PageContentAbstract %>
+
+        </div>
+
+        <div class="nsw-page-layout__sidebar"></div>
+
+    </div>
+
+
+    <div class="nsw-page-layout">
 
         <aside class="nsw-page-layout__sidebar">
+
+            <% if $SearchForm %>
+                {$SearchForm}
+            <% end_if %>
 
             <% include NSWDPC/Members/Links %>
 
@@ -18,17 +36,16 @@
             <article>
 
                 <div class="nsw-block">
-
-                    <% include NSWDPC/Waratah/PageContentTitle %>
-
-                    <% include NSWDPC/Waratah/PageContentAbstract %>
-
                     <% include NSWDPC/Members/Message %>
-
                 </div>
 
+                <div class="nsw-block">
+                    <% include nswds/ResultsBar ResultsBar_Start=1, ResultsBar_End=$DirectoryMembers.Count, ResultsBar_Total=$DirectoryMembers.Count, ResultsBar_ResultType='members', ResultsBar_ResultTypeSingular='member' %>
+                </div>
 
-                <% include NSWDPC/Members/Directory %>
+                <div class="nsw-block">
+                <% include NSWDPC/Members/Directory DirectoryMembers=$DirectoryMembers %>
+                </div>
 
 
             </article>

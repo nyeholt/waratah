@@ -1,10 +1,17 @@
-<% if $Member %>
-    <% with $Member %>
+<% if $DirectoryMember %>
+    <% with $DirectoryMember %>
 
         <% with $ProfileProvider %>
-            <% if $Biography %>
-                <p class="nsw-intro">{$Biography}</p>
-            <% end_if %>
+
+            $ProviderName
+
+            <% loop $ProfileFieldList %>
+            <div class="nsw-block" data-name="{$Name.XML}">
+            <h4>{$Label}</h4>
+            <p>{$Value.XML}</p>
+            </div>
+            <% end_loop %>
+
         <% end_with %>
 
     <% end_with %>

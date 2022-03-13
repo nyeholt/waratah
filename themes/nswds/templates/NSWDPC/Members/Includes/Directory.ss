@@ -1,3 +1,3 @@
-<% if $Members %>
-    <% include NSWDPC/Members/MembersTable Members=$Members %>
+<% if $DirectoryMembers %>
+    <% include NSWDPC/Members/MembersTable DirectoryMembers=$DirectoryMembers %>
 <% end_if %>
