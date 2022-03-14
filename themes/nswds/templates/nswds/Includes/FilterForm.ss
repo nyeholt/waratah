@@ -2,7 +2,6 @@
 
 <form $AttributesHTML>
 
-
     <% if $MessageType == 'good' %>
         <% include nswds/InPageNotification InPageNotification_Icon='check_circle', InPageNotification_Level='success', InPageNotification_Title='Success', InPageNotification_Content=$Message %>
     <% else_if $MessageType == 'warning' %>
@@ -13,10 +12,16 @@
         <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Level='info', InPageNotification_Title='Information', InPageNotification_Content=$Message %>
     <% end_if %>
 
-    <div class="nsw-filters__controls">
-        <button>
+    <div class="nsw-filters__controls<% if $HasFilterResults %> nsw-filters__controls--active<% end_if %>">
+        <button type="button">
             <% include nswds/Icon Icon_Icon='tune' %>
-            <span><%t nswds.FILTER_RESULTS 'Filter results' %></span>
+            <span>
+            <% if $HasFilterResults %>
+            <%t nswds.FILTER_RESULTS 'Filter results ({filterResults})' filterResults=$FilterFormResultCount %>
+            <% else %>
+            <%t nswds.FILTER_RESULTS 'Filter results' %>
+            <% end_if %>
+            </span>
         </button>
     </div>
 
