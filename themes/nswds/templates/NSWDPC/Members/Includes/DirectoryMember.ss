@@ -3,8 +3,6 @@
 
         <% with $ProfileProvider %>
 
-            $ProviderName
-
             <% loop $ProfileFieldList %>
             <div class="nsw-block" data-name="{$Name.XML}">
             <h4>{$Label}</h4>

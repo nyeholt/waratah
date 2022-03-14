@@ -19,14 +19,8 @@
 
         <aside class="nsw-page-layout__sidebar">
 
-            <% if $SearchForm %>
-                {$SearchForm}
-            <% end_if %>
-
-            <% include NSWDPC/Members/Links %>
-
-            <% if $HasSideElements %>
-                {$SideElementalArea}
+            <% if $DirectorySearchForm %>
+                {$DirectorySearchForm}
             <% end_if %>
 
         </aside>
