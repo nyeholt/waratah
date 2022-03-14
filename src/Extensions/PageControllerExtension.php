@@ -3,7 +3,6 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use SilverStripe\Core\Extension;
-use NSWDPC\Waratah\Models\DesignSystemConfiguration;
 
 
 class PageControllerExtension extends Extension
