@@ -263,6 +263,13 @@
       color: var(--nsw-grey-02);
     }
 
+    // Card tag hover
+    .nsw-card__tag .nsw-tag,
+    &:hover .nsw-card__tag .nsw-tag {
+      background: $white;
+      transition: none;
+    }
+
   }//end wrth-card
 
 
