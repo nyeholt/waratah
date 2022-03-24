@@ -3,7 +3,7 @@
     <div class="nsw-container">
 <% end_if %>
 
-    <section>
+    <section class="nsw-section nsw-section--half-padding">
         {$Form}
     </section>
 
