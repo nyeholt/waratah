@@ -44,16 +44,6 @@
             ]
         }
     },
-    "repositories": [
-        {
-            "type":"vcs",
-            "url": "https://github.com/nswdpc/silverstripe-content-boilerplate.git"
-        },
-        {
-            "type":"vcs",
-            "url": "https://github.com/nswdpc/silverstripe-field-hint.git"
-        }
-    ],
     "replace": {
         "nswdpc/silverstripe-nsw-design-system": "self.version"
     },
