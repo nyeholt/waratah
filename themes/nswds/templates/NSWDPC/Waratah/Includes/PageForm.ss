@@ -3,11 +3,9 @@
     <div class="nsw-container">
 <% end_if %>
 
-    <section>
         {$Form}
-    </section>
 
 <% if $Top.IsLandingPage %>
-</div>
+    </div>
 <% end_if %>
 <% end_if %>

@@ -2,10 +2,9 @@
  * nswdpc/waratah mixins for wrth- extensions
  */
 @mixin wrth-button {
-  @include font-stack('heading');
   @include font-size('sm');
-  @include nsw-spacing(margin, lg md none none);
-  @include border-radius;
+  margin: rem(48px) rem(32px) 0 0;
+  border-radius: var(--nsw-border-radius);
   border: solid 2px transparent;
   white-space: normal;
   text-decoration: none;
@@ -25,11 +24,6 @@
 
   &:focus {
     @include nsw-focus;
-  }
-
-  &:active {
-    @include nsw-active;
-    border-color: var(--nsw-focus);
   }
 
   &:disabled,

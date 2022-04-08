@@ -17,7 +17,7 @@
       overflow : hidden;
 
       &.current {
-          @extend .nsw-progress-indicator__step--active;
+          background-color: var(--nsw-brand-accent);
       }
 
       .step-button-jump {

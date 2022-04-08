@@ -1,5 +1,6 @@
 import gulp from 'gulp';
-import sass from 'gulp-sass';
+import gulpSass from 'gulp-sass';
+import nodeSass from 'node-sass';
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import rollup from 'gulp-better-rollup';
@@ -16,6 +17,8 @@ import rename from 'gulp-rename';
 import filter from 'gulp-filter';
 import gulpDebug from 'gulp-debug';
 import mkdirp from 'mkdirp';
+
+const sass = gulpSass(nodeSass);
 
 const designSystem = {
   'src': {

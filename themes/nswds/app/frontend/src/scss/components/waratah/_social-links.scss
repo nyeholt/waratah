@@ -3,8 +3,8 @@
  */
 .wrth-social-links,
 .nsw-social-links {
-  @include nsw-spacing(margin, md none none none);
-  @include nsw-spacing(padding, none);
+  margin: rem(16px) 0 0 0;
+  padding: 0;
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -12,12 +12,12 @@
   justify-content: flex-end;
 
   &__item {
-    @include nsw-spacing(margin, none none md none);
+    margin: 0 0 rem(16px) 0;
     flex: 1 0 50%;
     max-width: 50%;
 
     @include breakpoint('md') {
-      @include nsw-spacing(margin-right, lg);
+      margin-right: rem(32px);
       flex: 0 0 auto;
       max-width: none;
     }

@@ -9,7 +9,7 @@
     <% else_if $MessageType == 'warning' %>
         <% include nswds/InPageNotification InPageNotification_Icon='error', InPageNotification_Level='warning', InPageNotification_Title='Sorry, an error occurred', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
     <% else_if $MessageType == 'error' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='cancel', InPageNotification_Level='error', InPageNotification_Title='There were some errors in the form', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
+        <% include nswds/InPageNotification InPageNotification_Icon='cancel', InPageNotification_Level='error', InPageNotification_Title='Sorry, there was a problem', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
     <% else %>
         <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Level='info', InPageNotification_Title='Information', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
     <% end_if %>

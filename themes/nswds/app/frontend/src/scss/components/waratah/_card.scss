@@ -132,7 +132,7 @@
 
     &__image {
 
-      @extend .nsw-card__image-area;
+      @extend .nsw-card__image;
 
       overflow: hidden;
       height: rem(174px);
@@ -221,7 +221,6 @@
       display: flex;
       @include font-size('lg');
       line-height: (28em/21);
-      @include font-stack('regular');
 
       &::before {
         content: '';
@@ -249,7 +248,6 @@
 
     // Card item time
     &__time {
-      @include font-stack('regular');
       line-height: (22em/16);
       margin: 0;
       color: var(--nsw-grey-01);
@@ -265,9 +263,10 @@
 
   }//end wrth-card
 
-
+  /* --content for BC */
+  .wrth-card__content,
   .wrth-card--content {
-      @extend .nsw-card--content;
+      @extend .nsw-card__content;
   }
 
   .wrth-card--headline {

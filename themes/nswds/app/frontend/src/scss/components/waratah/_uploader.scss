@@ -5,7 +5,7 @@
 
   .uppy-Root {
 
-    @include font-stack;
+    @include font-size('md');
 
     .uppy-StatusBar {
 
@@ -18,7 +18,7 @@
         height: 80px;
 
         .uppy-StatusBar-actionBtn--upload {
-          @include button-variant(map-get($button-variations, secondary));
+          @extend .nsw-button--dark-outline-solid;
           margin-top : 0;
         }
 
@@ -30,7 +30,7 @@
 
         .uppy-StatusBar-actionBtn--upload {
           @include wrth-button;
-          @include button-variant(map-get($button-variations, primary));
+          @extend .nsw-button--dark;
           margin-top : 0;
         }
 
