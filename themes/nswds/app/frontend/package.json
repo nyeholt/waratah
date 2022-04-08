@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.symbiote.com.au:dpc/silverstripe-nsw-design-system.git"
+    "url": "https://github.com/nswdpc/waratah.git"
   },
   "description": "Frontend integration of the NSW Design System for Silverstripe websites. This package.json adds extra libraries beyond those provided by nsw-design-system",
   "main": "index.js",

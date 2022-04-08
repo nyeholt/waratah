@@ -1,16 +1,8 @@
 # Advanced Configuration
 
-## Template overrides
+> ℹ️ Standard template override information can be found in [branding documentation](./100_branding.md).
 
-You can override templates in the standard Silverstripe way by providing `SSViewer` a theme with higher priority in your project configuration.
-
-```yaml
-SilverStripe\View\SSViewer:
-  themes:
-    - 'me/some-module:my-specific-theme'
-    - 'nswdpc/waratah:nswds'
-    - '$default'
-```
+:warning: The following is considered unstable. If you find a bug with it, please let us know in the Github issues.
 
 ## Different build location
 
