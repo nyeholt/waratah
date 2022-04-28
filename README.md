@@ -33,18 +33,18 @@ Starting within a Silverstripe install, install via [Composer](https://getcompos
 ### v2.14.x of the NSW Design System
 
 ```shell
-composer require nswdpc/waratah:^0.3
+composer require nswdpc/waratah:^0.3-stable
 ```
 
 ### v3.x of the NSW Design System (WIP)
 
 ```shell
-composer require nswdpc/waratah:^1@dev
+composer require nswdpc/waratah:^1-dev
 ```
 
 #### Legacy versions
 
-Using `^0.2` will install the module with support for v2.13.x of the NSW Design System. This is no longer supported.
+Using `^0.2` constraint will install the module with support for v2.13.x of the NSW Design System. This is no longer supported.
 
 ### After installation
 
