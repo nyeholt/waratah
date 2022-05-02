@@ -15,6 +15,8 @@ The standard build created by this module provides:
 + Tags
 + NSW Masthead
 
+Each page will have a Main content block area and two additional content block areas: Side and Top.
+
 ### Form fields
 
 + All Silverstripe form fields + actions are supported [including field hints](https://github.com/nswdpc/silverstripe-field-hint)
@@ -23,20 +25,13 @@ The standard build created by this module provides:
 + Tabset fields in forms
 + Silverstripe UserForms support, for forms built within the CMS
 
-> The only form field that is not well support is SelectionGroup, this is rendered as a Tab field but the radio does not receive input when the tab is clicked.
+> The only form field not well supported is SelectionGroup, this is rendered as a Tab field but the radio button does not receive input when the tab is clicked.
 
 ### Supported extras
 
 #### SlimSelect
 
-Provides support for tag based `<select multiple>` fields.
-
-### Extra extras
-
-Galleries are a common component not found in the Design System. We provide a simple gallery frontend using Slick Lightbox. This enhanced gallery is enable in the gallery element itself.
-
-Enabling it will add CSS and JavaScript requirements from cdnjs.cloudflare.com
-
+Provides support for tag based `<select multiple>` fields / ListboxField
 
 ### Project extras
 

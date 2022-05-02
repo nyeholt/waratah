@@ -8,6 +8,6 @@
     </section>
 
 <% if $Top.IsLandingPage %>
-</div>
+    </div>
 <% end_if %>
 <% end_if %>

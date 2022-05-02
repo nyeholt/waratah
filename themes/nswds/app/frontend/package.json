@@ -4,7 +4,7 @@
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "git@gitlab.symbiote.com.au:dpc/silverstripe-nsw-design-system.git"
+    "url": "https://github.com/nswdpc/waratah.git"
   },
   "description": "Frontend integration of the NSW Design System for Silverstripe websites. This package.json adds extra libraries beyond those provided by nsw-design-system",
   "main": "index.js",
@@ -45,12 +45,13 @@
     "gulp-filter": "^6.0.0",
     "gulp-postcss": "^8.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-sass": "^4.0.2",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-svg-sprite": "^1.5.0",
     "gulp-terser": "^2.0.1",
     "minimist": "^1.2.5",
     "mkdirp": "^1.0.4",
+    "node-sass": "^7.0.1",
     "rollup": "^1.4",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",

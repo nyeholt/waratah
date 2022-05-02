@@ -1,16 +1,32 @@
 # Filter form
 
-Turn a standard Silverstripe form into a filter form quickly using the FilterForm trait:
+Turn a standard Silverstripe form into a [NSWDS Filter Form](https://digitalnsw.github.io/nsw-design-system/components/filters/index.html) quickly using the `FilterForm` trait.
+
+How your application filters requests and displays results is entirely up to you. The recommended result layout is a [list item](https://digitalnsw.github.io/nsw-design-system/templates/search/filters.html) template.
+
 
 ```php
 <?php
+
+namespace MyProject;
+
+use Silverstripe\Forms\Form;
+
 /**
  * A filter form
  */
-class SomeFilterForm extends \Silverstripe\Forms\Form
+class SomeFilterForm extends Form
 {
 
     use \NSWDPC\Waratah\Services\FilterFormTrait;
+    
+    /**
+     * Clear link used for filter form
+     */
+    public function ClearLink() : string {
+        return $this->controller->Link();
+    }
+
 }
 ```
 
@@ -19,7 +35,18 @@ class SomeFilterForm extends \Silverstripe\Forms\Form
 ```php
 <?php
 
-class MyController extends PageController {
+namespace MyProject;
+
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FormAction;
+use SilverStripe\Forms\Fieldlist;
+use SilverStripe\Forms\TextField;
+
+/**
+ * This controller provides a form to help with searching for something
+ */
+class MyController extends \PageController {
     
     /**
      * @var array
@@ -33,9 +60,9 @@ class MyController extends PageController {
      * Do the filtered search
      */
     public function doSearch( $data, $form) {
-        // handle the search data
+        // process the input data and return a URL that will show filtered results
         $link = $this->somePathBasedOnData($data);
-        // redirect to results
+        // redirect to the URL
         return $this->redirect( $link );
     }
 
@@ -79,6 +106,8 @@ class MyController extends PageController {
 ```
 
 ## Template
+
+In the template used by `MyController`, add the following to render the form:
 
 ```
 // ... html
