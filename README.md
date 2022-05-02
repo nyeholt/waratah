@@ -4,6 +4,8 @@ This module adds the [NSW Design System v2.13](https://github.com/digitalnsw/nsw
 
 This module is maintained by the NSWDPC Digital Team. We're a friendly crew that welcome pull requests and issue reports.
 
+This branch is maintained for legacy support of NSWDS v2.13.x only. Use `^0.3` for v2.14.x and '^1' for v3.x
+
 ## Features
 
 + ✅ Implements all components from the NSW Design System v2.13
