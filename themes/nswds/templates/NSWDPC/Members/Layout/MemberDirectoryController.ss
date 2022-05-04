@@ -34,12 +34,14 @@
                 </div>
 
                 <div class="nsw-block">
-                    <% include nswds/ResultsBar ResultsBar_Start=1, ResultsBar_End=$DirectoryMembers.Count, ResultsBar_Total=$DirectoryMembers.Count, ResultsBar_ResultType='members', ResultsBar_ResultTypeSingular='member' %>
+                    <% include nswds/ResultsBar ResultsBar_Start=$DirectoryMembers.FirstItem, ResultsBar_End=$DirectoryMembers.LastItem, ResultsBar_Total=$DirectoryMembers.TotalItems, ResultsBar_ResultType='members', ResultsBar_ResultTypeSingular='member' %>
                 </div>
 
                 <div class="nsw-block">
                 <% include NSWDPC/Members/Directory DirectoryMembers=$DirectoryMembers %>
                 </div>
+
+                <% include nswds/Pagination Pagination_PaginatedItems=$DirectoryMembers %>
 
 
             </article>

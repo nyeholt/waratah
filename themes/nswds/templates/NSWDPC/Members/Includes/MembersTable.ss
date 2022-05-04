@@ -23,7 +23,6 @@
         <% loop $DirectoryMembers %>
             <% include nswds/ListItem ListItem_Image=$ProfileProvider.ProfileImage, ListItem_Title=$ProfileProvider.DisplayName, ListItem_Abstract=$ProfileProvider.Biography, ListItem_LinkURL=$PublicProfileLink, ListItem_Date=$ProfileProvider.Created, ListItem_PrimaryLabel=$ProfileProvider.Organisation %>
         <% end_loop %>
-        </div>
 
     <% end_if %>
 <% end_if %>
