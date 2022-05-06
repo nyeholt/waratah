@@ -5,4 +5,11 @@
   @include breakpoint('lg') {
     width: auto;
   }
+
+  &[src$=".png"] {
+    /**
+     * Workaround for Chromium png rendering
+     */
+    image-rendering: -webkit-optimize-contrast;
+  }
 }
