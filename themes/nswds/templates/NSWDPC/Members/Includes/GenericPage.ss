@@ -15,9 +15,17 @@
 
                 </div>
 
-                <% include NSWDPC/Waratah/PageElemental %>
+                <% if $ExternalManagementContent %>
 
-                <% include NSWDPC/Waratah/PageForm %>
+                    {$ExternalManagementContent}
+
+                <% else %>
+
+                    <% include NSWDPC/Waratah/PageElemental %>
+
+                    <% include NSWDPC/Waratah/PageForm %>
+
+                <% end_if %>
 
             </article>
         </main>
