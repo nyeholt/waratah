@@ -15,17 +15,9 @@
 
                 </div>
 
-                <% if $ExternalManagementContent %>
-
-                    {$ExternalManagementContent}
-
-                <% else %>
-
-                    <% include NSWDPC/Waratah/PageElemental %>
+                    <% include nswds/InPageNotification InPageNotification_Cast='html', InPageNotification_Title=$MessageTitle, InPageNotification_Content=$MessageContent, InPageNotification_Level='success', InPageNotification_Icon='done' %>
 
                     <% include NSWDPC/Waratah/PageForm %>
-
-                <% end_if %>
 
             </article>
         </main>
