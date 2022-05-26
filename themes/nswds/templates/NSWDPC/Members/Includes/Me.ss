@@ -25,7 +25,13 @@
 
                 </div>
 
-                <% if $Member %>
+                <% if $ExternalManagementContent %>
+
+                    {$ExternalManagementContent}
+
+                    <% include NSWDPC/Members/BasicMemberProfile %>
+
+                <% else_if $Member %>
 
                     <% with $Member %>
 
