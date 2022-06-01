@@ -1,6 +1,9 @@
 /**
  * nswdpc/waratah mixins for wrth- extensions
  */
+
+$font-stack: var(--nsw-font-family);
+
 @mixin wrth-button {
   @include font-size('sm');
   margin: rem(48px) rem(32px) 0 0;

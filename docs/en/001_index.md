@@ -83,19 +83,12 @@ After build you will notice a `waratah-branding` directory in the project root. 
 
 Development environments will automatically load non-minified assets.
 
-### 2. Add font customisation
+### 2. Optional: add CSS customisation
 
-> This is a once-only step during project creation. for v0.3 / nswds v2.14 only
+Customisation can be added to `waratah-branding/frontend/src/app.scss` via your own SCSS/CSS.
 
-Add the following to `waratah-branding/frontend/src/app.scss`:
+See [Branding](./100_branding.md) documentation for more information.
 
-```css
-:root {
-  --nsw-font-family: 'Public Sans', sans-serif;
-}
-```
-
-This will [override the Montserrat font shipped](https://github.com/digitalnsw/nsw-design-system-v2/blob/master/src/global/scss/settings/_theme.scss#L35)
 
 ### 3. Add theme configuration
 
