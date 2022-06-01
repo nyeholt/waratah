@@ -48,7 +48,7 @@
   display: block;
   width: 100%;
 
-  @include breakpoint($desktop-breakpoint) {
+  @include breakpoint($nsw-desktop-breakpoint) {
     display: inline-block;
     width: auto;
   }
