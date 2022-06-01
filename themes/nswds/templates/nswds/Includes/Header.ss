@@ -9,9 +9,9 @@
             </div>
 
             <div class="nsw-header__menu">
-                <button type="button" class="nsw-header-btn nsw-header-btn--menu js-open-navigation" aria-expanded="false" aria-controls="main-navigation">
-                    <i class="material-icons nsw-material-icons nsw-header-btn__icon" focusable="false" aria-hidden="true">menu</i>
-                    <span class="nsw-header-btn__sub"><span class="sr-only"><%t nswds.OPEN 'Open' %></span> <%t nswds.MENU 'Menu' %></span>
+                <button type="button" class="js-open-nav" aria-expanded="false" aria-controls="main-nav">
+                    <% include nswds/Icon Icon='menu' %>
+                    <span><span class="sr-only"><%t nswds.OPEN 'Open' %></span> <%t nswds.MENU 'Menu' %></span>
                 </button>
             </div>
 
