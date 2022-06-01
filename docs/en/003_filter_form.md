@@ -94,7 +94,7 @@ class MyController extends \PageController {
                 FormAction::create(
                     'doSearch',
                     _t('myapp.SEARCH', 'Search')
-                )->addExtraClass('nsw-button--primary nsw-button--full-width')
+                )->addExtraClass('nsw-button--dark nsw-button--full-width')
             )
         )->setLegend(
             _t('myapp.FILTER_RESULTS', 'Filter results')

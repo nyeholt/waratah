@@ -42,5 +42,5 @@
     <% end_loop %>
 </div>
 <div>
-    <a href="$MediaHolder.Link" class="nsw-button nsw-button--primary" title="{$MediaHolderLinkTitle.XML}">{$MediaHolderLinkTitle.XML}</a>
+    <a href="$MediaHolder.Link" class="nsw-button nsw-button--dark" title="{$MediaHolderLinkTitle.XML}">{$MediaHolderLinkTitle.XML}</a>
 </div>

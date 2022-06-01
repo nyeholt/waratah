@@ -29,7 +29,7 @@
                     <% end_if %>
 
                     <% if $HeroLink %>
-                        <a href="$HeroLink.LinkURL" class="nsw-button nsw-button--primary">{$HeroLink.Title}</a>
+                        <a href="$HeroLink.LinkURL" class="nsw-button nsw-button--dark">{$HeroLink.Title}</a>
                     <% end_if %>
 
                     <div class="nsw-grid">
