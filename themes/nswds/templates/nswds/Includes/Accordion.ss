@@ -4,13 +4,11 @@
     <% loop $Accordion_Items %>
     <div class="nsw-accordion__title">{$Title.XML}</div>
     <div class="nsw-accordion__content">
-        <div class="nsw-wysiwyg-content">
         <% if $Content %>
-            {$Content.XML}
+            <p>{$Content.XML}</p>
         <% else_if $HTML %>
             {$HTML}
         <% end_if %>
-        </div>
     </div>
     <% end_loop %>
 </div>
