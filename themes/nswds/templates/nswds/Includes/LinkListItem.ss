@@ -1,4 +1,4 @@
-<li class="nsw-link-list__item">
+<li>
 <% if $LinkListItem_Link %>
     <%-- static link/title --%>
     <% if $LinkListItem_Link.Link %>
