@@ -1,4 +1,4 @@
-<figure class="nsw-media">
+<figure class="nsw-media<% if $Media_Brand %> nsw-media--{$Media_Brand.XML}<% end_if %>">
 
     <div class="nsw-media__video embed video">
 
@@ -29,9 +29,7 @@
     <div class="nsw-accordion js-accordion">
         <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
         <div class="nsw-accordion__content">
-            <div class="nsw-wysiwyg-content">
-                {$Transcript}
-            </div>
+            {$Transcript}
         </div>
     </div>
     <% end_if %>
