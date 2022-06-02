@@ -45,6 +45,7 @@ td {
   vertical-align: top;
 }
 
+a.nsw-button.nsw-button--dark,
 a.nsw-button.nsw-button--primary {
 	font-family: var(--nsw-font-family);
 	-moz-osx-font-smoothing: grayscale;
@@ -73,6 +74,7 @@ a.nsw-button.nsw-button--primary {
 	border-color: #002664;
 }
 
+a.nsw-button.nsw-button--light,
 a.nsw-button.nsw-button--secondary {
 	font-family: var(--nsw-font-family);
 	-moz-osx-font-smoothing: grayscale;
