@@ -28,7 +28,7 @@
 
         <div class="nsw-progress-indicator__bar">
             <% loop $ProgressIndicator_Items %>
-            <div class="nsw-progress-indicator__step<% if $IsActive %> nsw-progress-indicator__step--active<% end_if %>"></div>
+            <div<% if $IsActive %> class="active"<% end_if %>></div>
             <% end_loop %>
         </div>
 
