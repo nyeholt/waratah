@@ -36,5 +36,8 @@
 // Generic content overrides, load last
 @import './components/waratah/content';
 
+// Backward compatibility rules
+@import './components/waratah/bc';
+
 // Finally, import project app.scss
 @import '../../../../../../../../../waratah-branding/frontend/src/app.scss'
