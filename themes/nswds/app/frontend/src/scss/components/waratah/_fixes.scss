@@ -1,0 +1,10 @@
+/**
+ * Fixes not yet in the nswds
+ * These should be marked with an issue in the nswds github and removed when fixed
+ */
+.nsw-media {
+  figcaption {
+    /* in nswds, figcaption does not set a colour, so it inherits light on a dark background parent */
+    color: var(--nsw-text-dark);
+  }
+}

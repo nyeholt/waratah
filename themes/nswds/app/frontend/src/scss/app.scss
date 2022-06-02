@@ -39,5 +39,8 @@
 // Backward compatibility rules
 @import './components/waratah/bc';
 
+// Fixes to be applied to nswds, could be empty
+@import './components/waratah/fixes';
+
 // Finally, import project app.scss
 @import '../../../../../../../../../waratah-branding/frontend/src/app.scss'
