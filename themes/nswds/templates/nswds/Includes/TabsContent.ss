@@ -4,15 +4,13 @@
         <%-- nested tabs --%>
         <% include nswds/Tabs Tabs=$Tab_Tabs %>
     <% else %>
-        <div class="nsw-wysiwyg-content">
-            <% if $Tab_ElementalArea.Elements.Count > 0 %>
-                {$Tab_ElementalArea}
-            <% else_if $Tab_HTML %>
-                {$Tab_HTML}
-            <% else_if $Tab_Content %>
-                {$Tab_Content.XML}
-            <% end_if %>
-        </div>
+        <% if $Tab_ElementalArea.Elements.Count > 0 %>
+            {$Tab_ElementalArea}
+        <% else_if $Tab_HTML %>
+            {$Tab_HTML}
+        <% else_if $Tab_Content %>
+            {$Tab_Content.XML}
+        <% end_if %>
     <% end_if %>
 
 </section>
