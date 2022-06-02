@@ -6,18 +6,18 @@
 
     <% if $FooterLinksCol1 || $FooterLinksCol2 || $FooterLinksCol3 || $FooterLinksCol4 %>
         <div class="nsw-footer__upper">
-            <div class="nsw-container section-links">
+            <div class="nsw-container">
                 <% if $FooterLinksCol1 %>
-                    <div class="section-links__group">
+                    <div class="nsw-footer__group">
                         <% if $FooterLinksCol1Title %>
-                            <h3 class="section-links__heading">
+                            <div class="nsw-footer__heading">
                                 {$FooterLinksCol1Title.XML}
-                            </h3>
+                            </div>
                         <% end_if %>
                         <% if $FooterLinksCol1 %>
-                            <ul class="section-links__list">
+                            <ul>
                                 <% loop $FooterLinksCol1.Sort('Sort') %>
-                                    <li class="section-links__item">
+                                    <li>
                                         <a href="{$LinkURL}">
                                             {$Title.XML}
                                         </a>
@@ -28,16 +28,16 @@
                     </div>
                 <% end_if %>
                 <% if $FooterLinksCol2 %>
-                    <div class="section-links__group">
+                    <div class="nsw-footer__group">
                         <% if $FooterLinksCol2Title %>
-                            <h3 class="section-links__heading">
+                            <div class="nsw-footer__heading">
                                 {$FooterLinksCol2Title.XML}
-                            </h3>
+                            </div>
                         <% end_if %>
                         <% if $FooterLinksCol2 %>
-                            <ul class="section-links__list">
+                            <ul>
                                 <% loop $FooterLinksCol2.Sort('Sort') %>
-                                    <li class="section-links__item">
+                                    <li>
                                         <a href="{$LinkURL}">
                                             {$Title.XML}
                                         </a>
@@ -48,16 +48,16 @@
                     </div>
                 <% end_if %>
                 <% if $FooterLinksCol3 %>
-                    <div class="section-links__group">
+                    <div class="nsw-footer__group">
                         <% if $FooterLinksCol3Title %>
-                            <h3 class="section-links__heading">
+                            <div class="nsw-footer__heading">
                                 {$FooterLinksCol3Title.XML}
-                            </h3>
+                            </div>
                         <% end_if %>
                         <% if $FooterLinksCol3 %>
-                            <ul class="section-links__list">
+                            <ul>
                                 <% loop $FooterLinksCol3.Sort('Sort') %>
-                                    <li class="section-links__item">
+                                    <li>
                                         <a href="{$LinkURL}">
                                             {$Title.XML}
                                         </a>
@@ -68,16 +68,16 @@
                     </div>
                 <% end_if %>
                 <% if $FooterLinksCol4 %>
-                    <div class="section-links__group">
+                    <div class="nsw-footer__group">
                         <% if $FooterLinksCol4Title %>
-                            <h3 class="section-links__heading">
+                            <div class="nsw-footer__heading">
                                 {$FooterLinksCol4Title.XML}
-                            </h3>
+                            </div>
                         <% end_if %>
                         <% if $FooterLinksCol4 %>
-                            <ul class="section-links__list">
+                            <ul>
                                 <% loop $FooterLinksCol4.Sort('Sort') %>
-                                    <li class="section-links__item">
+                                    <li>
                                         <a href="{$LinkURL}">
                                             {$Title.XML}
                                         </a>
@@ -111,9 +111,9 @@
 
 
             <% if $FooterLinksSub %>
-                <ul class="nsw-footer-links">
+                <ul>
                     <% loop $FooterLinksSub.Sort('Sort') %>
-                    <li class="nsw-footer-links__item">
+                    <li>
                         <a href="{$LinkURL}" class="nsw-footer-links__link">
                             {$Title.XML}
                         </a>
@@ -123,10 +123,10 @@
             <% end_if %>
 
             <% if $SocialLinks %>
-                <ul class="nsw-footer-links nsw-social-links">
+                <ul class="wrth-social-links">
                     <% loop $SocialLinks.Sort('Sort') %>
-                    <li class="nsw-social-links__item">
-                        <a href="{$LinkURL}" class="nsw-social-links__link nsw-social-links__link-{$Title.LowerCase.XML}">
+                    <li>
+                        <a href="{$LinkURL}" class="social-{$Title.LowerCase.XML}">
                             <span class="sr-only">{$Title.XML}</span>
                         </a>
                     </li>
