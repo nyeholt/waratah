@@ -12,15 +12,32 @@
 
     <figcaption>
 
-        <% if $HTML %>
-            <%-- HTML content --%>
-            {$HTML}
-        <% else_if $Description %>
-            <p>{$Description.XML}</p>
+        <% if $LinkTarget %>
+
+            <div class="nsw-grid">
+
+                <div class="nsw-col nsw-col-xs-12 nsw-col-lg-6">
+
         <% end_if %>
 
+            <% if $HTML %>
+                <%-- HTML content --%>
+                {$HTML}
+            <% else_if $Description %>
+                {$Description.XML}
+            <% end_if %>
+
         <% if $LinkTarget %>
-            <p><a href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a></p>
+
+                </div>
+                <div class="nsw-col nsw-col-xs-12 nsw-col-lg-6">
+                    <div class="ausday-featured-video__more-link">
+                        <a class="nsw-button nsw-button--light-outline" href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a>
+                    </div>
+                </div>
+
+            </div>
+
         <% end_if %>
 
     </figcaption>
