@@ -24,38 +24,36 @@
         <div class="nsw-grid">
             <% loop $PaginatedChildren(12) %>
                 <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
-                    <div class="nsw-card nsw-card--content<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
+                    <div class="nsw-card nsw-card--highlight<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
+                        <% if $Image %>
+                            <div class="nsw-card__image">
+                                <img src="{$Image.FocusFillMax(400,200).URL}" alt="{$Image.AltText.XML}">
+                            </div>
+                        <% end_if %>
                         <div class="nsw-card__content">
-                            <h2 class="nsw-card__title">
-                                <a href="{$Link}" class="nsw-card__link" title="More information about $Title">{$MenuTitle.XML}</a>
-                            </h2>
+                            <div class="nsw-card__title">
+                                <a href="{$Link}" title="More information about {$Title.XML}">{$MenuTitle.XML}</a>
+                            </div>
                             <% if $MediaAttributes %>
                                 <% loop $MediaAttributes %>
                                     <% if $Join.Content %>
-                                        <p class="nsw-card__tag">{$Join.Content}</p>
+                                        <div class="nsw-card__tag">{$Join.Content}</div>
                                     <% end_if %>
                                 <% end_loop %>
                             <% end_if %>
-                            <p class="nsw-card__date">
+                            <div class="nsw-card__date">
                                 <time datetime="{$Date}">{$Date.Full}</time>
-                            </p>
+                            </div>
                             <% if $Tags %>
-                                <p class="nsw-card__tag">
-                                    <% loop $Tags.Limit(3) %>
-                                        <span class="nsw-tag">{$Title.XML}</span>
-                                    <% end_loop %>
-                                </p>
+                                <% loop $Tags.Limit(3) %>
+                                    <div class="nsw-card__tag">{$Title.XML}</div>
+                                <% end_loop %>
                             <% end_if %>
                             <% if $Abstract %>
-                                <p class="nsw-card__copy">{$Abstract.XML}</p>
+                                <div class="nsw-card__copy">{$Abstract.XML}</div>
                             <% end_if %>
-                            <i class="material-icons nsw-material-icons nsw-card__icon" focusable="false" aria-hidden="true">east</i>
+                            <% include nswds/Icon Icon_Icon='east' %>
                         </div>
-                        <% if $Image %>
-                            <div class="nsw-card__image-area">
-                                <img src="$Image.FocusFillMax(400,200).URL" alt="{$Image.AltText.XML}" class="nsw-card__image">
-                            </div>
-                        <% end_if %>
                     </div>
                 </div>
             <% end_loop %>

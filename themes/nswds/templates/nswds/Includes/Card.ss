@@ -31,15 +31,15 @@
 
             <% if $Card_Tags && $Card_Tags.Count > 0 %>
                 <%-- only the first in the list is shown --%>
-                <p class="nsw-card__tag">{$Card_Tags.First.Name.XML}</p>
+                <div class="nsw-card__tag">{$Card_Tags.First.Name.XML}</div>
             <% else_if $Card_Tag %>
-                <p class="nsw-card__tag">{$Card_Tag.XML}</p>
+                <div class="nsw-card__tag">{$Card_Tag.XML}</div>
             <% end_if %>
 
             <% if $Card_Date %>
-                <p class="nsw-card__date">
+                <div class="nsw-card__date">
                     <time datetime="{$Card_Date.Format('yyyy-MM-dd')}">{$Card_Date.Nice}</time>
-                </p>
+                </div>
             <% end_if %>
 
             <div class="nsw-card__title">

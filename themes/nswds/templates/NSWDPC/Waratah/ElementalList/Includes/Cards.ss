@@ -8,17 +8,24 @@
         <% loop $Elements.Elements %>
 
             <div class="nsw-col {$Up.Up.ColumnClass($Up.OverrideColumns)}">
-                <div class="nsw-card nsw-card--headline<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
+                <div class="nsw-card nsw-card--highlight<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
+                    <% if $Up.Up.CardStyle == "title-image-abstract" %>
+                        <% if $Image %>
+                            <div class="nsw-card__image">
+                                <img src="{$Image.FocusFillMax(600,400).URL}" alt="{$Image.AltText.XML}">
+                            </div>
+                        <% end_if %>
+                    <% end_if %>
                     <div class="nsw-card__content">
-                        <h2 class="nsw-card__title">
+                        <div class="nsw-card__title">
                             <% if $ContentLink %>
-                                <a href="{$ContentLink.LinkURL}" class="nsw-card__link">{$Title.XML}</a>
+                                <a href="{$ContentLink.LinkURL}">{$Title.XML}</a>
                             <% else_if $LinkTarget %>
-                                <a href="{$LinkTarget.LinkURL}" class="nsw-card__link">{$Title.XML}</a>
+                                <a href="{$LinkTarget.LinkURL}">{$Title.XML}</a>
                             <% else %>
                                 {$Title.XML}
                             <% end_if %>
-                        </h2>
+                        </div>
                         <% if $Up.Up.CardStyle == "title-abstract" || $Up.Up.CardStyle == "title-image-abstract" %>
                             <% if $HTML %>
                                 <div class="nsw-card__copy">
@@ -27,16 +34,9 @@
                             <% end_if %>
                         <% end_if %>
                         <% if $ContentLink || $LinkTarget %>
-                            <% include nswds/Icon Icon_Icon='east', Icon_IconExtraClass='nsw-card__icon' %>
+                            <% include nswds/Icon Icon_Icon='east' %>
                         <% end_if %>
                     </div>
-                    <% if $Up.Up.CardStyle == "title-image-abstract" %>
-                        <% if $Image %>
-                            <div class="nsw-card__image-area">
-                                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.AltText.XML}" class="nsw-card__image">
-                            </div>
-                        <% end_if %>
-                    <% end_if %>
                 </div>
             </div>
         <% end_loop %>
