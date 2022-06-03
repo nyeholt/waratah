@@ -4,7 +4,7 @@
 
     <div class="nsw-block">
 
-        <nav aria-label="<%t nswds.PAGINATION 'Pagination' %>">
+        <nav class="nsw-pagination" aria-label="<%t nswds.PAGINATION 'Pagination' %>">
 
             <ul>
 
