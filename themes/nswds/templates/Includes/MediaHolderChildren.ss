@@ -31,9 +31,6 @@
                             </div>
                         <% end_if %>
                         <div class="nsw-card__content">
-                            <div class="nsw-card__title">
-                                <a href="{$Link}" title="More information about {$Title.XML}">{$MenuTitle.XML}</a>
-                            </div>
                             <% if $MediaAttributes %>
                                 <% loop $MediaAttributes %>
                                     <% if $Join.Content %>
@@ -49,6 +46,9 @@
                                     <div class="nsw-card__tag">{$Title.XML}</div>
                                 <% end_loop %>
                             <% end_if %>
+                            <div class="nsw-card__title">
+                                <a href="{$Link}" title="More information about {$Title.XML}">{$MenuTitle.XML}</a>
+                            </div>
                             <% if $Abstract %>
                                 <div class="nsw-card__copy">{$Abstract.XML}</div>
                             <% end_if %>
