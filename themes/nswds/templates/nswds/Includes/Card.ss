@@ -46,13 +46,13 @@
                 <a href="{$Card_LinkURL}">{$Card_Title.XML}</a>
             </div>
 
-            <p class="nsw-card__copy">
+            <div class="nsw-card__copy">
             <% if $Card_Description %>
                 {$Card_Description.XML}
             <% else_if $Card_Content %>
                 {$Card_Content.XML}
             <% end_if %>
-            </p>
+            </div>
 
             <% if $Card_LinkIcon == '' %>
                 <% include nswds/Icon Icon_Icon='east' %>
