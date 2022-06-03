@@ -49,7 +49,7 @@
       border: none;
 
       @include breakpoint('lg') {
-        padding: rem(32px) rem(16px) rem(62px) rem(16px);
+        padding: rem(32px) rem(16px) rem(16px) rem(16px);
       }
 
       .nsw-card__title {
