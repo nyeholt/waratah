@@ -16,10 +16,9 @@
     &__message {
 
       padding: rem(16px);
-      margin-top: 0.5rem;
+      margin: 1px 0 0 0;
       background-color: var(--nsw-status-info-bg);
       color : var(--nsw-status-info);
-      order : 10;
 
       &.info {
         background-color: var(--nsw-status-info-bg);
@@ -53,12 +52,7 @@
       }
 
       .nsw-card__title {
-        @include font-size('lg');
         margin : 0 0 rem(16px) 0;
-        a {
-          color: var(--nsw-brand-supplementary);
-          text-decoration: underline;
-        }
       }
     }
 
@@ -99,8 +93,7 @@
     }
 
     /* Favourite icon */
-    &__favourite,
-    &__favourite-vue {
+    &__favourite  {
 
       position: absolute;
       @include z-index('middle');/* above card (base) */
@@ -116,6 +109,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      box-shadow: var(--nsw-box-shadow);
 
       &-icon {
         font-size: 1rem;
@@ -153,14 +147,29 @@
       left: #{rem(16px)};
       @include z-index('middle');
       top: calc(#{rem(200px)} - #{rem(16px)});
-      max-width: calc(100% - #{rem(16px)});
+      max-width: calc(100% - #{rem(32px)});
       margin : 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* featured card, location is static */
+    &.nsw-card--horizontal {
+
+      .wrth-card__location {
+        position: static;
+        margin: 0 0 1rem 0;
+        max-width: calc(100% - #{rem(48px)});
+      }
     }
 
     .nsw-card__date {
 
+      margin: 0;
       font-weight: var(--nsw-font-bold);
       @include font-size('sm');
+
 
       // Card item time
       .wrth-card__time {
