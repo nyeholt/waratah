@@ -1,20 +1,4 @@
-<div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
-
-    <div class="nsw-page-layout">
-
-        <main id="main-content" class="nsw-page-layout__main">
-
-            <article>
-
-                <div class="nsw-block">
-
-                    <% include NSWDPC/Waratah/PageContentTitle %>
-
-                    <% include NSWDPC/Waratah/PageContentAbstract %>
-
-                    <% include NSWDPC/Members/Message %>
-
-                </div>
+<% include NSWDPC/Members/ContainerStart %>
 
                 <% if $Member %>
 
@@ -66,20 +50,4 @@
                     <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_Title='Information', InPageNotification_Content='Access denied' %>
                 <% end_if %>
 
-            </article>
-
-        </main>
-
-        <aside class="nsw-page-layout__sidebar">
-
-            <% include NSWDPC/Members/Links %>
-
-            <% if $HasSideElements %>
-                {$SideElementalArea}
-            <% end_if %>
-
-        </aside>
-
-    </div>
-
-</div>
+<% include NSWDPC/Members/ContainerEnd %>

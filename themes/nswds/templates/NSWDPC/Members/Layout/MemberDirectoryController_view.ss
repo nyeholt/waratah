@@ -1,23 +1,25 @@
+<%-- this is a different layout to the other pages --%>
+
 <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
 
-    <div class="nsw-page-layout">
+    <div class="nsw-layout">
 
-        <div class="nsw-page-layout__main">
+        <div class="nsw-layout__main">
 
-        <% include NSWDPC/Waratah/PageContentTitle %>
+            <% include NSWDPC/Waratah/PageContentTitle %>
 
-        <% include NSWDPC/Waratah/PageContentAbstract %>
+            <% include NSWDPC/Waratah/PageContentAbstract %>
 
         </div>
 
-        <div class="nsw-page-layout__sidebar">
+        <div class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
         </div>
 
     </div>
 
-    <div class="nsw-page-layout">
+    <div class="nsw-layout">
 
-        <aside class="nsw-page-layout__sidebar">
+        <aside class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
 
             <% with $DirectoryMember %>
                 <% with $ProfileProvider %>
@@ -35,14 +37,13 @@
 
         </aside>
 
-        <main id="main-content" class="nsw-page-layout__main">
+        <main id="content" class="nsw-layout__main">
 
             <article>
 
-                <section class="nsw-section">
+                <div class="nsw-block">
                 <% include NSWDPC/Members/DirectoryMember DirectoryMember=$DirectoryMember %>
-                </section>
-
+                </div>
 
             </article>
 

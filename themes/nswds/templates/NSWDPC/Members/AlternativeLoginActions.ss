@@ -1,10 +1,10 @@
 <%-- displayed next to login form --%>
-<div class="nsw-notification nsw-notification--info">
-    <i class="material-icons nsw-material-icons nsw-notification__icon" focusable="false" aria-hidden="true">info</i>
-    <div class="nsw-notification__content">
-        <h4 class="nsw-notification__title">
+<div class="nsw-in-page-alert nsw-in-page-alert--info">
+    <% include nswds/Icon Icon_Icon='info', Icon_IconExtraClass='nsw-in-page-alert__icon' %>
+    <div class="nsw-in-page-alert__content">
+        <h5>
             <%t NSWDPC\\Members\\Configuration.LOGIN_HELP 'Help' %>
-        </h4>
+        </h5>
         <ul>
             <li><a href="{$LostPasswordLink}"><%t NSWDPC\\Members\\Configuration.BUTTON_LOST_PASSWORD "I've lost my password" %></a></li>
             <li><a href="{$RegistrationLink}"><%t NSWDPC\\Members\\Configuration.BUTTON_REGISTER_TO_BECOME_MEMBER "Register to become a member" %></a></li>
