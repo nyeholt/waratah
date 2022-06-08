@@ -1,10 +1,9 @@
 <%-- this include holds scaffolding for main and side elements --%>
-
 <% if $Top.IsLandingPage %>
 
     <%-- a landing page --%>
     <main id="content" data-page-type="1">
-    <% include NSWDPC/Waratah/PageContent %>
+    <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
     </main>
 
 <% else_if $Top.HasSideElements %>
@@ -13,7 +12,7 @@
     <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="3">
         <div class="nsw-layout">
             <main id="content" class="nsw-layout__main">
-            <% include NSWDPC/Waratah/PageContent %>
+            <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
             </main>
             <aside class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
             <% include NSWDPC/Waratah/Sidebar %>
@@ -34,11 +33,11 @@
                 </aside>
             <% end_with %>
             <main id="content" class="nsw-layout__main">
-                <% include NSWDPC/Waratah/PageContent %>
+                <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
             </main>
         <% else %>
             <main id="content" class="nsw-layout__main">
-                <% include NSWDPC/Waratah/PageContent %>
+                <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
             </main>
             <aside class="nsw-layout__sidebar nsw-layout__sidebar--desktop"></aside>
         <% end_if %>

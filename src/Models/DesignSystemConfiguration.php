@@ -3,7 +3,11 @@
 namespace NSWDPC\Waratah\Models;
 
 use SilverStripe\Core\Config\Configurable;
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\View\TemplateGlobalProvider;
+use SilverStripe\View\SSViewer;
 
 /**
  *
@@ -215,7 +219,8 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
             'SpacingClass' => 'get_spacing_class',
             'ElementSectionClass' => 'get_element_section_class',
             'MastHead_Brand' => 'get_masthead_brand',
-            'AlternateHomeURL' => 'get_alt_home_page'
+            'AlternateHomeURL' => 'get_alt_home_page',
+            'PerLayoutContent' => 'get_per_layout_content'
         ];
     }
 
@@ -253,6 +258,32 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     public static function get_alt_home_page() : string {
         return self::config()->get('alt_home_page');
+    }
+
+    /**
+     * Return per layout content
+     * Example: <% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='Includes/PageSearchResults' %>
+     * @return DBHTMLText|null
+     * @param string $template an SS template path eg App/Directory/Person
+     */
+    public static function get_per_layout_content($template) : ?DBHTMLText {
+        $controller = Controller::has_curr() ? Controller::curr() : null;
+        if(!$controller) {
+            return null;
+        }
+        $chosenTemplate = SSViewer::chooseTemplate($template);
+        if(!$chosenTemplate) {
+            return null;
+        }
+        $viewer = SSViewer::create($template);
+        // do not include requirements when parsing the template
+        $viewer->includeRequirements(false);
+        // process template with current controller
+        $result = $viewer->process($controller, null, null);
+        return DBField::create_field(
+            DBHTMLText::class,
+            $result
+        );
     }
 
 }
