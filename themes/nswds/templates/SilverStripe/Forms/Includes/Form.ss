@@ -1,31 +1,15 @@
-<% if not $HideFormWrapper %><div class="nsw-form"><% end_if %>
+<% if $ApplyFormWrapper %><div class="nsw-form"><% end_if %>
 <% if $IncludeFormTag %>
 <form $AttributesHTML>
 <% end_if %>
 
-    <div class="notifications">
-    <% if $MessageType == 'good' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='check_circle', InPageNotification_Level='success', InPageNotification_Title='Success', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
-    <% else_if $MessageType == 'warning' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='error', InPageNotification_Level='warning', InPageNotification_Title='Sorry, an error occurred', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
-    <% else_if $MessageType == 'error' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='cancel', InPageNotification_Level='error', InPageNotification_Title='Sorry, there was a problem', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
-    <% else %>
-        <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Level='info', InPageNotification_Title='Information', InPageNotification_Content=$Message, InPageNotification_Cast=$MessageCast %>
-    <% end_if %>
-    </div>
+    <% include NSWDPC/Waratah/Forms/Notifications %>
 
-    <div class="main">
+    <div class="nsw-form__group main">
 
     <% if $VisibleFields.count > 0 %>
         <fieldset class="nsw-form__fieldset">
-        <% if $Legend %>
-            <legend>
-            <span class="nsw-form__legend">
-            $Legend
-            </span>
-            </legend>
-        <% end_if %>
+        <% include NSWDPC/Waratah/Forms/Legend %>
         <% loop $Fields %>
             {$FieldHolder}
         <% end_loop %>
@@ -36,8 +20,12 @@
         <% end_loop %>
     <% end_if %>
 
+    </div>
+
+    <div class="nsw-form__group actions">
+
     <% if $Actions %>
-        <fieldset class="nsw-form__fieldset actions">
+        <fieldset class="nsw-form__fieldset">
         <% loop $Actions %>
             {$Field}
         <% end_loop %>
@@ -49,4 +37,4 @@
 <% if $IncludeFormTag %>
 </form>
 <% end_if %>
-<% if not $HideFormWrapper %></div><% end_if %>
+<% if $ApplyFormWrapper %></div><% end_if %>

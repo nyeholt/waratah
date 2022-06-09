@@ -6,6 +6,7 @@
   .uppy-Root {
 
     @include font-size('md');
+    font-family: var(--nsw-font-family);
 
     .uppy-StatusBar {
 

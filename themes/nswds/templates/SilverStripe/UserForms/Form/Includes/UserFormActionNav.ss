@@ -1,7 +1,9 @@
 <% if $Actions %>
-<fieldset class="nsw-form__fieldset actions btn-toolbar">
+<div class="nsw-form__group actions">
+<fieldset class="nsw-form__fieldset">
     <% loop $Actions %>
-        $Field
+        {$Field}
     <% end_loop %>
 </fieldset>
+</div>
 <% end_if %>

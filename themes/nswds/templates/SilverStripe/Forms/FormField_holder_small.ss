@@ -4,7 +4,7 @@
 
     <% if $Description %><span class="nsw-form__helper">$Description</span><% end_if %>
 
-    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
+    <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 
     {$Field}
 

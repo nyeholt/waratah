@@ -1,2 +1,2 @@
-<% include SilverStripe/Forms/Form HideFormWrapper=1 %>
+<% include SilverStripe/Forms/Form %>
 <% include AfterOktaLoginForm %>

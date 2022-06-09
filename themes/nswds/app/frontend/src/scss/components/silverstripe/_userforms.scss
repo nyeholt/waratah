@@ -2,10 +2,9 @@
  * Userforms styles for nswdpc/waratah
  * See silverstripe/userforms:client/src/styles/userforms.scss
  * nswdpc/waratah sets  block_default_userforms_css: true
+ * Note that the SS userforms step process uses buttons within each step (reason for height 0)
  */
 .userform {
-
-  @extend .nsw-form;
 
   .nsw-progress-indicator__bar {
 
@@ -15,9 +14,10 @@
 
       height: 0 !important;
       overflow : hidden;
+      border-top: 0.25rem solid var(--nsw-grey-04);
 
-      &.current {
-          background-color: var(--nsw-brand-accent);
+      &.viewed {
+        border-top: 0.25rem solid var(--nsw-brand-accent);
       }
 
       .step-button-jump {

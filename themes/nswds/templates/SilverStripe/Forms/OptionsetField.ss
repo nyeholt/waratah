@@ -4,5 +4,5 @@
     	<label for="$ID" class="nsw-form__radio-label">$Title</label>
     <% end_loop %>
 <% else %>
-    <% include nswds/FormFieldNotification FormFieldNotification_Icon='info', FormFieldNotification_Level='info', FormFieldNotification_Message='No options available' %>
+    <% include nswds/FormFieldNotification FormFieldNotification_IsCompact=1, FormFieldNotification_Icon='info', FormFieldNotification_Level='info', FormFieldNotification_Message='No options available' %>
 <% end_if %>

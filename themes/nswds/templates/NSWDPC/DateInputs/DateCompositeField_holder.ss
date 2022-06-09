@@ -10,7 +10,7 @@
         <span class="nsw-form__helper">{$FieldWarning.XML}</span>
     <% end_if %>
 
-    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
+    <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
 
     <div class="inputs">
         {$Field}

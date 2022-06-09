@@ -3,7 +3,7 @@
     <% if $Title %><label class="nsw-form__label left" for="$ID">$Title</label><% end_if %>
     <% if $Description %><span class="nsw-form__helper">$Description</span><% end_if %>
 
-    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
+    <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 
     <div class="field">
     {$Field}

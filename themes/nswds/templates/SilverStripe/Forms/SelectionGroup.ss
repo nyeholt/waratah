@@ -1,26 +1,19 @@
 
-<div class="nsw-tabs js-tabs">
+<%-- NOTE: this requires a JS enhancement --%>
+<fieldset class="nsw-form__fieldset">
 
-    <ul class="nsw-tabs__list">
-    <% loop $FieldSet %>
-        <li class="nsw-tabs__list-item<% if Selected %> is-selected<% end_if %>">
-            <a class="nsw-tabs__link" href="#{$ID}-{$Pos}">
-                 {$RadioButton} {$RadioLabel}
-            </a>
-        </li>
-    <% end_loop %>
-    </ul>
+    <% include NSWDPC/Waratah/Forms/Legend %>
 
     <% loop $FieldSet %>
-
-        <section id="{$ID}-{$Pos}" class="nsw-tabs__content">
-
-            <% if $FieldList %>
-                $FieldHolder
-            <% end_if %>
-
+        <section class="nsw-section nsw-section--half-padding nsw-section--off-white">
+            <div class="nsw-container">
+                {$RadioButton}
+                <label class="nsw-form__radio-label" for="{$Up.ID}_{$Pos}">{$RadioLabel}</label>
+                <div class="nsw-form__group">
+                {$Field}
+                </div>
+            </div>
         </section>
-
     <% end_loop %>
 
-</div>
+</fieldset>

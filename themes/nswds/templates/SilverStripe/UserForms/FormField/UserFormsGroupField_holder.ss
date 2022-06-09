@@ -2,11 +2,7 @@
 
     <fieldset class="nsw-form__fieldset<% if $extraClass %> {$extraClass}<% end_if %>"<% if $RightTitle %> aria-describedby="{$Name}_right_title"<% end_if %>>
 
-        <% if $Legend %>
-            <legend>
-                <span class="nsw-form__legend">{$Legend}</span>
-            </legend>
-        <% end_if %>
+        <% include NSWDPC/Waratah/Forms/Legend %>
 
         <% loop $FieldList %>
             {$FieldHolder}

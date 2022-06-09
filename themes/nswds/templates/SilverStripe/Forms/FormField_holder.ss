@@ -8,7 +8,7 @@
     {$Field}
     </div>
 
-    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
+    <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
 
     <% if $RightTitle %><span class="nsw-form__helper right" for="$ID">{$RightTitle}</span><% end_if %>
 
