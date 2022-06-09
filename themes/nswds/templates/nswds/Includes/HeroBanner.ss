@@ -4,7 +4,7 @@
 
         <div class="nsw-hero-banner__wrapper">
 
-            <div class="nsw-hero-banner__content nsw-wysiwyg-content">
+            <div class="nsw-hero-banner__content">
 
                 <h1>{$HeroBanner_Title}</h1>
 
