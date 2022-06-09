@@ -21,12 +21,12 @@ class EditableInPageNotificationField extends EditableLiteralField {
     /**
      * @var string
      */
-    private static $singular_name = 'In-page notification (NSW Design System)';
+    private static $singular_name = 'In-page alert (NSW Design System)';
 
     /**
      * @var string
      */
-    private static $plural_name = 'In-page notifications (NSW Design System)';
+    private static $plural_name = 'In-page alerts (NSW Design System)';
 
     /**
      * @var string
@@ -81,7 +81,7 @@ class EditableInPageNotificationField extends EditableLiteralField {
             'Content',
             NotificationStateSelectionField::create(
                 'NotificationLevel',
-                _t('nswds.NOTIFICATION_LEVEL', 'Notification level')
+                _t('nswds.NOTIFICATION_LEVEL', 'Alert level')
             )->setDescription(
                 _t(
                     'nswds.NOTIFICATION_LEVEL_DESCRIPTION',
@@ -96,7 +96,7 @@ class EditableInPageNotificationField extends EditableLiteralField {
             $hideLabelField->setTitle(
                 _t(
                     'nswds.HIDE_TITLE_IN_NOTIFICATION',
-                    'Do not show the title in the notification'
+                    'Do not show the title in the alert'
                 )
             );
             $fields->insertAfter(
@@ -133,7 +133,7 @@ class EditableInPageNotificationField extends EditableLiteralField {
         }
 
         $field = LiteralField::create(
-            "InPageNotification-{$this->ID}]",
+            "InPageAlert-{$this->ID}]",
             $content
         );
 
