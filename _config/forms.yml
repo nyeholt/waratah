@@ -30,5 +30,10 @@ After:
 # add nswds hint/class mapping
 SilverStripe\Forms\FormField:
   hint_class_mapping:
-    'secondary': 'nsw-button--dark-outline'
+    'primary': 'nsw-button--dark'
+    'light': 'nsw-button--light'
+    'white': 'nsw-button--white'
+    'lightoutline': 'nsw-button--light-outline'
+    'darkoutline': 'nsw-button--dark-outline'
+    'secondary': 'nsw-button--dark-outline-solid'
     'danger':   'nsw-button--danger'
