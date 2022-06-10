@@ -4,17 +4,6 @@
 form {
 
   /**
-   * Retain sm size for legends in fields eg Optionset, Checkboxset
-   * Match h2 example here: https://digitalnsw.github.io/nsw-design-system/templates/content/form.html
-   */
-  .wrth-form__checkboxset,
-  .wrth-form__optionset {
-    .nsw-form__legend {
-      @include font-size('sm');
-    }
-  }
-
-  /**
    * Group fields occur in userforms
    */
   .wrth-form__groupfield {
