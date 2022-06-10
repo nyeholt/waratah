@@ -4,6 +4,14 @@
 form {
 
   /**
+   * The right title
+   */
+  .wrth-form__helper-info {
+    @extend .nsw-form__helper;
+    margin: rem(4px) 0 0 0;
+  }
+
+  /**
    * Group fields occur in userforms
    */
   .wrth-form__groupfield {
@@ -20,8 +28,35 @@ form {
     }
   }
 
+  /**
+   * Date inputs
+   */
+  .datecomposite,
+  .datetimecomposite {
+    .inputs {
+      .nsw-form__group {
+        margin-top: 0;
+      }
+    }
+  }
+
   input[type=reset] {
     @extend .nsw-button--danger;
+  }
+
+  .actions {
+    fieldset {
+      .nsw-button {
+        margin: 0 rem(8px) rem(8px) 0;
+        @include breakpoint('md') {
+          margin: 0 rem(16px) rem(16px) 0;
+        }
+      }
+      .nsw-button--flex,
+      .nsw-button--full-width {
+        margin-right: 0;
+      }
+    }
   }
 
 }

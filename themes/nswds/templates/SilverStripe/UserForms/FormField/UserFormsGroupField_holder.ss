@@ -8,7 +8,7 @@
             {$FieldHolder}
         <% end_loop %>
 
-        <% if $RightTitle %><span id="{$Name}_right_title" class="nsw-form__helper">{$RightTitle}</span><% end_if %>
+        <% include NSWDPC/Waratah/Forms/RightTitle %>
 
     </fieldset>
 

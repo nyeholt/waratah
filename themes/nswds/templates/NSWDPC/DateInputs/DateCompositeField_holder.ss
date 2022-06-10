@@ -2,20 +2,23 @@
 
     <label class="nsw-form__label left">{$Title.XML}</label>
 
-    <% if $Description %><span class="nsw-form__helper">{$Description.XML}</span><% end_if %>
-
-    <% if $FormatExample %><span class="nsw-form__helper nsw-small">{$FormatExample.XML}</span><% end_if %>
+    <% include NSWDPC/Waratah/Forms/Description %>
 
     <% if $FieldWarning %>
-        <span class="nsw-form__helper">{$FieldWarning.XML}</span>
+        <span class="nsw-form__helper nsw-form__helper--error"><% include nswds/Icon Icon_Icon='warning' %>{$FieldWarning.XML}</span>
     <% end_if %>
 
     <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
 
-    <div class="inputs">
-        {$Field}
+    <div class="nsw-section nsw-section--half-padding nsw-section--off-white">
+        <div class="nsw-container">
+            <div class="inputs">
+                {$Field}
+            </div>
+            <% if $FormatExample %><span class="nsw-form__helper">{$FormatExample.XML}</span><% end_if %>
+        </div>
     </div>
 
-    <% if $RightTitle %><span class="nsw-form__helper right">{$RightTitle}</span><% end_if %>
+    <% include NSWDPC/Waratah/Forms/RightTitle %>
 
 </div>

@@ -9,7 +9,8 @@
             <% end_loop %>
         </div>
 
-        <% if $RightTitle %><span id="{$Name}_right_title" class="right-title">{$RightTitle}</span><% end_if %>
+        <% include NSWDPC/Waratah/Forms/RightTitle %>
+
         <% if $Message %>
             <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
         <% end_if %>

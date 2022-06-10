@@ -6,7 +6,7 @@
 
     <% include NSWDPC/Waratah/Forms/Legend %>
 
-    <% if $Description %><span class="nsw-form__helper">$Description</span><% end_if %>
+    <% include NSWDPC/Waratah/Forms/Description %>
 
     <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 
@@ -14,7 +14,7 @@
     {$Field}
     </div>
 
-    <% if $RightTitle %><span class="nsw-form__helper right">$RightTitle</span><% end_if %>
+    <% include NSWDPC/Waratah/Forms/RightTitle %>
 
 </fieldset>
 
