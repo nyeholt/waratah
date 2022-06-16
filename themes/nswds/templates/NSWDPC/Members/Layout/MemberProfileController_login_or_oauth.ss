@@ -45,7 +45,7 @@
 
                 <% else %>
 
-                    <p><%t NSWDPC\Members\Configuration.SIGN_IN_ONLY_USING_EXTERNAL_SERVICE 'Sign in to this website using an external service. %></p>
+                    <p><%t NSWDPC\Members\Configuration.SIGN_IN_ONLY_USING_EXTERNAL_SERVICE 'Sign in to this website using an external service.' %></p>
 
                     <%-- no local sign in --%>
                     {$ExternalLoginForm}
