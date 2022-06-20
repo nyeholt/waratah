@@ -1,4 +1,4 @@
-<div class="nsw-notification nsw-notification--<% if $InPageNotification_Level %>{$InPageNotification_Level}<% else %>info<% end_if %>"<% if $InPageNotification_Content == '' %> style="display: none"<% end_if %>>
+<div class="nsw-notification nsw-notification--<% if $InPageNotification_Level == 'good' || $InPageNotification_Level == 'success' %>success<% else_if $InPageNotification_Level == 'warning' %>warning<% else_if $InPageNotification_Level == 'error' || $InPageNotification_Level == 'bad' || $InPageNotification_Level == 'required' %>error<% else %>info<% end_if %>"<% if $InPageNotification_Content == '' %> style="display: none"<% end_if %>>
 
   <% if $InPageNotification_Icon %>
     <% include nswds/Icon Icon_Icon=$InPageNotification_Icon, Icon_IconExtraClass='nsw-notification__icon' %>
