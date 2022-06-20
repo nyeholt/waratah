@@ -1,7 +1,6 @@
 .nsw-body-content .mfa-app {
 
     padding : 1rem 0 0 0;
-    @include font-stack;
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100%;
@@ -71,7 +70,7 @@
 
       &__item {
         .btn {
-          @include wrth-button;
+          @extend .nsw-button;
         }
 
         .btn-primary {
@@ -90,7 +89,7 @@
       @include nsw-spacing(margin, none none md none);
 
       a.mfa-verify-select-method__back {
-        @include wrth-button;
+        @extend .nsw-button;
         @include button-variant(map-get($button-variations, primary));
       }
     }
@@ -102,7 +101,7 @@
         @include nsw-spacing(margin, none none md none);
 
         .btn {
-            @include wrth-button;
+            @extend .nsw-button;
         }
 
         .btn-link {
@@ -112,7 +111,7 @@
       }
 
       .btn {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       .btn-primary {
@@ -136,7 +135,7 @@
       }
 
       .btn {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       .btn-primary {
