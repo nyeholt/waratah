@@ -3,7 +3,7 @@
 <% if not $CurrentMember %>
     <% if $Forms && $Forms.count > 1 %>
         <p class="nsw-intro">
-            <%t nswds.MULTIPLE_SIGN_INS 'Choose an option to sign to this website.' %>
+            <%t nswds.MULTIPLE_SIGN_INS 'Choose an option to sign in to this website.' %>
         </p>
     <% end_if %>
 <% end_if %>
