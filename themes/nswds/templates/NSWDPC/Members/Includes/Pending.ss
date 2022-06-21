@@ -26,11 +26,13 @@
                             <% end_with %>
                         <% end_if %>
 
-                        <ol>
+                        <div class="nsw-p-top-md">
+                        <ol class="wrth-list--icons">
                         <% loop Steps %>
-                            <li><span class="nsw-link--icon"><% if $IsComplete %><% include nswds/Icon Icon_Icon='check_circle' %><% else %><% include nswds/Icon Icon_Icon='pending_actions' %><% end_if %> <span>{$Label.XML}</span></span></li>
+                            <li><div class="icon"><% if $IsComplete %><% include nswds/Icon Icon_Icon='check_circle' %><% else %><% include nswds/Icon Icon_Icon='pending_actions' %><% end_if %></div> <div class="label">{$Label.XML}</div></li>
                         <% end_loop %>
                         </ol>
+                        </div>
 
                     </div>
                 <% end_if %>
