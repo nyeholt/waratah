@@ -1,0 +1,61 @@
+<div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
+    <div class="nsw-page-layout">
+
+        <main id="main-content" class="nsw-page-layout__main">
+
+            <article>
+
+                <div class="nsw-block">
+
+                    <% include NSWDPC/Waratah/PageContentTitle %>
+
+                    <% include NSWDPC/Waratah/PageContentAbstract %>
+
+                    <% include NSWDPC/Members/Message %>
+
+                </div>
+
+
+                <% if $Steps %>
+
+                    <div class="nsw-block">
+
+                        <% if $Progress %>
+                            <% with $Progress %>
+                                <p><%t NSWDPC\Members\Configuration.REGISTRATION_PROGRESS_PENDING_PROFILE_STEPS '{completedSteps} out of {totalSteps} steps in the registration process are complete.' completedSteps=$CompletedSteps totalSteps=$TotalSteps %></p>
+                            <% end_with %>
+                        <% end_if %>
+
+                        <ol>
+                        <% loop Steps %>
+                            <li><span class="nsw-link--icon"><% if $IsComplete %><% include nswds/Icon Icon_Icon='check_circle' %><% else %><% include nswds/Icon Icon_Icon='pending_actions' %><% end_if %> <span>{$Label.XML}</span></span></li>
+                        <% end_loop %>
+                        </ol>
+
+                    </div>
+                <% end_if %>
+
+                <% if $SubTitle %>
+                    <h2>{$SubTitle.XML}</h2>
+                <% end_if %>
+
+                <% include NSWDPC/Waratah/PageElemental %>
+
+                <% include NSWDPC/Waratah/PageForm %>
+
+            </article>
+        </main>
+
+        <div class="nsw-page-layout__sidebar">
+
+            <% include NSWDPC/Members/Links %>
+
+            <% if $HasSideElements %>
+                {$SideElementalArea}
+            <% end_if %>
+
+        </div>
+
+    </div>
+
+</div>
