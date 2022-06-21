@@ -1,0 +1,22 @@
+/**
+ * List component
+ */
+.wrth-list {
+  &--icons {
+    margin: 0;
+    padding: 0;
+    li {
+      display: flex;
+      align-items: center;
+      list-style-type: none;
+      margin: rem(8px) 0 0 0;
+      padding: 0;
+      &:first-child {
+        margin-top: 0;
+      }
+      .icon {
+        margin-right: rem(8px);
+      }
+    }
+  }
+}
