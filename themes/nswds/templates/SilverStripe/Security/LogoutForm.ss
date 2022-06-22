@@ -1,15 +1,42 @@
 <% if $Top.CurrentMember %>
-<div class="nsw-callout">
-    <% include nswds/Icon Icon_Icon='person', Icon_IconExtraClass='nsw-callout__icon' %>
-    <div class="nsw-callout__content">
-        <h4 class="nsw-callout__title"><%t nswds.LOGGED_IN 'Logged in' %></h4>
+<div class="nsw-section nsw-section--box nsw-m-top-sm">
+    <% with $Top.CurrentMember %>
+    <h4><%t nswds.HI_FIRSTNAME 'Hi {firstName}!' firstName=$FirstName %></h4>
 
-        <p><%t nswds.LOGGED_IN_AS 'You are logged in as' %> {$Top.CurrentMember.FirstName.XML}</p>
+    <% if $CreationInterval %>
+        <% with $CreationInterval %>
+            <% if $Days == 1 %>
+                <p><%t nswds.MEMBER_SINCE_YESTERDAY 'You joined a day ago' %></p>
+            <% else_if $Days > 1 %>
+                <p><%t nswds.MEMBER_SINCE 'You have been a member for {count} days' count=$Days %></p>
+            <% end_if %>
+        <% end_with %>
+    <% end_if %>
 
-        <p><a href="$MemberProfileLink('Profile')"><%t nswds.VIEW_PROFILE 'View profile' %></a></p>
+    <% if $ProfileImage %>
+        <figure class="nsw-media nsw-media--transparent">
+            <div class="img-fluid">
+            <% with $ProfileImage %>
+            {$ScaleWidth(300)}
+            <% end_with %>
+            </div>
+        </figure>
+    <% end_if %>
 
-        <% include SilverStripe/Forms/Form HideFormWrapper=1 %>
+    <% end_with %>
 
+    <div class="nsw-link-list">
+      <ul class="nsw-link-list__list">
+        <li class="nsw-link-list__item" >
+            <a href="{$MemberProfileLink('Profile')}">
+            <span><%t nswds.VIEW_PROFILE 'View profile' %></span>
+            <% include nswds/Icon Icon_Icon='east', Icon_IconExtraClass='nsw-link-list__icon' %>
+            </a>
+        </li>
+      </ul>
     </div>
+
+    <% include SilverStripe/Forms/Form HideFormWrapper=1 %>
+
 </div>
 <% end_if %>
