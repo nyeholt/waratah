@@ -17,24 +17,6 @@
 
     <div class="nsw-page-layout">
 
-        <aside class="nsw-page-layout__sidebar">
-
-            <% with $DirectoryMember %>
-                <% with $ProfileProvider %>
-                <% if $ProfileImage %>
-                <div class="img-fluid">
-                {$ProfileImage.ScaleWidth(900)}
-                </div>
-                <% end_if %>
-                <% end_with %>
-            <% end_with %>
-
-            <% if $DirectorySearchForm %>
-                {$DirectorySearchForm}
-            <% end_if %>
-
-        </aside>
-
         <main id="main-content" class="nsw-page-layout__main">
 
             <article>
@@ -47,6 +29,22 @@
             </article>
 
         </main>
+
+        <aside class="nsw-page-layout__sidebar">
+
+            <% with $DirectoryMember %>
+                <% with $ProfileProvider %>
+                <% if $ProfileImage %>
+                <figure class="nsw-media">
+                    <div class="img-fluid">
+                    {$ProfileImage.ScaleWidth(900)}
+                    </div>
+                </figure>
+                <% end_if %>
+                <% end_with %>
+            <% end_with %>
+
+        </aside>
 
     </div>
 
