@@ -26,12 +26,15 @@
                             <% end_with %>
                         <% end_if %>
 
-                        <div class="nsw-p-top-md">
-                        <ol class="wrth-list--icons">
+                        <div class="nsw-steps nsw-steps--small nsw-steps--counters nsw-steps--dark">
                         <% loop Steps %>
-                            <li><div class="icon"><% if $IsComplete %><% include nswds/Icon Icon_Icon='check_circle' %><% else %><% include nswds/Icon Icon_Icon='pending_actions' %><% end_if %></div> <div class="label">{$Label.XML}</div></li>
+                            <div class="nsw-steps__item<% if $IsComplete %> nsw-steps__item--fill<% end_if %>">
+                                <div class="nsw-steps__content">
+                                    <h4>{$Label.XML}<% if not $Required %> (<%t nswds.OPTIONAL 'optional' %>)<% end_if %></h4>
+                                    <p>{$Description.XML}</p>
+                                </div>
+                            </div>
                         <% end_loop %>
-                        </ol>
                         </div>
 
                     </div>
@@ -49,12 +52,6 @@
         </main>
 
         <div class="nsw-layout__sidebar">
-
-            <% include NSWDPC/Members/Links %>
-
-            <% if $HasSideElements %>
-                {$SideElementalArea}
-            <% end_if %>
 
         </div>
 
