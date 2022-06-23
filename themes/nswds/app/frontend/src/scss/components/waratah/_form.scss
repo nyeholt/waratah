@@ -46,16 +46,7 @@ form {
 
   .actions {
     fieldset {
-      .nsw-button {
-        margin: 0 rem(8px) rem(8px) 0;
-        @include breakpoint('md') {
-          margin: 0 rem(16px) rem(16px) 0;
-        }
-      }
-      .nsw-button--flex,
-      .nsw-button--full-width {
-        margin-right: 0;
-      }
+      @include wrth-action-list;
     }
   }
 

@@ -1,7 +1,6 @@
 .nsw-body-content .mfa-app {
 
     padding : 1rem 0 0 0;
-    @include font-size('md');
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100%;
@@ -69,7 +68,13 @@
 
     .mfa-action-list {
 
+      // re-use action list
+      @include wrth-action-list;
+
       &__item {
+
+        margin: 0;
+
         .btn {
           @extend .nsw-button;
         }
@@ -81,6 +86,7 @@
         .btn-secondary {
           @extend .nsw-button--dark-outline-solid;
         }
+
       }
 
     }
@@ -97,7 +103,9 @@
     .mfa-register-backup-codes__container {
 
       .mfa-register-backup-codes__helper-links {
-        margin: 0 0 rem(16px) 0;
+
+        // re-use action list
+        @include wrth-action-list;
 
         .btn {
           @extend .nsw-button;
