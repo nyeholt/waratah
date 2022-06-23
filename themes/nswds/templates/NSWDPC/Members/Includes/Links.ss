@@ -8,22 +8,22 @@
     <ul>
 
         <% if $ProfilePages %>
-            <li><a href="$PageLink">Pages</a></li>
+            <li><a href="{$PageLink}"><%t nswds.PAGES 'Pages' %></a></li>
         <% end_if %>
 
         <% if $ProfileFolders %>
-            <li><a href="$FolderLink">Files</a></li>
+            <li><a href="{$FolderLink}"><%t nswds.FILES 'Files' %></a></li>
         <% end_if %>
 
         <% if $DirectoryLink %>
-            <li><a href="$DirectoryLink">Directory</a></li>
+            <li><a href="{$DirectoryLink}"><%t nswds.DIRECTORY 'Directory' %></a></li>
         <% end_if %>
 
         <% if $MFALink %>
-            <li><a href="$MFALink">Multi-Factor Authentication (MFA)</a></li>
+            <li><a href="{$MFALink}"><%t nswds.MULTI_FACTOR_AUTHENTICATION 'Multi-Factor Authentication (MFA)' %></a></li>
         <% end_if %>
 
-        <li><a href="$ChangePasswordLink">Change password</a></li>
+        <li><a href="{$ChangePasswordLink}"><%t nswds.CHANGE_PASSWORD 'Change password' %></a></li>
 
     </ul>
 
@@ -38,13 +38,13 @@
 <nav class="nsw-side-nav" aria-labelledby="public-links">
 
     <div class="nsw-side-nav__header">
-        <a id="public-links" href="#" class="nsw-side-nav__heading">Menu</a>
+        <a id="public-links" href="#" class="nsw-side-nav__heading"><%t nswds.MENU 'Menu' %></a>
     </div>
 
     <ul>
-        <li><a class="<% if $Action =='login' %>current<% end_if %>" href="$SignInLink">Sign in</a></li>
-        <li><a class="<% if $Action == 'lostpassword' %>current<% end_if %>" href="$LostPasswordLink">Lost password</a></li>
-        <li><a class="<% if $URLSegment == '_register' %>current<% end_if %>" href="$RegisterLink">Register</a></li>
+        <li><a class="<% if $Action =='login' %>current<% end_if %>" href="{$SignInLink}"><%t nswds.SIGN_IN 'Sign in' %></a></li>
+        <li><a class="<% if $Action == 'lostpassword' %>current<% end_if %>" href="{$LostPasswordLink}"><%t nswds.LOST_PASSWORD 'Lost password' %></a></li>
+        <li><a class="<% if $URLSegment == '_register' %>current<% end_if %>" href="{$RegisterLink}"><%t nswds.REGISTER 'Register' %></a></li>
     </ul>
 
 </nav>
