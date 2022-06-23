@@ -1,7 +1,7 @@
 <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
-    <div class="nsw-page-layout">
+    <div class="nsw-layout">
 
-        <main id="main-content" class="nsw-page-layout__main">
+        <main id="main-content" class="nsw-layout__main">
 
             <article>
 
@@ -48,7 +48,7 @@
             </article>
         </main>
 
-        <div class="nsw-page-layout__sidebar">
+        <div class="nsw-layout__sidebar">
 
             <% include NSWDPC/Members/Links %>
 
