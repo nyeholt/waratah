@@ -10,7 +10,7 @@
     </div>
 <% else_if $FormFieldHint == 'inpagealert' %>
     <%-- render as in-page-alert --%>
-    <div class="nsw-in-page-alert">
+    <div class="nsw-in-page-alert nsw-in-page-alert--info nsw-in-page-alert--compact">
         <% if $FormFieldHintIcon %>
             <% include nswds/Icon Icon_Icon=$FormFieldHintIcon, Icon_IconExtraClass='nsw-in-page-alert__icon' %>
         <% else %>
