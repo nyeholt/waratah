@@ -25,46 +25,46 @@
 
 
 <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="2.sec">
-    <div class="nsw-page-layout">
+    <div class="nsw-layout">
 
 
-        <aside class="nsw-page-layout__sidebar nsw-page-layout__sidebar--desktop">
+        <aside class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
 
             <% if $CurrentMember %>
-            <nav class="nsw-sidenav" aria-labelledby="private-links">
+            <nav class="nsw-side-nav" aria-labelledby="private-links">
 
-                <div class="nsw-sidenav__header">
-                    <h2 id="private-links" class="nsw-sidenav__heading">Menu</h2>
+                <div class="nsw-side-nav__header">
+                    <a href="#" id="private-links"><%t nswds.MENU 'Menu' %></span>
                 </div>
 
-                <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
+                <ul>
                     <% if $ProfileProvider %>
                         <% with $ProfileProvider %>
-                            <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="{$EditProfileLink}"><%t nswds.Profile 'Profile' %></a></li>
+                            <li><a href="{$EditProfileLink}"><%t nswds.Profile 'Profile' %></a></li>
                         <% end_with %>
                     <% end_if %>
-                    <li class="nsw-sidenav__list-item">
-                        <a class="nsw-sidenav__link" href="{$Link('changepassword')}"><%t SilverStripe\\Security\\Member.BUTTONCHANGEPASSWORD 'Change password' %></a>
+                    <li>
+                        <a href="{$Link('changepassword')}"><%t SilverStripe\\Security\\Member.BUTTONCHANGEPASSWORD 'Change password' %></a>
                     </li>
-                    <li class="nsw-sidenav__list-item">
-                        <a class="nsw-sidenav__link" href="{$Link('logout')}"><%t SilverStripe\\Security\\Member.BUTTONLOGOUT 'Log out' %></a>
+                    <li>
+                        <a href="{$Link('logout')}"><%t SilverStripe\\Security\\Member.BUTTONLOGOUT 'Log out' %></a>
                     </li>
                 </ul>
 
             </nav>
             <% else %>
-            <nav class="nsw-sidenav" aria-labelledby="public-links">
+            <nav class="nsw-side-nav" aria-labelledby="public-links">
 
-                <div class="nsw-sidenav__header">
-                    <h2 id="public-links" class="nsw-sidenav__heading">Menu</h2>
+                <div class="nsw-side-nav__header">
+                    <a href="#" id="public-links"><%t nswds.MENU 'Menu' %></a>
                 </div>
 
-                <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
-                    <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link<% if $Action =='login' %> is-current<% end_if %>" href="{$Link('login')}"><%t nswds.SIGN_IN 'Sign in' %></a></li>
-                    <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link<% if $Action == 'lostpassword' %> is-current<% end_if %>" href="{$Link('lostpassword')}"><%t nswds.LOST_PASSWORD 'Lost password' %></a></li>
+                <ul>
+                    <li><a class="<% if $Action =='login' %>current<% end_if %>" href="{$Link('login')}"><%t nswds.SIGN_IN 'Sign in' %></a></li>
+                    <li><a class="<% if $Action == 'lostpassword' %>current<% end_if %>" href="{$Link('lostpassword')}"><%t nswds.LOST_PASSWORD 'Lost password' %></a></li>
                     <% if $RegistrationProvider %>
                         <% with $RegistrationProvider %>
-                            <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="{$Link}"><%t nswds.REGISTER 'Register' %></a></li>
+                            <li><a href="{$Link}"><%t nswds.REGISTER 'Register' %></a></li>
                         <% end_with %>
                     <% end_if %>
                 </ul>
@@ -73,7 +73,7 @@
             <% end_if %>
         </aside>
 
-        <main id="content" class="nsw-page-layout__main">
+        <main id="content" class="nsw-layout__main">
 
             <div class="nsw-block">
 
