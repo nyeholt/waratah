@@ -71,7 +71,7 @@
 
       &__item {
         .btn {
-          @include wrth-button;
+          @extend .nsw-button;
         }
 
         .btn-primary {
@@ -89,7 +89,7 @@
       margin: 0 0 rem(16px) 0;
 
       a.mfa-verify-select-method__back {
-        @include wrth-button;
+        @extend .nsw-button;
         @extend .nsw-button--dark;
       }
     }
@@ -100,7 +100,7 @@
         margin: 0 0 rem(16px) 0;
 
         .btn {
-          @include wrth-button;
+          @extend .nsw-button;
         }
 
         .btn-link {
@@ -110,7 +110,7 @@
       }
 
       .btn {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       .btn-primary {
@@ -134,7 +134,7 @@
       }
 
       .btn {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       .btn-primary {

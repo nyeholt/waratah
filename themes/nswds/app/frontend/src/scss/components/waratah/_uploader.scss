@@ -11,7 +11,7 @@
     .uppy-StatusBar {
 
       button {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       &:not(.is-waiting) {
@@ -30,7 +30,7 @@
         height: 80px;
 
         .uppy-StatusBar-actionBtn--upload {
-          @include wrth-button;
+          @extend .nsw-button;
           @extend .nsw-button--dark;
           margin-top : 0;
         }

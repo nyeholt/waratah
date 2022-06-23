@@ -5,8 +5,8 @@
 
             <% loop $ProfileFieldList %>
             <div class="nsw-block" data-name="{$Name.XML}">
-            <h4>{$Label}</h4>
-            <p>{$Value.XML}</p>
+                <h4>{$Label}</h4>
+                <p>{$Value.XML}</p>
             </div>
             <% end_loop %>
 
