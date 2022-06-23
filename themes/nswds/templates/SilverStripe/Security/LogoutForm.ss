@@ -26,11 +26,11 @@
     <% end_with %>
 
     <div class="nsw-link-list">
-      <ul class="nsw-link-list__list">
-        <li class="nsw-link-list__item" >
+      <ul>
+        <li>
             <a href="{$MemberProfileLink('Profile')}">
             <span><%t nswds.VIEW_PROFILE 'View profile' %></span>
-            <% include nswds/Icon Icon_Icon='east', Icon_IconExtraClass='nsw-link-list__icon' %>
+            <% include nswds/Icon Icon_Icon='east' %>
             </a>
         </li>
       </ul>
