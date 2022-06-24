@@ -34,7 +34,7 @@
             <nav class="nsw-side-nav" aria-labelledby="private-links">
 
                 <div class="nsw-side-nav__header">
-                    <a href="#" id="private-links"><%t nswds.MENU 'Menu' %></span>
+                    <a href="#" id="private-links"><%t nswds.MENU 'Menu' %></a>
                 </div>
 
                 <ul>
