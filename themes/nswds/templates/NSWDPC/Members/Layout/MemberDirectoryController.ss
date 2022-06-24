@@ -50,9 +50,7 @@
 
                 <% if $IsKeywordLookup && $DirectorySearchForm %>
                     <div class="nsw-block">
-                        <% if $DirectorySearchForm %>
-                            {$DirectorySearchForm}
-                        <% end_if %>
+                        {$DirectorySearchForm}
                     </div>
                 <% end_if %>
 
