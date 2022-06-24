@@ -1,14 +1,3 @@
 /**
  * nswdpc/waratah mixins for wrth- extensions
  */
- @mixin wrth-action-list {
-
-   /**
-    * An action list is a flexbox grid with items
-    * wrapping and spaced in a 16px grid
-    */
-   display: flex;
-   flex-wrap: wrap;
-   gap: rem(16px);
-
- }

@@ -44,10 +44,4 @@ form {
     @extend .nsw-button--danger;
   }
 
-  .actions {
-    fieldset {
-      @include wrth-action-list;
-    }
-  }
-
 }

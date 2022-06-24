@@ -68,8 +68,9 @@
 
     .mfa-action-list {
 
-      // re-use action list
-      @include wrth-action-list;
+      // use nsw-list
+      @extend .nsw-list;
+      @extend .nsw-list--16;
 
       &__item {
 
@@ -104,8 +105,9 @@
 
       .mfa-register-backup-codes__helper-links {
 
-        // re-use action list
-        @include wrth-action-list;
+        // use nsw-list
+        @extend .nsw-list;
+        @extend .nsw-list--16;
 
         .btn {
           @extend .nsw-button;
