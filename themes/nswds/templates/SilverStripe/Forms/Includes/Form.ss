@@ -22,17 +22,7 @@
 
     </div>
 
-    <div class="nsw-form__group actions">
-
-    <% if $Actions %>
-        <fieldset class="nsw-form__fieldset">
-        <% loop $Actions %>
-            {$Field}
-        <% end_loop %>
-        </fieldset>
-    <% end_if %>
-
-    </div>
+    <% include NSWDPC/Waratah/Forms/Actions %>
 
 <% if $IncludeFormTag %>
 </form>
