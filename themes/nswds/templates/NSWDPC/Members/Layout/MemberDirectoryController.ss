@@ -57,7 +57,7 @@
                 <% end_if %>
 
                 <div class="nsw-block">
-                    <% include nswds/ResultsBar ResultsBar_Start=$DirectoryMembers.FirstItem, ResultsBar_End=$DirectoryMembers.LastItem, ResultsBar_Total=$DirectoryMembers.TotalItems, ResultsBar_ResultType='people', ResultsBar_ResultTypeSingular='person' %>
+                    <% include nswds/ResultsBar ResultsBar_Start=$DirectoryMembers.FirstItem, ResultsBar_End=$DirectoryMembers.LastItem, ResultsBar_Total=$DirectoryMembers.TotalItems, ResultsBar_ResultType='people', ResultsBar_ResultTypeSingular='person', ResultsBar_ClearFilters=$ClearResultsLink %>
                 </div>
 
                 <div class="nsw-block">
