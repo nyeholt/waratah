@@ -20,3 +20,26 @@
     }
   }
 }
+
+/**
+ * Replace negative margin in nsw-list
+ */
+.nsw-list {
+  margin: 0;
+  > * {
+    margin: 0;
+  }
+
+  &--8 {
+    gap: rem(4px);
+  }
+
+  &--16 {
+    gap: rem(8px);
+  }
+
+  &--32 {
+    gap: rem(16px);
+  }
+
+}
