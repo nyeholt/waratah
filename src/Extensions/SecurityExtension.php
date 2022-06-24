@@ -23,7 +23,11 @@ class SecurityExtension extends Extension
      */
     public function RegistrationProvider() : ?RegistrationProvider {
         if(class_exists(MemberRegistrationController::class)) {
-            return Injector::inst()->get( MemberRegistrationController::class );
+            $provider = Injector::inst()->get( MemberRegistrationController::class );
+            // If the provider has a rego form, return the provider
+            if($provider->MemberProfileRegistrationForm()) {
+                return $provider;
+            }
         }
         return null;
     }
