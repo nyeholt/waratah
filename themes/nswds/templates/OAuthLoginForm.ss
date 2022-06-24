@@ -28,29 +28,7 @@
 
     </div>
 
-    <div class="nsw-form__group actions">
-
-    <% if $Actions %>
-        <fieldset class="nsw-form__fieldset">
-        <div class="nsw-grid">
-        <% loop $Actions %>
-            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-6">
-                <div class="nsw-section nsw-section--box">
-                    <% if $Description %>
-                    <h3>{$Description}</h3>
-                    <% end_if %>
-                    <% if $RightTitle %>
-                    <p>{$RightTitle}</p>
-                    <% end_if %>
-                    {$Field}
-                </div>
-            </div>
-        <% end_loop %>
-        </div>
-        </fieldset>
-    <% end_if %>
-
-    </div>
+    <% include NSWDPC/Waratah/Forms/Actions %>
 
 </form>
 
