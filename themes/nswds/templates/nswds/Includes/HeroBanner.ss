@@ -1,4 +1,4 @@
-<div class="nsw-hero-banner<% if $HeroBanner_Brand %> nsw-hero-banner--{$HeroBanner_Brand.XML}<% end_if %><% if $HeroBanner_IsWide %> nsw-hero-banner--wide<% end_if %>">
+<div class="nsw-hero-banner<% if $HeroBanner_WithLines %> nsw-hero-banner--lines<% end_if %><% if $HeroBanner_Brand %> nsw-hero-banner--{$HeroBanner_Brand.XML}<% end_if %><% if $HeroBanner_IsWide %> nsw-hero-banner--wide<% end_if %>">
 
     <div class="nsw-hero-banner__container">
 
@@ -58,12 +58,18 @@
                     </ul>
                 </div>
             </div>
-            <% end_if %>
-
-            <% if not $HeroBanner_Links %>
-                <% if not $HeroBanner_IsWide || $HeroBanner_Image || $HeroBanner_ImageURL %>
+            <% else %>
+                <% if $HeroBanner_IsWide %>
+                    <% if $HeroBanner_WithLines %>
+                        <div class="nsw-hero-banner__box">
+                            <div class="nsw-hero-banner__lines"></div>
+                        </div>
+                    <% end_if %>
+                <% else_if $HeroBanner_Image || $HeroBanner_ImageURL || $HeroBanner_WithLines %>
                 <div class="nsw-hero-banner__box" role="presentation">
-                    <% if $HeroBanner_Image %>
+                    <% if $HeroBanner_WithLines %>
+                        <div class="nsw-hero-banner__lines"></div>
+                    <% else_if $HeroBanner_Image %>
                         <img class="nsw-hero-banner__image" src="{$HeroBanner_Image.FocusFill(500,500).URL}" alt="{$HeroBanner_Image.AltText.XML}">
                     <% else_if $HeroBanner_ImageURL %>
                         <img class="nsw-hero-banner__image" src="{$HeroBanner_ImageURL}" width="500" height="500" alt="">
