@@ -25,7 +25,7 @@
 
             <% if $Children %>
 
-            <div class="nsw-main-nav__sub-nav" id="sub-nav-{$ID}" role="region" aria-label="{$MenuTitle.XML} Submenu">
+            <div class="nsw-main-nav__sub-nav" id="sub-nav-{$ID}" role="region" aria-label="{$MenuTitle.XML} <%t nswds.SUBMENU 'Submenu' %>">
 
                 <div class="nsw-main-nav__header">
 
