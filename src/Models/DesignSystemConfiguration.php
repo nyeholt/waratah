@@ -120,12 +120,22 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
-     * @var array button branding options
+     * @var array card branding options
      * https://nswdesignsystem.surge.sh/components/card/index.html
      */
     private static $colour_cardbrand_options = [
         'dark' => 'Brand Dark',
         'light' => 'Brand Light'
+    ];
+
+    /**
+     * @var array hero banner branding options
+     * https://nswdesignsystem.surge.sh/components/card/index.html
+     */
+    private static $colour_herobannerbrand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'white' => 'White'
     ];
 
     /**

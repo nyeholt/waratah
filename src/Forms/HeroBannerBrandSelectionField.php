@@ -6,9 +6,20 @@ use NSWDPC\Waratah\Traits\DesignSystemSelections;
 use SilverStripe\Forms\DropdownField;
 
 /**
- * Extend Card selection for brand to HeroBanner brand selection
+ * HeroBanner brand selection
  * @author James
  */
-class HeroBannerBrandSelectionField extends CardBrandSelectionField
+class HeroBannerBrandSelectionField extends DropdownField
 {
+    use DesignSystemSelections;
+
+    /**
+     *
+     * @inheritdoc
+     */
+    public function getSource()
+    {
+        $this->source = $this->getColourSelectionOptions('herobannerbrand');
+        return parent::getSource();
+    }
 }
