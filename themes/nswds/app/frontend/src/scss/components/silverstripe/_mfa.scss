@@ -107,6 +107,9 @@
         @extend .nsw-list;
         @extend .nsw-list--16;
 
+        // ensure margin below
+        margin-bottom: rem(32px) !important;
+
         .btn {
           @extend .nsw-button;
         }
