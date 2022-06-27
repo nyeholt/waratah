@@ -13,6 +13,8 @@
 
             <% if $GlobalAlert_UseButtonLink %>
 
+                <p>
+
                 <% if $GlobalAlert_AlertState=='light' %>
                     <%-- light state needs a non-white button class --%>
                     <% if $GlobalAlert_ButtonTitle %>
@@ -27,6 +29,8 @@
                         <% include nswds/Button Button_LinkURL=$GlobalAlert_LinkURL, Button_Title='More information', Button_State='white' %>
                     <% end_if %>
                 <% end_if %>
+
+                </p>
 
             <% end_if %>
 
