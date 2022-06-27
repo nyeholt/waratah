@@ -6,6 +6,10 @@ Only:
 ---
 SilverStripe\LoginForms\EnablerExtension:
   login_themes:
+    # load project templates
+    - '/app'
+    - '/mysite'
+    # then this theme
     - 'nswdpc/waratah:nswds'
 SilverStripe\Security\Security:
   extensions:
