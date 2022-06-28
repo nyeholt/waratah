@@ -1,5 +1,5 @@
 <% if $Tags_List %>
-    <div class="nsw-list">
+    <div class="nsw-list nsw-list--8">
     <% loop $Tags_List %>
 
         <% if $Link %>
