@@ -1,1 +1,1 @@
-<% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='NSWDPC/Waratah/Includes/PageSearchResults' %>
+<% include NSWDPC/Waratah/PageSearchResults %>
