@@ -52,6 +52,10 @@
     <div class="nsw-list-item__image">
         <img src="{$ListItem_Image.Fill(500,500).URL}" alt="{$ListItem_Image.Title.XML}">
     </div>
+    <% else_if $ListItem_ImageURL %>
+    <div class="nsw-list-item__image">
+        <img src="{$ListItem_ImageURL.XML}" alt="{$ListItem_ImageAlt.XML}">
+    </div>
     <% end_if %>
 
 </div>
