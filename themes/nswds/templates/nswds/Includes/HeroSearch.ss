@@ -1,4 +1,4 @@
-<div class="nsw-section nsw-section--image"<% if $HeroSearch_Image %> style="background-image: url({$HeroSearch_Image.FocusFillMax(1920,640).URL});"<% end_if %>>
+<div class="nsw-section nsw-section--image"<% if $HeroSearch_Image %> style="background-image: url({$HeroSearch_Image.FocusFillMax(1920,640).URL});"<% else_if $HeroSearch_ImageURL %> style="background-image: url({$HeroSearch_ImageURL.XML});"<% end_if %>>
 
     <div class="hero-search">
 
@@ -16,16 +16,14 @@
 
                     <% if $HeroSearch_Form %>
                         <% with $HeroSearch_Form %>
-                            <form role="search" class="hero-search__form" $FormAttributes>
-                                <div class="nsw-form-search">
+                            <form role="search" class="hero-search__form" {$FormAttributes}>
+                                <div class="nsw-form__input-group nsw-form__input-group--icon nsw-form__input-group--large">
                                     <label for="{$FormName}_Search" class="sr-only"><%t nswds.SEARCH_SITE_FOR 'Search site for' %>:</label>
-                                    <input autocomplete="off" id="{$FormName}_Search" name="<% if $SearchFieldName %>{$SearchFieldName.XML}<% else %><%t nswds.SEARCH 'Search' %><% end_if %>" type="text" class="nsw-form-search__input" placeholder="<%t nswds.SEARCH_SITE_FOR 'Search site for' %>" value="{$SearchQuery.XML}" aria-label="<%t nswds.SEARCH 'Search' %>" aria-describedby="{$FormName}_action_results">
-
-                                    <button class="nsw-form-search__submit" type="submit" aria-label="search">
+                                    <input autocomplete="off" id="{$FormName}_Search" name="<% if $SearchFieldName %>{$SearchFieldName.XML}<% else %><%t nswds.SEARCH 'Search' %><% end_if %>" type="text" class="nsw-form__input" value="{$SearchQuery.XML}" aria-label="<%t nswds.SEARCH 'Search' %>" aria-describedby="{$FormName}_action_results">
+                                    <button class="nsw-button nsw-button--white nsw-button--flex" type="submit" aria-label="search">
                                         <% include nswds/Icon Icon_Icon='search' %>
                                         <span class="sr-only"><%t nswds.SEARCH 'Search' %></span>
                                     </button>
-
                                 </div>
                             </form>
                         <% end_with %>
