@@ -23,7 +23,7 @@
                 <% end_if %>
             </a>
 
-            <% include nswds/MainNavigation_Level2 %>
+            <% include nswds/MainNavigation_Level2 MainNavigation_Allow_Level3=$Up.MainNavigation_Allow_Level3 %>
 
         </li>
 

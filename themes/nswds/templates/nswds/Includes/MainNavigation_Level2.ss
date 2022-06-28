@@ -40,7 +40,9 @@
                 <% end_if %>
             </a>
             <%-- process level 3 --%>
+            <% if $Up.MainNavigation_Allow_Level3 == 1 %>
             <% include nswds/MainNavigation_Level3 %>
+            <% end_if %>
         </li>
 
         <% end_loop %>
