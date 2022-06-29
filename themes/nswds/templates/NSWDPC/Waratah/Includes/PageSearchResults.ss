@@ -39,7 +39,9 @@
 
             <% else %>
 
-                <!-- search prompt -->
+            <div class="nsw-m-top-md">
+                <% include nswds/InPageAlert InPageAlert_Icon='search', InPageAlert_Title='Search term required', InPageAlert_Content='Enter a search term to find matching records' %>
+            </div>
 
             <% end_if %>
 
