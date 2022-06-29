@@ -2,15 +2,7 @@
 
 <form $AttributesHTML>
 
-    <% if $MessageType == 'good' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='check_circle', InPageNotification_Level='success', InPageNotification_Title='Success', InPageNotification_Content=$Message %>
-    <% else_if $MessageType == 'warning' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='error', InPageNotification_Level='warning', InPageNotification_Title='Warning', InPageNotification_Content=$Message %>
-    <% else_if $MessageType == 'error' %>
-        <% include nswds/InPageNotification InPageNotification_Icon='cancel', InPageNotification_Level='error', InPageNotification_Title='Error', InPageNotification_Content=$Message %>
-    <% else %>
-        <% include nswds/InPageNotification InPageNotification_Icon='info', InPageNotification_Level='info', InPageNotification_Title='Information', InPageNotification_Content=$Message %>
-    <% end_if %>
+    <% include NSWDPC/Waratah/Forms/Notifications %>
 
     <div class="nsw-filters__controls<% if $HasFilterResults %> nsw-filters__controls--active<% end_if %>">
         <button type="button">
@@ -35,7 +27,6 @@
         </div>
 
         <div class="nsw-filters__title">
-
             <% if $Legend %>
             {$Legend.XML}
             <% else %>
