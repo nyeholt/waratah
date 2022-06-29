@@ -1,8 +1,8 @@
-<% if LinkOrSection = section %>
+<% if $LinkOrSection == 'section' %>
 <% if $SideNavigation_Children %>
 <ul>
     <% loop $SideNavigation_Children %>
-    <li>
+    <li<% if $IsCurrent %> class="active"<% end_if %>>
         <a href="{$Link}"<% if $IsCurrent %> class="current" aria-current="page"<% end_if %>>
         <% if $MenuTitle %>{$MenuTitle.XML}<% else %>{$Title.XML}<% end_if %>
         </a>

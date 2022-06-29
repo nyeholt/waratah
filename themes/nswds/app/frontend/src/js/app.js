@@ -1,5 +1,6 @@
 // Core components
 import initSlimSelect from './components/slimselect';
+import initSideNav from './components/sidenav';
 
 function initAppMain() {
     try {
@@ -9,6 +10,7 @@ function initAppMain() {
         window.NSW.initSite();
         // init components
         initSlimSelect();
+        initSideNav();
     } catch (e) {
         console.warn(e);
     }
