@@ -19,5 +19,3 @@ initAppMain();
 
 // Project components
 import '../../../../../../../../../waratah-branding/frontend/src/app.js';
-
-$('.nsw-layout__main table').wrap('<div class="nsw-table-responsive" role="region" aria-labelledby="caption0" tabindex="0">');
