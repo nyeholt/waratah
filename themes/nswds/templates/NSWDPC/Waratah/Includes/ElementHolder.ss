@@ -29,8 +29,8 @@
 <% else %>
 
     <%-- any element not rendered directly,  not in a landing page --%>
-    <div class="nsw-block<% if $IsBoxed %> nsw-section--box<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}" data-page-type="2">
+    <section class="nsw-section<% if $IsBoxed %> nsw-section--box<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $SpacingClass %> $SpacingClass<% end_if %><% if $StyleVariant %> $StyleVariant<% end_if %><% if $ExtraClass %> $ExtraClass<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}" data-page-type="2">
         {$Element}
-    </div>
+    </section>
 
 <% end_if %>
