@@ -6,6 +6,7 @@ use SilverStripe\Core\Config\Configurable;
 use SilverStripe\Control\Controller;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\View\TemplateGlobalProvider;
 use SilverStripe\View\SSViewer;
 
@@ -236,10 +237,36 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
             'ElementSectionClass' => 'get_element_section_class',
             'MastHead_Brand' => 'get_masthead_brand',
             'AlternateHomeURL' => 'get_alt_home_page',
-            'PerLayoutContent' => 'get_per_layout_content'
+            'PerLayoutContent' => 'get_per_layout_content',
+            'FormAlertLevel' => 'get_alert_level'
         ];
     }
 
+    /**
+     * Return the NSWDS alert level based on input, default return is info
+     * @param string $alertLevel
+     * @return string
+     */
+    public static function get_alert_level($alertLevel) : string {
+        switch($alertLevel) {
+            case 'success':
+            case ValidationResult::TYPE_GOOD:
+                return 'success';
+                break;
+            case ValidationResult::TYPE_WARNING:
+                return 'warning';
+                break;
+            case 'bad':
+            case 'required':
+            case ValidationResult::TYPE_ERROR:
+                return 'error';
+                break;
+            case ValidationResult::TYPE_INFO:
+            default:
+                return 'info';
+                break;
+        }
+    }
 
 
     /**

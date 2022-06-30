@@ -1,4 +1,4 @@
-<div class="nsw-in-page-alert nsw-in-page-alert--<% if $InPageAlert_Level %>{$InPageAlert_Level}<% else %>info<% end_if %><% if $InPageAlert_IsCompact %> nsw-in-page-alert--compact<% end_if %>"<% if $InPageAlert_Content == '' %> style="display: none"<% end_if %>>
+<div class="nsw-in-page-alert nsw-in-page-alert--<% if $InPageAlert_Level %>{$FormAlertLevel($InPageAlert_Level)}<% else %>info<% end_if %><% if $InPageAlert_IsCompact %> nsw-in-page-alert--compact<% end_if %>"<% if $InPageAlert_Content == '' %> style="display: none"<% end_if %>>
 
   <% if $InPageAlert_Icon %>
     <% include nswds/Icon Icon_Icon=$InPageAlert_Icon, Icon_IconExtraClass='nsw-in-page-alert__icon' %>
