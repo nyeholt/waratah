@@ -10,7 +10,11 @@
             <div class="nsw-col {$Up.Up.ColumnClass($Up.OverrideColumns)}">
                 <div class="nsw-card nsw-card--highlight<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
                     <% if $Up.Up.CardStyle == "title-image-abstract" %>
-                        <% if $Image %>
+                        <% if $ContentImage %>
+                        <div class="nsw-card__image">
+                            <img src="{$ContentImage.FocusFillMax(600,400).URL}" alt="{$ContentImage.AltText.XML}">
+                        </div>
+                        <% else_if $Image %>
                             <div class="nsw-card__image">
                                 <img src="{$Image.FocusFillMax(600,400).URL}" alt="{$Image.AltText.XML}">
                             </div>
