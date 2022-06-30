@@ -8,7 +8,7 @@
         <% include NSWDPC/Waratah/PageElemental %>
     <% end_if %>
 
-    <section class="nsw-section<% if $SpacingClass %> {$SpacingClass}<% end_if %>">
+    <section class="nsw-section<% if $SpacingClass %> {$SpacingClass}<% end_if %>" data-type="layoutcontent">
 
     <% if $Top.IsLandingPage %>
         <div class="nsw-container">
