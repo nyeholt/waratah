@@ -79,7 +79,7 @@
                             </div>
 
                             <div class="nsw-card__title">
-                                <a href="{$Link}" title="More information about {$Title.XML}">{$MenuTitle.XML}</a>
+                                <a href="{$Link}">{$MenuTitle.XML}</a>
                             </div>
 
                             <% if $MetaDescription %>
