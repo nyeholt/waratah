@@ -188,7 +188,6 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      * https://nswdesignsystem.surge.sh/styles/section/index.html
      */
     private static $colour_section_options = [
-        '0' => 'No background',
         'brand-dark' => 'Brand dark',
         'brand-light' => 'Brand light',
         'brand-supplementary' => 'Brand supplementary',
@@ -198,12 +197,7 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
         'grey-01' => 'Grey 01',
         'grey-02' => 'Grey 02',
         'grey-03' => 'Grey 03',
-        'grey-04' => 'Grey 04',
-        // legacy options
-        'light-10' => 'Light 10 (this option will be removed in the future, please use Off white)',
-        'light-20' => 'Light 20 (this option will be removed in the future, please use Grey 04)',
-        'light-40' => 'Light 40 (this option will be removed in the future, please use Grey 03)',
-        '1' => 'On (this option will be removed in the future, please use \'Off white\' instead)'
+        'grey-04' => 'Grey 04'
     ];
 
     /**
