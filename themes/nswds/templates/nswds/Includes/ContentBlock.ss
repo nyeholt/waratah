@@ -1,4 +1,6 @@
+<% if not $ContentBlock_NoGrid %>
 <div class="nsw-col<% if $ContentBlock_ColumnOptions %> $ContentBlock_ColumnOptions.XML<% else %> nsw-col-md-4<% end_if %>">
+<% end_if %>
 
     <div class="nsw-content-block">
 
@@ -53,4 +55,7 @@
         </div>
 
     </div>
+
+<% if not $ContentBlock_NoGrid %>
 </div>
+<% end_if %>
