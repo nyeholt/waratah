@@ -16,3 +16,4 @@
     <meta name="twitter:title" content="{$Title.XML}">
     <% if $MetaDescription || $Abstract %><meta name="twitter:description" content="<% if $MetaDescription %>{$MetaDescription.XML}<% else %>{$Abstract.XML}<% end_if %>"><% end_if %>
     <% if $Image %><meta name="twitter:image" content="{$Image.FocusFillMax(640,640).AbsoluteLink}"><% end_if %>
+    <link rel="manifest" href="{$resourceURL('nswdpc/waratah:themes/nswds/app/static/site.webmanifest.json')}">

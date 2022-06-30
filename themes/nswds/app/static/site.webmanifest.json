@@ -1,0 +1,34 @@
+{
+    "name": "NSW Government",
+    "short_name": "NSW Government",
+    "icons": [
+        {
+            "src": "/_resources/vendor/nswdpc/waratah/themes/nswds/app/static/nsw-digital-logos/favicon/favicon-180x180.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/_resources/vendor/nswdpc/waratah/themes/nswds/app/static/nsw-digital-logos/favicon/favicon-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/_resources/vendor/nswdpc/waratah/themes/nswds/app/static/nsw-digital-logos/favicon/favicon-48x48.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/_resources/vendor/nswdpc/waratah/themes/nswds/app/static/nsw-digital-logos/favicon/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/_resources/vendor/nswdpc/waratah/themes/nswds/app/static/nsw-digital-logos/favicon/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#002664",
+    "start_url": "https://www.dpc.nsw.gov.au"
+}
