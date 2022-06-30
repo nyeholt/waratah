@@ -2,9 +2,11 @@
 <% if $Top.IsLandingPage %>
 
     <%-- a landing page --%>
-    <main id="content" data-page-type="1">
-    <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
-    </main>
+    <div class="nsw-p-top-sm nsw-p-bottom-lg" data-page-type="1">
+        <main id="content" class="nsw-layout__main">
+            <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
+        </main>
+    </div>
 
 <% else_if $Top.HasSideElements %>
 
