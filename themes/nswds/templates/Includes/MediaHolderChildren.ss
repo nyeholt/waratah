@@ -1,10 +1,12 @@
 <% if $PaginatedChildren %>
-<% if $CurrentPage.IsLandingPage %>
-    <div class="nsw-container">
-<% end_if %>
+    <% if $CurrentPage.IsLandingPage %>
+        <div class="nsw-container">
+    <% end_if %>
 
-    <section>
+        <% include nswds/Pagination Pagination_PaginatedItems=$PaginatedChildren(12), SummaryLimit=4 %>
+
         <% if $MediaType.Title == "Publication" %>
+
         <ul class="search-results">
             <% loop $PaginatedChildren(12,"Title","ASC") %>
                 <li class="search-results-item">
@@ -20,7 +22,9 @@
                 </li>
             <% end_loop %>
         </ul>
+
         <% else %>
+
         <div class="nsw-grid">
             <% loop $PaginatedChildren(12) %>
                 <div class="nsw-col nsw-col-sm-<% if $Up.IsLandingPage %>4<% else %>6<% end_if %>">
@@ -59,10 +63,11 @@
             <% end_loop %>
         </div>
         <% end_if %>
-        <% include nswds/Pagination Pagination_PaginatedItems=$PaginatedChildren(12), SummaryLimit=4 %>
-    </section>
 
-<% if $CurrentPage.IsLandingPage %>
-</div>
-<% end_if %>
+        <% include nswds/Pagination Pagination_PaginatedItems=$PaginatedChildren(12), SummaryLimit=4 %>
+
+
+    <% if $CurrentPage.IsLandingPage %>
+    </div>
+    <% end_if %>
 <% end_if %>

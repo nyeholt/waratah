@@ -283,7 +283,7 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
 
     /**
      * Return per layout content
-     * Example: <% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='Includes/PageSearchResults' %>
+     * Example: <% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='Template/Location/TheTemplate' %>
      * @return DBHTMLText|null
      * @param string $template an SS template path eg App/Directory/Person
      */
