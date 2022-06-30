@@ -1,4 +1,3 @@
-<% if $ApplyFormWrapper %><div class="nsw-form"><% end_if %>
 <% if $IncludeFormTag %>
 <form $AttributesHTML>
 <% end_if %>
@@ -27,4 +26,3 @@
 <% if $IncludeFormTag %>
 </form>
 <% end_if %>
-<% if $ApplyFormWrapper %></div><% end_if %>

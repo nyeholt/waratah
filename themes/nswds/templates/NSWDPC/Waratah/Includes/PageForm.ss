@@ -3,9 +3,11 @@
     <div class="nsw-container">
 <% end_if %>
 
-    <section class="nsw-section nsw-section--half-padding">
-        {$Form}
-    </section>
+    <section class="nsw-section nsw-section--no-padding">
+        <div class="nsw-form">
+            {$Form}
+        </div>
+    </div>
 
 <% if $Top.IsLandingPage %>
     </div>
