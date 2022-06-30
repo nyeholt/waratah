@@ -7,21 +7,49 @@
 
         <% if $MediaType.Title == "Publication" %>
 
-        <ul class="search-results">
+        <div class="nsw-block">
             <% loop $PaginatedChildren(12,"Title","ASC") %>
-                <li class="search-results-item">
-                    <h4 class="item-title"><a href="$Link"><% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %></a></h4>
-                    <% include NSWDPC/Waratah/PageContentMetadata %>
-                    <% if $MetaDescription %>
-                        <p class="item-abstract">$MetaDescription.ContextSummary(350)</p>
-                    <% else_if $Abstract %>
-                        <p class="item-abstract">$Abstract.ContextSummary(350)</p>
-                    <% else_if $ElementsForSearch %>
-                        <p class="item-abstract">$ElementsForSearch.RAW.ContextSummary(350)</p>
+            <div class="nsw-list-item">
+              <div class="nsw-list-item__content">
+
+                  <% if $MediaPageAttributes %>
+
+                      <% with $MediaPageAttributes.Filter('MediaAttribute.Title','Author').First %>
+                          <% if $Content %>
+                          <div class="nsw-list-item__label">{$Content.XML}</div>
+                          <% end_if %>
+                      <% end_with %>
+
+                  <% end_if %>
+
+                    <% if $Date %>
+                        <div class="nsw-list-item__info"><time datetime="{$Date.XML}">{$Date.Long}</time></div>
                     <% end_if %>
-                </li>
+
+                    <div class="nsw-list-item__title">
+                        <a href="{$Link.XML}"><% if $MenuTitle %>$MenuTitle.XML<% else %>$Title.XML<% end_if %></a>
+                    </div>
+
+                    <div class="nsw-list-item__copy">
+                    <% if $MetaDescription %>
+                        {$MetaDescription.ContextSummary(350)}
+                    <% else_if $Abstract %>
+                        {$Abstract.ContextSummary(350)}
+                    <% else_if $ElementsForSearch %>
+                        {$ElementsForSearch.RAW.ContextSummary(350)}
+                    <% end_if %>
+                    </div>
+
+                    <% if $Tags %>
+                    <div class="nsw-list-item__tags">
+                        <% include nswds/Tags Tags_List=$Tags %>
+                    </div>
+                    <% end_if %>
+
+                </div>
+            </div>
             <% end_loop %>
-        </ul>
+        </div>
 
         <% else %>
 
@@ -35,27 +63,31 @@
                             </div>
                         <% end_if %>
                         <div class="nsw-card__content">
-                            <% if $MediaAttributes %>
-                                <% loop $MediaAttributes %>
-                                    <% if $Join.Content %>
-                                        <div class="nsw-card__tag">{$Join.Content}</div>
+
+                            <% if $MediaPageAttributes %>
+
+                                <% with $MediaPageAttributes.Filter('MediaAttribute.Title','Author').First %>
+                                    <% if $Content %>
+                                    <div class="nsw-card__tag">{$Content.XML}</div>
                                     <% end_if %>
-                                <% end_loop %>
+                                <% end_with %>
+
                             <% end_if %>
+
                             <div class="nsw-card__date">
-                                <time datetime="{$Date}">{$Date.Full}</time>
+                                <time datetime="{$Date.XML}">{$Date.Long}</time>
                             </div>
-                            <% if $Tags %>
-                                <% loop $Tags.Limit(3) %>
-                                    <div class="nsw-card__tag">{$Title.XML}</div>
-                                <% end_loop %>
-                            <% end_if %>
+
                             <div class="nsw-card__title">
                                 <a href="{$Link}" title="More information about {$Title.XML}">{$MenuTitle.XML}</a>
                             </div>
-                            <% if $Abstract %>
-                                <div class="nsw-card__copy">{$Abstract.XML}</div>
+
+                            <% if $MetaDescription %>
+                                <div class="nsw-card__copy">{$MetaDescription.ContextSummary(350)}</div>
+                            <% else_if $Abstract %>
+                                <div class="nsw-card__copy">{$Abstract.ContextSummary(350)}</div>
                             <% end_if %>
+
                             <% include nswds/Icon Icon_Icon='east' %>
                         </div>
                     </div>
