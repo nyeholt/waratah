@@ -225,16 +225,15 @@ class BaseElementExtension extends DataExtension
         $bg = $this->getSupportedBackground(strval($bg));
         $spacing = DesignSystemConfiguration::get_spacing_class();
         $classes = [];
-        if(!$bg) {
-            if($section_class = DesignSystemConfiguration::get_element_section_class()) {
-                $classes[] = $section_class;
-            }
+        // nsw-section
+        $classes[] = 'nsw-section';
+        if($bg) {
+            $classes[] = 'nsw-section--' . $bg;
             if($spacing) {
                 $classes[] = $spacing;
             }
-        } else {
-            $classes[] = 'nsw-section';
-            $classes[] = 'nsw-section--' . $bg;
+        } else if($spacing) {
+            $classes[] = $spacing;
         }
         return implode(" ", $classes);
     }
