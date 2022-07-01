@@ -1,18 +1,36 @@
 
-<div id="$HolderID" class="nsw-form__group wrth-form__composite<% if $Zebra %> {$Zebra}<% end_if %><% if $ParentExtraClass %> {$ParentExtraClass}<% end_if %>" data-is-composite="1">
+<div id="{$HolderID}" class="nsw-form__group wrth-form__composite<% if $Zebra %> {$Zebra}<% end_if %><% if $ParentExtraClass %> {$ParentExtraClass}<% end_if %>" data-is-composite="1">
 
     <% if $FormFieldHint == 'callout' %>
 
+        <%-- render as in-page-alert --%>
         <div class="nsw-callout">
-            <% include nswds/Icon Icon_Icon='info', Icon_IconExtraClass='nsw-callout__icon' %>
             <div class="nsw-callout__content">
             <% loop $FieldList %>
-                <% if $Pos == 1 %>
-                    <h4 class="nsw-callout__title">{$Title.XML}</h4>
-                <% else %>
-                    $FieldHolder
+                <% if $Pos == 1 && $Up.Title %>
+                    <h4>{$Up.Title.XML}</h4>
                 <% end_if %>
+                {$FieldHolder}
             <% end_loop %>
+            </div>
+        </div>
+
+    <% else_if $FormFieldHint == 'inpagealert' %>
+
+        <%-- render as in-page-alert --%>
+        <div class="nsw-in-page-alert nsw-in-page-alert--info">
+            <% if $FormFieldHintIcon %>
+                <% include nswds/Icon Icon_Icon=$FormFieldHintIcon, Icon_IconExtraClass='nsw-in-page-alert__icon' %>
+            <% else %>
+                <% include nswds/Icon Icon_Icon='info', Icon_IconExtraClass='nsw-in-page-alert__icon' %>
+            <% end_if %>
+            <div class="nsw-in-page-alert__content">
+                <% loop $FieldList %>
+                    <% if $Pos == 1 && $Up.Title %>
+                        <h5>{$Up.Title.XML}</h5>
+                    <% end_if %>
+                    {$FieldHolder}
+                <% end_loop %>
             </div>
         </div>
 
@@ -20,15 +38,15 @@
 
         <fieldset class="nsw-form__fieldset">
 
-            <% if $Legend %>
-                <legend><span class="nsw-form__legend">$Legend</span></legend>
-            <% else_if $Title %>
-                <legend><span class="nsw-form__legend">$Title</span></legend>
-            <% end_if %>
+            <% include NSWDPC/Waratah/Forms/Legend %>
 
-            <div class="field">
-            $Field
-            </div>
+            <section class="nsw-section nsw-section--half-padding nsw-section--off-white">
+                <div class="nsw-container">
+                    <div class="field">
+                    {$Field}
+                    </div>
+                </div>
+            </section>
 
         </fieldset>
 

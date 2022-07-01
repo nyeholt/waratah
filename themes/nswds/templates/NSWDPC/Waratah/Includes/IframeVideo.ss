@@ -1,4 +1,4 @@
-<figure class="nsw-media">
+<figure class="nsw-media<% if $Media_Brand %> nsw-media--{$Media_Brand.XML}<% end_if %>">
 
     <div class="nsw-media__video embed video">
 
@@ -12,15 +12,32 @@
 
     <figcaption>
 
-        <% if $HTML %>
-            <%-- HTML content --%>
-            {$HTML}
-        <% else_if $Description %>
-            <p>{$Description.XML}</p>
+        <% if $LinkTarget %>
+
+            <div class="nsw-grid">
+
+                <div class="nsw-col nsw-col-xs-12 nsw-col-lg-6">
+
         <% end_if %>
 
+            <% if $HTML %>
+                <%-- HTML content --%>
+                {$HTML}
+            <% else_if $Description %>
+                {$Description.XML}
+            <% end_if %>
+
         <% if $LinkTarget %>
-            <p><a href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a></p>
+
+                </div>
+                <div class="nsw-col nsw-col-xs-12 nsw-col-lg-6">
+                    <div class="ausday-featured-video__more-link">
+                        <a class="nsw-button nsw-button--light-outline" href="{$LinkTarget.LinkURL}">{$LinkTarget.Title}</a>
+                    </div>
+                </div>
+
+            </div>
+
         <% end_if %>
 
     </figcaption>
@@ -29,9 +46,7 @@
     <div class="nsw-accordion js-accordion">
         <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
         <div class="nsw-accordion__content">
-            <div class="nsw-wysiwyg-content">
-                {$Transcript}
-            </div>
+            {$Transcript}
         </div>
     </div>
     <% end_if %>

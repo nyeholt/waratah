@@ -1,54 +1,50 @@
 <% if $Member %>
-<nav class="nsw-sidenav" aria-labelledby="profile-links">
+<nav class="nsw-side-nav" aria-labelledby="profile-links">
 
-    <div class="nsw-sidenav__header">
-        <h2 id="profile-links" class="nsw-sidenav__heading">
-        <a href="{$EditProfileLink.XML}" class="nsw-sidenav__heading-link"><%t banc.PROFILE_LINKS 'Profile' %></a>
-        </h2>
+    <div class="nsw-side-nav__header">
+        <a id="profile-links" href="{$EditProfileLink.XML}" class="nsw-side-nav__heading"><%t nswds.PROFILE_LINKS 'Profile' %></a>
     </div>
 
-    <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
+    <ul>
 
         <% if $ProfilePages %>
-            <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="$PageLink">Pages</a></li>
+            <li><a href="{$PageLink}"><%t nswds.PAGES 'Pages' %></a></li>
         <% end_if %>
 
         <% if $ProfileFolders %>
-            <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="$FolderLink">Files</a></li>
+            <li><a href="{$FolderLink}"><%t nswds.FILES 'Files' %></a></li>
         <% end_if %>
 
         <% if $DirectoryLink %>
-            <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="$DirectoryLink">Directory</a></li>
+            <li><a href="{$DirectoryLink}"><%t nswds.DIRECTORY 'Directory' %></a></li>
         <% end_if %>
 
         <% if $MFALink %>
-            <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="$MFALink">Multi-Factor Authentication (MFA)</a></li>
+            <li><a href="{$MFALink}"><%t nswds.MULTI_FACTOR_AUTHENTICATION 'Multi-Factor Authentication (MFA)' %></a></li>
         <% end_if %>
 
-        <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link" href="$ChangePasswordLink">Change password</a></li>
+        <li><a href="{$ChangePasswordLink}"><%t nswds.CHANGE_PASSWORD 'Change password' %></a></li>
 
     </ul>
 
-    <% if $SignOutForm %>
-        {$SignOutForm}
-    <% end_if %>
-
 </nav>
+
+<% if $SignOutForm %>
+    {$SignOutForm}
+<% end_if %>
 
 <% else %>
 
-<nav class="nsw-sidenav" aria-labelledby="public-links">
+<nav class="nsw-side-nav" aria-labelledby="public-links">
 
-    <div class="nsw-sidenav__header">
-        <h2 id="public-links" class="nsw-sidenav__heading">
-            <a href="#" class="nsw-sidenav__heading-link">Menu</a>
-        </h2>
+    <div class="nsw-side-nav__header">
+        <a id="public-links" href="#" class="nsw-side-nav__heading"><%t nswds.MENU 'Menu' %></a>
     </div>
 
-    <ul class="nsw-sidenav__list nsw-sidenav__list--level-1">
-        <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link<% if $Action =='login' %> is-current<% end_if %>" href="$SignInLink">Sign in</a></li>
-        <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link<% if $Action == 'lostpassword' %> is-current<% end_if %>" href="$LostPasswordLink">Lost password</a></li>
-        <li class="nsw-sidenav__list-item"><a class="nsw-sidenav__link<% if $URLSegment == '_register' %> is-current<% end_if %>" href="$RegisterLink">Register</a></li>
+    <ul>
+        <li><a class="<% if $Action =='login' %>current<% end_if %>" href="{$SignInLink}"><%t nswds.SIGN_IN 'Sign in' %></a></li>
+        <li><a class="<% if $Action == 'lostpassword' %>current<% end_if %>" href="{$LostPasswordLink}"><%t nswds.LOST_PASSWORD 'Lost password' %></a></li>
+        <li><a class="<% if $URLSegment == '_register' %>current<% end_if %>" href="{$RegisterLink}"><%t nswds.REGISTER 'Register' %></a></li>
     </ul>
 
 </nav>

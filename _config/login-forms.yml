@@ -1,0 +1,20 @@
+---
+Before:
+  - '#login-forms'
+Only:
+  moduleexists: 'silverstripe/login-forms'
+---
+SilverStripe\LoginForms\EnablerExtension:
+  login_themes:
+    # load project templates
+    - '/app'
+    - '/mysite'
+    # then this theme
+    - 'nswdpc/waratah:nswds'
+SilverStripe\Security\Security:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\DesignSystemAssetExtension'
+    - 'NSWDPC\Waratah\Extensions\SecurityExtension'
+Bigfork\SilverStripeOAuth\Client\Form\LoginForm:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\OAuthLoginFormExtension'

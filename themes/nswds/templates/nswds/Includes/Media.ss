@@ -2,12 +2,12 @@
 
 <% if $Media_Image %>
 
-    <% if Media_LinkToImage == 1 %><a <% if Media_GalleryClass %>class="$Media_GalleryClass"<% end_if %> href="{$Media_Image.ScaleMaxWidth(1920).AbsoluteURL.XML}"><% end_if %>
+    <% if Media_LinkToImage == 1 %><a <% if Media_GalleryClass %>class="{$Media_GalleryClass}"<% end_if %> href="{$Media_Image.ScaleMaxWidth(1920).AbsoluteURL.XML}"><% end_if %>
 
     <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
-        {$Media_Image.ProgressiveFocusFill($Media_ImageWidth, $Media_ImageHeight)}
+        {$Media_Image.FocusFill($Media_ImageWidth, $Media_ImageHeight)}
     <% else_if $Media_ImageWidth > 0 %>
-        {$Media_Image.ProgressiveScaleWidth($Media_ImageWidth)}
+        {$Media_Image.ScaleWidth($Media_ImageWidth)}
     <% else_if $Media_ImageHeight > 0 %>
         {$Media_Image.ScaleHeight($Media_ImageHeight)}
     <% else %>
@@ -46,9 +46,7 @@
         <div class="nsw-accordion js-accordion">
             <div class="nsw-accordion__title"><%t nswds.READ_TRANSCRIPT "Read transcript of the '{videoTitle}' video" videoTitle=$Title %></div>
             <div class="nsw-accordion__content">
-                <div class="nsw-wysiwyg-content">
-                    {$Media_Transcript}
-                </div>
+                {$Media_Transcript}
             </div>
         </div>
     <% end_if %>

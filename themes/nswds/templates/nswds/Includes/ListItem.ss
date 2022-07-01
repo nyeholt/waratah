@@ -1,4 +1,4 @@
-<div class="nsw-list-item<% if $ListItem_IsReversed == 1 %> nsw-list-item--reversed<% end_if %>">
+<div class="nsw-list-item<% if $ListItem_UseBlockLink %> nsw-list-item--block<% end_if %><% if $ListItem_IsReversed == 1 %> nsw-list-item--reversed<% end_if %>">
 
     <div class="nsw-list-item__content">
 
@@ -14,11 +14,11 @@
             <div class="nsw-list-item__info">{$ListItem_DateTime.Nice}</div>
         <% end_if %>
 
-        <h3 class="nsw-list-item__title">
-            <a href="{$ListItem_LinkURL}"<% if $ListItem_UseBlockLink %> class="nsw-list-item__link"<% end_if %>>
+        <div class="nsw-list-item__title">
+            <a href="{$ListItem_LinkURL}">
             <% if $ListItem_MenuTitle %>{$ListItem_MenuTitle.XML}<% else %>{$ListItem_Title.XML}<% end_if %>
             </a>
-        </h3>
+        </div>
 
         <% if $ListItem_Info %>
         <div class="nsw-list-item__info">
@@ -27,13 +27,13 @@
         <% end_if %>
 
         <% if $ListItem_Abstract %>
-            <p class="nsw-list-item__copy">
+            <div class="nsw-list-item__copy">
                 {$ListItem_Abstract.XML}
-            </p>
+            </div>
         <% else_if $ListItem_Content %>
-            <p class="nsw-list-item__copy">
+            <div class="nsw-list-item__copy">
                 {$ListItem_Content.XML}
-            </p>
+            </div>
         <% else_if $ListItem_HTML %>
             <div class="nsw-list-item__copy">
                 {$ListItem_HTML}
@@ -49,8 +49,12 @@
     </div>
 
     <% if $ListItem_Image %>
-    <div class="nsw-list-item__image-area">
-        <img src="{$ListItem_Image.Fill(500,500).URL}" class="nsw-list-item__image" alt="{$ListItem_Image.Title.XML}">
+    <div class="nsw-list-item__image">
+        <img src="{$ListItem_Image.Fill(500,500).URL}" alt="{$ListItem_Image.Title.XML}">
+    </div>
+    <% else_if $ListItem_ImageURL %>
+    <div class="nsw-list-item__image">
+        <img src="{$ListItem_ImageURL.XML}" alt="{$ListItem_ImageAlt.XML}">
     </div>
     <% end_if %>
 

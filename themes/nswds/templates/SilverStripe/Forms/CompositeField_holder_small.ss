@@ -2,13 +2,7 @@
 
     <fieldset class="nsw-form__fieldset">
 
-        <% if $Legend || $Title %>
-            <legend>
-                <span class="nsw-form__legend">
-                <% if $Legend %>{$Legend}<% else %>{$Title}<% end_if %>
-                </span>
-            </legend>
-        <% end_if %>
+        <% include NSWDPC/Waratah/Forms/Legend %>
 
         {$Field}
 

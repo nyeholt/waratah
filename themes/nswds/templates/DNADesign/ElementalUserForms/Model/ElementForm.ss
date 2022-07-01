@@ -1,2 +1,5 @@
 <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
-$Form
+
+<div class="nsw-form">
+{$Form}
+</div>

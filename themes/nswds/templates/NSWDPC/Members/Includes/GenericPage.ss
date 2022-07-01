@@ -1,45 +1,15 @@
-<div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
-    <div class="nsw-page-layout">
+<% include NSWDPC/Members/ContainerStart %>
 
-        <main id="main-content" class="nsw-page-layout__main">
+<% if $ExternalManagementContent %>
 
-            <article>
+    {$ExternalManagementContent}
 
-                <div class="nsw-block">
+<% else %>
 
-                    <% include NSWDPC/Waratah/PageContentTitle %>
+    <% include NSWDPC/Waratah/PageElemental %>
 
-                    <% include NSWDPC/Waratah/PageContentAbstract %>
+    <% include NSWDPC/Waratah/PageForm %>
 
-                    <% include NSWDPC/Members/Message %>
+<% end_if %>
 
-                </div>
-
-                <% if $ExternalManagementContent %>
-
-                    {$ExternalManagementContent}
-
-                <% else %>
-
-                    <% include NSWDPC/Waratah/PageElemental %>
-
-                    <% include NSWDPC/Waratah/PageForm %>
-
-                <% end_if %>
-
-            </article>
-        </main>
-
-        <div class="nsw-page-layout__sidebar">
-
-            <% include NSWDPC/Members/Links %>
-
-            <% if $HasSideElements %>
-                {$SideElementalArea}
-            <% end_if %>
-
-        </div>
-
-    </div>
-
-</div>
+<% include NSWDPC/Members/ContainerEnd %>

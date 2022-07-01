@@ -2,19 +2,11 @@
  * General content overrides
  */
 
-::selection,
 mark {
   color: var(--nsw-status-error);
   background-color: var(--nsw-status-error-bg);
 }
+
 mark {
   padding: 0 .3rem;
-}
-
-.nsw-wysiwyg-content {
-  .nsw-page-nav,
-  .nsw-intro,
-  > section:not(:last-child) {
-    margin-bottom: 2rem;
-  }
 }

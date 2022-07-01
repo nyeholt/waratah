@@ -6,7 +6,7 @@
     <div class="nsw-link-list">
         <% loop $Elements.Elements %>
             <%-- TODO: check for element type ? this assumes ElementDecoratedContent --%>
-            <% include nswds/LinkListItem LinkListItem_Link=$LinkTargete %>
+            <% include nswds/LinkListItem LinkListItem_Link=$LinkTarget %>
         <% end_loop %>
     </div>
 <% end_if %>

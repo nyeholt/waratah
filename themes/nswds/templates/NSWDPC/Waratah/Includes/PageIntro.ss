@@ -1,8 +1,6 @@
+<div class="nsw-block<% if $SpacingClass %>{$SpacingClass}<% end_if %>">
 <% if $Top.IsLandingPage %>
-<section class="nsw-section">
     <div class="nsw-container">
-<% else %>
-    <div class="nsw-block {$SpacingClass}">
 <% end_if %>
 
         <% include NSWDPC/Waratah/PageContentTitle %>
@@ -13,7 +11,5 @@
 
 <% if $Top.IsLandingPage %>
     </div>
-</section>
-<% else %>
-    </div>
 <% end_if %>
+</div>

@@ -1,5 +1,6 @@
 // Core components
 import initSlimSelect from './components/slimselect';
+import initSideNav from './components/sidenav';
 
 function initAppMain() {
     try {
@@ -9,6 +10,7 @@ function initAppMain() {
         window.NSW.initSite();
         // init components
         initSlimSelect();
+        initSideNav();
     } catch (e) {
         console.warn(e);
     }
@@ -17,5 +19,3 @@ initAppMain();
 
 // Project components
 import '../../../../../../../../../waratah-branding/frontend/src/app.js';
-
-$('.nsw-page-layout__main table').wrap('<div class="nsw-table-responsive" role="region" aria-labelledby="caption0" tabindex="0">');

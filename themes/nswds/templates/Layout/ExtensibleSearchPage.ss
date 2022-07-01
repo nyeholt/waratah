@@ -1,1 +1,1 @@
-<% include NSWDPC/Waratah/PageSearch %>
+<% include NSWDPC/Waratah/PageSearchResults %>

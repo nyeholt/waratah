@@ -1,18 +1,6 @@
 /**
  * Video and video gallery
  */
-.wrth-video-gallery,
-.nsw-video-gallery,
-.nsw-media {
-
-  .nsw-accordion {
-    margin-top: 0;
-    &__button {
-      @include font-size('xs');
-      margin-top: 0;
-    }
-  }
-}
 
 .nsw-media__video {
   iframe {

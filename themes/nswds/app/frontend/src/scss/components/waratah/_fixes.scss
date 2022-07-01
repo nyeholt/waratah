@@ -1,0 +1,22 @@
+/**
+ * Fixes not yet in the nswds
+ * These should be marked with an issue in the nswds github and removed when fixed
+ */
+.nsw-hero-banner {
+
+  /* https://github.com/digitalnsw/nsw-design-system/issues/229 */
+  &__box {
+    @include breakpoint('xl') {
+      padding-left: calc(var(--nsw-container-width)/12 + #{rem($grid-gutters)} * 2);
+    }
+  }
+
+  &--lines {
+    .nsw-hero-banner__box {
+      @include breakpoint('xl') {
+        padding-left: calc(var(--nsw-container-width)/4 + #{rem($grid-gutters)} * 2);
+      }
+    }
+  }
+
+}

@@ -1,7 +1,6 @@
 .nsw-body-content .mfa-app {
 
     padding : 1rem 0 0 0;
-    @include font-stack;
     min-width: 0 !important;
     max-width: 100% !important;
     width: 100%;
@@ -38,7 +37,7 @@
     }
 
     .mfa-totp__validate-code p {
-      @include nsw-spacing(margin, none none md none);
+      margin: 0 0 rem(16px) 0;
     }
 
     img {
@@ -69,29 +68,34 @@
 
     .mfa-action-list {
 
+      // use nsw-list
+      @extend .nsw-list;
+      @extend .nsw-list--16;
+
       &__item {
+
         .btn {
-          @include wrth-button;
+          @extend .nsw-button;
         }
 
         .btn-primary {
-          @include button-variant(map-get($button-variations, primary));
+          @extend .nsw-button--dark;
         }
 
         .btn-secondary {
-          @include button-variant(map-get($button-variations, secondary));
+          @extend .nsw-button--dark-outline-solid;
         }
+
       }
 
     }
 
     .mfa-verify-select-method__actions {
-
-      @include nsw-spacing(margin, none none md none);
+      margin: 0 0 rem(16px) 0;
 
       a.mfa-verify-select-method__back {
-        @include wrth-button;
-        @include button-variant(map-get($button-variations, primary));
+        @extend .nsw-button;
+        @extend .nsw-button--dark;
       }
     }
 
@@ -99,24 +103,29 @@
 
       .mfa-register-backup-codes__helper-links {
 
-        @include nsw-spacing(margin, none none md none);
+        // use nsw-list
+        @extend .nsw-list;
+        @extend .nsw-list--16;
+
+        // ensure margin below
+        margin-bottom: rem(32px) !important;
 
         .btn {
-            @include wrth-button;
+          @extend .nsw-button;
         }
 
         .btn-link {
-            @include button-variant(map-get($button-variations, secondary));
+          @extend .nsw-button--dark-outline-solid;
         }
 
       }
 
       .btn {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       .btn-primary {
-        @include button-variant(map-get($button-variations, primary));
+        @extend .nsw-button--dark;
       }
 
     }
@@ -126,21 +135,21 @@
       margin : 0;
 
       .mfa-register-confirmation__title {
-        @include nsw-spacing(margin, none none md none);
+        margin: 0 0 rem(16px) 0;
         @include font-size('lg');
         color: var(--nsw-grey-01);
       }
 
       .mfa-register-confirmation__description {
-        @include nsw-spacing(margin, none none md none);
+        margin: 0 0 rem(16px) 0;
       }
 
       .btn {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       .btn-primary {
-        @include button-variant(map-get($button-variations, primary));
+        @extend .nsw-button--dark;
       }
 
     }

@@ -7,7 +7,7 @@
             <meta itemprop="name" content="{$TaxonomyType.Name.XML}">
         <% end_if %>
         <div class="nsw-block">
-            <div class="nsw-tags">
+            <div class="nsw-list">
             <% loop $SelectedTerms %>
                 <% include TaxonomyListItem DefinedTermSet=$Up.DefinedTermSet %>
             <% end_loop %>

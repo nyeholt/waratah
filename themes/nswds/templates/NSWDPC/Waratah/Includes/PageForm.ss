@@ -4,8 +4,10 @@
 <% end_if %>
 
     <section class="nsw-section nsw-section--half-padding">
-        {$Form}
-    </section>
+        <div class="nsw-form">
+            {$Form}
+        </div>
+    </div>
 
 <% if $Top.IsLandingPage %>
     </div>

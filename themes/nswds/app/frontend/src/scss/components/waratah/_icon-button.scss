@@ -2,20 +2,3 @@
  * Provide some extra button-y things not in the NSW Design System
  * @deprecated v2.14 supports icons on buttons natively
  */
-.wrth-button {
-
-  &--icon {
-    display:flex;
-    align-items: center;
-  }
-
-}
-
-.nsw-button.wrth-button--icon {
-
-  .nsw-material-icons {
-      color: inherit;
-      margin-right : 0.5rem;
-  }
-
-}

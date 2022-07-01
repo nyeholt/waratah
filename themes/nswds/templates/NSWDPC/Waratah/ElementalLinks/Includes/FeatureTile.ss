@@ -1,5 +1,5 @@
 <div class="nsw-feature-tile">
-    <div class="nsw-wysiwyg-content">
+    <div class="nsw-block">
         <% if $ShowTitle && $Title %>
             <<% if $HeadingLevel %>$HeadingLevel<% else %>h2<% end_if %> class="nsw-feature-tile__title">
                 <i class="material-icons nsw-material-icons" focusable="false" aria-hidden="true">east</i>

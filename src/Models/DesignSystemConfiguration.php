@@ -3,7 +3,12 @@
 namespace NSWDPC\Waratah\Models;
 
 use SilverStripe\Core\Config\Configurable;
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\ORM\ValidationResult;
 use SilverStripe\View\TemplateGlobalProvider;
+use SilverStripe\View\SSViewer;
 
 /**
  *
@@ -81,8 +86,9 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      * The class to be used on element sections ->for landing pages<-
      * In other contexts, nsw-block would be used
      * Since v0.3.x (nswds 2.14.x), wrth-section has been dropped
+     * @deprecated v1.0 the default section class is nsw-section
      */
-    private static $element_section_class = "nsw-section";
+    private static $element_section_class = "";
 
     /*
      * @var float
@@ -116,12 +122,33 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
-     * @var array button branding options
+     * @var array card branding options
      * https://nswdesignsystem.surge.sh/components/card/index.html
      */
     private static $colour_cardbrand_options = [
         'dark' => 'Brand Dark',
         'light' => 'Brand Light'
+    ];
+
+    /**
+     * @var array media branding options
+     * https://nswdesignsystem.surge.sh/components/media/index.html
+     */
+    private static $colour_mediabrand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'transparent' => 'Transparent'
+    ];
+
+
+    /**
+     * @var array hero banner branding options
+     * https://nswdesignsystem.surge.sh/components/card/index.html
+     */
+    private static $colour_herobannerbrand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+        'white' => 'White'
     ];
 
     /**
@@ -163,7 +190,6 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      * https://nswdesignsystem.surge.sh/styles/section/index.html
      */
     private static $colour_section_options = [
-        '0' => 'No background',
         'brand-dark' => 'Brand dark',
         'brand-light' => 'Brand light',
         'brand-supplementary' => 'Brand supplementary',
@@ -173,12 +199,7 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
         'grey-01' => 'Grey 01',
         'grey-02' => 'Grey 02',
         'grey-03' => 'Grey 03',
-        'grey-04' => 'Grey 04',
-        // legacy options
-        'light-10' => 'Light 10 (this option will be removed in the future, please use Off white)',
-        'light-20' => 'Light 20 (this option will be removed in the future, please use Grey 04)',
-        'light-40' => 'Light 40 (this option will be removed in the future, please use Grey 03)',
-        '1' => 'On (this option will be removed in the future, please use \'Off white\' instead)'
+        'grey-04' => 'Grey 04'
     ];
 
     /**
@@ -215,10 +236,37 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
             'SpacingClass' => 'get_spacing_class',
             'ElementSectionClass' => 'get_element_section_class',
             'MastHead_Brand' => 'get_masthead_brand',
-            'AlternateHomeURL' => 'get_alt_home_page'
+            'AlternateHomeURL' => 'get_alt_home_page',
+            'PerLayoutContent' => 'get_per_layout_content',
+            'FormAlertLevel' => 'get_alert_level'
         ];
     }
 
+    /**
+     * Return the NSWDS alert level based on input, default return is info
+     * @param string $alertLevel
+     * @return string
+     */
+    public static function get_alert_level($alertLevel) : string {
+        switch($alertLevel) {
+            case 'success':
+            case ValidationResult::TYPE_GOOD:
+                return 'success';
+                break;
+            case ValidationResult::TYPE_WARNING:
+                return 'warning';
+                break;
+            case 'bad':
+            case 'required':
+            case ValidationResult::TYPE_ERROR:
+                return 'error';
+                break;
+            case ValidationResult::TYPE_INFO:
+            default:
+                return 'info';
+                break;
+        }
+    }
 
 
     /**
@@ -253,6 +301,32 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     public static function get_alt_home_page() : string {
         return self::config()->get('alt_home_page');
+    }
+
+    /**
+     * Return per layout content
+     * Example: <% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='Template/Location/TheTemplate' %>
+     * @return DBHTMLText|null
+     * @param string $template an SS template path eg App/Directory/Person
+     */
+    public static function get_per_layout_content($template) : ?DBHTMLText {
+        $controller = Controller::has_curr() ? Controller::curr() : null;
+        if(!$controller) {
+            return null;
+        }
+        $chosenTemplate = SSViewer::chooseTemplate($template);
+        if(!$chosenTemplate) {
+            return null;
+        }
+        $viewer = SSViewer::create($template);
+        // do not include requirements when parsing the template
+        $viewer->includeRequirements(false);
+        // process template with current controller
+        $result = $viewer->process($controller, null, null);
+        return DBField::create_field(
+            DBHTMLText::class,
+            $result
+        );
     }
 
 }

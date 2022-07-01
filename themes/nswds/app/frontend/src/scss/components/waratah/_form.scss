@@ -1,25 +1,14 @@
 /**
  * Form overrides
  */
-.nsw-form {
+form {
 
   /**
-   * Increase font size of legend to distinguish from label
-   * Match h2 example here: https://digitalnsw.github.io/nsw-design-system/templates/content/form.html
+   * The right title
    */
-  .nsw-form__legend {
-    @include font-size('lg');
-  }
-
-  /**
-   * Retain sm size for legends in fields eg Optionset, Checkboxset
-   * Match h2 example here: https://digitalnsw.github.io/nsw-design-system/templates/content/form.html
-   */
-  .wrth-form__checkboxset,
-  .wrth-form__optionset {
-    .nsw-form__legend {
-      @include font-size('sm');
-    }
+  .wrth-form__helper-info {
+    @extend .nsw-form__helper;
+    margin: rem(4px) 0 0 0;
   }
 
   /**
@@ -28,6 +17,31 @@
   .wrth-form__groupfield {
     @extend .nsw-form__group;
     margin-bottom: rem(32px);
+  }
+
+  /**
+   * SelectionGroup
+   */
+  .wrth-form__selectiongroup {
+    input[type=radio].selector {
+      @extend .nsw-form__radio-input;
+    }
+  }
+
+  /**
+   * Date inputs
+   */
+  .datecomposite,
+  .datetimecomposite {
+    .inputs {
+      .nsw-form__group {
+        margin-top: 0;
+      }
+    }
+  }
+
+  input[type=reset] {
+    @extend .nsw-button--danger;
   }
 
 }

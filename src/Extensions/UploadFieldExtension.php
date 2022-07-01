@@ -9,7 +9,7 @@ use SilverStripe\Versioned\Versioned;
 /**
  * Temporary extension until
  * https://github.com/silverstripe/silverstripe-asset-admin/issues/960#issuecomment-718302815
- * is sorted out upstream, along with the leftandmain.css in theme-australiaday
+ * is sorted out upstream, along with the leftandmain.css in projects
  * @author James
  */
 class UploadFieldExtension extends Extension {

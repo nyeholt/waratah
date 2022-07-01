@@ -1,40 +1,61 @@
+<%-- this is a different layout to the other pages --%>
+
 <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
 
-    <div class="nsw-page-layout">
+    <% if not $IsKeywordLookup %>
+    <div class="nsw-layout">
 
-        <div class="nsw-page-layout__main">
+        <div class="nsw-layout__main">
 
-        <% include NSWDPC/Waratah/PageContentTitle %>
+            <% include NSWDPC/Waratah/PageContentTitle %>
 
-        <% include NSWDPC/Waratah/PageContentAbstract %>
+            <% include NSWDPC/Waratah/PageContentAbstract %>
 
         </div>
 
-        <div class="nsw-page-layout__sidebar"></div>
+        <div class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
+        </div>
 
     </div>
+    <% end_if %>
 
+    <div class="nsw-layout">
 
-    <div class="nsw-page-layout">
+        <% if not $IsKeywordLookup %>
 
-        <aside class="nsw-page-layout__sidebar">
+            <aside class="nsw-layout__sidebar">
 
-            <% if $DirectorySearchForm %>
-                {$DirectorySearchForm}
-            <% end_if %>
+                <% if $DirectorySearchForm %>
+                    {$DirectorySearchForm}
+                <% end_if %>
 
-        </aside>
+            </aside>
 
-        <main id="main-content" class="nsw-page-layout__main">
+        <% end_if %>
+
+        <main id="content" class="nsw-layout__main">
 
             <article>
+
+                <% if $IsKeywordLookup %>
+
+                    <% include NSWDPC/Waratah/PageContentTitle %>
+
+                    <% include NSWDPC/Waratah/PageContentAbstract %>
+                <% end_if %>
 
                 <div class="nsw-block">
                     <% include NSWDPC/Members/Message %>
                 </div>
 
+                <% if $IsKeywordLookup && $DirectorySearchForm %>
+                    <div class="nsw-block">
+                        {$DirectorySearchForm}
+                    </div>
+                <% end_if %>
+
                 <div class="nsw-block">
-                    <% include nswds/ResultsBar ResultsBar_Start=$DirectoryMembers.FirstItem, ResultsBar_End=$DirectoryMembers.LastItem, ResultsBar_Total=$DirectoryMembers.TotalItems, ResultsBar_ResultType='members', ResultsBar_ResultTypeSingular='member' %>
+                    <% include nswds/ResultsBar ResultsBar_Start=$DirectoryMembers.FirstItem, ResultsBar_End=$DirectoryMembers.LastItem, ResultsBar_Total=$DirectoryMembers.TotalItems, ResultsBar_ResultType='people', ResultsBar_ResultTypeSingular='person', ResultsBar_ClearFilters=$ClearResultsLink %>
                 </div>
 
                 <div class="nsw-block">
@@ -47,6 +68,13 @@
             </article>
 
         </main>
+
+        <% if $IsKeywordLookup %>
+
+            <aside class="nsw-layout__sidebar">
+            </aside>
+
+        <% end_if %>
 
     </div>
 

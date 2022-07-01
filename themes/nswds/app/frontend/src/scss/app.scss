@@ -7,6 +7,9 @@
 // NSW Design System
 @import 'node_modules/nsw-design-system/src/main';
 
+// Apply typography eg Public Sans
+@import './components/waratah/typography';
+
 // Silverstripe components - MFA, userforms, editor field
 @import './components/silverstripe/silverstripe';
 
@@ -20,6 +23,7 @@
 @import './components/waratah/form';
 @import './components/waratah/icon-button';
 @import './components/waratah/image';
+@import './components/waratah/list';
 @import './components/waratah/logo';
 @import './components/waratah/main-navigation';
 @import './components/waratah/mapping';
@@ -32,6 +36,12 @@
 
 // Generic content overrides, load last
 @import './components/waratah/content';
+
+// Backward compatibility rules
+@import './components/waratah/bc';
+
+// Fixes to be applied to nswds, could be empty
+@import './components/waratah/fixes';
 
 // Finally, import project app.scss
 @import '../../../../../../../../../waratah-branding/frontend/src/app.scss'

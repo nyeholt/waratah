@@ -1,5 +1,5 @@
 <% if $HideLabel %>
-    <% include nswds/InPageNotification InPageNotification_Title='', InPageNotification_Content=$Content, InPageNotification_Cast='html', InPageNotification_Icon=$IconCode, InPageNotification_Level=$NotificationLevel %>
+    <% include nswds/InPageAlert InPageAlert_Title='', InPageAlert_Content=$Content, InPageAlert_Cast='html', InPageAlert_Icon=$IconCode, InPageAlert_Level=$NotificationLevel %>
 <% else %>
-    <% include nswds/InPageNotification InPageNotification_Title=$Title, InPageNotification_Content=$Content, InPageNotification_Cast='html', InPageNotification_Icon=$IconCode, InPageNotification_Level=$NotificationLevel %>
+    <% include nswds/InPageAlert InPageAlert_Title=$Title, InPageAlert_Content=$Content, InPageAlert_Cast='html', InPageAlert_Icon=$IconCode, InPageAlert_Level=$NotificationLevel %>
 <% end_if %>

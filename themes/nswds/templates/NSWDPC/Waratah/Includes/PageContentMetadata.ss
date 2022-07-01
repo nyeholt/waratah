@@ -1,26 +1,23 @@
+<% if $Date || $MediaAttributes %>
+<p>
 <% if $Date %>
-    <p>
-        <time datetime="{$Date}">{$Date.Full}</time>
-        <% if $MediaAttributes %>
-        <br>
-        <strong>
-            <% loop $MediaAttributes %>
-                <% if $Join.Content %>
-                    <strong>{$Join.Title}: {$Join.Content}</strong><% if not $Last %><br><% end_if %>
-                <% end_if %>
-            <% end_loop %>
-        </strong>
-        <% end_if %>
-    </p>
-<% end_if %>
-<% if $MediaAttributes || $Tags %>
-    <hr>
-<% end_if %>
-<% if $Tags %>
-    <div class="tags nsw-m-bottom-md">
-        <% loop $Tags %>
-            <a href="{$Up.getParent.Link}?tag={$Title.URLATT}" class="nsw-tag">{$Title}</a>
-        <% end_loop %>
-    </div>
+        <time datetime="{$Date}">{$Date.Long}</time>
+<% if $MediaAttributes %><br><% end_if %>
 <% end_if %>
 
+<% if $MediaPageAttributes %>
+
+    <% with $MediaPageAttributes.Filter('MediaAttribute.Title','Author').First %>
+        <% if $Content %>
+        <strong>{$Content.XML}</strong>
+        <% end_if %>
+    <% end_with %>
+
+<% end_if %>
+</p>
+<hr>
+<% end_if %>
+
+<% if $Tags %>
+    <% include nswds/Tags Tags_List=$Tags %>
+<% end_if %>

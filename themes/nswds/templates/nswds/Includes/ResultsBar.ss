@@ -21,6 +21,10 @@
     <div class="nsw-results-bar__sorting">
         {$ResultsBar_SortingField}
     </div>
+    <% else_if $ResultsBar_ClearFilters %>
+    <div class="nsw-results-bar__sorting">
+        <a href="{$ResultsBar_ClearFilters}"><%t nswds.CLEAR_FILTER 'Clear filters' %></a>
+    </div>
     <% end_if %>
 
 <% end_if %>

@@ -20,7 +20,7 @@ class SectionSelectionField extends DropdownField
     public function __construct($name, $title = null, $source = [], $value = null)
     {
         $source = $this->getSource();
-        $this->setEmptyString(_t('nswds.SELECT', 'Select'));
+        $this->setEmptyString(_t('nswds.SELECT_OPTION', 'Select an option'));
         parent::__construct($name, $title, $source, $value);
     }
 

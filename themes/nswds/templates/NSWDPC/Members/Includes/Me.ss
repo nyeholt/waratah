@@ -1,62 +1,17 @@
-<div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
-    <div class="nsw-page-layout">
+<% include NSWDPC/Members/ContainerStart %>
 
-        <div class="nsw-page-layout__sidebar">
+<% if $ExternalManagementContent %>
 
-            <% include NSWDPC/Members/Links %>
+    {$ExternalManagementContent}
 
-            <% if $HasSideElements %>
-                {$SideElementalArea}
-            <% end_if %>
+    <% include NSWDPC/Members/BasicMemberProfile %>
 
-        </div>
+<% else_if $Member %>
 
-        <main id="main-content" class="nsw-page-layout__main">
+    <% include NSWDPC/Waratah/PageForm %>
 
-            <article>
+<% else %>
+    <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_Content='Your profile does not exist' %>
+<% end_if %>
 
-                <div class="nsw-block">
-
-                    <% include NSWDPC/Waratah/PageContentTitle %>
-
-                    <% include NSWDPC/Waratah/PageContentAbstract %>
-
-                    <% include NSWDPC/Members/Message %>
-
-                </div>
-
-                <% if $ExternalManagementContent %>
-
-                    {$ExternalManagementContent}
-
-                    <% include NSWDPC/Members/BasicMemberProfile %>
-
-                <% else_if $Member %>
-
-                    <% with $Member %>
-
-                    <h3>Hi {$FirstName}!</h3>
-                    <div>
-                        <% if $Image %>
-                            <% with $Image %>
-                            <div>
-                                $ResizedImage(300,300)
-                            </div>
-                            <% end_with %>
-                        <% end_if %>
-                        <% if Created %><p>Member Since : $Created.Nice</p><% end_if %>
-                    </div>
-                    <% end_with %>
-
-                    <% include NSWDPC/Waratah/PageForm %>
-
-                <% else %>
-                    <% include nswds/InPageNotification InPageNotification_Level='warning', InPageNotification_Icon='warning', InPageNotification_Content='Your profile does not exist' %>
-                <% end_if %>
-
-            </article>
-        </main>
-
-    </div>
-
-</div>
+<% include NSWDPC/Members/ContainerEnd %>

@@ -7,7 +7,7 @@
     <% end_if %>
 
     <% if $ContentLink %>
-    <a href="$ContentLink.LinkURL" class="nsw-button nsw-button--primary">{$ContentLink.Title}</a>
+    <a href="$ContentLink.LinkURL" class="nsw-button nsw-button--dark">{$ContentLink.Title}</a>
     <% end_if %>
 
 

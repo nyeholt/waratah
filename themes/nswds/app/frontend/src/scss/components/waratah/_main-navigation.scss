@@ -1,10 +1,11 @@
 /**
  * Icon overrides
- */
-.nsw-navigation__link-icon {
+ * Removed from v3
+.nsw-main-nav a .nsw-material-icons {
   transform: none;
 }
 
-.nsw-navigation__link.is-open .nsw-navigation__link-icon {
+.nsw-main-nav a.active .nsw-material-icons {
   transform : rotate(180deg);
 }
+*/

@@ -35,9 +35,9 @@ class BaseElementExtension extends DataExtension
         'HeadingLevel' => 'Varchar(4)',
         'ShowInMenus'  => 'Boolean',
         'AddContainer' => 'Boolean',
-        'AddBackground' => "Enum('brand-dark,brand-light,brand-supplementary,black,white,off-white,grey-01,grey-02,grey-03,grey-04,0,1,light-10,light-20,light-40', '0')",
+        'AddBackground' => "Varchar(64)", // nsw-section--<branding>
         'IsBoxed' => 'Boolean',// nsw-section--box
-        'VerticalSpacing' => "Enum('half-padding,no-padding')", // nsw-section--no-padding etc
+        'VerticalSpacing' => "Varchar(32)" // // nsw-section--<padding>
     ];
 
     /**
@@ -143,7 +143,14 @@ class BaseElementExtension extends DataExtension
                     _t(
                         'nswds.BACKGROUND_APPLICATION_NOTES',
                         'Backgrounds are applied to blocks in the landing page \'Main content\' area, only.'
-                        . '<br>Adding a background may add some padding to the top and bottom of this block.'
+                    )
+                )->setRightTitle(
+                    _t(
+                        'nswds.BACKGROUND_EXAMPLE',
+                        'Example default section backgrounds are available at {exampleURL}',
+                        [
+                            'exampleURL' => 'https://digitalnsw.github.io/nsw-design-system/core/section/index.html'
+                        ]
                     )
                 ),
                 DropdownField::create(
@@ -156,7 +163,20 @@ class BaseElementExtension extends DataExtension
                         'half-padding' => _t('nswds.HALF_PADDING', 'Half vertical spacing'),
                         'no-padding' => _t('nswds.NO_PADDING', 'No vertical spacing'),
                     ]
-                )->setEmptyString(''),
+                )->setDescription(
+                    _t(
+                        'nswds.VERTICAL_SPACING_APPLICATION_NOTES',
+                        'If no spacing is selected, the default spacing is used'
+                    )
+                )->setRightTitle(
+                    _t(
+                        'nswds.VERTICAL_SPACING_EXAMPLE',
+                        'Spacing examples are available at {exampleURL}',
+                        [
+                            'exampleURL' => 'https://digitalnsw.github.io/nsw-design-system/core/section/index.html'
+                        ]
+                    )
+                )->setEmptyString(_t('nswds.SELECT_OPTION', 'Select an option')),
                 CheckboxField::create(
                     'IsBoxed',
                     _t(
@@ -196,33 +216,24 @@ class BaseElementExtension extends DataExtension
     }
 
     /**
-     * Return the nswds background value or an empty value, taking into account previous 0/1 or empty values
-     * https://github.com/digitalnsw/nsw-design-system-v2/blob/master/src/styles/section/_section.scss
+     * Return the nswds background value or an empty value if not supported
+     * https://digitalnsw.github.io/nsw-design-system/core/section/index.html
      * Use by a template as $Background
      */
     public function getBackground() : string {
         $bg = $this->owner->AddBackground;
-        if (empty($bg)) {
-            // BC handling for the original value of 0 and other empty() values
-            // including string '0'
-            $bg = '';
-        } else if($bg === '1' || $bg === 1) {
-            // BC handling for the original value of 1 meaning light-10
-            $bg = 'off-white';
-        }
         $bg = $this->getSupportedBackground(strval($bg));
         $spacing = DesignSystemConfiguration::get_spacing_class();
         $classes = [];
-        if(!$bg) {
-            if($section_class = DesignSystemConfiguration::get_element_section_class()) {
-                $classes[] = $section_class;
-            }
+        // nsw-section
+        $classes[] = 'nsw-section';
+        if($bg) {
+            $classes[] = 'nsw-section--' . $bg;
             if($spacing) {
                 $classes[] = $spacing;
             }
-        } else {
-            $classes[] = 'nsw-section';
-            $classes[] = 'nsw-section--' . $bg;
+        } else if($spacing) {
+            $classes[] = $spacing;
         }
         return implode(" ", $classes);
     }

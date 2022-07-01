@@ -3,21 +3,18 @@
 <!-- fieldgroup_holder -->
 
 <fieldset class="nsw-form__fieldset">
-    <% if $Title %>
-        <legend>
-            <span class="nsw-form__legend">{$Title.XML}</span>
-        </legend>
-    <% end_if %>
 
-    <% if $Description %><span class="nsw-form__helper">$Description</span><% end_if %>
+    <% include NSWDPC/Waratah/Forms/Legend %>
 
-    <% include nswds/FormFieldMessage FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
+    <% include NSWDPC/Waratah/Forms/Description %>
+
+    <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType %>
 
     <div class="field">
     {$Field}
     </div>
 
-    <% if $RightTitle %><span class="nsw-form__helper right">$RightTitle</span><% end_if %>
+    <% include NSWDPC/Waratah/Forms/RightTitle %>
 
 </fieldset>
 

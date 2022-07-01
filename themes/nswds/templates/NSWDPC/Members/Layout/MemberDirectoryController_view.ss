@@ -1,52 +1,51 @@
+<%-- this is a different layout to the other pages --%>
+
 <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg">
 
-    <div class="nsw-page-layout">
+    <div class="nsw-layout">
 
-        <div class="nsw-page-layout__main">
+        <div class="nsw-layout__main">
 
-        <% include NSWDPC/Waratah/PageContentTitle %>
+            <% include NSWDPC/Waratah/PageContentTitle %>
 
-        <% include NSWDPC/Waratah/PageContentAbstract %>
+            <% include NSWDPC/Waratah/PageContentAbstract %>
 
         </div>
 
-        <div class="nsw-page-layout__sidebar">
+        <div class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
         </div>
 
     </div>
 
-    <div class="nsw-page-layout">
+    <div class="nsw-layout">
 
-        <aside class="nsw-page-layout__sidebar">
-
-            <% with $DirectoryMember %>
-                <% with $ProfileProvider %>
-                <% if $ProfileImage %>
-                <div class="img-fluid">
-                {$ProfileImage.ScaleWidth(900)}
-                </div>
-                <% end_if %>
-                <% end_with %>
-            <% end_with %>
-
-            <% if $DirectorySearchForm %>
-                {$DirectorySearchForm}
-            <% end_if %>
-
-        </aside>
-
-        <main id="main-content" class="nsw-page-layout__main">
+        <main id="main-content" class="nsw-layout__main">
 
             <article>
 
-                <section class="nsw-section">
+                <div class="nsw-block">
                 <% include NSWDPC/Members/DirectoryMember DirectoryMember=$DirectoryMember %>
-                </section>
-
+                </div>
 
             </article>
 
         </main>
+
+        <aside class="nsw-layout__sidebar">
+
+            <% with $DirectoryMember %>
+                <% with $ProfileProvider %>
+                <% if $ProfileImage %>
+                <figure class="nsw-media">
+                    <div class="img-fluid">
+                    {$ProfileImage.ScaleWidth(900)}
+                    </div>
+                </figure>
+                <% end_if %>
+                <% end_with %>
+            <% end_with %>
+
+        </aside>
 
     </div>
 

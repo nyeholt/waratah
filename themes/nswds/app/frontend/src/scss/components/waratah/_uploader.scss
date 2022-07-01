@@ -5,12 +5,13 @@
 
   .uppy-Root {
 
-    @include font-stack;
+    @include font-size('md');
+    font-family: var(--nsw-font-family);
 
     .uppy-StatusBar {
 
       button {
-        @include wrth-button;
+        @extend .nsw-button;
       }
 
       &:not(.is-waiting) {
@@ -18,7 +19,7 @@
         height: 80px;
 
         .uppy-StatusBar-actionBtn--upload {
-          @include button-variant(map-get($button-variations, secondary));
+          @extend .nsw-button--dark-outline-solid;
           margin-top : 0;
         }
 
@@ -29,8 +30,8 @@
         height: 80px;
 
         .uppy-StatusBar-actionBtn--upload {
-          @include wrth-button;
-          @include button-variant(map-get($button-variations, primary));
+          @extend .nsw-button;
+          @extend .nsw-button--dark;
           margin-top : 0;
         }
 
