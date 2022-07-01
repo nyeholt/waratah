@@ -43,9 +43,11 @@
                             <li><a href="{$EditProfileLink}"><%t nswds.Profile 'Profile' %></a></li>
                         <% end_with %>
                     <% end_if %>
+                    <% if $ChangePasswordProvider %>
                     <li>
                         <a href="{$Link('changepassword')}"><%t SilverStripe\\Security\\Member.BUTTONCHANGEPASSWORD 'Change password' %></a>
                     </li>
+                    <% end_if %>
                     <li>
                         <a href="{$Link('logout')}"><%t SilverStripe\\Security\\Member.BUTTONLOGOUT 'Log out' %></a>
                     </li>
@@ -61,7 +63,9 @@
 
                 <ul>
                     <li><a class="<% if $Action =='login' %>current<% end_if %>" href="{$Link('login')}"><%t nswds.SIGN_IN 'Sign in' %></a></li>
+                    <% if $LostPasswordProvider %>
                     <li><a class="<% if $Action == 'lostpassword' %>current<% end_if %>" href="{$Link('lostpassword')}"><%t nswds.LOST_PASSWORD 'Lost password' %></a></li>
+                    <% end_if %>
                     <% if $RegistrationProvider %>
                         <% with $RegistrationProvider %>
                             <li><a href="{$Link}"><%t nswds.REGISTER 'Register' %></a></li>
