@@ -7,6 +7,9 @@
 // NSW Design System
 @import 'node_modules/nsw-design-system/src/main';
 
+// Apply typography eg Public Sans
+@import './components/waratah/typography';
+
 // Silverstripe components - MFA, userforms, editor field
 @import './components/silverstripe/silverstripe';
 
