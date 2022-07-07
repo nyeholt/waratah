@@ -1,50 +1,48 @@
 ## Integration
 
-The standard build created by this module provides:
+The standard build created by this module provides support for all components in the NSW Design System. Some components are accessed via custom templates in your project for specific use cases.
 
-+ A default page template
-+ Navigation
-+ Sidebar support
-+ Form, fields and buttons
-+ Content lists - Accordion, Cards, Tabs, Link list, List items, Content blocks
-+ [Filter form](./003_filter_form.md)
-+ Hero banner
-+ Search
-+ Listings + pagination
-+ Media - Image, Video, Iframe, Gallery
-+ Tags
-+ NSW Masthead
+As an extension to the standard Silverstripe Elemental implementation where all elements are contained in the Main content area, pages will two additional content block areas: Side and Top.
 
-Each page will have a Main content block area and two additional content block areas: Side and Top.
+Our content management ethos is that Content Editors should not have to understand HTML or create page layouts or templates via an HTML editing field in order to implement components in a page.
+
+This decision, especially in relation to page elements, allows for customisation of elements using standard form fields and allows us to move components forward as they are changed by the NSW Design System team without having to handle or deal with legacy HTML.
+
 
 ### Form fields
 
-+ All Silverstripe form fields + actions are supported [including field hints](https://github.com/nswdpc/silverstripe-field-hint)
-+ Notifications and validation messages use notification + alert styles
++ All Silverstripe form fields + actions are supported
++ [Field hints](https://github.com/nswdpc/silverstripe-field-hint)
++ Custom fields such as our [Gov.uk inspired date input fields](https://github.com/nswdpc/silverstripe-datetime-inputs)
++ Notifications and validation messages use In-page alert styles
 + Accordion fields via `ToggleCompositeField`
 + Tabset fields in forms
 + Silverstripe UserForms support, for forms built within the CMS
-
-> The only form field not well supported is SelectionGroup, this is rendered as a Tab field but the radio button does not receive input when the tab is clicked.
 
 ### Supported extras
 
 #### SlimSelect
 
-Provides support for tag based `<select multiple>` fields / ListboxField
+This is shipped by default and provides support for tag based `<select multiple>` fields / ListboxField
 
 ### Project extras
 
-Some projects require external libraries beyond those provided in this module. In this case you can add the following to your `waratah-branding` directly:
+Some projects require external libraries beyond those provided in this module. In this case you can add the following to your `waratah-branding` directly. Here is an example structure with notes:
 
 ```
+public/
+    _resources/
 waratah-branding/
     frontend/
         src/
             js/
-                app.js -> this will be included in the build process
+                app.js -> this will be imported and run after `window.NSW.initSite();` 
             scss/
-                app.scss -> this will be included in the build process
+                defaults.scss -> this will be included as the first CSS component in the build
+                app.scss -> this will be included as the last CSS component in the build
+vendor/
+    nswdpc/
+        waratah/
 ```
 
 Project-based components will be included in the main app[.min].js and app[.min].css to be loaded on each request.

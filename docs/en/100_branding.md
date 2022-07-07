@@ -20,18 +20,16 @@ SilverStripe\View\SSViewer:
 
 In the above configuration, it's expected your theme templates are present in `themes/project-theme` (you can call your theme anything you want).
 
-The `project-theme` has a higher priority than this module's theme, meaning your project can override a template provided by this module. This is quite powerful but remember that doing so may cause your project to miss out on improvements, fixes and features added to this module.
+The `project-theme` has a higher priority than this module's theme, meaning your project can override any template provided by this module. This is quite powerful but remember that doing so may cause your project to miss out on improvements, fixes and features added to this module.
 
 ## Branding version
 
-As v2.14 of the NSW Design System acts as a bridge to version v3.0 we have introduced a branding version:
+As v2.14 of the NSW Design System acted as a bridge to version v3.0 we introduced a branding version:
 
 ```yml
 private static $branding_version = 3.0;
 ```
-Version 0.3.x of this module ships with the value 3.0.
-
-At this point in time, the only change made via the `branding_version` value is the requirement of the 'Public Sans' font if the value is >= 3.0. When the value is < 3.0, Montserrat will be used. The latter is no longer supported for new projects.
+Version > 0.3.x of this module ships with the value 3.0.
 
 ## Co-branding
 
@@ -74,9 +72,11 @@ The following locations are used:
 waratah-branding/
     frontend/
         src/
-            app.js
-            defaults.scss
-            app.scss
+            js/
+                app.js -> this will be imported and run after `window.NSW.initSite();` 
+            scss/
+                defaults.scss -> this will be included as the first CSS component in the build
+                app.scss -> this will be included as the last CSS component in the build
 ```
 
 A good example of custom branding is the NSWDPC Australia Day website.
@@ -101,7 +101,7 @@ initMyProject();
 
 ### CSS overrides
 
-> 💡 You need to follow the branding guidelines provided by the NSW Design System.
+> 💡 NSW Government websites should follow the NSW Government branding guidelines
 
 You can override default SCSS settings by adding them to `waratah-branding/frontend/src/defaults.scss` or `waratah-branding/frontend/src/app.scss` in your project.
 
@@ -113,6 +113,6 @@ The file `app.scss` will load after the main NSWDS scss and allows you to incorp
 
 After adding a component you should [build the requirements again](./001_index.md). Watch for any errors and fix as required.
 
-Your project components in the `waratah-branding` directory will be included in the `/vendor/nswdpc/waratah/themes/nswds/app/frontend/dist/*/app.*` assets created from the build process.
+Your project components in the `waratah-branding` directory will be included in the `/vendor/nswdpc/waratah/themes/nswds/app/frontend/dist/*/app.*` assets created whenever the build process is run.
 
 The path `vendor/nswdpc/waratah/themes/nswds/app/frontend/dist` is vendor-exposed via `composer.json`
