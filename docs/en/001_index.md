@@ -9,49 +9,44 @@
 
 After installation, you will need to build the frontend assets using one of our build processes. The build steps are:
 
-1. Build the frontend assets
-1. Add Public Sans font (once only, for v0.3 / nswds v2.14.x only)
-1. Add theme configuration (once only)
-1. Run the standard SS build
+1. Build the frontend assets, initially and when required during development
+1. Optional: add CSS customisation if your project demands
+1. Add/update theme configuration
+1. Run the standard Silverstripe dev/build when required
 
 ### 1. Build the frontend assets 
 
-You can build the frontend in a variety of ways, depending on your build system toolkit.\
+You can build the frontend in a variety of ways, depending on your build system toolkit.
 
-The build requires node >= 16 / npm >= 7.
+The `buildall` target script in package.json defines how distribution assets are created in a `themes/app/frontend/dist` directory, which is automatically [vendor-exposed](https://github.com/silverstripe/vendor-plugin) upon installation of this module.
 
-The `buildall` target builds the required assets.
+This module does not ship built assets in version control. Your deployment build process should create these for distribution.
 
-Pick and choose which is best for your CI, build and deployment process.
+#### Requirements
 
-#### yarn or npm in the project root
+node >= 16 / npm >= 7
+
+#### Build directly via npm
 
 ```shell
 npm --prefix ./vendor/nswdpc/waratah/themes/nswds/app/frontend run-script buildall
 ```
 
-Or, use yarn:
+#### Build directly via yarn
 
 ```shell
 yarn --cwd ./vendor/nswdpc/waratah/themes/nswds/app/frontend run buildall
 ```
 
-#### build.sh
+#### Use build.sh
 
-This script uses `npm` on the system to run the buildall target:
+The build.sh shell script uses `npm` on the system to run the buildall script:
 
 ```shell
 ./vendor/nswdpc/waratah/build.sh
 ```
 
-#### Directly
-
-This is useful during development
-
-```shell
-cd ./vendor/nswdpc/waratah/themes/nswds/app/frontend
-npm run-script buildall
-```
+If you see `Error: npm is not installed on host` this means the script could not find npm on the system you are running the script on. The script expects `npm` to be in the PATH environment variable.
 
 #### Composer scripts
 
@@ -72,8 +67,7 @@ The `post-create-project-cmd` scripts will run after `composer create-project` i
 
 When the module is updated or installed `composer run-script build-nswds` should be run.
 
-Both script targets run ./build.sh
-
+Both script targets run ./build.sh which expects npm to be available.
 
 #### Loading CSS and JS assets
 
@@ -87,8 +81,7 @@ Development environments will automatically load non-minified assets.
 
 Customisation can be added to `waratah-branding/frontend/src/app.scss` via your own SCSS/CSS.
 
-See [Branding](./100_branding.md) documentation for more information.
-
+This is important if your project is applying co-branding. See [Branding](./100_branding.md) documentation for more information.
 
 ### 3. Add theme configuration
 
@@ -101,13 +94,29 @@ This change should be committed to version control. You can use your own naming 
 ```yaml
 # app/_config/theme.yml
 ---
-Name: project-theme
+Name: app-theme
 ---
 SilverStripe\View\SSViewer:
   themes:
     - 'nswdpc/waratah:nswds'
     - '$default'
 ```
+
+If you have a custom theme in your project that provides custom templates, specify that before `nswdpc/waratah:nswds` 
+
+```yaml
+# app/_config/theme.yml
+---
+Name: app-theme
+---
+SilverStripe\View\SSViewer:
+  themes:
+    - 'my-agency-theme'
+    - 'nswdpc/waratah:nswds'
+    - '$default'
+```
+
+The project will then prefer templates from `themes/my-agency-theme/templates`.
 
 ### 4. Silverstripe dev/build
 
@@ -117,12 +126,12 @@ After building the assets, run a dev/build and a flush in the normal Silverstrip
 ./vendor/framework/sake dev/build flush=1
 ```
 
-You may also need to bypass your browser cache
+Depending on your project, you may also need to bypass/flush your browser cache.
 
 ## Subsequent builds
 
-When updating the module, simply run your preferred build step to update local assets and add any new features (items 1 and 4 in that order).
+When updating the module, project modules or your project requirements in `waratah-branding` as you develop, simply run the required build steps.
 
 ## Further branding / custom integration
 
-Read: [further branding customisation](./100_branding.md)
+If you are co-branding or more, read [further branding customisation](./100_branding.md)

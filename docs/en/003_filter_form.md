@@ -4,6 +4,9 @@ Turn a standard Silverstripe form into a [NSWDS Filter Form](https://digitalnsw.
 
 How your application filters requests and displays results is entirely up to you. The recommended result layout is a [list item](https://digitalnsw.github.io/nsw-design-system/templates/search/filters.html) template.
 
+## Via a custom form and template
+
+Create a form in the standard way using the FilterFormTrait:
 
 ```php
 <?php
@@ -30,7 +33,7 @@ class SomeFilterForm extends Form
 }
 ```
 
-## Controller
+### Controller
 
 ```php
 <?php
@@ -105,7 +108,7 @@ class MyController extends \PageController {
 }
 ```
 
-## Template
+### Template
 
 In the template used by `MyController`, add the following to render the form:
 
@@ -114,3 +117,7 @@ In the template used by `MyController`, add the following to render the form:
 $SomeFilterForm
 // ... html
 ```
+
+## Directly via a template include
+
+Include the FilterForm template in a custom template. A good example of this is the [CMS SearchForm implementation](https://github.com/nswdpc/waratah/blob/master/themes/nswds/templates/SilverStripe/CMS/Search/Includes/SearchForm.ss)

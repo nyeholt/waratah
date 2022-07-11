@@ -2,7 +2,7 @@
 
 > ℹ️ Standard template override information can be found in [branding documentation](./100_branding.md).
 
-:warning: The following is considered unstable. If you find a bug with it, please let us know in the Github issues.
+:warning: It's assumed you know what you are doing when modifying these options. If you find a bug with it, please let us know in the Github issues.
 
 ## Different build location
 
