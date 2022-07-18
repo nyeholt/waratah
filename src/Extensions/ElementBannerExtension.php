@@ -2,6 +2,7 @@
 
 namespace NSWDPC\Waratah\Extensions;
 
+use NSWDPC\Waratah\Forms\HeroBannerBrandSelectionField;
 use SilverStripe\ORM\DataExtension;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -41,7 +42,7 @@ class ElementBannerExtension extends DataExtension
     private static $db = [
         'BannerStyle' => 'Varchar(64)',
         'AltStyle' => 'Boolean',// deprecated - see BannerBrand
-        'BannerBrand' => 'Varchar(8)',// @since nswds v2.14
+        'BannerBrand' => 'Varchar(16)',// @since nswds v2.14
         'HTML' => 'HTMLText',
         'BannerLinksTitle' => 'Varchar(128)',
     ];
@@ -84,14 +85,9 @@ class ElementBannerExtension extends DataExtension
             $this->owner->config()->get("banner_styles")
         );
 
-        $bannerBrandingField = DropdownField::create(
+        $bannerBrandingField = HeroBannerBrandSelectionField::create(
             'BannerBrand',
-            _t('nswds.BANNERBRAND','Brand'),
-            [
-                self::BRAND_NONE => _t('nswds.BANNERBRAND_NONE_WHITE','Default (white)'),
-                self::BRAND_LIGHT => _t('nswds.BANNERBRAND_LIGHT','Light'),
-                self::BRAND_DARK => _t('nswds.BANNERBRAND_DARK','Dark')
-            ]
+            _t('nswds.BANNERBRAND','Brand')
         );
 
         $imageField = UploadField::create(

@@ -143,12 +143,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
 
     /**
      * @var array hero banner branding options
-     * https://nswdesignsystem.surge.sh/components/card/index.html
+     * https://digitalnsw.github.io/nsw-design-system/components/hero-banner/index.html
      */
     private static $colour_herobannerbrand_options = [
         'dark' => 'Brand Dark',
         'light' => 'Brand Light',
-        'white' => 'White'
+        'white' => 'White',
+        'off-white' => 'Off White'
     ];
 
     /**
