@@ -2,6 +2,7 @@
 
 namespace NSWDPC\Waratah\Extensions;
 
+use NSWDPC\Waratah\Forms\FooterBrandSelectionField;
 use Silverstripe\Assets\File;
 use Silverstripe\Assets\Image;
 use SilverStripe\AssetAdmin\Forms\UploadField;
@@ -12,6 +13,8 @@ use Silverstripe\Forms\HeaderField;
 use Silverstripe\Forms\CheckboxField;
 use Silverstripe\Forms\CompositeField;
 use Silverstripe\Forms\DropdownField;
+use Silverstripe\Forms\Tab;
+use Silverstripe\Forms\TabSet;
 use Silverstripe\Forms\TextField;
 use Silverstripe\Forms\TextareaField;
 use Silverstripe\Forms\HTMLEditor\HTMLEditorField;
@@ -39,6 +42,7 @@ class SiteConfigExtension extends DataExtension
         'FooterLinksCol3Title' => 'Varchar(255)',
         'FooterLinksCol4Title' => 'Varchar(255)',
         'FooterContent' => 'HTMLText',
+        'FooterBrand' => 'Varchar(16)',
         'DisplayWelcomeToCountry' => 'Boolean',
         'WelcomeToCountry' => 'Text',
 
@@ -149,74 +153,131 @@ class SiteConfigExtension extends DataExtension
             )->setTitle('Google Tag Manager / Google Analytics')
         ]);
 
-        $fields->addFieldsToTab('Root.GlobalItems', [
+        $fields->addFieldToTab(
+            'Root',
+            TabSet::create(
+                'Footer',
+                _t('nswds.FOOTER', 'Footer'),
+                [
+                    Tab::create(
+                        'Main',
+                        _t('nswds.MAIN', 'Main')
+                    ),
+                    Tab::create(
+                        'Navigation',
+                        _t('nswds.NAVIGATION', 'Navigation')
+                    ),
+                    Tab::create(
+                        'Social',
+                        _t('nswds.SOCIAL', 'Social')
+                    ),
+                    Tab::create(
+                        'Content',
+                        _t('nswds.CONTENT', 'Content')
+                    )
+                ]
+            )
+        );
 
-            HeaderField::create('GeneralContent', 'Global Content'),
+        $fields->addFieldsToTab(
+            'Root.Footer.Main',
+            FooterBrandSelectionField::create(
+                'FooterBrand',
+                _t('nswds.BRAND', 'Brand')
+            )
+        );
 
-            HeaderField::create('FooterNav', 'Footer navigation and content', 3),
+        $fields->addFieldsToTab(
+            'Root.Footer.Navigation',
+            [
+                CompositeField::create(
+                    TextField::create( 'FooterLinksCol1Title', _t('nswds.TITLE', 'Title') ),
+                    LinkField::create(
+                        'FooterLinksCol1',
+                        _t('nswds.LINKS', 'Links'),
+                        $this->owner
+                    )->setSortColumn('Sort')
+                )->setTitle( _t('nswds.COLUMN_ONE', 'Column one') ),
 
-            TextField::create('FooterLinksCol1Title', 'Footer column 1 title'),
-            LinkField::create(
-                'FooterLinksCol1',
-                'Footer column 1 links',
-                $this->owner
-            )->setSortColumn('Sort'),
+                CompositeField::create(
+                    TextField::create('FooterLinksCol2Title', _t('nswds.TITLE', 'Title') ),
+                    LinkField::create(
+                        'FooterLinksCol2',
+                        _t('nswds.LINKS', 'Links'),
+                        $this->owner
+                    )->setSortColumn('Sort')
+                )->setTitle( _t('nswds.COLUMN_TWO', 'Column two') ),
 
-            TextField::create('FooterLinksCol2Title', 'Footer column 2 title'),
-            LinkField::create(
-                'FooterLinksCol2',
-                'Footer column 2 links',
-                $this->owner
-            )->setSortColumn('Sort'),
+                CompositeField::create(
+                    TextField::create('FooterLinksCol3Title', _t('nswds.TITLE', 'Title') ),
+                    LinkField::create(
+                        'FooterLinksCol3',
+                        _t('nswds.LINKS', 'Links'),
+                        $this->owner
+                    )->setSortColumn('Sort'),
+                )->setTitle( _t('nswds.COLUMN_THREE', 'Column three') ),
 
-            TextField::create('FooterLinksCol3Title', 'Footer column 3 title'),
-            LinkField::create(
-                'FooterLinksCol3',
-                'Footer column 3 links',
-                $this->owner
-            )->setSortColumn('Sort'),
+                CompositeField::create(
+                    TextField::create('FooterLinksCol4Title', _t('nswds.TITLE', 'Title') ),
+                    LinkField::create(
+                        'FooterLinksCol4',
+                        _t('nswds.LINKS', 'Links'),
+                        $this->owner
+                    )->setSortColumn('Sort'),
+                )->setTitle( _t('nswds.COLUMN_FOUR', 'Column four') ),
 
-            TextField::create('FooterLinksCol4Title', 'Footer column 4 title'),
-            LinkField::create(
-                'FooterLinksCol4',
-                'Footer column 4 links',
-                $this->owner
-            )->setSortColumn('Sort'),
+                CompositeField::create(
+                    LinkField::create(
+                        'FooterLinksSub',
+                        _t('nswds.LINKS', 'Links'),
+                        $this->owner
+                    )->setSortColumn('Sort')
+                )->setTitle( _t('nswds.LOWER_FOOTER_LEVEL', 'Lower level') ),
+            ]
+        );
 
-            LinkField::create(
-                'FooterLinksSub',
-                'Bottom footer links',
-                $this->owner
-            )->setSortColumn('Sort'),
+        $fields->addFieldsToTab(
+            'Root.Footer.Social',
+            [
+                LinkField::create(
+                    'SocialLinks',
+                    'Social Media links',
+                    $this->owner
+                )->setSortColumn('Sort')
+            ]
+        );
 
-            LinkField::create(
-                'SocialLinks',
-                'Social Media links',
-                $this->owner
-            )->setSortColumn('Sort'),
-
-            CheckboxField::create(
-                'DisplayWelcomeToCountry',
-                _t('nswds.DISPLAY_WELCOME_TO_COUNTRY', 'Display \'Welcome to Country\' text')
-            ),
-            TextareaField::create(
-                'WelcomeToCountry',
-                _t('nswds.WELCOME_TO_COUNTRY_TITLE', 'Welcome to Country')
-            ),
-            HTMLEditorField::create(
-                'FooterContent',
-                _t(
-                    'nswds.FOOTER_CONTENT',
-                    'Footer content'
-                )
-            )->setRows(6),
-
-        ]);
+        $fields->addFieldsToTab(
+            'Root.Footer.Content',
+            [
+                CheckboxField::create(
+                    'DisplayWelcomeToCountry',
+                    _t('nswds.DISPLAY_WELCOME_TO_COUNTRY', 'Display \'Welcome to Country\' text')
+                ),
+                TextareaField::create(
+                    'WelcomeToCountry',
+                    _t('nswds.WELCOME_TO_COUNTRY_TITLE', 'Welcome to Country')
+                ),
+                HTMLEditorField::create(
+                    'FooterContent',
+                    _t(
+                        'nswds.FOOTER_CONTENT',
+                        'Footer content'
+                    )
+                )->setRows(6)
+            ]
+        );
 
         // enable TTS library, whatever that is
-        $fields->addFieldsToTab('Root.Accessibility', [
-            CheckboxField::create('EnableTextToSpeech', _t('SiteConfig.ENABLE_TEXT_TO_SPEECH', 'Enable text to speech'))
-        ]);
+        $fields->addFieldsToTab(
+            'Root.Accessibility',
+            [
+                CheckboxField::create(
+                    'EnableTextToSpeech',
+                    _t('nswds.ENABLE_TEXT_TO_SPEECH', 'Enable text to speech')
+                )
+            ]
+        );
     }
 
     /**

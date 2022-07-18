@@ -143,12 +143,13 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
 
     /**
      * @var array hero banner branding options
-     * https://nswdesignsystem.surge.sh/components/card/index.html
+     * https://digitalnsw.github.io/nsw-design-system/components/hero-banner/index.html
      */
     private static $colour_herobannerbrand_options = [
         'dark' => 'Brand Dark',
         'light' => 'Brand Light',
-        'white' => 'White'
+        'white' => 'White',
+        'off-white' => 'Off White'
     ];
 
     /**
@@ -200,6 +201,15 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
         'grey-02' => 'Grey 02',
         'grey-03' => 'Grey 03',
         'grey-04' => 'Grey 04'
+    ];
+
+    /**
+     * @var array hero banner branding options
+     * https://digitalnsw.github.io/nsw-design-system/components/footer/index.html
+     */
+    private static $colour_footerbrand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
     ];
 
     /**
