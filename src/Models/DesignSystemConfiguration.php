@@ -204,6 +204,15 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
+     * @var array hero banner branding options
+     * https://digitalnsw.github.io/nsw-design-system/components/footer/index.html
+     */
+    private static $colour_footerbrand_options = [
+        'dark' => 'Brand Dark',
+        'light' => 'Brand Light',
+    ];
+
+    /**
      * @var string
      * Allow alternate homepage, provided as URL or path
      */
