@@ -26,7 +26,7 @@
                 <% end_if %>
 
                 <% loop $Results %>
-                    <% include nswds/ListItem ListItem_MenuTitle=$MenuTitle, ListItem_Title=$Title, ListItem_Link=$Link, ListItem_Abstract=$Abstract, ListItem_Content=$MetaDescription %>
+                    <% include nswds/ListItem ListItem_MenuTitle=$MenuTitle, ListItem_Title=$Title, ListItem_LinkURL=$Link, ListItem_Abstract=$Abstract, ListItem_Content=$MetaDescription %>
                 <% end_loop %>
 
                 <% include nswds/Pagination Pagination_PaginatedItems=$Results %>

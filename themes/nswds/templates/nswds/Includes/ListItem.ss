@@ -15,9 +15,9 @@
         <% end_if %>
 
         <div class="nsw-list-item__title">
-            <a href="{$ListItem_LinkURL}">
+            <% if $ListItem_LinkURL %><a href="{$ListItem_LinkURL}"><% end_if %>
             <% if $ListItem_MenuTitle %>{$ListItem_MenuTitle.XML}<% else %>{$ListItem_Title.XML}<% end_if %>
-            </a>
+            <% if $ListItem_LinkURL %></a><% end_if %>
         </div>
 
         <% if $ListItem_Info %>
