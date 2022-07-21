@@ -48,7 +48,7 @@
         "nswdpc/silverstripe-nsw-design-system": "self.version"
     },
     "require": {
-        "nswdpc/silverstripe-content-boilerplate": "dev-ss410 as 0.3.0",
+        "nswdpc/silverstripe-content-boilerplate": "^0.3.0",
         "nswdpc/silverstripe-notification-boilerplate": "^0.1",
         "nswdpc/silverstripe-feedback-assist": "^0.2",
         "nswdpc/silverstripe-field-hint": "^0.1",
