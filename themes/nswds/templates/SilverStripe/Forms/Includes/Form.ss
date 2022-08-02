@@ -8,7 +8,7 @@
 
     <% if $VisibleFields.count > 0 %>
         <fieldset class="nsw-form__fieldset">
-        <% include NSWDPC/Waratah/Forms/Legend %>
+        <% include NSWDPC/Waratah/Forms/Legend Legend=$Legend, Title=$Title %>
         <% loop $Fields %>
             {$FieldHolder}
         <% end_loop %>
