@@ -19,7 +19,17 @@
 
     <% if $Media_Caption && $Media_ShowCaption %>
         <figcaption>
-        {$Media_Caption.XML}
+        <span>
+        <% if $Media_CaptionCharacterLimit > 0 %>
+            <% if $Media_CaptionEllipsis != '' %>
+                {$Media_Caption.LimitCharacters($Media_CaptionCharacterLimit, $Media_CaptionEllipsis)}
+            <% else %>
+                {$Media_Caption.LimitCharacters($Media_CaptionCharacterLimit)}
+            <% end_if %>
+        <% else %>
+            {$Media_Caption.XML}
+        <% end_if %>
+        </span>
         </figcaption>
     <% end_if %>
 
