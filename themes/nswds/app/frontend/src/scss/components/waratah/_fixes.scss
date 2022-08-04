@@ -2,3 +2,12 @@
  * Fixes not yet in the nswds
  * These should be marked with an issue in the nswds github and removed when fixed
  */
+
+.nsw-media {
+  img {
+    /**
+     * nsw-media img sets a width of 100% which causes incorrect aspect ratios
+     */
+    height: auto;
+  }
+}
