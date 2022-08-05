@@ -13,21 +13,30 @@
 
 .nsw-grid[data-gallery] {
 
+  align-items: stretch;
   background-color: var(--nsw-white);
 
   figure.nsw-media {
 
     margin-top : 0;
     margin-bottom : 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &:focus {
+      @include nsw-focus;
+    }
 
     figcaption {
-      & > * {
-        --max-lines: 2;
-        display: block;
-        height: calc( var(--nsw-font-size-xs-desktop) * var(--nsw-line-height-xs-desktop) * var(--max-lines));
-        overflow: hidden;
-        font-size: var(--nsw-font-size-xs-desktop);
-        line-height: var(--nsw-line-height-xs-desktop);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .credit {
+        span {
+          font-style: italic;
+        }
       }
     }
 
@@ -38,10 +47,10 @@
 .nsw-grid[data-gallery="slideshow"] {
   overflow-x : scroll;
   flex-wrap: nowrap;
-  margin : 0;
-  /*box-shadow: inset 0 0 1rem rgba(0,0,0,0.15);*/
+  margin : rem(16px) 0 0 0;
+  box-shadow: inset 0 0 rem(8px) rgba(0,0,0,0.15);
   border: 1px solid var(--nsw-grey-04);
-  align-items: center;
+  align-items: stretch;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   width: 0;
@@ -56,6 +65,11 @@
     label {
 
       position: relative;
+      height: 100%;
+
+      .image {
+        height: 100%;
+      }
 
       &:focus {
         border-radius:  3rem;
