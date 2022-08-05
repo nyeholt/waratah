@@ -12,7 +12,7 @@
         {$Media_Image.ScaleHeight($Media_ImageHeight)}
     <% else %>
         <%-- both are 0 --%>
-        <img src="{$Media_Image.URL}" alt="{$Media_Image.AltText}">
+        <img src="{$Media_Image.URL}" alt="{$Media_Image.AltText}" loading="lazy">
     <% end_if %>
 
     <% if Media_LinkToImage %></a><% end_if %>

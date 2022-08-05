@@ -34,7 +34,7 @@
                          {$Card_Image.ScaleHeight(200)}
                     <% end_if %>
                 <% else %>
-                    <img src="{$Card_ImageURL.XML}" height="200">
+                    <img src="{$Card_ImageURL.XML}" height="200" loading="lazy">
                 <% end_if %>
             </div>
             <% end_if %>
