@@ -2,12 +2,50 @@
  * Video and video gallery
  */
 
-.nsw-media__video {
+.wrth-media__video {
   iframe {
     border: none;
+    display: block;
   }
 }
 
+.wrth-video {
+
+  .wrth-media__video {
+    background: var(--nsw-black);
+  }
+
+  &-gallery {
+
+    h4 {
+        margin-bottom: rem(16px);
+    }
+
+  }
+
+  &-featured {
+
+    h2 {
+        margin-bottom: rem(16px);
+        @include breakpoint("lg") {
+            margin-bottom: rem(40px);
+        }
+    }
+
+    .more-link {
+      @include breakpoint("lg") {
+        text-align: right;
+      }
+    }
+
+  }
+
+}
+
+
+/**
+ * Various styles for classes provided by modules
+ */
 .embed-responsive,
 .ss-htmleditorfield-file.embed {
   position: relative;

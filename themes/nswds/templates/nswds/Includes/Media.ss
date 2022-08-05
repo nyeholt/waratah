@@ -43,7 +43,7 @@
 
 <% else_if $Media_Video %>
 
-    <div class="nsw-media__video">
+    <div class="wrth-media__video nsw-media__video">
         {$Media_EmbedCode.RAW}
     </div>
 
