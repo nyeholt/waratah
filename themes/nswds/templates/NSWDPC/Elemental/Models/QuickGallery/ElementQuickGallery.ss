@@ -1,4 +1,3 @@
-<%-- AD2022 retain --%>
 <% if $SortedImages %>
 
     <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
