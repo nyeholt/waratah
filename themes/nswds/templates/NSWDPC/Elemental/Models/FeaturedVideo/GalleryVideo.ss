@@ -1,7 +1,87 @@
-<div class="nsw-col nsw-col-xs-12 nsw-col-sm-6">
 
-    <h4>{$Title.XML}</h4>
+    <%-- the video thumbnail --%>
+    <figure class="nsw-media wrth-video">
 
-    <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description=$Description, LinkTarget=$LinkTarget, Anchor=$Parent.Anchor, WillLazyLoad=$WillLazyLoad, Transcript=$Transcript %>
+        <% if $Title %><h4>{$Title.XML}</h4><% end_if %>
 
-</div>
+        <div class="placeholder">
+
+            <a href="#" class="js-open-dialog-gv-{$ID}-{$Parent.Anchor}" aria-haspopup="dialog">
+
+            <% if $UseVideoThumbnail == 1 && $VideoThumbnail %>
+                <img src="{$VideoThumbnail}" class="video" referrerpolicy="no-referrer" loading="lazy">
+            <% else_if $Image %>
+                {$Image.ScaleWidth(720)}
+            <% else %>
+                <div class="noimage"></div>
+            <% end_if %>
+
+            </a>
+
+        </div>
+
+        <figcaption>
+
+            <div class="nsw-row">
+                <div class="nsw-col nsw-col-xs-12 nsw-col-md-8">
+
+                    <% if $HTML %>
+                        <%-- HTML content --%>
+                        {$HTML}
+                    <% else_if $Description %>
+                        <p>{$Description.XML}</p>
+                    <% end_if %>
+
+                </div>
+                <div class="nsw-col nsw-col-xs-12 nsw-col-md-4">
+                    <div class="more-link">
+                        <button class="nsw-button nsw-button--light nsw-button--full-width js-open-dialog-gv-{$ID}-{$Parent.Anchor}" aria-haspopup="dialog"><% include nswds/Icon Icon_Icon='play_circle' %><%t nswds.WATCH_VIDEO 'Watch' %></button>
+                    </div>
+                </div>
+            </div>
+
+        </figcaption>
+
+    </figure>
+
+    <div class="nsw-dialog js-dialog" id="gv-{$ID}-{$Parent.Anchor}" role="dialog" aria-labelledby="gvt-{$ID}-{$Parent.Anchor}">
+
+        <div class="nsw-dialog__wrapper">
+
+            <div class="nsw-dialog__container">
+
+                <div class="nsw-dialog__top">
+                    <div class="nsw-dialog__title" id="gvt-{$ID}-{$Parent.Anchor}">
+                        {$Title.XML}
+                    </div>
+                </div>
+
+                <div class="nsw-dialog__content">
+
+                    <figure class="nsw-media wrth-video">
+
+                        <div class="wrth-media__video nsw-media__video">
+                            <% include NSWDPC/Waratah/IframeVideo Anchor=$Parent.Anchor  %>
+                        </div>
+
+                    </figure>
+
+                    <% if $Transcript %>
+                    <div class="nsw-accordion js-accordion">
+                        <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
+                        <div class="nsw-accordion__content">
+                            {$Transcript}
+                        </div>
+                    </div>
+                    <% end_if %>
+
+                </div>
+            </div>
+
+            <div class="nsw-dialog__bottom">
+                <button class="nsw-button nsw-button--dark js-close-dialog"><%t nswds.CLOSE 'Close' %></button>
+            </div>
+
+        </div>
+
+    </div>

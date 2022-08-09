@@ -1,16 +1,18 @@
 <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
+<% if $HTML %>
+{$HTML}
+<% end_if %>
+
 <div class="wrth-video-gallery">
 
-    <div class="nsw-grid" data-video-gallery="1">
+    <div class="nsw-grid" data-video-gallery="1" data-gallery="grid">
 
         <% loop SortedVideos %>
 
-            <div class="nsw-col nsw-col-xs-12 nsw-col-lg-6">
+            <div class="nsw-col {$Up.ColumnClass}">
 
-                <h4>{$Title.XML}</h4>
-
-                <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description=$Description, LinkTarget=$LinkTarget, Anchor=$Up.Anchor, WillLazyLoad=$WillLazyLoad, Transcript=$Transcript %>
+                {$Me}
 
             </div>
 

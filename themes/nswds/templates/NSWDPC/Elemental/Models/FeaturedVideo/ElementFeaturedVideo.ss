@@ -9,28 +9,64 @@
 
         <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
-        <% if $Image %>
 
-            <%-- a linked video --%>
+        <figure class="nsw-media wrth-video nsw-media--transparent">
 
-            <figure class="nsw-media">
+            <% if $Image %>
+                <%-- a linked video --%>
                 <% include NSWDPC/Elemental/Models/FeaturedVideo/LinkedVideo %>
-                <% if $HTML || $FeatureLink %>
-                <figcaption>
-                    <% if $HTML %>
+            <% else %>
+                <div class="wrth-media__video nsw-media__video">
+                    <% include NSWDPC/Waratah/IframeVideo Anchor=$Anchor, Media_Brand='transparent' %>
+                </div>
+            <% end_if %>
+
+            <figcaption>
+
+            <% if $FeatureLink || $Image %>
+
+                <div class="nsw-row">
+
+                    <div class="nsw-col nsw-col-xs-12 nsw-col-lg-9">
+
+            <% end_if %>
+
+                <% if $HTML %>
+                    <%-- HTML content --%>
                     {$HTML}
-                    <% end_if %>
-                    <% if $FeatureLink %>
-                        <p><a href="{$FeatureLink.LinkURL}">{$FeatureLink.Title}</a></p>
-                    <% end_if %>
-                </figcaption>
+                <% else_if $Description %>
+                    <p>{$Description.XML}</p>
                 <% end_if %>
-            </figure>
 
-        <% else %>
+            <% if $FeatureLink || $Image %>
 
-            <% include NSWDPC/Waratah/IframeVideo Provider=$Provider, Video=$Video, Description='', LinkTarget=$FeatureLink, Anchor=$Anchor, WillLazyLoad=$WillLazyLoad, Media_Brand='transparent', Transcript=$Transcript, HTML=$HTML %>
+                    </div>
 
+                    <div class="nsw-col nsw-col-xs-12 nsw-col-lg-3">
+                        <div class="more-link">
+                            <% if $Image %>
+                                <a class="nsw-button nsw-button--light-outline nsw-button--full-width" href="{$WatchURL}"><% include nswds/Icon Icon_Icon='play_circle' %><%t nswds.WATCH_VIDEO 'Watch' %></a>
+                            <% else %>
+                                <a class="nsw-button nsw-button--light-outline nsw-button--full-width" href="{$FeatureLink.LinkURL}">{$FeatureLink.Title}</a>
+                            <% end_if %>
+                        </div>
+                    </div>
+
+                </div>
+
+            <% end_if %>
+
+            </figcaption>
+
+        </figure>
+
+        <% if $Transcript %>
+            <div class="nsw-accordion js-accordion">
+                <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
+                <div class="nsw-accordion__content">
+                    {$Transcript}
+                </div>
+            </div>
         <% end_if %>
 
     <% if $AddContainer == 0 %>
