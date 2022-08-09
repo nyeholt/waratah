@@ -14,7 +14,6 @@
 .nsw-grid[data-gallery] {
 
   align-items: stretch;
-  background-color: var(--nsw-white);
 
   figure.nsw-media {
 
@@ -50,6 +49,7 @@
   margin : rem(16px) 0 0 0;
   box-shadow: inset 0 0 rem(8px) rgba(0,0,0,0.15);
   border: 1px solid var(--nsw-grey-04);
+  background-color: var(--nsw-white);
   align-items: stretch;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
