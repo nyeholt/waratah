@@ -56,18 +56,20 @@
 
             <% end_if %>
 
+            <% if $Transcript %>
+                <div class="nsw-row">
+                    <div class="nsw-col nsw-col-xs-12">
+                        <details class="transcript">
+                            <summary><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></summary>
+                            {$Transcript}
+                        </details>
+                    </div>
+                </div>
+            <% end_if %>
+
             </figcaption>
 
         </figure>
-
-        <% if $Transcript %>
-            <div class="nsw-accordion js-accordion">
-                <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
-                <div class="nsw-accordion__content">
-                    {$Transcript}
-                </div>
-            </div>
-        <% end_if %>
 
     <% if $AddContainer == 0 %>
     </div>
