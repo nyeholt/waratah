@@ -67,12 +67,8 @@
                     </figure>
 
                     <% if $Transcript %>
-                    <div class="nsw-accordion js-accordion">
-                        <div class="nsw-accordion__title"><%t nswds.READ_VIDEO_TRANSCRIPT "Read the transcript of the '{title}' video" title=$Title.XML %></div>
-                        <div class="nsw-accordion__content">
-                            {$Transcript}
-                        </div>
-                    </div>
+                    <h5><%t nswds.TRANSCRIPT_OF_VIDEO "Transcript of the '{title}' video" title=$Title.XML %></h5>
+                    {$Transcript}
                     <% end_if %>
 
                 </div>
