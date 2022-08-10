@@ -1,12 +1,10 @@
 
     <%-- the video thumbnail --%>
-    <figure class="nsw-media wrth-video">
-
-        <% if $Title %><h4>{$Title.XML}</h4><% end_if %>
+    <figure class="nsw-media nsw-media--transparent wrth-video">
 
         <div class="placeholder">
 
-            <a href="#" class="js-open-dialog-gv-{$ID}-{$Parent.Anchor}" aria-haspopup="dialog">
+            <a href="#gv-{$ID}-{$Parent.Anchor}" class="js-open-dialog-gv-{$ID}-{$Parent.Anchor}" aria-haspopup="dialog">
 
             <% if $UseVideoThumbnail == 1 && $VideoThumbnail %>
                 <img src="{$VideoThumbnail}" class="video" referrerpolicy="no-referrer" loading="lazy">
@@ -24,6 +22,8 @@
 
             <div class="nsw-row">
                 <div class="nsw-col nsw-col-xs-12 nsw-col-md-8">
+
+                    <% if $Title %><h4>{$Title.XML}</h4><% end_if %>
 
                     <% if $HTML %>
                         <%-- HTML content --%>

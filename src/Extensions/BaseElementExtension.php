@@ -219,11 +219,13 @@ class BaseElementExtension extends DataExtension
      * Return the nswds background value or an empty value if not supported
      * https://digitalnsw.github.io/nsw-design-system/core/section/index.html
      * Use by a template as $Background
+     * Invert is automatically added when a dark BG is selected
      */
     public function getBackground() : string {
         $bg = $this->owner->AddBackground;
         $bg = $this->getSupportedBackground(strval($bg));
         $spacing = DesignSystemConfiguration::get_spacing_class();
+        $invert = DesignSystemConfiguration::is_invert_background($bg);
         $classes = [];
         // nsw-section
         $classes[] = 'nsw-section';
@@ -234,6 +236,9 @@ class BaseElementExtension extends DataExtension
             }
         } else if($spacing) {
             $classes[] = $spacing;
+        }
+        if($invert) {
+            $classes[] = "nsw-section--invert";
         }
         return implode(" ", $classes);
     }

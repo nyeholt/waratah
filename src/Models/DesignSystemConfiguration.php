@@ -204,6 +204,17 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
+     * @var array section options that can have invert applied
+     */
+    private static $invert_section_options = [
+        'brand-dark',
+        'brand-supplementary',
+        'black',
+        'grey-01',
+        'grey-02'
+    ];
+
+    /**
      * @var array hero banner branding options
      * https://digitalnsw.github.io/nsw-design-system/components/footer/index.html
      */
@@ -230,6 +241,21 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
      */
     public static function get_element_section_class() : string {
         return self::config()->get('element_section_class');
+    }
+
+    /**
+     * Return the backgrounds that support invert
+     */
+    public static function get_invert_backgrounds() : array {
+        return self::config()->get('invert_section_options');
+    }
+
+    /**
+     * Return whether the background supports invert
+     */
+    public static function is_invert_background(string $background) : bool {
+        $invertColours = self::get_invert_backgrounds();
+        return in_array($background, $invertColours);
     }
 
     /**

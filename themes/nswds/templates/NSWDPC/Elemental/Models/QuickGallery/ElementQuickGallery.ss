@@ -15,7 +15,7 @@
 
         <div class="nsw-col {$Up.ColumnClass}">
 
-        <% include nswds/Media Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1, Media_Credit=$PhotoCredit %>
+        <% include nswds/Media Media_Brand="transparent", Media_GalleryClass="gallery-item", Media_ShowCaption=$Up.ShowCaptions, Media_Caption=$Title, Media_Image=$Me, Media_ImageWidth=$Up.Width, Media_ImageHeight=$Up.Height, Media_LinkToImage=1, Media_Credit=$PhotoCredit %>
 
         </div>
 

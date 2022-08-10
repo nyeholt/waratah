@@ -43,13 +43,33 @@
 
 }
 
+.nsw-section--invert {
+
+  .nsw-grid[data-gallery="slideshow"] {
+
+    background-color: var(--nsw-grey-04);
+    box-shadow: none;
+
+    .nsw-media {
+
+      &--transparent {
+        figcaption {
+          color: var(--nsw-text-dark);
+        }
+      }
+
+    }
+
+  }
+
+}
+
 .nsw-grid[data-gallery="slideshow"] {
   overflow-x : scroll;
   flex-wrap: nowrap;
   margin : rem(16px) 0 0 0;
   box-shadow: inset 0 0 rem(8px) rgba(0,0,0,0.15);
-  border: 1px solid var(--nsw-grey-04);
-  background-color: var(--nsw-white);
+  border: none;
   align-items: stretch;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
