@@ -70,4 +70,12 @@ class SecurityExtension extends Extension
         }
     }
 
+    /**
+     * Optout of frontend analytics implementations in this controller
+     * @return bool
+     */
+    public function AnalyticsOptOut() : bool {
+        return true;
+    }
+
 }
