@@ -29,7 +29,7 @@
             <% end_if %>
             <div class="nsw-hero-banner__box"<% if $BannerStyle == "title-content" || $BannerStyle == "call-to-action" %> role="presentation"<% end_if %>>
                 <% if $BannerStyle == "title-content-image" || $BannerStyle == "call-to-action-image" %>
-                    <img class="nsw-hero-banner__image" src="{$Image.FocusFillMax(1000,1125).URL}" alt="{$Image.AltText}">
+                    <img class="nsw-hero-banner__image" src="{$Image.FocusFillMax(1000,1125).URL}" alt="{$Image.AltText}" loading="lazy">
                 <% else %>
                     <div class="nsw-hero-banner__bg"></div>
                 <% end_if %>

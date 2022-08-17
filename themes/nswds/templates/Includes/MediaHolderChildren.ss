@@ -56,7 +56,7 @@
                 <div class="nsw-card nsw-card--highlight<% if $Up.Brand %> nsw-card--{$Up.Brand.XML}<% end_if %>">
                     <% if $Image %>
                         <div class="nsw-card__image">
-                            <img src="{$Image.FocusFillMax(400,200).URL}" alt="{$Image.AltText.XML}">
+                            <img src="{$Image.FocusFillMax(400,200).URL}" alt="{$Image.AltText.XML}" loading="lazy">
                         </div>
                     <% end_if %>
                     <div class="nsw-card__content">

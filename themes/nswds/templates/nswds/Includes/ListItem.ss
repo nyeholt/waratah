@@ -50,11 +50,11 @@
 
     <% if $ListItem_Image %>
     <div class="nsw-list-item__image">
-        <img src="{$ListItem_Image.Fill(500,500).URL}" alt="{$ListItem_Image.Title.XML}">
+        <img src="{$ListItem_Image.Fill(500,500).URL}" alt="{$ListItem_Image.Title.XML}" loading="lazy">
     </div>
     <% else_if $ListItem_ImageURL %>
     <div class="nsw-list-item__image">
-        <img src="{$ListItem_ImageURL.XML}" alt="{$ListItem_ImageAlt.XML}">
+        <img src="{$ListItem_ImageURL.XML}" alt="{$ListItem_ImageAlt.XML}" loading="lazy">
     </div>
     <% end_if %>
 
