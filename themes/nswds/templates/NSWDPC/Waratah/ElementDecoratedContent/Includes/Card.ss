@@ -3,11 +3,11 @@
     <% if $Up.Up.CardStyle == "title-image-abstract" %>
         <% if $Image %>
             <div class="nsw-card__image">
-                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.Title.XML}">
+                <img src="$Image.FocusFillMax(600,400).URL" alt="{$Image.Title.XML}" loading="lazy">
             </div>
         <% else_if $SiteTree.Image %>
             <div class="nsw-card__image">
-                <img src="$SiteTree.Image.FocusFillMax(600,400).URL" alt="{$SiteTree.Image.Title.XML}">
+                <img src="$SiteTree.Image.FocusFillMax(600,400).URL" alt="{$SiteTree.Image.Title.XML}" loading="lazy">
             </div>
         <% end_if %>
     <% end_if %>

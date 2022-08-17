@@ -22,7 +22,6 @@
     <% end_loop %>
 <% else_if $Form %>
     <% with $Form %>
-    <h2>{$AuthenticatorName}</h2>
     <div class="nsw-form">
     {$ME}
     </div>
