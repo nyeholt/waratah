@@ -2,11 +2,12 @@
 
 <% with $Top.SiteConfig %>
 
-<footer class="nsw-footer<% if $FooterBrand %> nsw-footer--{$FooterBrand.XML}<% end_if %>">
+<footer class="nsw-footer<% if $FooterBrand %> nsw-footer--{$FooterBrand.XML}<% else %> wrth-footer--default<% end_if %>">
 
     <% if $FooterLinksCol1 || $FooterLinksCol2 || $FooterLinksCol3 || $FooterLinksCol4 %>
         <div class="nsw-footer__upper">
             <div class="nsw-container">
+
                 <% if $FooterLinksCol1 %>
                     <div class="nsw-footer__group">
                         <% if $FooterLinksCol1Title %>
@@ -94,6 +95,12 @@
     <div class="nsw-footer__lower">
 
         <div class="nsw-container">
+
+            <% if $Waratah_Endorsed == 'uncoupled' %>
+            <div class="wrth-brand__endorsed--uncoupled nsw-p-y-sm">
+                <% include nswds/Waratah_SVG Waratah_Height=88 %>
+            </div>
+            <% end_if %>
 
             <% if $DisplayWelcomeToCountry %>
                 <p>
