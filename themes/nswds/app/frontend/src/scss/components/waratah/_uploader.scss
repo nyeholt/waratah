@@ -10,31 +10,18 @@
 
     .uppy-StatusBar {
 
-      button {
+      &.is-waiting[aria-hidden=false] {
+        height: auto;
+      }
+
+      .uppy-StatusBar-actions {
+        padding: rem(16px);
+      }
+
+      .uppy-StatusBar-actionBtn--upload {
         @extend .nsw-button;
-      }
-
-      &:not(.is-waiting) {
-
-        height: 80px;
-
-        .uppy-StatusBar-actionBtn--upload {
-          @extend .nsw-button--dark-outline-solid;
-          margin-top : 0;
-        }
-
-      }
-
-      &.is-waiting {
-
-        height: 80px;
-
-        .uppy-StatusBar-actionBtn--upload {
-          @extend .nsw-button;
-          @extend .nsw-button--dark;
-          margin-top : 0;
-        }
-
+        @extend .nsw-button--dark;
+        box-shadow: none;
       }
 
     }
