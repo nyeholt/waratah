@@ -59,3 +59,7 @@ NSWDPC\Elemental\Models\FeaturedVideo\GalleryVideo:
 
 SilverStripe\Assets\AssetControlExtension:
   keep_archived_assets: true
+
+NSWDPC\Notices\Notice:
+  extensions:
+    - 'NSWDPC\Waratah\Extensions\NoticeExtension'

@@ -1,0 +1,44 @@
+/**
+ * MicroModal
+ * Refer to documentation for use
+ */
+
+.wrth-mm {
+
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  &__overlay {
+    position: fixed;
+    @include z-index('top');
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--nsw-brand-dark);
+    color: var(--nsw-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    max-width: 1170px;
+    max-height: 100vh;
+    width: 50%;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__content {
+    color: var(--nsw-white);
+  }
+
+}

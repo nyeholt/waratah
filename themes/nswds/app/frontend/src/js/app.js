@@ -1,6 +1,7 @@
 // Core components
 import initSlimSelect from './components/slimselect';
 import initSideNav from './components/sidenav';
+import initMicroModal from './components/micromodal';
 
 function initAppMain() {
     try {
@@ -11,6 +12,7 @@ function initAppMain() {
         // init components
         initSlimSelect();
         initSideNav();
+        initMicroModal();
     } catch (e) {
         console.warn(e);
     }
