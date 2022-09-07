@@ -1,0 +1,25 @@
+/**
+ * Branding requirements
+ */
+.wrth-footer--default,
+.nsw-footer--dark {
+
+  .wrth-brand {
+
+    &__endorsed {
+
+      &--uncoupled {
+
+        svg {
+          path {
+            fill: var(--nsw-white);
+          }
+        }
+
+      }
+
+    }
+
+  }
+
+}

@@ -94,3 +94,6 @@ NSWDPC\Elemental\Models\Slider\Slide:
 NSWDPC\Elemental\Models\QuickGallery\ElementQuickGallery:
   extensions:
     - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'
+NSWDPC\Elemental\Models\FeaturedVideo\ElementVideoGallery:
+  extensions:
+    - 'NSWDPC\GridHelper\Extensions\ElementChildGridExtension'

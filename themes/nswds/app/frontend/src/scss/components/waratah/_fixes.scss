@@ -2,3 +2,35 @@
  * Fixes not yet in the nswds
  * These should be marked with an issue in the nswds github and removed when fixed
  */
+
+.nsw-media {
+  img {
+    /**
+     * nsw-media img sets a width of 100% which causes incorrect aspect ratios
+     */
+    height: auto;
+  }
+}
+
+/**
+ * Ensure buttons are inverted
+ */
+.nsw-section--invert {
+  .nsw-button {
+    &--dark,
+    &--dark-outline-solid {
+      background-color: var(--nsw-white);
+      color: var(--nsw-brand-dark);
+      border-color: transparent;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: var(--nsw-brand-light);
+        color: var(--nsw-brand-dark);
+        border-color: transparent;
+      }
+
+    }
+  }
+}

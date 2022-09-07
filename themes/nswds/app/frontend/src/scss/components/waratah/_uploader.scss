@@ -10,31 +10,50 @@
 
     .uppy-StatusBar {
 
-      button {
-        @extend .nsw-button;
+      .uppy-StatusBar-progress {
+        background-color: var(--nsw-status-info);
       }
 
-      &:not(.is-waiting) {
+      &.is-error {
 
-        height: 80px;
-
-        .uppy-StatusBar-actionBtn--upload {
-          @extend .nsw-button--dark-outline-solid;
-          margin-top : 0;
+        .uppy-StatusBar-progress {
+          background-color: var(--nsw-status-error);
         }
 
+      }
+
+      &-actionCircleBtn {
+        svg {
+          circle {
+            fill: var(--nsw-grey-01);
+          }
+          path {
+            fill: var(--nsw-white);
+          }
+        }
+      }
+
+      &-actionBtn--retry,
+      &-actionBtn--retry:hover {
+        color: var(--nsw-status-warning);
+        background-color: var(--nsw-status-warning-bg);
+      }
+
+      &.is-waiting[aria-hidden=false] {
+        height: auto;
       }
 
       &.is-waiting {
 
-        height: 80px;
+        .uppy-StatusBar-actions {
+          padding: rem(16px);
+        }
 
         .uppy-StatusBar-actionBtn--upload {
           @extend .nsw-button;
           @extend .nsw-button--dark;
-          margin-top : 0;
+          box-shadow: none;
         }
-
       }
 
     }

@@ -26,9 +26,9 @@ class GalleryFrontend extends Frontend {
         $script = <<<JS
 $(document).ready(function(){
     $('#{$anchor} [data-gallery]').slickLightbox({
-        itemSelector: 'figure > a:first-child',
+        itemSelector: 'figure a:first-child',
         caption: function(element, info) {
-            return $(element).next('figcaption').text()
+            return $(element).parent().next('figcaption').html()
         },
         captionPosition: 'dynamic',
         lazy: true

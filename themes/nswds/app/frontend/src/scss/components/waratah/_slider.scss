@@ -12,23 +12,130 @@
 }
 
 .nsw-grid[data-gallery] {
-  background-color: var(--nsw-white);
+
+  align-items: stretch;
+
+  figure.nsw-media {
+
+    margin-top : 0;
+    margin-bottom : 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &:focus {
+      @include nsw-focus;
+    }
+
+    figcaption {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .credit {
+        span {
+          font-style: italic;
+        }
+      }
+    }
+
+  }
+
+}
+
+.nsw-section--invert {
+
+  .nsw-grid[data-gallery="slideshow"] {
+
+    background-color: var(--nsw-grey-04);
+    box-shadow: none;
+
+    .nsw-media {
+
+      &--transparent {
+        figcaption {
+          color: var(--nsw-text-dark);
+        }
+      }
+
+    }
+
+  }
+
 }
 
 .nsw-grid[data-gallery="slideshow"] {
   overflow-x : scroll;
   flex-wrap: nowrap;
-  margin : 0;
-  /*box-shadow: inset 0 0 1rem rgba(0,0,0,0.15);*/
-  border: 1px solid var(--nsw-grey-04);
-  align-items: center;
+  margin : rem(16px) 0 0 0;
+  box-shadow: inset 0 0 rem(8px) rgba(0,0,0,0.15);
+  border: none;
+  align-items: stretch;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
   width: 0;
   min-width : 100%;
-}
 
-.nsw-grid[data-gallery] figure.nsw-media {
-   margin-top : 0;
-   margin-bottom : 0;
+  & > * {
+    /**
+     * Do not allow child items to shrink to fit
+     */
+    flex-shrink: 0;
+
+    label {
+
+      position: relative;
+      height: 100%;
+
+      .image {
+        height: 100%;
+      }
+
+      &:focus {
+        border-radius:  3rem;
+        @include nsw-focus;
+      }
+
+      input[type=radio] {
+        display: block;
+        position: absolute;
+        top: rem(16px);
+        left: rem(16px);
+        accent-color: var(--nsw-brand-dark);
+        height: rem(32px);
+        width: rem(32px);
+        border-radius: 50%;
+        margin: 0;
+
+        &:focus {
+          accent-color: var(--nsw-brand-dark);
+        }
+
+        &:before {
+          display: block;
+          border-radius: 50%;
+        }
+
+        &:hover:before {
+          content: '';
+          display: block;
+          height: 100%;
+          width: 100%;
+          background-image: linear-gradient(var(--nsw-text-hover), var(--nsw-text-hover));
+        }
+
+        &:focus:before {
+          content: '';
+          display: block;
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+          background-image: none;
+          @include nsw-focus;
+        }
+      }
+
+    }
+  }
+
 }

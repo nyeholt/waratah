@@ -1,4 +1,5 @@
 ---
+Name: nswdpc-waratah-loginforms
 Before:
   - '#login-forms'
 Only:

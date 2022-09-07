@@ -8,7 +8,7 @@ This module is maintained by the NSWDPC Digital Team. We're a friendly crew that
 
 ## Features
 
-+ ✅ Implements all components from the NSW Design System v3.x (and historically v2.14, v2.13.x)
++ ✅ Implements all components from the NSW Design System v3.x
 + ✅ Standard page layouts based on [template examples](https://digitalnsw.github.io/nsw-design-system/templates/index.html)
 + ✅ Integrates our supported [Elemental content blocks](https://github.com/silverstripe/silverstripe-elemental)
 + ✅ Includes the [NSWDPC Silverstripe content authoring boilerplate](https://github.com/nswdpc/silverstripe-content-boilerplate) containing content authoring tools.
@@ -22,25 +22,20 @@ This module is maintained by the NSWDPC Digital Team. We're a friendly crew that
 
 Starting within a standard Silverstripe v4 installation, install via [Composer](https://getcomposer.org/download/).
 
-```shell
-composer require nswdpc/waratah:^1
-```
 
-### Previous versions
-
-#### v2.14.x of the NSW Design System
+### Silverstripe >= 4.10.0
 
 ```shell
-composer require nswdpc/waratah:^0.3-stable
+composer require nswdpc/waratah:~1.1.0
 ```
 
-> From August 1 2022, no new features will be added to the nsw-design-system v2.14.x branch (nswds214)
+### Silverstripe < 4.10.0
 
-#### Legacy versions
+```shell
+composer require nswdpc/waratah:~1.0.0
+```
 
-Using `^0.2` constraint will install the module with support for v2.13.x of the NSW Design System.
-
-This is no longer supported.
+[Previous version history](./docs/en/404_previous_versions.md)
 
 ### After installation
 

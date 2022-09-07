@@ -97,11 +97,25 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     private static $branding_version = 3.0;
 
     /**
+     * Set whether masterband is on or off, if off you need to configure
+     * a non masterband: cobrand, endorsed, independent
+     * @var bool
+     */
+    private static $masterbrand = true;
+
+    /**
      * @var string
      * Co-Branding configuration, by default this is off
      * Applicable values are '','vertical' or 'horizontal'
      */
     private static $co_branding = '';
+
+    /**
+     * @var string
+     * Endorsed configuration, by default this is off
+     * Applicable values are '','coupled' or 'decoupled'
+     */
+    private static $endorsed = '';
 
     /**
      * @var string
@@ -204,6 +218,17 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     ];
 
     /**
+     * @var array section options that can have invert applied
+     */
+    private static $invert_section_options = [
+        'brand-dark',
+        'brand-supplementary',
+        'black',
+        'grey-01',
+        'grey-02'
+    ];
+
+    /**
      * @var array hero banner branding options
      * https://digitalnsw.github.io/nsw-design-system/components/footer/index.html
      */
@@ -233,6 +258,21 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     }
 
     /**
+     * Return the backgrounds that support invert
+     */
+    public static function get_invert_backgrounds() : array {
+        return self::config()->get('invert_section_options');
+    }
+
+    /**
+     * Return whether the background supports invert
+     */
+    public static function is_invert_background(string $background) : bool {
+        $invertColours = self::get_invert_backgrounds();
+        return in_array($background, $invertColours);
+    }
+
+    /**
      * Returns an array of strings of the method names of methods on the call that should be exposed
      * as global variables in the templates.
      *
@@ -243,6 +283,8 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
         return [
             'Waratah_CoBrand' => 'waratah_cobrand',
             'Waratah_BrandVersion' => 'waratah_brandversion',
+            'Waratah_Endorsed' => 'waratah_endorsed',
+            'Waratah_Masterbrand' => 'waratah_masterbrand',
             'SpacingClass' => 'get_spacing_class',
             'ElementSectionClass' => 'get_element_section_class',
             'MastHead_Brand' => 'get_masthead_brand',
@@ -289,13 +331,37 @@ class DesignSystemConfiguration implements TemplateGlobalProvider {
     }
 
     /**
-     * Waratah co brand value
+     * Waratah co brand value '' (default), 'vertical' or 'horizontal'
      * @return string
      */
     public static function waratah_cobrand()
     {
         return self::config()->get('co_branding');
     }
+
+    /**
+     * Waratah masterbrand value, default is true
+     * @return bool
+     */
+    public static function waratah_masterbrand()
+    {
+        if(self::waratah_cobrand() || self::waratah_endorsed()) {
+            // cobrand or endorsed cancel masterbrand
+            return false;
+        } else {
+            return self::config()->get('masterbrand');
+        }
+    }
+
+    /**
+     * Waratah endorsed setting, the value is either empty '' (default), 'coupled' or 'decoupled'
+     * @return string
+     */
+    public static function waratah_endorsed()
+    {
+        return self::config()->get('endorsed');
+    }
+
 
     /**
      * Waratah branding version

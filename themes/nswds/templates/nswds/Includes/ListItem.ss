@@ -9,9 +9,9 @@
         <% if $ListItem_DateString %>
             <div class="nsw-list-item__info">{$ListItem_DateString.XML}</div>
         <% else_if $ListItem_Date %>
-            <div class="nsw-list-item__info">{$ListItem_Date.Nice}</div>
+            <div class="nsw-list-item__info">{$ListItem_Date.Format('d MMMM y')}</div>
         <% else_if $ListItem_DateTime %>
-            <div class="nsw-list-item__info">{$ListItem_DateTime.Nice}</div>
+            <div class="nsw-list-item__info">{$ListItem_DateTime.Format("d MMMM y 'at' h:mm a")}</div>
         <% end_if %>
 
         <div class="nsw-list-item__title">

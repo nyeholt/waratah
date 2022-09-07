@@ -2,6 +2,7 @@
 
 <% if $Media_Image %>
 
+    <div class="wrth-media__image">
     <% if Media_LinkToImage == 1 %><a <% if Media_GalleryClass %>class="{$Media_GalleryClass}"<% end_if %> href="{$Media_Image.ScaleMaxWidth(1920).AbsoluteURL.XML}"><% end_if %>
 
     <% if $Media_ImageWidth > 0 && $Media_ImageHeight > 0 %>
@@ -16,31 +17,63 @@
     <% end_if %>
 
     <% if Media_LinkToImage %></a><% end_if %>
+    </div>
 
-    <% if $Media_Caption && $Media_ShowCaption %>
+
+    <% if $Media_Caption || $Media_Credit %>
         <figcaption>
-        {$Media_Caption.XML}
+        <% if $Media_Caption && $Media_ShowCaption %>
+            <p>
+            <% if $Media_CaptionCharacterLimit > 0 %>
+                <% if $Media_CaptionEllipsis != '' %>
+                    {$Media_Caption.LimitCharacters($Media_CaptionCharacterLimit, $Media_CaptionEllipsis)}
+                <% else %>
+                    {$Media_Caption.LimitCharacters($Media_CaptionCharacterLimit)}
+                <% end_if %>
+            <% else %>
+                {$Media_Caption.XML}
+            <% end_if %>
+            </p>
+        <% end_if %>
+        <% if $Media_Credit %>
+            <p class="credit"><%t nswds.MEDIA_CREDIT 'Credit' %>: <span>{$Media_Credit.XML}</span></p>
+        <% end_if %>
         </figcaption>
     <% end_if %>
 
 <% else_if $Media_Video %>
 
-    <div class="nsw-media__video">
+    <div class="wrth-media__video nsw-media__video">
         {$Media_EmbedCode.RAW}
     </div>
 
-    <figcaption>
-    <% if $Media_Caption && $Media_ShowCaption %>
-        {$Media_Caption.XML}
+    <% if $Media_Caption || $Media_Credit || $Media_AltVideoURL %>
+        <figcaption>
+        <% if $Media_Caption && $Media_ShowCaption %>
+            <p>
+            <% if $Media_CaptionCharacterLimit > 0 %>
+                <% if $Media_CaptionEllipsis != '' %>
+                    {$Media_Caption.LimitCharacters($Media_CaptionCharacterLimit, $Media_CaptionEllipsis)}
+                <% else %>
+                    {$Media_Caption.LimitCharacters($Media_CaptionCharacterLimit)}
+                <% end_if %>
+            <% else %>
+                {$Media_Caption.XML}
+            <% end_if %>
+            </p>
+        <% end_if %>
+        <% if $Media_Credit %>
+            <p class="credit"><%t nswds.MEDIA_CREDIT 'Credit' %>: <span>{$Media_Credit.XML}</span></p>
+        <% end_if %>
+        <% if $Media_AltVideoURL %>
+            <p class="alt-url">
+                <a href="$Media_AltVideoURL">
+                    <% _t('nswds.WATCHWITHAUDIODESC','Watch this video with an audio description') %>
+                </a>
+            </p>
+        <% end_if %>
+        </figcaption>
     <% end_if %>
-    <% if $Media_AltVideoURL %>
-        <p class="alt-url">
-            <a href="$Media_AltVideoURL">
-                <% _t('nswds.WATCHWITHAUDIODESC','Watch this video with an audio description') %>
-            </a>
-        </p>
-    <% end_if %>
-    </figcaption>
 
     <% if $Media_Transcript %>
         <div class="nsw-accordion js-accordion">
