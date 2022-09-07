@@ -4,9 +4,14 @@
 <% end_if %>
 <% if $Elements.Elements %>
     <div class="nsw-link-list">
+        <ul>
         <% loop $Elements.Elements %>
-            <%-- TODO: check for element type ? this assumes ElementDecoratedContent --%>
-            <% include nswds/LinkListItem LinkListItem_Link=$LinkTarget %>
+            <% if $ContentLink %>
+                <% include nswds/LinkListItem LinkListItem_Link=$ContentLink %>
+            <% else_if $LinkTarget %>
+                <% include nswds/LinkListItem LinkListItem_Link=$LinkTarget %>
+            <% end_if %>
         <% end_loop %>
+        </ul>
     </div>
 <% end_if %>
