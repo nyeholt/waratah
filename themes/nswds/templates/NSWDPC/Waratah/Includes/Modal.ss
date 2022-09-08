@@ -1,5 +1,5 @@
 <% if $Modal_ModalID %>
-<div class="wrth-mm<% if $Modal_ExtraClass %> {$Modal_ExtraClass}<% end_if %>" id="{$Modal_ModalID}"<% if $Modal_ShowOnLoad %> data-onload="{$Modal_ShowOnLoad}"<% end_if %><% if $Modal_AutoCloseAfter > 0 %> data-autoclose-after="{$Modal_AutoCloseAfter}"<% end_if %>>
+<div class="wrth-mm<% if $Modal_ExtraClass %> {$Modal_ExtraClass}<% end_if %>" id="{$Modal_ModalID}"<% if $Modal_ShowOnLoad %> data-onload="{$Modal_ShowOnLoad}"<% end_if %><% if $Modal_AutoCloseAfter > 0 %> data-autoclose-after="{$Modal_AutoCloseAfter}"<% end_if %> aria-hidden="true">
 
     <div class="wrth-mm__overlay" tabindex="-1" data-micromodal-close>
 
