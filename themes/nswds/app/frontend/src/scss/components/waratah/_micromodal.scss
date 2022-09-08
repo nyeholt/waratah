@@ -2,23 +2,39 @@
  * MicroModal
  * Refer to documentation for use
  */
+
+ @keyframes mmfadeIn {
+     from { opacity: 0; }
+       to { opacity: 1; }
+ }
+
+ @keyframes mmfadeOut {
+     from { opacity: 1; }
+       to { opacity: 0; }
+ }
+
 .wrth-mm {
 
-  opacity: 0;
-  transition: all 300ms ease-in-out;
-  position: absolute;
-  @include z-index('top');
+  display: none;
 
   &.is-open {
-    opacity: 1;
+    display: block;
   }
 
-  &__actions {
-    display: flex;
-    justify-content: flex-end;
+  &[aria-hidden="false"] {
+    .wrth-mm__overlay {
+      animation: mmfadeIn 300ms ease-in-out;
+    }
+  }
+
+  &[aria-hidden="true"] {
+    .wrth-mm__overlay {
+      animation: mmfadeOut 300ms ease-in-out;
+    }
   }
 
   &__overlay {
+    @include z-index('top');
     position: fixed;
     top: 0;
     left: 0;
@@ -35,6 +51,11 @@
     max-width: 1170px;
     max-height: 100vh;
     width: 50%;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__content {
