@@ -35,7 +35,7 @@
 
 <% include FeedbackAssist %>
 
-<% include NSWDPC/Waratah/AcknowledgementOfCountry %>
+<% include NSWDPC/Waratah/GlobalNotice %>
 
 </body>
 </html>

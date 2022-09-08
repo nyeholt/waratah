@@ -2,18 +2,24 @@
  * MicroModal
  * Refer to documentation for use
  */
-
 .wrth-mm {
 
-  display: none;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  position: absolute;
+  @include z-index('top');
 
   &.is-open {
-    display: block;
+    opacity: 1;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
   }
 
   &__overlay {
     position: fixed;
-    @include z-index('top');
     top: 0;
     left: 0;
     right: 0;
@@ -31,14 +37,23 @@
     width: 50%;
   }
 
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
   &__content {
     color: var(--nsw-white);
+  }
+
+  &.wrth-mm-aoc {
+
+    .wrth-mm__content,
+    .wrth-mm__footer,
+    .wrth-mm__header {
+      text-align: center;
+      display: block;
+    }
+
+    .wrth-mm__content {
+      @include font-size('md');
+    }
+
   }
 
 }

@@ -3,16 +3,17 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use NSWDPC\Notices\Notice;
+use SilverStripe\Core\Convert;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\DB;
 use SilverStripe\Forms\CheckboxField;
-use SilverStripe\View\Requirements;
-use SilverStripe\View\TemplateGlobalProvider;
+use SilverStripe\Forms\Fieldlist;
 
 /**
  * Extension for generic notice module/record
  * @author James
  */
-class NoticeExtension extends DataExtension implements TemplateGlobalProvider {
+class NoticeExtension extends DataExtension {
 
     /**
      * @var array
@@ -40,43 +41,39 @@ class NoticeExtension extends DataExtension implements TemplateGlobalProvider {
     }
 
     /**
+     * Extension method for specific styling opportunities
+     */
+    public function addExtraClass(array &$extraClasses) {
+        if ($this->owner->IsAcknowledgementOfCountry == 1) {
+            $extraClasses[] = 'wrth-mm-aoc';
+        }
+    }
+
+    /**
      * @return void
      */
-    public function updateCmsFields($fields) {
+    public function updateCmsFields(Fieldlist $fields) {
         $fields->insertAfter(
             'Description',
             CheckboxField::create(
                 'IsAcknowledgementOfCountry',
                 _t('nswds.IS_AOC', 'This is the \'Acknowledgement Of Country\' notice')
+            )->setDescription(
+                _t(
+                    'nswds.IS_AOC_DESCRIPTION',
+                    'This option controls the  \'Site-wide notice\' option'
+                )
             )
         );
-    }
 
-    /**
-     * Return the AoC notice
-     * @return Notice|null
-     */
-    public static function get_aoc_notice() : ?Notice
-    {
-        $notices = Notice::get();
-        $notices = $notices->filter([
-            'IsAcknowledgementOfCountry' => 1,
-            'IsActive' => 1
-        ]);
-        $notices = $notices->sort('IsAcknowledgementOfCountry DESC');
-        $notice = $notices->first();
-        return $notice;
-    }
-
-    /**
-     * Specify global template variables
-     * @return array
-     */
-    public static function get_template_global_variables()
-    {
-        return [
-            'AcknowledgementOfCountryNotice' => 'get_aoc_notice'
-        ];
+        if($isGlobalField = $fields->dataFieldByName("IsGlobal")) {
+            $isGlobalField = $isGlobalField->setRightTitle(
+                _t(
+                    'nswds.IS_GLOBAL_NOTICE_DESCRIPTION',
+                    'Site-wide notices are shown on every page once per browser.'
+                )
+            );
+        }
     }
 
 }
