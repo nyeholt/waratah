@@ -20,13 +20,27 @@ export default function initVideoPlayer() {
       }
     };
 
+    let isVimeoSource = function(src) {
+      let rgx = new RegExp('player\.vimeo\.com');
+      return rgx.test(src);
+    };
+
     let playVideo  = function(iframe) {
       try {
-        let cmd = JSON.stringify({
-          event: 'command',
-          func: 'playVideo',
-          args: ''
-        });
+        let isVimeo = isVimeoSource(iframe.src);
+        let msg = {};
+        if(isVimeo) {
+          msg = {
+            method: 'play'
+          };
+        } else {
+          msg = {
+            event: 'command',
+            func: 'playVideo',
+            args: ''
+          }
+        }
+        let cmd = JSON.stringify(msg);
         iframe.contentWindow.postMessage(cmd, '*');
       } catch(e) {
         console.error('playVideo failed:' + e);
@@ -36,11 +50,20 @@ export default function initVideoPlayer() {
     let pauseVideo = function(tgt) {
       try {
         let iframe = tgt.querySelector('iframe');
-        let cmd = JSON.stringify({
-          event: 'command',
-          func: 'pauseVideo',
-          args: ''
-        });
+        let isVimeo = isVimeoSource(iframe.src);
+        let msg = {};
+        if(isVimeo) {
+          msg = {
+            method: 'pause'
+          };
+        } else {
+          msg = {
+            event: 'command',
+            func: 'pauseVideo',
+            args: ''
+          };
+        }
+        let cmd = JSON.stringify(msg);
         iframe.contentWindow.postMessage(cmd, '*');
         // remove the load event
         iframe.removeEventListener('load', iframeLoadedEvent);
