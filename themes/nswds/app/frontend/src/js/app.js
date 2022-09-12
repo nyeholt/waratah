@@ -1,6 +1,7 @@
 // Core components
 import initSlimSelect from './components/slimselect';
 import initSideNav from './components/sidenav';
+import initVideoPlayer from './components/videoplayer';
 
 function initAppMain() {
     try {
@@ -11,6 +12,7 @@ function initAppMain() {
         // init components
         initSlimSelect();
         initSideNav();
+        initVideoPlayer();
     } catch (e) {
         console.warn(e);
     }
