@@ -20,14 +20,18 @@ export default function initVideoPlayer() {
       }
     };
 
-    let isVimeoSource = function(src) {
-      let rgx = new RegExp('player\.vimeo\.com');
-      return rgx.test(src);
+    let isVimeoSource = function(iframe) {
+      if(iframe.dataset.videoProvider == 'vimeo') {
+        return true;
+      } else {
+        let rgx = new RegExp('player\.vimeo\.com');
+        return rgx.test(iframe.src);
+      }
     };
 
     let playVideo  = function(iframe) {
       try {
-        let isVimeo = isVimeoSource(iframe.src);
+        let isVimeo = isVimeoSource(iframe);
         let msg = {};
         if(isVimeo) {
           msg = {
@@ -50,7 +54,7 @@ export default function initVideoPlayer() {
     let pauseVideo = function(tgt) {
       try {
         let iframe = tgt.querySelector('iframe');
-        let isVimeo = isVimeoSource(iframe.src);
+        let isVimeo = isVimeoSource(iframe);
         let msg = {};
         if(isVimeo) {
           msg = {
