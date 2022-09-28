@@ -16,8 +16,8 @@
     <div class="nsw-layout">
 
         <aside class="nsw-layout__sidebar nsw-layout__sidebar--desktop">
-            <% if $SearchForm %>
-                <% with $SearchForm %>
+            <% if $Form %>
+                <% with $Form %>
                     <% include SilverStripe/CMS/Search/SearchForm SearchFormContext='wrth-advanced-search' %>
                 <% end_with %>
             <% end_if %>

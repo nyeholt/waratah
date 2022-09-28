@@ -2,6 +2,7 @@
 import initSlimSelect from './components/slimselect';
 import initSideNav from './components/sidenav';
 import initMicroModal from './components/micromodal';
+import initVideoPlayer from './components/videoplayer';
 
 function initAppMain() {
     try {
@@ -13,6 +14,7 @@ function initAppMain() {
         initSlimSelect();
         initSideNav();
         initMicroModal();
+        initVideoPlayer();
     } catch (e) {
         console.warn(e);
     }
