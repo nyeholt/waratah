@@ -1,1 +1,1 @@
-<% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='NSWDPC/UserForms/Submissions/SubmissionListing' %>
+<% include NSWDPC/Waratah/PageWrapper PerLayoutContentTemplate='NSWDPC/UserForms/Submissions/Includes/SubmissionListing' %>
