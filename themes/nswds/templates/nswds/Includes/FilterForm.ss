@@ -20,7 +20,7 @@
     <div class="nsw-filters__wrapper">
 
         <div class="nsw-filters__back">
-            <button>
+            <button class="nsw-icon-button nsw-icon-button--flex js-close-sub-nav">
                 <% include nswds/Icon Icon_Icon='keyboard_arrow_left' %>
                 <span><%t nswds.BACK 'Back' %></span>
             </button>
