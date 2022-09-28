@@ -49,11 +49,11 @@
         </div>
 
         <% if $Actions %>
-        <% loop $Actions %>
         <div class="nsw-filters__accept">
-            {$Field}
+            <% loop $Actions %>
+                {$Field}
+            <% end_loop %>
         </div>
-        <% end_loop %>
         <div class="nsw-filters__cancel">
         <% if $ClearLink %>
             <%-- a link to clear results and reset to an unfiltered listing --%>
