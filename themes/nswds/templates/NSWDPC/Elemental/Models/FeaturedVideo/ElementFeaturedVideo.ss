@@ -2,11 +2,6 @@
 
 <div class="wrth-video-featured">
 
-    <% if $AddContainer == 0 %>
-    <%-- container is added in the ElementHolder --%>
-    <div class="nsw-container">
-    <% end_if %>
-
         <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
 
@@ -70,10 +65,6 @@
             </figcaption>
 
         </figure>
-
-    <% if $AddContainer == 0 %>
-    </div>
-    <% end_if %>
 
 </div>
 

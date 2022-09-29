@@ -20,7 +20,7 @@
     <div class="nsw-filters__wrapper">
 
         <div class="nsw-filters__back">
-            <button>
+            <button class="nsw-icon-button nsw-icon-button--flex js-close-sub-nav">
                 <% include nswds/Icon Icon_Icon='keyboard_arrow_left' %>
                 <span><%t nswds.BACK 'Back' %></span>
             </button>
@@ -49,11 +49,11 @@
         </div>
 
         <% if $Actions %>
-        <% loop $Actions %>
         <div class="nsw-filters__accept">
-            {$Field}
+            <% loop $Actions %>
+                {$Field}
+            <% end_loop %>
         </div>
-        <% end_loop %>
         <div class="nsw-filters__cancel">
         <% if $ClearLink %>
             <%-- a link to clear results and reset to an unfiltered listing --%>

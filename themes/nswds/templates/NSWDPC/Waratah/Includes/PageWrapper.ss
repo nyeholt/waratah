@@ -2,7 +2,7 @@
 <% if $Top.IsLandingPage %>
 
     <%-- a landing page --%>
-    <div class="nsw-p-top-sm nsw-p-bottom-lg" data-page-type="1">
+    <div class="nsw-p-top-sm" data-page-type="1">
         <main id="content">
             <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
         </main>
@@ -11,7 +11,7 @@
 <% else_if $Top.HasSideElements %>
 
     <%-- a content page, sidebar on the right --%>
-    <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="3">
+    <div class="nsw-container nsw-p-top-sm" data-page-type="3">
         <div class="nsw-layout">
             <main id="content" class="nsw-layout__main">
             <% include NSWDPC/Waratah/PageContent PerLayoutContentTemplate=$PerLayoutContentTemplate, PerLayoutContentAboveElemental=$PerLayoutContentAboveElemental %>
@@ -25,7 +25,7 @@
 <% else %>
 
     <%-- default: a page with navigation, sidebar on the left --%>
-    <div class="nsw-container nsw-p-top-sm nsw-p-bottom-lg" data-page-type="2">
+    <div class="nsw-container nsw-p-top-sm" data-page-type="2">
         <div class="nsw-layout">
 
         <% if $SidebarNavigation(1) %>
