@@ -47,7 +47,10 @@ class SiteConfigExtension extends DataExtension
         'WelcomeToCountry' => 'Text',
 
         // Accessibility
-        'EnableTextToSpeech' => 'Boolean'
+        'EnableTextToSpeech' => 'Boolean',
+
+        // Long Title, allow wrapping
+        'LongTitle' => 'Text'
 
     ];
 
@@ -277,6 +280,18 @@ class SiteConfigExtension extends DataExtension
                     _t('nswds.ENABLE_TEXT_TO_SPEECH', 'Enable text to speech')
                 )
             ]
+        );
+
+        // Provide alternative long title to allow for long names, used sparingly
+        $fields->insertAfter(
+            'Title',
+            TextareaField::create(
+                'LongTitle',
+                _t('nswds.TITLE_WITH_BREAKS', 'Longer form of site title')
+            )->setRows(2)
+            ->setDescription(
+                 _t('nswds.TITLE_WITH_BREAKS_DESCRIPTION', 'Used in header, if provided')
+            )
         );
     }
 

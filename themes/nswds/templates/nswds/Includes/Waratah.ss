@@ -20,7 +20,7 @@
     <%-- masterband has title and tagline --%>
     <div class="nsw-header__name">
         <% with SiteConfig %>
-        <div class="nsw-header__title">{$Title.XML}</div>
+        <div class="nsw-header__title"><% if $LongTitle %>{$LongTitle}<% else %>{$Title.XML}<% end_if %></div>
         <% if $Tagline %>
         <div class="nsw-header__description">{$Tagline.XML}</div>
         <% end_if %>
