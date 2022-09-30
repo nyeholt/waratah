@@ -35,5 +35,7 @@
 
 <% include FeedbackAssist %>
 
+<% include NSWDPC/Waratah/GlobalNotice %>
+
 </body>
 </html>

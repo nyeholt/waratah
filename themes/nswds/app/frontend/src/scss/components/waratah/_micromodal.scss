@@ -1,0 +1,80 @@
+/**
+ * MicroModal
+ * Refer to documentation for use
+ */
+
+ @keyframes mmfadeIn {
+     from { opacity: 0; }
+       to { opacity: 1; }
+ }
+
+ @keyframes mmfadeOut {
+     from { opacity: 1; }
+       to { opacity: 0; }
+ }
+
+.wrth-mm {
+
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  &[aria-hidden="false"] {
+    .wrth-mm__overlay {
+      animation: mmfadeIn 300ms ease-in-out;
+    }
+  }
+
+  &[aria-hidden="true"] {
+    .wrth-mm__overlay {
+      animation: mmfadeOut 300ms ease-in-out;
+    }
+  }
+
+  &__overlay {
+    @include z-index('top');
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--nsw-brand-dark);
+    color: var(--nsw-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__container {
+    max-width: 1170px;
+    max-height: 100vh;
+    width: 50%;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__content {
+    color: var(--nsw-white);
+  }
+
+  &.wrth-mm-aoc {
+
+    .wrth-mm__content,
+    .wrth-mm__footer,
+    .wrth-mm__header {
+      text-align: center;
+      display: block;
+    }
+
+    .wrth-mm__content {
+      @include font-size('md');
+    }
+
+  }
+
+}
