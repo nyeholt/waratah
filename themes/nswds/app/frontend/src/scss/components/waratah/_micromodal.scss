@@ -62,6 +62,13 @@
     color: var(--nsw-white);
   }
 
+  button {
+    border: solid rem(2px) var(--nsw-white);
+    &:focus {
+      @include nsw-focus(true, var(--nsw-white));
+    }
+  }
+
   &.wrth-mm-aoc {
 
     .wrth-mm__content,
