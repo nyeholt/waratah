@@ -5,12 +5,6 @@
 
         <div class="wrth-mm__container" role="dialog" aria-modal="true" aria-labelledby="{$Modal_ModalID}-title">
 
-            <div class="wrth-mm__actions nsw-block">
-                <button class="wrth-mm__close nsw-icon-button nsw-button--light-outline" aria-label="<%t wrth.CLOSE_MODAL 'Close this dialog' %>" data-micromodal-close>
-                    <% include nswds/Icon Icon_Icon='close' %>
-                </button>
-            </div>
-
             <% if $Modal_ShowTitle && $Modal_Title %>
             <div class="wrth-mm__header nsw-block">
                 <h2 id="{$Modal_ModalID}-title">{$Modal_Title.XML}</h2>
