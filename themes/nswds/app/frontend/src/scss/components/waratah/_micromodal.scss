@@ -58,6 +58,8 @@
     @include breakpoint('sm', 'max-width') {
       padding: rem(32px);
       width: auto;
+
+      .wrth-mm__content,
       .wrth-mm__footer,
       .wrth-mm__header {
         /* alignment chutzpah */
