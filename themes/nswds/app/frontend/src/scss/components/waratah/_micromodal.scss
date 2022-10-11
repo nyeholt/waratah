@@ -49,13 +49,27 @@
 
   &__container {
     max-width: 1170px;
-    max-height: 100vh;
-    width: 50%;
-  }
-
-  &__actions {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+
+    @include breakpoint('sm', 'max-width') {
+      padding: rem(32px);
+      width: auto;
+
+      .wrth-mm__content,
+      .wrth-mm__footer,
+      .wrth-mm__header {
+        /* alignment chutzpah */
+        margin-top: auto;
+      }
+
+      .wrth-mm__footer button {
+        width: 100%;
+      }
+    }
   }
 
   &__content {
