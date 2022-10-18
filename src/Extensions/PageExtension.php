@@ -21,6 +21,22 @@ class PageExtension extends DataExtension
     private static $allowed_file_types = ["jpg", "jpeg", "gif", "png", "webp"];
 
     /**
+     * Show LastEdited date on page
+     *
+     * @config
+     * @var bool
+     */
+    private static $show_last_updated = false;
+
+    /**
+     * Set LastEdited date format
+     *
+     * @config
+     * @var string
+     */
+    private static $date_format = 'dd LLL y';
+
+    /**
      * @var array
      */
     private static $db = [
