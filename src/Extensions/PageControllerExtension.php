@@ -2,7 +2,6 @@
 
 namespace NSWDPC\Waratah\Extensions;
 
-use Page;
 use SilverStripe\Core\Extension;
 use SilverStripe\Core\Config\Config;
 
@@ -31,16 +30,15 @@ class PageControllerExtension extends Extension
 
     public function LastUpdated()
     {
-        $showLastEdited = Config::inst()->get(Page::class, 'show_last_updated');
-        $format =  Config::inst()->get(Page::class, 'last_updated_format');
-        $date = $this->owner->dbObject('LastEdited');
+        $showLastUpdated = Config::inst()->get(\Page::class, 'show_last_updated');
         $disableDateOnPage = $this->owner->DisableLastUpdated;
-        $publicDateOnPage = $this->owner->dbObject('PublicLastUpdated');
-        $displayDate = $publicDateOnPage ? $publicDateOnPage : $date;
-
-        if (!$showLastEdited || ($disableDateOnPage)) {
+        if (!$showLastUpdated || ($disableDateOnPage)) {
             return false;
         } else {
+            $format =  Config::inst()->get(\Page::class, 'last_updated_format');
+            $date = $this->owner->dbObject('LastEdited');
+            $publicDateOnPage = $this->owner->dbObject('PublicLastUpdated');
+            $displayDate = $publicDateOnPage ? $publicDateOnPage : $date;
             return $displayDate->Format($format);
         }
 
