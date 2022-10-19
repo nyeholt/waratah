@@ -29,11 +29,21 @@ class PageControllerExtension extends Extension
 
     }
 
-    public function LastUpdated() {
+    public function LastUpdated()
+    {
         $showLastEdited = Config::inst()->get(Page::class, 'show_last_updated');
         $format =  Config::inst()->get(Page::class, 'last_updated_format');
-        $date = $this->owner->dbObject('LastEdited')->Format($format);
-        return $showLastEdited ? $date : false;
+        $date = $this->owner->dbObject('LastEdited');
+        $disableDateOnPage = $this->owner->DisableLastUpdated;
+        $publicDateOnPage = $this->owner->dbObject('PublicLastUpdated');
+        $displayDate = $publicDateOnPage ? $publicDateOnPage : $date;
+
+        if (!$showLastEdited || ($disableDateOnPage)) {
+            return false;
+        } else {
+            return $displayDate->Format($format);
+        }
+
     }
 
 }

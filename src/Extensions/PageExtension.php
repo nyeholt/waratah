@@ -7,8 +7,10 @@ use SilverStripe\Control\Director;
 use SilverStripe\CMS\Model\SiteTree;
 use Silverstripe\ORM\DataExtension;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DateField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 
@@ -45,7 +47,9 @@ class PageExtension extends DataExtension
         'IsLandingPage' => 'Boolean',
         'ShowSectionNav' => 'Boolean',
         'ShowBannerImage' => 'Boolean',
-        'HideBreadcrumbs' => 'Boolean'
+        'HideBreadcrumbs' => 'Boolean',
+        'DisableLastUpdated' => 'Boolean',
+        'PublicLastUpdated' => 'Date'
     ];
 
     /**
@@ -182,6 +186,39 @@ class PageExtension extends DataExtension
             )
 
         ]);
+
+    }
+
+    public function updateSettingsFields(FieldList $fields)
+    {
+
+        $disableLastUpdated = FieldGroup::create(
+            CheckboxField::create(
+                'DisableLastUpdated',
+                _t('nswds.DISABLELASTUPDATED', 'Disable last updated date on this page')
+            )
+        );
+        $disableLastUpdated->setTitle('Last updated');
+        $disableLastUpdated->setName('LastUpdatedGroup');
+
+        $publicLastUpdated = FieldGroup::create(
+            DateField::create(
+                'PublicLastUpdated',
+                _t('nswds.PUBLICLASTUPDATED', 'Show a custom last updated date')
+            )
+        );
+        $publicLastUpdated->setName('PublicUpdatedGroup');
+
+        $fields->insertAfter(
+            'Visibility',
+            $disableLastUpdated
+        );
+
+        $fields->insertAfter(
+            'LastUpdatedGroup',
+            $publicLastUpdated
+        );
+
 
     }
 }
