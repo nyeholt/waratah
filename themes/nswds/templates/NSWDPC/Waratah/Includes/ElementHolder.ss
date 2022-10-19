@@ -20,9 +20,9 @@
     <section class="<% if $Background %>{$Background}<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $StyleVariant %> {$StyleVariant}<% end_if %><% if $ExtraClass %> {$ExtraClass}<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
 
         <%-- landing page elements can have containers and backgrounds --%>
-        <% if $AddContainer %><div class="nsw-container"><% end_if %>
+        <div class="<% if $AddContainer %>nsw-container<% else %>nsw-container wrth-container-fluid<% end_if %>">
             {$Element}
-        <% if $AddContainer %></div><% end_if %>
+        </div>
 
     </section>
 
