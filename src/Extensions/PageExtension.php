@@ -13,6 +13,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DateField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
+use SilverStripe\View\ArrayData;
 
 class PageExtension extends DataExtension
 {
@@ -36,7 +37,7 @@ class PageExtension extends DataExtension
      * @config
      * @var string
      */
-    private static $date_format = 'dd LLL y';
+    private static $date_format = 'dd LLLL y';
 
     /**
      * @var array
@@ -220,5 +221,33 @@ class PageExtension extends DataExtension
         );
 
 
+    }
+
+    /**
+     * Return Last Updated date for record, if enabled
+     * If LastUpdated has no value, use record LastEdited value
+     * @param string|null optional date format, if none passed the configured date format is used
+     * @return ArrayData|null
+     */
+    public function PageLastUpdated() : ?ArrayData
+    {
+        $showLastUpdated = $this->owner->config()->get('show_last_updated');
+        $disableDateOnPage = $this->owner->DisableLastUpdated;
+        if (!$showLastUpdated || $disableDateOnPage) {
+            return null;
+        } else {
+            $format = $this->owner->config()->get('last_updated_format');
+            $publicDateOnPage = $this->owner->dbObject('PublicLastUpdated');
+            if($publicDateOnPage->getValue()) {
+                $displayDate = $publicDateOnPage;
+            } else {
+                $displayDate = $this->owner->dbObject('LastEdited');
+            }
+            $result = ArrayData::create([
+                'Machine' => $displayDate->Format('yyyy-MM-dd'),
+                'Human' => $displayDate->Format($format)
+            ]);
+            return $result;
+        }
     }
 }

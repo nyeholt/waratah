@@ -3,7 +3,6 @@
 namespace NSWDPC\Waratah\Extensions;
 
 use SilverStripe\Core\Extension;
-use SilverStripe\Core\Config\Config;
 
 class PageControllerExtension extends Extension
 {
@@ -24,22 +23,6 @@ class PageControllerExtension extends Extension
             return $list;
         } else {
             return false;
-        }
-
-    }
-
-    public function LastUpdated()
-    {
-        $showLastUpdated = Config::inst()->get(\Page::class, 'show_last_updated');
-        $disableDateOnPage = $this->owner->DisableLastUpdated;
-        if (!$showLastUpdated || ($disableDateOnPage)) {
-            return false;
-        } else {
-            $format =  Config::inst()->get(\Page::class, 'last_updated_format');
-            $date = $this->owner->dbObject('LastEdited');
-            $publicDateOnPage = $this->owner->dbObject('PublicLastUpdated');
-            $displayDate = $publicDateOnPage ? $publicDateOnPage : $date;
-            return $displayDate->Format($format);
         }
 
     }
