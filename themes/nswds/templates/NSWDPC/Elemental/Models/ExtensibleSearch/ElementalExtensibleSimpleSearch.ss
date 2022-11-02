@@ -2,7 +2,7 @@
 
 <div class="wrth-feature">
 
-    <div class="nsw-row">
+    <div class="nsw-grid">
 
         <div class="nsw-col nsw-col-md-8">
 
