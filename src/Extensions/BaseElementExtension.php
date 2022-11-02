@@ -37,7 +37,8 @@ class BaseElementExtension extends DataExtension
         'AddContainer' => 'Boolean',
         'AddBackground' => "Varchar(64)", // nsw-section--<branding>
         'IsBoxed' => 'Boolean',// nsw-section--box
-        'VerticalSpacing' => "Varchar(32)" // // nsw-section--<padding>
+        'VerticalSpacing' => "Varchar(32)", // nsw-section--<padding>
+        'ChosenSectionImage' => "Varchar(64)" // nsw-section--image
     ];
 
     /**
@@ -188,7 +189,20 @@ class BaseElementExtension extends DataExtension
                         'nswds.IS_BOXED_DESCRIPTION',
                         'Outlines are applied to blocks on non-landing pages, only.'
                     )
-                )
+                ),
+                DropdownField::create(
+                    'ChosenSectionImage',
+                    _t(
+                        'nswds.HAS_SECTION_IMAGE',
+                        'Choose an optional image on this element to use as the section background image'
+                    ),
+                    $this->owner->getSectionImageComponents()
+                )->setDescription(
+                    _t(
+                        'nswds.SECTION_IMAGE_APPLICATION_NOTES',
+                        'Section background images are applied to blocks in the landing page \'Main content\' area, only.'
+                    )
+                )->setEmptyString(_t('nswds.SELECT_OPTION', 'Select an option'))
             ]
         );
 
@@ -241,6 +255,38 @@ class BaseElementExtension extends DataExtension
             $classes[] = "nsw-section--invert";
         }
         return implode(" ", $classes);
+    }
+
+    /**
+     * Return an array of all Image::class has_one components attached to the element
+     */
+    public function getSectionImageComponents() : array {
+        $hasOne = $this->owner->hasOne();
+        $components = [];
+        foreach($hasOne as $name => $className) {
+            if(($className == Image::class) || is_subclass_of($className, Image::class)) {
+                $components[ $name ] = $this->owner->fieldLabel($name);
+            }
+        }
+        return $components;
+    }
+
+    /**
+     * Return the selected section image
+     */
+    public function getSectionImage() : ?Image {
+        $sectionImage = null;
+        if($this->owner->ChosenSectionImage) {
+            try {
+                $sectionImage = $this->owner->getComponent($this->owner->ChosenSectionImage);
+                if(!$sectionImage|| !$sectionImage->exists()) {
+                    $sectionImage = null;
+                }
+            } catch (\Exception $e) {
+                // noop
+            }
+        }
+        return $sectionImage;
     }
 
 }

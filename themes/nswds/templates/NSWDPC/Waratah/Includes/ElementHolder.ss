@@ -17,11 +17,22 @@
 <% else_if $CurrentPage.IsLandingPage || $Parent.OwnerPage.IsLandingPage %>
 
     <%-- note:landing pages / home pages never render a sidebar element area, these are all the main elements --%>
-    <section class="<% if $Background %>{$Background}<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $StyleVariant %> {$StyleVariant}<% end_if %><% if $ExtraClass %> {$ExtraClass}<% end_if %>" id="{$Anchor}" data-type="{$ElementShortName}">
+
+<% if $SectionImage %>
+    <section class="<% if $Background %>{$Background}<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $StyleVariant %> {$StyleVariant}<% end_if %><% if $ExtraClass %> {$ExtraClass}<% end_if %> nsw-section--image" style="background-image:url({$SectionImage.URL});" id="{$Anchor}" data-type="{$ElementShortName}">
+<% else %>
+    <section class="<% if $Background %>{$Background}<% end_if %><% if $VerticalSpacing %> nsw-section--{$VerticalSpacing}<% end_if %><% if $StyleVariant %> {$StyleVariant}<% end_if %><% if $ExtraClass %> {$ExtraClass}<% end_if %> id="{$Anchor}" data-type="{$ElementShortName}">
+<% end_if %>
 
         <%-- landing page elements can have containers and backgrounds --%>
         <div class="<% if $AddContainer %>nsw-container<% else %>nsw-container wrth-container-fluid<% end_if %>">
-            {$Element}
+            <% if $SectionImage %>
+                <div class="nsw-bg--off-white nsw-p-md">
+                    {$Element}
+                </div>
+            <% else %>
+                {$Element}
+            <% end_if %>
         </div>
 
     </section>
