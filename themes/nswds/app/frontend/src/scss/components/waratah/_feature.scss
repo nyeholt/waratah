@@ -1,0 +1,28 @@
+/**
+ * Feature component contains a content element
+ * and an image/graphic element
+ *
+ */
+  .wrth-feature {
+
+    border-radius: var(--nsw-border-radius);
+
+    &__graphic {
+
+      display: none;
+
+      @include breakpoint('md') {
+        display: flex;
+        justify-content: flex-end;
+        overflow-x: hidden;
+      }
+
+      img {
+        display: block;
+        height: 100%;
+        width: auto;
+      }
+
+    }
+
+  }// wrth-feature
