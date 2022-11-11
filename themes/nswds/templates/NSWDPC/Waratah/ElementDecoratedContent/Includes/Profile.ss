@@ -9,7 +9,7 @@
     </div>
     <% end_if %>
 
-    <% if not $Image %>
+    <% if $Image %>
         <div class="nsw-grid">
         <% if $ImageAlignment == "left" %>
             <div class="nsw-col nsw-col-xs-12 nsw-col-sm-3">
