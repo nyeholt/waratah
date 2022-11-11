@@ -3,20 +3,26 @@
 
     <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
+    <% if $Subtitle %>
+    <div class="nsw-p-bottom-md">
+        <p class="nsw-intro">{$Subtitle}</p>
+    </div>
+    <% end_if %>
+
     <% if not $Image %>
         <div class="nsw-grid">
         <% if $ImageAlignment == "left" %>
-            <div class="nsw-col nsw-col-xs-6 nsw-col-md-4">
+            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-3">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileImage %>
             </div>
-            <div class="nsw-col nsw-col-xs-6 nsw-col-md-8">
+            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-9">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileContent %>
             </div>
         <% else %>
-            <div class="nsw-col nsw-col-xs-6 nsw-col-md-8">
+            <div class="nsw-col nsw-col-xs-9">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileContent %>
             </div>
-            <div class="nsw-col nsw-col-xs-6 nsw-col-md-4">
+            <div class="nsw-col nsw-col-xs-3">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileImage %>
             </div>
         <% end_if %>
