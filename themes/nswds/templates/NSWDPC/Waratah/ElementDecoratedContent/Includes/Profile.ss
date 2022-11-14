@@ -12,17 +12,17 @@
     <% if $Image %>
         <div class="nsw-grid">
         <% if $ImageAlignment == "left" %>
-            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-3">
+            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-4">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileImage %>
             </div>
-            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-9">
+            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-8">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileContent %>
             </div>
         <% else %>
-            <div class="nsw-col nsw-col-xs-9">
+            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-8">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileContent %>
             </div>
-            <div class="nsw-col nsw-col-xs-3">
+            <div class="nsw-col nsw-col-xs-12 nsw-col-sm-4">
                 <% include NSWDPC/Waratah/ElementDecoratedContent/ProfileImage %>
             </div>
         <% end_if %>
