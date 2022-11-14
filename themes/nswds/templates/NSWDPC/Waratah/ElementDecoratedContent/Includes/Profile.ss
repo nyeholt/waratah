@@ -4,7 +4,7 @@
     <% include NSWDPC/Waratah/ElementTitle ShowTitle=$ShowTitle, Title=$Title, HeadingLevel=$HeadingLevel %>
 
     <% if $Subtitle %>
-    <div class="nsw-p-bottom-md">
+    <div class="nsw-p-bottom-sm">
         <p class="nsw-intro">{$Subtitle}</p>
     </div>
     <% end_if %>
