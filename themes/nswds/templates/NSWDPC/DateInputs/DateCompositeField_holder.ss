@@ -10,14 +10,10 @@
 
     <% include nswds/FormFieldMessage FormFieldMessage_IsCompact=1, FormFieldMessage_Message=$Message, FormFieldMessage_MessageType=$MessageType, FormFieldMessage_MessageCast=$MessageCast %>
 
-    <div class="nsw-section nsw-section--half-padding nsw-section--off-white">
-        <div class="nsw-container">
-            <div class="inputs">
-                {$Field}
-            </div>
-            <% if $FormatExample %><span class="nsw-form__helper">{$FormatExample.XML}</span><% end_if %>
-        </div>
+    <div class="inputs">
+        {$Field}
     </div>
+    <% if $FormatExample %><span class="nsw-form__helper">{$FormatExample.XML}</span><% end_if %>
 
     <% include NSWDPC/Waratah/Forms/RightTitle %>
 
