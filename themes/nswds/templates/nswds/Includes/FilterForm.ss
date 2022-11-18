@@ -9,11 +9,7 @@
         <button type="button">
             <% include nswds/Icon Icon_Icon='tune' %>
             <span>
-            <% if $HasFilterResults %>
-            <%t nswds.FILTER_RESULTS 'Filter results ({filterResults})' filterResults=$FilterFormResultCount %>
-            <% else %>
-            <%t nswds.FILTER_RESULTS 'Filter results' %>
-            <% end_if %>
+            {$FilterResultsTitle}
             </span>
         </button>
     </div>
@@ -32,9 +28,9 @@
 
         <div class="nsw-filters__title">
             <% if $Legend %>
-            {$Legend.XML}
+                {$Legend.XML}
             <% else %>
-            <%t nswds.FILTER_RESULTS 'Filter results' %>
+                {$FilterResultsTitle}
             <% end_if %>
         </div>
 

@@ -105,6 +105,37 @@ trait FilterFormTrait {
     }
 
     /**
+     * Return the default filter results string, override in implementing forms
+     */
+    public function FilterResultsString() : string {
+        return _t('nswds.FILTER_RESULTS', 'Filter results');
+    }
+
+    /**
+     * Return the default filter results title, override in implementing forms
+     */
+    final public function FilterResultsTitle() : string {
+        if($this->HasFilterResults()) {
+            return _t(
+                'nswds.FILTER_RESULTS_WITH_COUNT',
+                '{filterResultsString} ({filterResultsCount}',
+                [
+                    'filterResultsString' => $this->FilterResultsString(),
+                    'filterResultsCount' => $this->FilterFormResultCount()
+                ]
+            );
+        } else {
+            return _t(
+                'nswds.FILTER_RESULTS_EMPTY',
+                '{filterResultsString}',
+                [
+                    'filterResultsString' => $this->FilterResultsString()
+                ]
+            );
+        }
+    }
+
+    /**
      * Add filters to form extra classes
      *
      * @return string
