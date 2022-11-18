@@ -24,6 +24,11 @@ trait FilterFormTrait {
     public $isFilterForm = true;
 
     /**
+     * @var bool
+     */
+    public $isInstant = false;
+
+    /**
      * @var string
      */
     public function getTemplate()
@@ -85,6 +90,21 @@ trait FilterFormTrait {
     }
 
     /**
+     * Set whether this form is an 'instant' filter form
+     */
+    public function setIsInstant(bool $is = false) : Form {
+        $this->getExtendedForm()->isInstant = $is;
+        return $this->getExtendedForm();
+    }
+
+    /**
+     * Get whether this form is an 'instant' filter form
+     */
+    public function IsInstant() : bool {
+        return $this->getExtendedForm()->isInstant;
+    }
+
+    /**
      * Add filters to form extra classes
      *
      * @return string
@@ -99,8 +119,12 @@ trait FilterFormTrait {
             $extraClasses = [];
         }
         $extraClasses[] = 'nsw-filters';
-        $extraClasses[] = 'nsw-filters--fixed';
-        $extraClasses[] = 'js-filters';
+        if($this->IsInstant()) {
+            $extraClasses[] = 'nsw-filters--instant';
+        } else {
+            $extraClasses[] = 'nsw-filters--fixed';
+            $extraClasses[] = 'js-filters';
+        }
         return implode(' ', array_unique($extraClasses));
     }
 

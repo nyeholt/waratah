@@ -4,6 +4,7 @@
 
     <% include NSWDPC/Waratah/Forms/Notifications %>
 
+    <% if not $IsInstant %>
     <div class="nsw-filters__controls<% if $HasFilterResults %> nsw-filters__controls--active<% end_if %>">
         <button type="button">
             <% include nswds/Icon Icon_Icon='tune' %>
@@ -16,15 +17,18 @@
             </span>
         </button>
     </div>
+    <% end_if %>
 
     <div class="nsw-filters__wrapper">
 
+        <% if not $IsInstant %>
         <div class="nsw-filters__back">
             <button class="nsw-icon-button nsw-icon-button--flex js-close-sub-nav">
                 <% include nswds/Icon Icon_Icon='keyboard_arrow_left' %>
                 <span><%t nswds.BACK 'Back' %></span>
             </button>
         </div>
+        <% end_if %>
 
         <div class="nsw-filters__title">
             <% if $Legend %>
