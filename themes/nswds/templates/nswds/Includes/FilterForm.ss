@@ -48,20 +48,36 @@
 
         </div>
 
+
         <% if $Actions %>
-        <div class="nsw-filters__accept">
-            <% loop $Actions %>
-                {$Field}
-            <% end_loop %>
-        </div>
-        <div class="nsw-filters__cancel">
-        <% if $ClearLink %>
-            <%-- a link to clear results and reset to an unfiltered listing --%>
-            <a href="{$ClearLink}"><%t nswds.CLEAR_FILTERS 'Clear all filters' %></a>
+
+            <div class="nsw-filters__accept">
+                <div class="nsw-list nsw-list--32">
+                    <% loop $Actions %>
+                        {$Field}
+                    <% end_loop %>
+                    <% if $ClearLink %>
+                        <%-- a link to clear results and reset to an unfiltered listing --%>
+                        <a href="{$ClearLink}"><%t nswds.CLEAR_FILTERS 'Clear all filters' %></a>
+                    <% else %>
+                        <button type="reset" class="nsw-button nsw-button--dark-outline"><%t nswds.CLEAR_ALL_FILTERS 'Clear all filters' %></button>
+                    <% end_if %>
+                </div>
+            </div>
+
         <% else %>
-            <button type="reset"><%t nswds.CLEAR_ALL_FILTERS 'Clear all filters' %></button>
-        <% end_if %>
-        </div>
+
+            <div class="nsw-filters__cancel">
+                <div class="nsw-list nsw-list--32">
+                    <% if $ClearLink %>
+                        <%-- a link to clear results and reset to an unfiltered listing --%>
+                        <a href="{$ClearLink}"><%t nswds.CLEAR_FILTERS 'Clear all filters' %></a>
+                    <% else %>
+                        <button type="reset" class="nsw-button nsw-button--dark-outline"><%t nswds.CLEAR_ALL_FILTERS 'Clear all filters' %></button>
+                    <% end_if %>
+                </div>
+            </div>
+
         <% end_if %>
 
 
