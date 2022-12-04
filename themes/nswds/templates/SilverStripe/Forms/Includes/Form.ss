@@ -23,6 +23,12 @@
 
     <% include NSWDPC/Waratah/Forms/Actions %>
 
+    <% if $ReCAPTCHAv3BadgeDisplay == 'form' %>
+        <div class="nsw-form__group recaptcha">
+        {$ReCAPTCHAv3PrivacyInformation}
+        </div>
+    <% end_if %>
+
 <% if $IncludeFormTag %>
 </form>
 <% end_if %>
