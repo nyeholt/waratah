@@ -25,7 +25,7 @@
 
 <% include NSWDPC/Waratah/Security/MainBody Layout=$Layout %>
 
-<% include nswds/Footer %>
+<% include NSWDPC/Waratah/Security/Footer %>
 
 </body>
 </html>
