@@ -4,6 +4,7 @@ namespace NSWDPC\Waratah\Services\Analytics;
 
 use SilverStripe\Core\Config\Configurable;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\View\HTML;
 use SilverStripe\View\Requirements;
 
 /**
@@ -32,7 +33,7 @@ class GA4 extends AbstractAnalyticsService {
     public function provide(string $code = '') : ?DBHTMLText {
         // Set up inline script
         $gtagCode = $code;
-        $code = json_encode($code);
+        $code = json_encode(htmlspecialchars($code));
         $script =
 <<<JAVASCRIPT
 window.dataLayer = window.dataLayer || [];
@@ -44,7 +45,13 @@ JAVASCRIPT;
         // @var DBHTMLText
         if($script = parent::applyNonce($script)) {
             // GA4 requires gtag.js
-            $preScript = "<script async src=\"https://www.googletagmanager.com/gtag/js?id=" . htmlspecialchars($gtagCode) . "\"></script>";
+            $preScript = HTML::createTag(
+                'script',
+                [
+                    'src' => "https://www.googletagmanager.com/gtag/js?id=" . $gtagCode,
+                    'async' => true
+                ]
+            );
             $script->setValue( $preScript . "\n" . $script->getValue() );
             return $script;
         } else {

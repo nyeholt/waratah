@@ -31,7 +31,7 @@ class GTMNonce extends GTM {
      * Add requirements or similar to the current request
      */
     public function provide(string $code = '') : ?DBHTMLText {
-        $code = json_encode($code);
+        $code = json_encode(htmlspecialchars($code));
         $script =
 <<<JAVASCRIPT
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

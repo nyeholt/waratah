@@ -30,7 +30,7 @@ class GA3 extends AbstractAnalyticsService {
      * Add requirements or similar to the current request
      */
     public function provide(string $code = '') : ?DBHTMLText {
-        $code = json_encode($code);
+        $code = json_encode(htmlspecialchars($code));
         $script =
 <<<JAVASCRIPT
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

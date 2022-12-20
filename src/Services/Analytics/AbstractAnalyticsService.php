@@ -65,12 +65,11 @@ abstract class AbstractAnalyticsService {
      * Try to apply a nonce to a script
      */
     final public function applyNonce(string $script, $attributes = []) : DBHTMLText {
-        $tag = 'script';
-        if(class_exists(Nonce::class)) {
-            Nonce::addToAttributes($tag, $attributes);
+        if(class_exists(Nonce::class) && ($nonce = Nonce::getNonce())) {
+            $attributes['nonce'] = $nonce;
         }
         $html = HTML::createTag(
-            $tag,
+            'script',
             $attributes,
             trim($script) // the script contents
         );
