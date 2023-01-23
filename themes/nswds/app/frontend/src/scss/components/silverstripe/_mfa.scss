@@ -78,7 +78,7 @@
 
       // use nsw-list
       @extend .nsw-list;
-      @extend .nsw-list--16;
+      @extend .nsw-list--32;
 
       &__item {
 
@@ -113,7 +113,7 @@
 
         // use nsw-list
         @extend .nsw-list;
-        @extend .nsw-list--16;
+        @extend .nsw-list--32;
 
         // ensure margin below
         margin-bottom: rem(32px) !important;
