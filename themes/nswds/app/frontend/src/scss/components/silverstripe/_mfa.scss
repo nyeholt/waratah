@@ -36,6 +36,14 @@
       @extend .nsw-form__input;
     }
 
+    .btn-primary {
+
+      &:focus {
+        box-shadow: none;
+      }
+
+    }
+
     .mfa-totp__validate-code p {
       margin: 0 0 rem(16px) 0;
     }
